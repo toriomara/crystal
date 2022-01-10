@@ -23,7 +23,7 @@ export default function CallToActionWithIllustration() {
           lineHeight={'110%'}>
           Корунд делает утепление {' '}
           <Text as={'span'} color={'red.600'}>
-            простым и дешёвым
+            простым и доступным
           </Text>
         </Heading>
         <Text color={'gray.500'} maxW={'3xl'}>
