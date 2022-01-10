@@ -11,7 +11,7 @@ import {
 
 export default function CallToActionWithIllustration() {
   return (
-    <Container maxW={'5xl'}>
+    <Container maxW={'7xl'}>
       <Stack
         textAlign={'center'}
         align={'center'}
@@ -21,9 +21,9 @@ export default function CallToActionWithIllustration() {
           fontWeight={600}
           fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
           lineHeight={'110%'}>
-          Корунд делает утепление {' '}
+          Корунд делает утепление <br/>
           <Text as={'span'} color={'red.600'}>
-            простым и дешёвым
+            простым и доступным
           </Text>
         </Heading>
         <Text color={'gray.500'} maxW={'3xl'}>
@@ -36,7 +36,7 @@ export default function CallToActionWithIllustration() {
             colorScheme={'orange'}
             bg={'red.600'}
             _hover={{ bg: 'red.700' }}>
-            Подробнее
+            Какэто работает
           </Button>
           <Button rounded={'full'} px={6}>
             Заказать звонок
