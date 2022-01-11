@@ -19,14 +19,16 @@ import Logo from '../Logo'
 import styled from '@emotion/styled'
 import {
   FaEnvelope,
-  FaFacebookSquare,
-  FaInstagram,
+  FaFacebookSquare, FaInstagramSquare,
   FaMapMarkerAlt,
-  FaMobile,
   FaPhone,
-  FaTwitter, FaViber, FaWhatsapp,
+  FaTwitter,
+  FaViber,
+  FaWhatsappSquare,
   FaYoutube
 } from 'react-icons/fa'
+import Modal from '../Modal/Modal'
+import {useState} from 'react'
 
 const Description = styled.div`
   margin-top: 10px;
@@ -54,6 +56,19 @@ const LinkItem = ({children}) => (
   </Link>
 )
 
+const PhoneItem = styled.a`
+  position: relative;
+  padding-left: 22px;
+  left: 0;
+
+  :hover {
+    font-weight: 500;
+    transition: 200ms ease-in;
+    left: 6px;
+    color: #C53030
+  }
+`
+
 const IconItem = styled(Link)`
   display: inline-flex;
   color: #4A5568;
@@ -76,6 +91,13 @@ const FooterHeading = ({children}) => (
 )
 
 export const Footer = () => {
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleClick = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <Box
       role="contentinfo"
@@ -127,37 +149,50 @@ export const Footer = () => {
 
             <Stack align={'flex-start'}>
               <FooterHeading>Контакты</FooterHeading>
-              <LinkItem href="#">
+              <LinkItem onClick={handleClick}>
                 <IconItem>
                   <FaMapMarkerAlt fontSize="16px"/>
                 </IconItem>
                 400019, Россия, <br/>г. Волгоград,
                 ул. имени маршала Чуйкова, д. 33
               </LinkItem>
-              <LinkItem href="#">
+              <Button onClick={handleClick}>Open the door</Button>
+              {
+                isOpen && <Modal setIsOpen={setIsOpen}/>
+              }
+
+              <LinkItem>
                 <IconItem>
                   <FaEnvelope fontSize="16px"/>
                 </IconItem>
-                mail@korund34.ru
+                <a href='mailto:mail@korund34.ru'>
+                  mail@korund34.ru
+                </a>
               </LinkItem>
-              <LinkItem href="#">
+              {/*<LinkItem href="#">
                 <IconItem>
                   <FaMobile fontSize="16px"/>
                 </IconItem>
                 +7 988 988 51 11
-              </LinkItem>
-              <LinkItem href="#">
+              </LinkItem>*/}
+              <LinkItem href='tel:+7844238-44-66'>
                 <IconItem>
                   <FaPhone fontSize="16px"/>
                 </IconItem>
                 +7 (8442) 38-44-66 (факс)
               </LinkItem>
-              <LinkItem pl='22px' href="#">
-                +7 (8442) 50-40-13
-              </LinkItem>
-              <LinkItem pl='22px' href="#">
+              <PhoneItem href='tel:+78442504012'>
                 +7 (8442) 50-40-12
-              </LinkItem>
+              </PhoneItem>
+              <PhoneItem href='tel:+78442504013'>
+                +7 (8442) 50-40-13
+              </PhoneItem>
+              <PhoneItem href='tel:+78442504042'>
+                +7 (8442) 50-40-42
+              </PhoneItem>
+              <PhoneItem href='tel:+78442504082'>
+                +7 (8442) 50-40-82
+              </PhoneItem>
             </Stack>
 
             <Stack align={'flex-start'}>
@@ -206,20 +241,60 @@ export const Footer = () => {
           <Box>
             <Stack
               direction={{base: 'column-reverse', md: 'row'}}
-              justifyContent="space-between"
-              alignItems="center"
+              justifyContent='space-between'
+              alignItems='center'
             >
               <Text fontSize={'sm'} textAlign={'center'}>
-                &copy; {new Date().getFullYear()} НПО «Фулерен». Все права защищены
+                &copy; {new Date().getFullYear()}, «НПО ФУЛЛЕРЕН». Все права защищены
               </Text>
 
-              <ButtonGroup variant="ghost" color="gray.600">
-                <IconButton as="a" href="#" aria-label="Twitter" icon={<FaWhatsapp fontSize="20px"/>}/>
-                <IconButton as="a" href="#" aria-label="Twitter" icon={<FaViber fontSize="20px"/>}/>
-                <IconButton as="a" href="#" aria-label="GitHub" icon={<FaInstagram fontSize="20px"/>}/>
-                <IconButton as="a" href="https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ" target="_blank" aria-label="LinkedIn" icon={<FaYoutube fontSize="20px"/>}/>
-                <IconButton as="a" href="https://twitter.com/Korund34" target="_blank" aria-label="Twitter" icon={<FaTwitter fontSize="20px"/>}/>
-                <IconButton as="a" href="#" aria-label="Twitter" icon={<FaFacebookSquare fontSize="20px"/>}/>
+              <ButtonGroup variant='ghost'>
+                <IconButton
+                  as='a'
+                  href='#'
+                  color='#43d854'
+                  aria-label='Whatsapp'
+                  icon={<FaWhatsappSquare fontSize='20px'/>}
+                />
+                <IconButton
+                  as='a'
+                  href='#'
+                  aria-label='Viber'
+                  color='#665CAC'
+                  icon={<FaViber fontSize='20px'/>}
+                />
+                <IconButton
+                  as='a'
+                  href='https://www.instagram.com/factory_korund/'
+                  target='_blank'
+                  aria-label='Instagram'
+                  color='#8a3ab9'
+                  icon={<FaInstagramSquare fontSize='20px'/>}
+                />
+                <IconButton
+                  as='a'
+                  href='https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ'
+                  target='_blank'
+                  aria-label='LinkedIn'
+                  color='#c4302b'
+                  icon={<FaYoutube fontSize='20px'/>}
+                />
+                <IconButton
+                  as='a'
+                  href='https://twitter.com/Korund34'
+                  target='_blank'
+                  aria-label='Twitter'
+                  color='#1DA1F2'
+                  icon={<FaTwitter fontSize='20px'/>}
+                />
+                <IconButton
+                  as='a'
+                  href='https://www.facebook.com/factorykorund'
+                  target='_blank'
+                  aria-label='Facebook'
+                  color='#3b5998'
+                  icon={<FaFacebookSquare fontSize='20px'/>}
+                />
               </ButtonGroup>
             </Stack>
           </Box>

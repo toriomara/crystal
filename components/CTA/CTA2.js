@@ -40,7 +40,7 @@ export default function CallToActionWithVideo() {
                 bg: 'red.400',
                 zIndex: -1,
               }}>
-              Один слой,
+              Один слой —
             </Text>
             <br />
             <Text as={'span'} color={'red.400'}>

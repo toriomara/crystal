@@ -36,7 +36,7 @@ export default function CallToActionWithIllustration() {
             colorScheme={'orange'}
             bg={'red.600'}
             _hover={{ bg: 'red.700' }}>
-            Какэто работает
+            Как это работает
           </Button>
           <Button rounded={'full'} px={6}>
             Заказать звонок
