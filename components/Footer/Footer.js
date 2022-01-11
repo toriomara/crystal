@@ -24,7 +24,7 @@ import {
   FaMapMarkerAlt,
   FaMobile,
   FaPhone,
-  FaTwitter,
+  FaTwitter, FaViber, FaWhatsapp,
   FaYoutube
 } from 'react-icons/fa'
 
@@ -132,13 +132,13 @@ export const Footer = () => {
                   <FaMapMarkerAlt fontSize="16px"/>
                 </IconItem>
                 400019, Россия, <br/>г. Волгоград,
-                ул. Слесарная, 103
+                ул. имени маршала Чуйкова, д. 33
               </LinkItem>
               <LinkItem href="#">
                 <IconItem>
                   <FaEnvelope fontSize="16px"/>
                 </IconItem>
-                korund@korund.ru
+                mail@korund34.ru
               </LinkItem>
               <LinkItem href="#">
                 <IconItem>
@@ -150,13 +150,13 @@ export const Footer = () => {
                 <IconItem>
                   <FaPhone fontSize="16px"/>
                 </IconItem>
-                +7 (8442) 46-95-86
+                +7 (8442) 38-44-66 (факс)
               </LinkItem>
               <LinkItem pl='22px' href="#">
-                +7 (8442) 46-95-86
+                +7 (8442) 50-40-13
               </LinkItem>
               <LinkItem pl='22px' href="#">
-                +7 (8442) 46-95-86
+                +7 (8442) 50-40-12
               </LinkItem>
             </Stack>
 
@@ -169,7 +169,7 @@ export const Footer = () => {
                   <Text>Мы присылаем одно письмо в неделю</Text>
                   <Input
                     bg={useColorModeValue('white', 'inherit')}
-                    placeholder="Enter your email"
+                    placeholder="Введите ваш электронный адрес"
                     type="email"
                     required
                     focusBorderColor={useColorModeValue('blue.500', 'blue.300')}
@@ -191,7 +191,7 @@ export const Footer = () => {
                       bgColor: "gray.500"
                     }}
                   >
-                    Subscribe
+                    Подписаться
                   </Button>
                 </Stack>
               </chakra.form>
@@ -214,9 +214,11 @@ export const Footer = () => {
               </Text>
 
               <ButtonGroup variant="ghost" color="gray.600">
+                <IconButton as="a" href="#" aria-label="Twitter" icon={<FaWhatsapp fontSize="20px"/>}/>
+                <IconButton as="a" href="#" aria-label="Twitter" icon={<FaViber fontSize="20px"/>}/>
                 <IconButton as="a" href="#" aria-label="GitHub" icon={<FaInstagram fontSize="20px"/>}/>
-                <IconButton as="a" href="#" aria-label="LinkedIn" icon={<FaYoutube fontSize="20px"/>}/>
-                <IconButton as="a" href="#" aria-label="Twitter" icon={<FaTwitter fontSize="20px"/>}/>
+                <IconButton as="a" href="https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ" target="_blank" aria-label="LinkedIn" icon={<FaYoutube fontSize="20px"/>}/>
+                <IconButton as="a" href="https://twitter.com/Korund34" target="_blank" aria-label="Twitter" icon={<FaTwitter fontSize="20px"/>}/>
                 <IconButton as="a" href="#" aria-label="Twitter" icon={<FaFacebookSquare fontSize="20px"/>}/>
               </ButtonGroup>
             </Stack>

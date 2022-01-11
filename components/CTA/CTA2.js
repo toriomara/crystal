@@ -48,9 +48,7 @@ export default function CallToActionWithVideo() {
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            Snippy is a rich coding snippets app that lets you create your own
-            code snippets, categorize them, and even sync them in the cloud so
-            you can use them anywhere. All that is free!
+            На российском рынке в настоящее время представлены жидкие керамические теплоизоляционные материалы, которые находят своего потребителя, благодаря широкой области применения и простоте использования при небольших затратах труда. Так как предлагаемые материалы в основном производятся за рубежом, они имеют высокую стоимость, что ограничивает возможность их массового использования в строительстве, энергетике, ЖКХ и т. д.
           </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}

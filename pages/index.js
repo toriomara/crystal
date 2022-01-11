@@ -13,7 +13,7 @@ export default function Home() {
       <Container
         maxW='xxl'
       >
-        <CallToActionWithIllustration/>
+        {/*<CallToActionWithIllustration/>*/}
         <CallToActionWithVideo/>
       </Container>
   )
