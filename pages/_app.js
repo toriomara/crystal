@@ -5,7 +5,7 @@ import Main from '../layouts/main'
 
 function App({Component, pageProps}) {
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider ResetCSS theme={theme}>
       <Main>
         <Component {...pageProps} />
       </Main>

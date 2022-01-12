@@ -12,21 +12,39 @@ import {
   createIcon,
   IconProps,
   useColorModeValue, AspectRatio,
-} from '@chakra-ui/react';
+} from '@chakra-ui/react'
+import styled from '@emotion/styled'
+
+
+const VideoBox = styled(Box)`
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+
+  & iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+  }
+`
 
 export default function CallToActionWithVideo() {
   return (
     <Container maxW={'7xl'}>
       <Stack
         align={'center'}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
-        direction={{ base: 'column', md: 'row' }}>
-        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+        spacing={{base: 8, md: 10}}
+        py={{base: 20, md: 28}}
+        direction={{base: 'column', md: 'row'}}>
+        <Stack flex={1} spacing={{base: 5, md: 10}}>
           <Heading
             lineHeight={1.1}
             fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}>
+            fontSize={{base: '3xl', sm: '4xl', lg: '6xl'}}>
             <Text
               as={'span'}
               position={'relative'}
@@ -42,17 +60,20 @@ export default function CallToActionWithVideo() {
               }}>
               Один слой —
             </Text>
-            <br />
+            <br/>
             <Text as={'span'} color={'red.400'}>
               15 см утеплителя!
             </Text>
           </Heading>
           <Text color={'gray.500'}>
-            На российском рынке в настоящее время представлены жидкие керамические теплоизоляционные материалы, которые находят своего потребителя, благодаря широкой области применения и простоте использования при небольших затратах труда. Так как предлагаемые материалы в основном производятся за рубежом, они имеют высокую стоимость, что ограничивает возможность их массового использования в строительстве, энергетике, ЖКХ и т. д.
+            На российском рынке в настоящее время представлены жидкие керамические теплоизоляционные материалы, которые
+            находят своего потребителя, благодаря широкой области применения и простоте использования при небольших
+            затратах труда. Так как предлагаемые материалы в основном производятся за рубежом, они имеют высокую
+            стоимость, что ограничивает возможность их массового использования в строительстве, энергетике, ЖКХ и т. д.
           </Text>
           <Stack
-            spacing={{ base: 4, sm: 6 }}
-            direction={{ base: 'column', sm: 'row' }}>
+            spacing={{base: 4, sm: 6}}
+            direction={{base: 'column', sm: 'row'}}>
             <Button
               rounded={'full'}
               size={'lg'}
@@ -60,7 +81,7 @@ export default function CallToActionWithVideo() {
               px={6}
               colorScheme={'red'}
               bg={'red.400'}
-              _hover={{ bg: 'red.500' }}>
+              _hover={{bg: 'red.500'}}>
               Подробнее
             </Button>
             <Button
@@ -88,29 +109,18 @@ export default function CallToActionWithVideo() {
             zIndex={-1}
             color={useColorModeValue('red.50', 'red.400')}
           />
-          <Box
-            position={'relative'}
-            height={'300px'}
-            rounded={'2xl'}
-            boxShadow={'2xl'}
-            width={'full'}
-            overflow={'hidden'}
-          >
-            <AspectRatio ratio={16/9}>
-              <iframe width="580" src="https://www.youtube.com/embed/M4ih84fmois"
-                      title="YouTube video player" frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen>
-
-              </iframe>
-            </AspectRatio>
-          </Box>
+          <VideoBox>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/M4ih84fmois"
+                    title="Korund's video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    sandbox/>
+          </VideoBox>
         </Flex>
       </Stack>
     </Container>
   );
 }
-
 
 
 export const Blob = (props) => {

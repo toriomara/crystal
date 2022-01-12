@@ -125,9 +125,10 @@ const Navbar = props => {
 
           <HStack display={{base: 'none', md: 'flex'}}>
             <SearchBar/>
-
             <Button variant='none'>
-              <a href='tel:+78002347878'>8 800 234-78-78</a>
+              <a href='tel:+78002347878'>
+                8 800 234-78-78
+              </a>
             </Button>
           </HStack>
 

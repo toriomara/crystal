@@ -28,7 +28,8 @@ import {
   FaYoutube
 } from 'react-icons/fa'
 import Modal from '../Modal/Modal'
-import {useState} from 'react'
+import {useRef, useState} from 'react'
+import useClickOutside from '../../utils/useClickOutside'
 
 const Description = styled.div`
   margin-top: 10px;
@@ -58,7 +59,6 @@ const LinkItem = ({children}) => (
 
 const PhoneItem = styled.a`
   position: relative;
-  padding-left: 22px;
   left: 0;
 
   :hover {
@@ -93,10 +93,11 @@ const FooterHeading = ({children}) => (
 export const Footer = () => {
 
   const [isOpen, setIsOpen] = useState(false)
-
   const handleClick = () => {
     setIsOpen(!isOpen)
   }
+
+
 
   return (
     <Box
@@ -149,38 +150,32 @@ export const Footer = () => {
 
             <Stack align={'flex-start'}>
               <FooterHeading>Контакты</FooterHeading>
-              <LinkItem onClick={handleClick}>
-                <IconItem>
-                  <FaMapMarkerAlt fontSize="16px"/>
-                </IconItem>
-                400019, Россия, <br/>г. Волгоград,
-                ул. имени маршала Чуйкова, д. 33
-              </LinkItem>
-              <Button onClick={handleClick}>Open the door</Button>
-              {
-                isOpen && <Modal setIsOpen={setIsOpen}/>
-              }
 
               <LinkItem>
                 <IconItem>
+                  <FaMapMarkerAlt fontSize="16px"/>
+                </IconItem>
+                <span onClick={handleClick}>
+                400019, Россия, <br/>г. Волгоград,
+                ул. имени маршала Чуйкова, д. 33
+                </span>
+              </LinkItem>
+
+              {isOpen && <Modal setIsOpen={setIsOpen}/>}
+
+
+              <PhoneItem href='mailto:mail@korund34.ru'>
+                <IconItem>
                   <FaEnvelope fontSize="16px"/>
                 </IconItem>
-                <a href='mailto:mail@korund34.ru'>
-                  mail@korund34.ru
-                </a>
-              </LinkItem>
-              {/*<LinkItem href="#">
-                <IconItem>
-                  <FaMobile fontSize="16px"/>
-                </IconItem>
-                +7 988 988 51 11
-              </LinkItem>*/}
-              <LinkItem href='tel:+7844238-44-66'>
+                mail@korund34.ru
+              </PhoneItem>
+              <PhoneItem href='tel:+7844238-44-66'>
                 <IconItem>
                   <FaPhone fontSize="16px"/>
                 </IconItem>
                 +7 (8442) 38-44-66 (факс)
-              </LinkItem>
+              </PhoneItem>
               <PhoneItem href='tel:+78442504012'>
                 +7 (8442) 50-40-12
               </PhoneItem>
