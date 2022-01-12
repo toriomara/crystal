@@ -246,14 +246,14 @@ export const Footer = () => {
               <ButtonGroup variant='ghost'>
                 <IconButton
                   as='a'
-                  href='#'
+                  href='https://wa.me/79173381186'
                   color='#43d854'
                   aria-label='Whatsapp'
                   icon={<FaWhatsappSquare fontSize='20px'/>}
                 />
                 <IconButton
                   as='a'
-                  href='#'
+                  href='viber://chat?number=%2B79173381186'
                   aria-label='Viber'
                   color='#665CAC'
                   icon={<FaViber fontSize='20px'/>}
