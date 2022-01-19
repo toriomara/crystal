@@ -175,7 +175,7 @@ export const Footer = () => {
                 +7 (8442) 50-40-31
               </PhoneItem>
               <PhoneItem href='tel:+78442504042'>
-                +7 (8442) 50-40-42
+                +7 (8442) 50-40-421
               </PhoneItem>
               <PhoneItem href='tel:+78442504082'>
                 +7 (8442) 50-40-82
