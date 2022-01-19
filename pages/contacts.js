@@ -1,20 +1,19 @@
 import React from 'react'
 import {
-  AspectRatio, Avatar, Badge,
-  Box, Button,
-  Container,
+  AspectRatio,
+  Avatar,
+  Badge,
+  Box,
+  Button,
   Divider,
-  Flex,
-  Grid,
   Heading,
-  HStack, Link,
-  SimpleGrid, Stack,
+  SimpleGrid,
+  Stack,
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
-import ContactSection from "../components/ContactSection";
-import {Contacts2} from "../components/ContactsPage/Contacts2";
-import {AirnbnbCard} from "../components/airnbnb";
+import {Contacts2} from "../components/ContactsPage/Contacts2"
+import {AirnbnbCard} from "../components/airnbnb"
 
 const Contacts = () => {
   return (
@@ -327,7 +326,6 @@ const Contacts = () => {
         </AspectRatio>
       </Box>
       <Divider my={10}/>
-      <ContactSection/>
       <Divider my={10}/>
       <AirnbnbCard/>
     </Box>

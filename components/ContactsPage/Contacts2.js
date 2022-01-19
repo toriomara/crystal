@@ -8,7 +8,6 @@ import {
   Td,
   TableCaption, Heading, Box, Text, Divider,
 } from '@chakra-ui/react'
-import {Head} from "next/document";
 
 export const Contacts2 = () => {
   return (
