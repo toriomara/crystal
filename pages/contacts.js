@@ -12,8 +12,8 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
-import {Contacts2} from "../components/ContactsPage/Contacts2"
-import {AirnbnbCard} from "../components/airnbnb"
+import {Contacts2} from '../components/ContactsPage/Contacts2'
+import {AirnbnbCard} from '../components/airnbnb'
 
 const Contacts = () => {
   return (
