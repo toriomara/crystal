@@ -329,7 +329,7 @@ const Contacts = () => {
       <Divider my={10}/>
       <ContactSection/>
       <Divider my={10}/>
-      {/*<AirnbnbCard/>*/}
+      <AirnbnbCard/>
     </Box>
 
   )
