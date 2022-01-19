@@ -25,9 +25,9 @@ const Contacts = () => {
         территориальным эксклюзивом.
       </Text>
       <Box>
-        <Heading as='h2' textAlign="center" justifyContent='center' py={6} px={6}>
+        {/*<Heading as='h2' textAlign="center" justifyContent='center' py={6} px={6}>
           Наш адрес
-        </Heading>
+        </Heading>*/}
       </Box>
       <Divider/>
       <SimpleGrid
