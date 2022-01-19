@@ -18,34 +18,36 @@ const Wrapper = styled(Flex)`
 `
 
 const ModalContent = styled(Flex)`
-  width: 900px;
-  height: 500px;
+  width: 930px;
+  height: 530px;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border-radius: 5px;
-  border: 1px solid #0070f3;
+  //Maybe shadow
+  //border: 3px solid #0070f3;
 
   & iframe {
+    position: relative;
     width: 880px;
-    height: 580px;
-    align-self: center;
-    align-items: center;
+    height: 480px;
   }
 `
 
 const Icon = styled.div`
-    position: relative;
-    top: -20px;
-    right: 20px;
-    background-color: white;
-    width: 45px;
-    height: 45px;
-    display: grid;
-    place-items: center;
-    font-size: 1.7rem;
-    color: #2E4052;
-    border-radius: 50%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.164);
-    cursor: pointer;
+  position: relative;
+  top: -275px;
+  right: 20px;
+  background-color: white;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  color: #2E4052;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
 `
 
 const Modal = ({setIsOpen}) => {
@@ -75,11 +77,11 @@ const Modal = ({setIsOpen}) => {
       <ModalContent ref={ref}>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2213.8748382895697!2d44.52841130989059!3d48.710150039659084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x411acb2d69616541%3A0x7ac494b9e736bc95!2z0KTQo9Cb0JvQldCg0JXQnSwg0L3QsNGD0YfQvdC-LdC_0YDQvtC40LfQstC-0LTRgdGC0LLQtdC90L3QvtC1INC-0LHRitC10LTQuNC90LXQvdC40LU!5e0!3m2!1sru!2sru!4v1641932515780!5m2!1sru!2sru"
-          /*width="800" height="600"*//>
-        <Icon>
-          <FaTimes onClick={handleClick}/>
-        </Icon>
+        />
       </ModalContent>
+      <Icon>
+        <FaTimes onClick={handleClick}/>
+      </Icon>
     </Wrapper>
   )
 }

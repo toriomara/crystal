@@ -61,11 +61,11 @@ export default function CallToActionWithVideo() {
               Один слой —
             </Text>
             <br/>
-            <Text as={'span'} color={'red.400'}>
+            <Text as={'span'} color='primary'>
               15 см утеплителя!
             </Text>
           </Heading>
-          <Text color={'gray.500'}>
+          <Text color={'gray.600'} fontSize={18}>
             На российском рынке в настоящее время представлены жидкие керамические теплоизоляционные материалы, которые
             находят своего потребителя, благодаря широкой области применения и простоте использования при небольших
             затратах труда. Так как предлагаемые материалы в основном производятся за рубежом, они имеют высокую
@@ -74,23 +74,14 @@ export default function CallToActionWithVideo() {
           <Stack
             spacing={{base: 4, sm: 6}}
             direction={{base: 'column', sm: 'row'}}>
-            <Button
-              rounded={'full'}
-              size={'lg'}
-              fontWeight={'normal'}
-              px={6}
-              colorScheme={'red'}
-              bg={'red.400'}
-              _hover={{bg: 'red.500'}}>
+            <Button variant='primary'>
               Подробнее
             </Button>
-            <Button
-              rounded={'full'}
-              size={'lg'}
-              fontWeight={'normal'}
-              px={6}
-            >
+            <Button variant='secondary'>
               Как это работает
+            </Button>
+            <Button>
+              Hello
             </Button>
           </Stack>
         </Stack>
@@ -113,8 +104,7 @@ export default function CallToActionWithVideo() {
             <iframe width="560" height="315" src="https://www.youtube.com/embed/M4ih84fmois"
                     title="Korund's video"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    sandbox/>
+                    allowFullScreen/>
           </VideoBox>
         </Flex>
       </Stack>

@@ -1,23 +1,51 @@
-import Document, {Html, Head, Main, NextScript} from 'next/document'
+import NextDocument, {Html, Head, Main, NextScript} from 'next/document'
+import {ColorModeScript} from '@chakra-ui/react'
 import theme from '../styles/theme'
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return {...initialProps}
-  }
+class Document extends NextDocument {
+
+  /* static async getInitialProps(ctx) {
+     const initialProps = await Document.getInitialProps(ctx)
+     return {...initialProps}
+   }*/
 
   render() {
     return (
       <Html>
-        <Head/>
+        <Head>
+
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap"
+            rel="stylesheet"/>
+
+          {/*<link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;1,300&display=swap"
+            rel="stylesheet"/>*/}
+
+          {/*<link
+            href="https://fonts.googleapis.com/css2?family=Murecho:wght@300;400;500;700&display=swap"
+            rel="stylesheet"/>*/}
+
+          <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700&display=swap"
+            rel="stylesheet"/>
+
+          {/*<link
+            href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+            rel="stylesheet"/>*/}
+
+          <link
+            href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,700;1,500&display=swap"
+            rel="stylesheet"/>
+        </Head>
         <body>
-          <Main/>
-          <NextScript/>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode}/>
+        <Main/>
+        <NextScript/>
         </body>
       </Html>
     )
   }
 }
 
-export default MyDocument
+export default Document

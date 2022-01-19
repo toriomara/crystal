@@ -21,10 +21,7 @@ export default function NotFound() {
 
       <ChakraNextLinkButton
         href='/'
-        colorScheme="red"
-        bgGradient="linear(to-r, red.400, red.500, red.600)"
-        color="white"
-        variant="solid"
+        variant='primary'
       >
         На главную
       </ChakraNextLinkButton>

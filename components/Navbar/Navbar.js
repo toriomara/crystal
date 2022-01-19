@@ -23,24 +23,25 @@ import Logo from '../Logo'
 
 const LinkItem = ({href, path, _target, children, ...props}) => {
   const active = path === href
-  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+  const inactiveColor = useColorModeValue('primary', 'primary')
+
   return (
     <NextLink href={href} passHref>
       <Link
-        as='h2'
         p={2}
         fontSize={17}
         fontWeight={active ? 'bold' : undefined}
-        color={active ? 'red.600' : inactiveColor}
+        color={active ? inactiveColor : 'black'}
         rounded={6}
         px={3}
+        _focus='none'
         _target={_target}
-        {...props}
-
         _hover={{
           textDecoration: 'none',
           color: 'red.600'
         }}
+        {...props}
+
       >
         {children}
       </Link>
@@ -48,23 +49,23 @@ const LinkItem = ({href, path, _target, children, ...props}) => {
   )
 }
 
-const Navbar = props => {
+const Navbar = (props) => {
   const {path} = props
   const {isOpen, onOpen, onClose} = useDisclosure()
 
   return (
     <Box
-      position="fixed"
-      as="nav"
-      w="100%"
-      //bg={useColorModeValue('#ffffff40', '#20202380')}
+      position='fixed'
+      as='nav'
+      w='100%'
+      bg={useColorModeValue('#ffffff40', '#20202380')}
       css={{backdropFilter: 'blur(10px)'}}
       zIndex={1}
       {...props}
     >
       <Container
         display='flex'
-        justify="space-between"
+        justify='space-between'
         flexDirection='row'
         alignItems='center'
         maxW="8xl"
@@ -90,16 +91,17 @@ const Navbar = props => {
             mt={{base: 4, md: 0}}
             mr={12}
           >
-            <LinkItem href="/" path={path}>
+            <LinkItem href="/" path={path} passHref>
               Главная
             </LinkItem>
-            <Button variant='none'>
-              {/*Errors with button*/}
+            <Container alignSelf='center' variant='none'>
               <Menu isOpen={isOpen}>
-                <MenuButton border='0'
-                            onMouseEnter={onOpen}
-                            onMouseLeave={onClose}>
-                  Продукция {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                <MenuButton
+                  border='0'
+                  onMouseEnter={onOpen}
+                  onMouseLeave={onClose}
+                >
+                  Продукция {isOpen ? <ChevronUpIcon/> : <ChevronDownIcon/>}
                 </MenuButton>
                 <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
                   <MenuItem>КОРУНД-Классик</MenuItem>
@@ -108,27 +110,25 @@ const Navbar = props => {
                   <MenuItem>КОРУНД-Зима</MenuItem>
                 </MenuList>
               </Menu>
-            </Button>
-            <LinkItem href="/works" path={path}>
+            </Container>
+            <LinkItem href='/works' path={path}>
               Документация
             </LinkItem>
-            <LinkItem href="/posts" path={path}>
+            <LinkItem href='/posts' path={path}>
               Дистрибьюция
             </LinkItem>
-            <LinkItem href="/news" path={path}>
+            <LinkItem href='/news' path={path}>
               Новости
             </LinkItem>
-            <LinkItem href="/contacts" path={path}>
+            <LinkItem href='/contacts' path={path}>
               Контакты
             </LinkItem>
           </Stack>
 
           <HStack display={{base: 'none', md: 'flex'}}>
             <SearchBar/>
-            <Button variant='none'>
-              <a href='tel:+78002347878'>
-                8 800 234-78-78
-              </a>
+            <Button as='a' href='tel:+78002347878' variant='none' _focus='none'>
+              <span>8 800 234-78-78</span>
             </Button>
           </HStack>
 
@@ -149,9 +149,8 @@ const Navbar = props => {
             </MenuList>
           </Menu>
 
-          <Box
-            flex={1}
-            align="right"
+          <Flex
+            align='right'
             alignSelf='center'
           >
             <ThemeToggleButton/>
@@ -171,29 +170,29 @@ const Navbar = props => {
                   <Button variant='none'>
                     <a href='tel:+78002347878'>8 800 234-78-78</a>
                   </Button>
-                  <NextLink href="/" passHref>
+                  <NextLink href='/' passHref>
                     <MenuItem as={Link}>Главная</MenuItem>
                   </NextLink>
-                  <NextLink href="/production" passHref>
+                  <NextLink href='/production' passHref>
                     <MenuItem as={Link}>Продукция</MenuItem>
                   </NextLink>
-                  <NextLink href="/posts" passHref>
+                  <NextLink href='/posts' passHref>
                     <MenuItem as={Link}>Документация</MenuItem>
                   </NextLink>
-                  <NextLink href="/posts" passHref>
+                  <NextLink href='/posts' passHref>
                     <MenuItem as={Link}>Дистрибьюция</MenuItem>
                   </NextLink>
-                  <NextLink href="/works" passHref>
+                  <NextLink href='/news' passHref>
                     <MenuItem as={Link}>Новости</MenuItem>
                   </NextLink>
-                  <NextLink href="/posts" passHref>
+                  <NextLink href='/contacts' passHref>
                     <MenuItem as={Link}>Контакты</MenuItem>
                   </NextLink>
 
                 </MenuList>
               </Menu>
             </Box>
-          </Box>
+          </Flex>
         </Flex>
       </Container>
     </Box>

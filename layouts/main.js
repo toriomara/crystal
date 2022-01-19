@@ -1,10 +1,10 @@
 import Head from 'next/head'
-import {Box, Container} from '@chakra-ui/react'
+import {Box, Container, Flex} from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import Navbar from '../components/Navbar/Navbar'
 import {Footer} from '../components/Footer/Footer'
 
-const MainWrapper = styled(Box)`
+const MainWrapper = styled(Flex)`
   display: flex;
   flex-direction: column;
   //flex: 1 1 auto;
@@ -17,12 +17,12 @@ const Main = ({children, router, ...props}) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="description" content="Korund's homepage"/>
-        <meta name="robots" content="noindex,nofollow" />
-        <meta name="googlebot" content="noindex,nofollow" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
         <title>Korund | {props.title}</title>
       </Head>
-      <Navbar/>
-      <Container flex={'1 0'} auto maxW="container.xl" pt={14}>
+      <Navbar path={router.asPath}/>
+      <Container flex={'1 0'} maxW="container.xl" mx='auto' my={70}>
         {children}
       </Container>
       <Footer/>

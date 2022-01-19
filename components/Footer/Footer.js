@@ -1,9 +1,9 @@
 import {
   Box,
   Button,
-  ButtonGroup,
   chakra,
   Container,
+  Flex,
   Heading,
   IconButton,
   Input,
@@ -17,19 +17,11 @@ import {
 } from '@chakra-ui/react'
 import Logo from '../Logo'
 import styled from '@emotion/styled'
-import {
-  FaEnvelope,
-  FaFacebookSquare, FaInstagramSquare,
-  FaMapMarkerAlt,
-  FaPhone,
-  FaTwitter,
-  FaViber,
-  FaWhatsappSquare,
-  FaYoutube
-} from 'react-icons/fa'
+import {FaEnvelope, FaFacebookSquare, FaMapMarkerAlt, FaPhone, FaTwitter, FaViber, FaYoutube} from 'react-icons/fa'
 import Modal from '../Modal/Modal'
-import {useRef, useState} from 'react'
-import useClickOutside from '../../utils/useClickOutside'
+import {useState} from 'react'
+import {RiWhatsappFill} from 'react-icons/ri'
+import {SiInstagram} from 'react-icons/si'
 
 const Description = styled.div`
   margin-top: 10px;
@@ -39,13 +31,11 @@ const LinkItem = ({children}) => (
   <Link
     display='inline-flex'
     lineHeight='1.4'
-    //white-space=nowrap;
     textDecoration='none'
     transition='.3s ease'
     color={useColorModeValue('gray.600', 'gray.300')}
     position={"relative"}
     left={0}
-
     _hover={{
       fontWeight: '500',
       transition: '200ms ease-in',
@@ -77,7 +67,7 @@ const IconItem = styled(Link)`
 
 const FooterHeading = ({children}) => (
   <Heading
-    fontFamily='Montserrat'
+    fontFamily='Jost, sans-serif'
     as="h4"
     mb="4"
     color={useColorModeValue('gray.600', 'gray.300')}
@@ -97,13 +87,11 @@ export const Footer = () => {
     setIsOpen(!isOpen)
   }
 
-
-
   return (
     <Box
       role="contentinfo"
       w="100%"
-      bg={useColorModeValue('gray.100', 'gray.900')}
+      bg={useColorModeValue('secondary', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}
     >
       <Container
@@ -112,8 +100,8 @@ export const Footer = () => {
         alignItems='center'
         as={Stack}
         maxW='8xl'
-        px={8}
-        pt={8}
+        px={6}
+        pt={6}
         pb={4}
       >
 
@@ -125,10 +113,10 @@ export const Footer = () => {
             pb={4}
           >
 
-            <Stack align={'flex-start'}>
+            <Box align={'flex-start'}>
               <Logo/>
               <Description>Производство сверхтонких теплоизоляционных материалов нового поколения</Description>
-            </Stack>
+            </Box>
 
             <Stack align={'flex-start'}>
               <FooterHeading>Информация</FooterHeading>
@@ -137,14 +125,16 @@ export const Footer = () => {
               <LinkItem>Продукция</LinkItem>
               <LinkItem>Документация</LinkItem>
               <Stack direction={'row'} align={'center'} spacing={2}>
-                <LinkItem href={'#'}>Дистрибьюция</LinkItem>
-                <Tag
-                  size={'sm'}
-                  bg={useColorModeValue('red.600', 'green.800')}
-                  ml={2}
-                  color={'white'}>
-                  New
-                </Tag>
+                <LinkItem href='/distribution'>Дистрибьюция
+                  <Tag
+                    size={'sm'}
+                    bg='primary'
+                    color='white'
+                    ml={2}
+                  >
+                    New
+                  </Tag>
+                </LinkItem>
               </Stack>
             </Stack>
 
@@ -162,7 +152,6 @@ export const Footer = () => {
               </LinkItem>
 
               {isOpen && <Modal setIsOpen={setIsOpen}/>}
-
 
               <PhoneItem href='mailto:mail@korund34.ru'>
                 <IconItem>
@@ -182,6 +171,9 @@ export const Footer = () => {
               <PhoneItem href='tel:+78442504013'>
                 +7 (8442) 50-40-13
               </PhoneItem>
+              <PhoneItem href='tel:+78442504013'>
+                +7 (8442) 50-40-31//экспорт
+              </PhoneItem>
               <PhoneItem href='tel:+78442504042'>
                 +7 (8442) 50-40-42
               </PhoneItem>
@@ -190,19 +182,19 @@ export const Footer = () => {
               </PhoneItem>
             </Stack>
 
-            <Stack align={'flex-start'}>
+            <Stack align='flex-start'>
               <chakra.form onSubmit={(e) => e.preventDefault()}>
                 <FooterHeading>Подпишитесь на рассылку</FooterHeading>
                 <Stack
-                  spacing="4"
+                  spacing='4'
                 >
                   <Text>Мы присылаем одно письмо в неделю</Text>
                   <Input
                     bg={useColorModeValue('white', 'inherit')}
                     placeholder="Введите ваш электронный адрес"
                     type="email"
+                    flexShrink={1}
                     required
-                    focusBorderColor={useColorModeValue('blue.500', 'blue.300')}
                     _placeholder={{
                       opacity: 1,
                       color: useColorModeValue('gray.500', 'whiteAlpha.700'),
@@ -210,15 +202,11 @@ export const Footer = () => {
                   />
                   <Button
                     type="submit"
-                    color='white'
-                    bgColor="gray.600"
-                    flexShrink={0}
+                    variant='secondary'
+                    flexShrink={1}
                     width={{
                       base: 'full',
                       md: 'auto',
-                    }}
-                    _hover={{
-                      bgColor: "gray.500"
                     }}
                   >
                     Подписаться
@@ -226,7 +214,6 @@ export const Footer = () => {
                 </Stack>
               </chakra.form>
             </Stack>
-
           </SimpleGrid>
 
 
@@ -243,17 +230,20 @@ export const Footer = () => {
                 &copy; {new Date().getFullYear()}, «НПО ФУЛЛЕРЕН». Все права защищены
               </Text>
 
-              <ButtonGroup variant='ghost'>
+              <Flex variant='ghost'>
                 <IconButton
                   as='a'
                   href='https://wa.me/79173381186'
-                  color='#43d854'
+                  target='_blank'
                   aria-label='Whatsapp'
-                  icon={<FaWhatsappSquare fontSize='20px'/>}
+                  color='#43d854'
+                  icon={<RiWhatsappFill fontSize='20px'/>}
                 />
                 <IconButton
+                  variant='ghost'
                   as='a'
                   href='viber://chat?number=%2B79173381186'
+                  target='_blank'
                   aria-label='Viber'
                   color='#665CAC'
                   icon={<FaViber fontSize='20px'/>}
@@ -264,7 +254,7 @@ export const Footer = () => {
                   target='_blank'
                   aria-label='Instagram'
                   color='#8a3ab9'
-                  icon={<FaInstagramSquare fontSize='20px'/>}
+                  icon={<SiInstagram fontSize='20px'/>}
                 />
                 <IconButton
                   as='a'
@@ -290,7 +280,7 @@ export const Footer = () => {
                   color='#3b5998'
                   icon={<FaFacebookSquare fontSize='20px'/>}
                 />
-              </ButtonGroup>
+              </Flex>
             </Stack>
           </Box>
 

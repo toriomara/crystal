@@ -10,38 +10,34 @@ import {
 
 export default function CallToActionWithIllustration() {
   return (
-    <Container maxW={'7xl'}>
+    <Container maxW='7xl'>
       <Stack
-        textAlign={'center'}
-        align={'center'}
+        textAlign='center'
+        align='center'
         spacing={{ base: 8, md: 10 }}
         py={{ base: 20, md: 28 }}>
         <Heading
           fontWeight={600}
           fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
-          lineHeight={'110%'}>
+          lineHeight='110%'>
           Корунд делает утепление <br/>
           <Text as={'span'} color={'red.600'}>
             простым и доступным
           </Text>
         </Heading>
-        <Text color={'gray.500'} maxW={'3xl'}>
+        <Text color='gray.500' maxW='3xl' fontSize={18}>
           Сверхтонкая жидкая теплоизоляция Корунд обладает уникальными теплоизоляционными свойствами и, учитывая стоимость и простоту нанесения,  не имеет конкурентов
         </Text>
-        <Stack spacing={6} direction={'row'}>
+        <Stack spacing={6} direction='row'>
           <Button
-            rounded={'full'}
-            px={6}
-            colorScheme={'orange'}
-            bg={'red.600'}
-            _hover={{ bg: 'red.700' }}>
+            variant='outline'>
             Как это работает
           </Button>
-          <Button rounded={'full'} px={6}>
+          <Button rounded='full' px={6}>
             Заказать звонок
           </Button>
         </Stack>
-        <Flex w={'full'}>
+        <Flex w='full'>
           <Illustration
             height={{ sm: '24rem', lg: '28rem' }}
             mt={{ base: 12, sm: 16 }}
