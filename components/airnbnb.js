@@ -5,7 +5,7 @@ import {MdStar} from "react-icons/md"
 export const AirnbnbCard = () => {
   return (
     <Box>
-      <Image rounded="md" src="https://bit.ly/2k1H1t6"/>
+      <Image rounded="md" alt='image' src="https://bit.ly/2k1H1t6"/>
       <Flex align="baseline" mt={2}>
         <Badge variantColor="pink">Plus</Badge>
         <Text
