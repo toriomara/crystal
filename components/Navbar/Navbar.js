@@ -17,9 +17,9 @@ import {
   useDisclosure
 } from '@chakra-ui/react'
 import {ChevronDownIcon, ChevronUpIcon, HamburgerIcon} from '@chakra-ui/icons'
-import ThemeToggleButton from '../theme-toggle-button'
+import ThemeToggleButton from '../ui/theme-toggle-button'
 import SearchBar from '../Search'
-import Logo from '../Logo'
+import Logo from '../ui/Logo'
 
 const LinkItem = ({href, path, _target, children, ...props}) => {
   const active = path === href

@@ -15,7 +15,7 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
-import Logo from '../Logo'
+import Logo from '../ui/Logo'
 import styled from '@emotion/styled'
 import {FaEnvelope, FaFacebookSquare, FaMapMarkerAlt, FaPhone, FaTwitter, FaViber, FaYoutube} from 'react-icons/fa'
 import Modal from '../Modal/Modal'
@@ -59,7 +59,7 @@ const PhoneItem = styled.a`
   }
 `
 
-const IconItem = styled(Link)`
+export const IconItem = styled(Link)`
   display: inline-flex;
   color: #4A5568;
   padding: 0 6px 0 0;
@@ -79,6 +79,17 @@ const FooterHeading = ({children}) => (
     {children}
   </Heading>
 )
+
+const MyIconButton = styled(IconButton)`
+  top: 0;
+  display: inline-flex;
+  
+  &:hover {
+    font-weight: 500;
+    transition: 200ms ease-in;
+    top: -6px;
+  }
+`
 
 export const Footer = () => {
 
@@ -175,7 +186,7 @@ export const Footer = () => {
                 +7 (8442) 50-40-31
               </PhoneItem>
               <PhoneItem href='tel:+78442504042'>
-                +7 (8442) 50-40-421
+                +7 (8442) 50-40-42
               </PhoneItem>
               <PhoneItem href='tel:+78442504082'>
                 +7 (8442) 50-40-82
@@ -230,8 +241,9 @@ export const Footer = () => {
                 &copy; {new Date().getFullYear()}, «НПО ФУЛЛЕРЕН». Все права защищены
               </Text>
 
-              <Flex variant='ghost'>
-                <IconButton
+              <Flex>
+                <MyIconButton
+                  variant='ghost'
                   as='a'
                   href='https://wa.me/79173381186'
                   target='_blank'
@@ -239,7 +251,7 @@ export const Footer = () => {
                   color='#43d854'
                   icon={<RiWhatsappFill fontSize='20px'/>}
                 />
-                <IconButton
+                <MyIconButton
                   variant='ghost'
                   as='a'
                   href='viber://chat?number=%2B79173381186'
@@ -248,7 +260,8 @@ export const Footer = () => {
                   color='#665CAC'
                   icon={<FaViber fontSize='20px'/>}
                 />
-                <IconButton
+                <MyIconButton
+                  variant='ghost'
                   as='a'
                   href='https://www.instagram.com/factory_korund/'
                   target='_blank'
@@ -256,7 +269,8 @@ export const Footer = () => {
                   color='#8a3ab9'
                   icon={<SiInstagram fontSize='20px'/>}
                 />
-                <IconButton
+                <MyIconButton
+                  variant='ghost'
                   as='a'
                   href='https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ'
                   target='_blank'
@@ -264,7 +278,8 @@ export const Footer = () => {
                   color='#c4302b'
                   icon={<FaYoutube fontSize='20px'/>}
                 />
-                <IconButton
+                <MyIconButton
+                  variant='ghost'
                   as='a'
                   href='https://twitter.com/Korund34'
                   target='_blank'
@@ -272,7 +287,8 @@ export const Footer = () => {
                   color='#1DA1F2'
                   icon={<FaTwitter fontSize='20px'/>}
                 />
-                <IconButton
+                <MyIconButton
+                  variant='ghost'
                   as='a'
                   href='https://www.facebook.com/factorykorund'
                   target='_blank'
