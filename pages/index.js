@@ -12,7 +12,7 @@ export default function Home({articles}) {
         <CallToActionWithIllustration/>
         <CallToActionWithVideo/>
         <Carousel/>
-        {articles.map(article => <h3>{article.title}</h3>)}
+        {/*{articles.map(article => <h3 key={article.id}>{article.title}</h3>)}*/}
       </Box>
   )
 }
