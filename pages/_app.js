@@ -12,7 +12,6 @@ function App({Component, pageProps, router}) {
         </AnimatePresence>
       </Main>
     </ChakraProvider>
-
   )
 }
 

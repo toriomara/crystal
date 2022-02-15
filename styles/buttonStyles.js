@@ -40,6 +40,16 @@ export const ButtonStyles = {
         boxShadow: 'md'
       }
     }),
+    inverse: (props) => ({
+      bg: 'transparent',
+      color: useColorModeValue('black', 'white'),
+      border: '1px solid #EDF2F7',
+      fontWeight: 'regular',
+      _hover: {
+        bg: mode(darken('secondaryDark', 20), whiten('secondary', 20))(props),
+        color: useColorModeValue('white', 'black'),
+      }
+    }),
   },
   // default values for `size` and `variant`
   defaultProps: {},

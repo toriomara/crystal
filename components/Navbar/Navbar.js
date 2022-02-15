@@ -111,10 +111,10 @@ const Navbar = (props) => {
                 </MenuList>
               </Menu>
             </Container>
-            <LinkItem href='/works' path={path}>
+            <LinkItem href='/documentation' path={path}>
               Документация
             </LinkItem>
-            <LinkItem href='/posts' path={path}>
+            <LinkItem href='/distribution' path={path}>
               Дистрибьюция
             </LinkItem>
             <LinkItem href='/news' path={path}>
