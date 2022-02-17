@@ -3,7 +3,6 @@ import {Box} from '@chakra-ui/react'
 import {motion} from 'framer-motion'
 import images from './images'
 import Image from 'next/image'
-import styled from '@emotion/styled'
 
 const MotionBox = motion(Box)
 
