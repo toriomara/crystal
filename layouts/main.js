@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import {Box, Container, Flex} from '@chakra-ui/react'
+import {Container, Flex} from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import Navbar from '../components/Navbar/Navbar'
 import {Footer} from '../components/Footer/Footer'
+import Meta from '../components/Meta'
 
 const MainWrapper = styled(Flex)`
   display: flex;
@@ -14,13 +15,14 @@ const MainWrapper = styled(Flex)`
 const Main = ({children, router, ...props}) => {
   return (
     <MainWrapper as="main">
-      <Head>
+      {/*<Head>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="description" content="Korund's homepage"/>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
         <title>Korund | {props.title}</title>
-      </Head>
+      </Head>*/}
+      <Meta/>
       <Navbar path={router.asPath}/>
       <Container flex={'1 0'} maxW="container.xl" mx='auto' my={70}>
         {children}

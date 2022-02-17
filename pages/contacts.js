@@ -13,7 +13,6 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import {ContactsHead} from '../components/ContactsPage/ContactsHead'
-import {AirnbnbCard} from '../components/airnbnb'
 import ContactCard from '../components/ContactsPage/ContactCard'
 import ContactForm from '../components/ContactsPage/ContactForm'
 import {ContactDiler} from '../components/ContactsPage/ContactDiler'
@@ -35,7 +34,6 @@ const Contacts = () => {
       </Box>*/}
       <ContactRequest/>
       {/*<ContactCard/>*/}
-      {/*<AirnbnbCard/>*/}
     </Box>
 
   )
