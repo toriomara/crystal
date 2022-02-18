@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import {Container, Flex} from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import Navbar from '../components/Navbar/Navbar'
@@ -15,13 +14,6 @@ const MainWrapper = styled(Flex)`
 const Main = ({children, router, ...props}) => {
   return (
     <MainWrapper as="main">
-      {/*<Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="description" content="Korund's homepage"/>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
-        <title>Korund | {props.title}</title>
-      </Head>*/}
       <Meta/>
       <Navbar path={router.asPath}/>
       <Container flex={'1 0'} maxW="container.xl" mx='auto' my={70}>

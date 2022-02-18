@@ -1,4 +1,4 @@
-import {Box, Container} from '@chakra-ui/react'
+import {Box} from '@chakra-ui/react'
 import CallToActionWithIllustration from '../components/HomePage/CTA'
 import CallToActionWithVideo from '../components/HomePage/CTA2'
 import Carousel from '../components/HomePage/Carousel'

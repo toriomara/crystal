@@ -1,6 +1,5 @@
-import React from 'react'
 import Link from 'next/link'
-import {color, Heading, Text} from "@chakra-ui/react";
+import {Heading, Text} from "@chakra-ui/react";
 
 const ArticleItem = ({article}) => {
   return (

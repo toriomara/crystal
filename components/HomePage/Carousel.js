@@ -21,7 +21,7 @@ const Carousel = () => {
         ref={carousel}
         cursor='grab'
         overflow='hidden'
-        background='lightblue'
+        background='coral'
         rounded={4}
         whileTap={{cursor: 'grabbing'}}
       >

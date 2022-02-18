@@ -2,11 +2,13 @@ import React from 'react'
 import {Heading} from '@chakra-ui/react'
 import ArticleList from '../components/Articles/ArticlesList'
 import {server} from '../config'
+import Meta from '../components/Meta'
 //https://www.youtube.com/watch?v=mTz0GXj8NN0
 
 export default function News({articles}) {
   return (
     <div>
+      <Meta title='News' />
       <Heading variant='page-title'>
         Новости
       </Heading>
