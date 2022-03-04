@@ -3,6 +3,7 @@ import {server} from '../../../config'
 import {Button, Heading, Text} from '@chakra-ui/react'
 import Link from 'next/link'
 import axios from 'axios'
+import {articles} from '../../../data/newsData'
 
 const article = ({article}) => {
 
@@ -22,8 +23,10 @@ const article = ({article}) => {
 }
 
 export const getStaticProps = async (context) => {
-  const res = await axios.get(`${server}/api/articles/${context.params.id}`)
-  const article = await res.data
+  /*const res = await axios.get(`${server}/api/articles/${context.params.id}`)
+  const article = await res.data*/
+
+  const article = articles.find(a => a.id === context.params.id)
 
   return {
     props: {
@@ -33,8 +36,8 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-  const res = await axios.get(`${server}/api/articles`)
-  const articles = await res.data
+  /*const res = await axios.get(`${server}/api/articles`)
+  const articles = await res.data*/
   const ids = articles.map(article => article.id)
   const paths = ids.map(id => ({params: {id: id.toString()}}))
 

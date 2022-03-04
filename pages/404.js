@@ -1,7 +1,18 @@
-import { Box, Heading, Text, Button } from '@chakra-ui/react';
-import {ChakraNextLinkButton} from "../components/ui/Button";
+import { Box, Heading, Text, Button } from '@chakra-ui/react'
+import {ChakraNextLinkButton} from '../components/ui/Button'
+import {useRouter} from 'next/router'
+import {useEffect} from 'react'
 
-export default function NotFound() {
+const Error = () => {
+
+  const router = useRouter()
+
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/')
+  }, 3000)
+  }, [])
+
   return (
     <Box textAlign="center" py={150} px={6}>
       <Heading
@@ -26,5 +37,7 @@ export default function NotFound() {
         На главную
       </ChakraNextLinkButton>
     </Box>
-  );
+  )
 }
+
+export default Error
