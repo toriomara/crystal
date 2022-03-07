@@ -1,14 +1,16 @@
 import React from 'react'
-import {server} from '../../../config'
 import {Button, Heading, Text} from '@chakra-ui/react'
 import Link from 'next/link'
-import axios from 'axios'
 import {articles} from '../../../data/newsData'
+import Meta from '../../../components/Meta'
+import {server} from '../../../config'
+import axios from 'axios'
 
 const article = ({article}) => {
 
   return (
     <>
+      <Meta title={article.title}/>
       <Heading variant={4}>
         {article.title}
       </Heading>
@@ -23,9 +25,6 @@ const article = ({article}) => {
 }
 
 export const getStaticProps = async (context) => {
-  /*const res = await axios.get(`${server}/api/articles/${context.params.id}`)
-  const article = await res.data*/
-
   const article = articles.find(a => a.id === context.params.id)
 
   return {
@@ -36,8 +35,6 @@ export const getStaticProps = async (context) => {
 }
 
 export const getStaticPaths = async () => {
-  /*const res = await axios.get(`${server}/api/articles`)
-  const articles = await res.data*/
   const ids = articles.map(article => article.id)
   const paths = ids.map(id => ({params: {id: id.toString()}}))
 

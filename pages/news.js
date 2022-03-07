@@ -20,8 +20,6 @@ export default function News({articles}) {
 }
 
 export const getStaticProps = async () => {
-  /*const res = await axios.get(`${server}/api/articles`)
-  const articles = await res.data*/
 
   return {
     props: {

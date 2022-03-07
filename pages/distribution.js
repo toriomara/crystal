@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {Button, Heading} from '@chakra-ui/react'
 import {AnimatePresence, motion} from 'framer-motion'
-import Modal from '../components/Modal/index'
 
 const MotionButton = motion(Button)
 
@@ -23,13 +22,6 @@ const Distribution = () => {
       >
         Modal
       </MotionButton>
-      <AnimatePresence
-        initial={false}
-        exitBeforeEnter={true}
-        onExitComplect={() => null}
-      >
-        {modalOpen && <Modal modalOpen={modalOpen} handleClose={close}/>}
-      </AnimatePresence>
     </div>
   )
 }

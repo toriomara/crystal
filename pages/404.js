@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button } from '@chakra-ui/react'
+import {Box, Heading, Text, Button} from '@chakra-ui/react'
 import {ChakraNextLinkButton} from '../components/ui/Button'
 import {useRouter} from 'next/router'
 import {useEffect} from 'react'
@@ -10,8 +10,8 @@ const Error = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push('/')
-  }, 3000)
-  }, [])
+    }, 3000)
+  }, [router])
 
   return (
     <Box textAlign="center" py={150} px={6}>
@@ -29,7 +29,10 @@ const Error = () => {
       <Text color={'gray.500'} mb={6}>
         Похоже, то что вы искали ещё не создано )
       </Text>
-
+      <Heading variant='h2'>
+        Через 3 секунды вы будете перенаправлены на главную страницу
+      </Heading>
+      <br/>
       <ChakraNextLinkButton
         href='/'
         variant='primary'
