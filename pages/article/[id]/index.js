@@ -3,8 +3,26 @@ import {Button, Heading, Text} from '@chakra-ui/react'
 import Link from 'next/link'
 import {articles} from '../../../data/newsData'
 import Meta from '../../../components/Meta'
-import {server} from '../../../config'
-import axios from 'axios'
+
+export const getStaticProps = async ({params}) => {
+  const article = articles.find(article => article.id === params.id)
+
+  return {
+    props: {
+      article
+    }
+  }
+}
+
+export const getStaticPaths = async () => {
+  const ids = articles.map(article => article.id)
+  const paths = ids.map(id => ({params: {id: id.toString()}}))
+
+  return {
+    paths,
+    fallback: false
+  }
+}
 
 const article = ({article}) => {
 
@@ -22,26 +40,6 @@ const article = ({article}) => {
       </Button>
     </>
   )
-}
-
-export const getStaticProps = async (context) => {
-  const article = articles.find(a => a.id === context.params.id)
-
-  return {
-    props: {
-      article
-    }
-  }
-}
-
-export const getStaticPaths = async () => {
-  const ids = articles.map(article => article.id)
-  const paths = ids.map(id => ({params: {id: id.toString()}}))
-
-  return {
-    paths,
-    fallback: false
-  }
 }
 
 export default article

@@ -1,4 +1,3 @@
-import {createSlice} from "@reduxjs/toolkit"
 import dallas from '../public/images/productBG/dallas.webp'
 import austin from '../public/images/productBG/austin.webp'
 import newyork from '../public/images/productBG/newyork.webp'

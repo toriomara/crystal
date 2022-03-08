@@ -12,7 +12,7 @@ import {
   MenuItem,
   MenuList,
   Spacer,
-  Stack,
+  Stack, Text,
   useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react'
@@ -21,19 +21,30 @@ import ThemeToggleButton from '../ui/theme-toggle-button'
 import SearchBar from '../Search'
 import Logo from '../ui/Logo'
 
+import {products} from '../../data/productsData'
+import styled from "@emotion/styled";
+
+const ProductItems = products.map((a) => a.name)
+
+const ProductLinks = styled(Link)`
+  display: inline-flex;
+  color: #4A5568;
+  padding: 0 6px 0 0;
+`
+
 const LinkItem = ({href, path, _target, children, ...props}) => {
   const active = path === href
-  const inactiveColor = useColorModeValue('primary', 'primary')
 
   return (
     <NextLink href={href} passHref>
       <Link
         p={2}
-        fontSize={17}
-        fontWeight={active ? 'bold' : undefined}
-        color={active ? inactiveColor : 'black'}
-        rounded={6}
         px={3}
+        color={
+          useColorModeValue(active ? 'primary' : 'black',
+            active ? 'primary' : 'secondary')
+        }
+        fontSize={17}
         _focus='none'
         _target={_target}
         _hover={{
@@ -103,11 +114,22 @@ const Navbar = (props) => {
                 >
                   Продукция {isOpen ? <ChevronUpIcon/> : <ChevronDownIcon/>}
                 </MenuButton>
-                <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
-                  <MenuItem>КОРУНД-Классик</MenuItem>
+                <MenuList onClick={onClose} onMouseEnter={onOpen} onMouseLeave={onClose}>
+                  {ProductItems.map((product, index) => {
+                      return (
+                        <MenuItem key={index}>
+                          <NextLink href={`/${product}`}>
+                            {product}
+                          </NextLink>
+                        </MenuItem>
+                      )
+                    }
+                  )}
+
+                  {/* <MenuItem>КОРУНД-Классик</MenuItem>
                   <MenuItem>КОРУНД-Фасад</MenuItem>
                   <MenuItem>КОРУНД-Антикор</MenuItem>
-                  <MenuItem>КОРУНД-Зима</MenuItem>
+                  <MenuItem>КОРУНД-Зима</MenuItem>*/}
                 </MenuList>
               </Menu>
             </Container>

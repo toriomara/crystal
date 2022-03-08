@@ -76,7 +76,7 @@ const components = {
   },
   Link: {
     baseStyle: props => ({
-      color: mode('#3d7aed', '#ff63c3')(props),
+      color: mode('black', 'primary')(props),
       textUnderlineOffset: 3
     })
   },
@@ -96,6 +96,7 @@ const colors = {
     primary: '#C53030',
     secondary: '#EDF2F7',
     secondaryDark: '#656768',
+    black: '#151414',
     coral: '#E0998F',
     highlight: '#F3EED9',
     alternative: '#97AAE0',
