@@ -24,16 +24,16 @@ const ProductBar = ({href, path, products}) => {
 				gap={3}
 			>
 				{ProductItems.map((product, index) => {
-					const active = path === href
+					//const active = path === href
 					return (
 						<GridItem
 							border='1px solid black'
 
 							key={index}
-							color={
-								useColorModeValue(active ? 'primary' : 'black',
-									active ? 'alternative' : 'secondary')
-							}
+							// color={
+							// 	useColorModeValue(active ? 'primary' : 'black',
+							// 		active ? 'alternative' : 'secondary')
+							// }
 							_hover={{
 								textDecoration: 'none',
 								color: 'red.600'
