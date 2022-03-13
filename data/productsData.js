@@ -18,6 +18,7 @@ export const products = [
     packaging: 'Пластиковое ведро',
     volume: '5, 10 и 20 л',
     temperature: 'от -60°С до +200°С',
+    more: 'Что-то ещё',
     image: classic,
     imageBG: dallas,
     link: '/classic'
@@ -31,6 +32,7 @@ export const products = [
     packaging: 'Пластиковое ведро',
     volume: '5, 10 и 20 л',
     temperature: 'от -60°С до +200°С',
+    more: 'Что-то ещё',
     image: front,
     imageBG: austin,
     link: '/front'
@@ -47,6 +49,7 @@ export const products = [
     packaging: 'Пластиковое ведро',
     volume: '10 и 20 л',
     temperature: 'от -60°С до +200°С',
+    more: 'Что-то ещё',
     image: anticorrosive,
     imageBG: newyork,
     link: '/anticorrosive'
@@ -61,6 +64,7 @@ export const products = [
     packaging: 'Металлическое ведро',
     volume: '20 л',
     temperature: 'от -5°С до -20°С',
+    more: 'Что-то ещё',
     image: winter,
     imageBG: winterBG,
     link: '/winter'

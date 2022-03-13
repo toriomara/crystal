@@ -33,7 +33,7 @@ export const ButtonStyles = {
     outline: (props) => ({
       bg: 'transparent',
       color: useColorModeValue('black', 'white'),
-      //borderColor: '1px solid red',
+      borderColor: '1px solid',
       fontWeight: 'regular',
       _hover: {
         bg: mode(darken('alternative', 20), whiten('alternative', 20))(props),
