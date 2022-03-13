@@ -20,9 +20,9 @@ import {ChevronDownIcon, ChevronUpIcon, HamburgerIcon} from '@chakra-ui/icons'
 import ThemeToggleButton from '../ui/theme-toggle-button'
 import SearchBar from '../Search'
 import Logo from '../ui/Logo'
-
 import {products} from '../../data/productsData'
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
+import product from '../../pages/[product]'
 
 const ProductItems = products.map((a) => a.name)
 
@@ -45,14 +45,13 @@ const LinkItem = ({href, path, _target, children, ...props}) => {
             active ? 'primary' : 'secondary')
         }
         fontSize={17}
-        _focus='none'
+        _focus='none' // THIS PROPS!!!
         _target={_target}
         _hover={{
           textDecoration: 'none',
           color: 'red.600'
         }}
         {...props}
-
       >
         {children}
       </Link>
