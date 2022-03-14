@@ -51,14 +51,14 @@ const Product = ({ product }) => {
         alignSelf="center"
         justifyContent="center"
       >
-        <Heading variant="h3" justifyItems="center">
+        <Heading variant="h2" justifyItems="center">
           {name}
         </Heading>
       </GridItem>
       <GridItem rowSpan={4} colSpan={1} width="100%">
         <ProductBar />
       </GridItem>
-      <GridItem rowSpan={3} colSpan={2} p={4} height='500px'>
+      <GridItem rowSpan={3} colSpan={2} p={4}>
         {fullDesc}
       </GridItem>
       <GridItem rowSpan={1} colSpan={5}>

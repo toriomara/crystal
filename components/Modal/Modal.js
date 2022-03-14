@@ -1,7 +1,7 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef} from 'react'
 import styled from '@emotion/styled'
-import {AspectRatio, Box, Button, Flex} from '@chakra-ui/react'
-import useClickOutside from "../../utils/useClickOutside";
+import {Flex} from '@chakra-ui/react'
+import useClickOutside from '../../utils/useClickOutside'
 import {FaTimes} from 'react-icons/fa'
 
 const Wrapper = styled(Flex)`

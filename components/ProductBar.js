@@ -33,7 +33,7 @@ const ProductBar = ({ href, path, products }) => {
               }}
             >
               <NextLink href={`/${product}`}>
-                <Button variant="outline" w="100%" height="60px">
+                <Button variant="secondary" w="100%" height="60px">
                   {product}
                 </Button>
               </NextLink>
