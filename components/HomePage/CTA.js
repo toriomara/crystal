@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const MotionHeading = motion(Heading)
+const MotionHeading = motion(Heading);
 
 export default function CallToActionWithIllustration() {
   return (
@@ -20,7 +20,7 @@ export default function CallToActionWithIllustration() {
         spacing={{ base: 8, md: 10 }}
         py={{ base: 20, md: 28 }}
       >
-        <MotionHeading 
+        <MotionHeading
           fontWeight={600}
           fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
           lineHeight="110%"
@@ -28,16 +28,16 @@ export default function CallToActionWithIllustration() {
           animate="visible"
           variants={{
             hidden: {
-              scale: .8,
-              opacity: 0
+              scale: 0.8,
+              opacity: 0,
             },
             visible: {
               scale: 1,
               opacity: 1,
               transition: {
-                delay: .4
-              }
-            }
+                delay: 0.4,
+              },
+            },
           }}
         >
           Корунд делает утепление <br />
@@ -45,19 +45,18 @@ export default function CallToActionWithIllustration() {
             простым и доступным
           </Text>
         </MotionHeading>
-        <Text
-          color="gray.500"
-          maxW="3xl"
-          fontSize={18}
-        >
+        <Text color="gray.500" maxW="3xl" fontSize={18}>
           Сверхтонкая жидкая теплоизоляция Корунд обладает уникальными
           теплоизоляционными свойствами и, учитывая стоимость и простоту
           нанесения, не имеет конкурентов
         </Text>
         <Stack spacing={6} direction="row">
-          <Button variant="outline">Как это работает</Button>
-          <Button rounded="full" px={6}>
+          <Button variant="primary">Как это работает</Button>
+          <Button variant="secondary" px={6}>
             Заказать звонок
+          </Button>
+          <Button variant="outlined" px={6}>
+            Далее
           </Button>
         </Stack>
         <Flex w="full">

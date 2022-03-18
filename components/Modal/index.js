@@ -1,3 +1,5 @@
+//NOT USED YET
+
 import {motion} from 'framer-motion'
 import Backdrop from '../Backdrop'
 import {Box} from "@chakra-ui/react";
@@ -24,7 +26,13 @@ const dropIn = {
   }
 }
 
-const Modal = ({handleClose, text}) => {
+const Modal = ({handleClose, children}) => {
+
+  // const [isOpen, setIsOpen] = useState(false)
+  // const handleClick = () => {
+  //   setIsOpen(isOpen)
+  // }
+
   return (
     <Backdrop
       onClick={handleClose}
@@ -45,7 +53,7 @@ const Modal = ({handleClose, text}) => {
         flexDirection='column'
         alignItems='center'
       >
-        {text}
+        {children}
       </MotionBox>
     </Backdrop>
   )

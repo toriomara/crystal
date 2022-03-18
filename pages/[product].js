@@ -3,6 +3,7 @@ import { products } from "../data/productsData";
 import ProductBar from "../components/ProductBar";
 import Image from "next/image";
 import { Features } from "../components/Product/Features";
+import Carousel from "../components/HomePage/Carousel";
 
 export const getStaticProps = async ({ params }) => {
   const product = products.find((product) => product.name === params.product);
@@ -42,7 +43,8 @@ const Product = ({ product }) => {
         alignSelf="center"
         justifyContent="center"
       >
-        <Image src={image} />
+        {/* <Image src={image} /> */}
+        <Carousel/>
       </GridItem>
       <GridItem
         rowSpan={1}

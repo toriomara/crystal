@@ -1,4 +1,4 @@
-import NextLink from 'next/link'
+import NextLink from "next/link";
 import {
   Box,
   Button,
@@ -12,118 +12,124 @@ import {
   MenuItem,
   MenuList,
   Spacer,
-  Stack, Text,
+  Stack,
+  Text,
   useColorModeValue,
-  useDisclosure
-} from '@chakra-ui/react'
-import {ChevronDownIcon, ChevronUpIcon, HamburgerIcon} from '@chakra-ui/icons'
-import ThemeToggleButton from '../ui/theme-toggle-button'
-import SearchBar from '../Search'
-import Logo from '../ui/Logo'
-import {products} from '../../data/productsData'
-import styled from '@emotion/styled'
-import product from '../../pages/[product]'
+  useDisclosure,
+} from "@chakra-ui/react";
+import {
+  ChevronDownIcon,
+  ChevronUpIcon,
+  HamburgerIcon,
+} from "@chakra-ui/icons";
+import ThemeToggleButton from "../ui/theme-toggle-button";
+import SearchBar from "../Search";
+import Logo from "../ui/Logo";
+import { products } from "../../data/productsData";
+import styled from "@emotion/styled";
+import product from "../../pages/[product]";
 
-const ProductItems = products.map((a) => a.name)
+const ProductItems = products.map((a) => a.name);
 
 const ProductLinks = styled(Link)`
   display: inline-flex;
-  color: #4A5568;
+  color: #4a5568;
   padding: 0 6px 0 0;
-`
+`;
 
-const LinkItem = ({href, path, _target, children, ...props}) => {
-  const active = path === href
+const LinkItem = ({ href, path, _target, children, ...props }) => {
+  const active = path === href;
 
   return (
     <NextLink href={href} passHref>
       <Link
         p={2}
         px={3}
-        color={
-          useColorModeValue(active ? 'primary' : 'black',
-            active ? 'primary' : 'secondary')
-        }
-        fontSize={17}
-        _focus='none' // THIS PROPS!!!
+        color={useColorModeValue(
+          active ? "brand.50" : "black",
+          active ? "brand.50" : "gray.200"
+        )}
+        fontSize={18}
+        _focus="none" // THIS PROPS!!!
         _target={_target}
         _hover={{
-          textDecoration: 'none',
-          color: 'red.600'
+          textDecoration: "none",
+          color: "red.600",
         }}
         {...props}
       >
         {children}
       </Link>
     </NextLink>
-  )
-}
+  );
+};
 
 const Navbar = (props) => {
-  const {path} = props
-  const {isOpen, onOpen, onClose} = useDisclosure()
+  const { path } = props;
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box
-      position='fixed'
-      as='nav'
-      w='100%'
-      bg={useColorModeValue('#ffffff40', '#20202380')}
-      css={{backdropFilter: 'blur(10px)'}}
+      position="fixed"
+      as="nav"
+      w="100%"
+      bg={useColorModeValue("#ffffff40", "#20202380")}
+      css={{ backdropFilter: "blur(10px)" }}
       zIndex={1}
       {...props}
     >
       <Container
-        display='flex'
-        justify='space-between'
-        flexDirection='row'
-        alignItems='center'
+        display="flex"
+        justify="space-between"
+        flexDirection="row"
+        alignItems="center"
         maxW="8xl"
         wrap="wrap"
         p={2}
         px={{
-          base: '4',
-          md: '8',
+          base: "4",
+          md: "8",
         }}
       >
         <Box mr={2}>
-          <Logo/>
+          <Logo />
         </Box>
 
-        <Spacer/>
+        <Spacer />
 
         <Flex>
           <Stack
-            direction={{base: 'column', md: 'row'}}
-            display={{base: 'none', xl: 'flex'}}
-            width={{base: 'full', md: 'auto'}}
+            direction={{ base: "column", md: "row" }}
+            display={{ base: "none", xl: "flex" }}
+            width={{ base: "full", md: "auto" }}
             flexGrow={1}
-            mt={{base: 4, md: 0}}
+            mt={{ base: 4, md: 0 }}
             mr={12}
           >
             <LinkItem href="/" path={path} passHref>
               Главная
             </LinkItem>
-            <Container alignSelf='center' variant='none'>
+            <Container alignSelf="center" variant="none">
               <Menu isOpen={isOpen}>
                 <MenuButton
-                  border='0'
+                  border="0"
                   onMouseEnter={onOpen}
                   onMouseLeave={onClose}
                 >
-                  Продукция {isOpen ? <ChevronUpIcon/> : <ChevronDownIcon/>}
+                  Продукция {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
                 </MenuButton>
-                <MenuList onClick={onClose} onMouseEnter={onOpen} onMouseLeave={onClose}>
+                <MenuList
+                  onClick={onClose}
+                  onMouseEnter={onOpen}
+                  onMouseLeave={onClose}
+                >
                   {ProductItems.map((product, index) => {
-                      return (
-                        <MenuItem key={index}>
-                          <NextLink href={`/${product}`}>
-                            {product}
-                          </NextLink>
-                        </MenuItem>
-                      )
-                    }
-                  )}
+                    return (
+                      <MenuItem key={index}>
+                        <NextLink href={`/${product}`}>{product}</NextLink>
+                      </MenuItem>
+                    );
+                  })}
 
                   {/* <MenuItem>КОРУНД-Классик</MenuItem>
                   <MenuItem>КОРУНД-Фасад</MenuItem>
@@ -132,23 +138,23 @@ const Navbar = (props) => {
                 </MenuList>
               </Menu>
             </Container>
-            <LinkItem href='/documentation' path={path}>
+            <LinkItem href="/documentation" path={path}>
               Документация
             </LinkItem>
-            <LinkItem href='/distribution' path={path}>
+            <LinkItem href="/distribution" path={path}>
               Дистрибьюция
             </LinkItem>
-            <LinkItem href='/news' path={path}>
+            <LinkItem href="/news" path={path}>
               Новости
             </LinkItem>
-            <LinkItem href='/contacts' path={path}>
+            <LinkItem href="/contacts" path={path}>
               Контакты
             </LinkItem>
           </Stack>
 
-          <HStack display={{base: 'none', md: 'flex'}}>
-            <SearchBar/>
-            <Button as='a' href='tel:+78002347878' variant='none' _focus='none'>
+          <HStack display={{ base: "none", md: "flex" }}>
+            <SearchBar />
+            <Button as="a" href="tel:+78002347878" variant="none" _focus="none">
               <span>8 800 234-78-78</span>
             </Button>
           </HStack>
@@ -156,8 +162,9 @@ const Navbar = (props) => {
           <Menu>
             <MenuButton
               as={Button}
-              rightIcon={<ChevronDownIcon/>}
-              colorScheme='black' variant='ghost'
+              rightIcon={<ChevronDownIcon />}
+              colorScheme="black"
+              variant="ghost"
             >
               Lang
             </MenuButton>
@@ -168,48 +175,74 @@ const Navbar = (props) => {
               <MenuItem>SP</MenuItem>
               <MenuItem>AR</MenuItem>
             </MenuList>
+            {/* <FormControl>
+            <FormLabel>Country</FormLabel>
+            <Select>
+              <option value="usa">United States of America</option>
+              <option value="uae">United Arab Emirates</option>
+              <option value="nmk">North Macedonia</option>
+              <option value="de">Germany</option>
+            </Select>
+          </FormControl> */}
           </Menu>
 
-          <Flex
-            align='right'
-            alignSelf='center'
-          >
-            <ThemeToggleButton/>
+          <Flex align="right" alignSelf="center">
+            <ThemeToggleButton />
 
-            <Box
-              display={{base: 'inline-block', xl: 'none'}}
-              ml={2}
-            >
+            <Box display={{ base: "inline-block", xl: "none" }} ml={2}>
               <Menu isLazy id="navbar-menu">
                 <MenuButton
                   as={IconButton}
-                  icon={<HamburgerIcon/>}
-                  variant='none'
+                  icon={<HamburgerIcon />}
+                  variant="none"
                   aria-label="Options"
                 />
                 <MenuList>
-                  <Button variant='none'>
-                    <a href='tel:+78002347878'>8 800 234-78-78</a>
+                  <Button variant="none">
+                    <a href="tel:+78002347878">8 800 234-78-78</a>
                   </Button>
-                  <NextLink href='/' passHref>
+                  <NextLink href="/" passHref>
                     <MenuItem as={Link}>Главная</MenuItem>
                   </NextLink>
-                  <NextLink href='/production' passHref>
-                    <MenuItem as={Link}>Продукция</MenuItem>
-                  </NextLink>
-                  <NextLink href='/posts' passHref>
+                  <Container alignSelf="center" variant="none">
+                    <Menu isOpen={isOpen}>
+                      <MenuButton
+                        border="0"
+                        onMouseEnter={onOpen}
+                        onMouseLeave={onClose}
+                      >
+                        Продукция{" "}
+                        {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                      </MenuButton>
+                      <MenuList
+                        onClick={onClose}
+                        onMouseEnter={onOpen}
+                        onMouseLeave={onClose}
+                      >
+                        {ProductItems.map((product, index) => {
+                          return (
+                            <MenuItem key={index}>
+                              <NextLink href={`/${product}`}>
+                                {product}
+                              </NextLink>
+                            </MenuItem>
+                          );
+                        })}
+                      </MenuList>
+                    </Menu>
+                  </Container>
+                  <NextLink href="/posts" passHref>
                     <MenuItem as={Link}>Документация</MenuItem>
                   </NextLink>
-                  <NextLink href='/posts' passHref>
+                  <NextLink href="/posts" passHref>
                     <MenuItem as={Link}>Дистрибьюция</MenuItem>
                   </NextLink>
-                  <NextLink href='/news' passHref>
+                  <NextLink href="/news" passHref>
                     <MenuItem as={Link}>Новости</MenuItem>
                   </NextLink>
-                  <NextLink href='/contacts' passHref>
+                  <NextLink href="/contacts" passHref>
                     <MenuItem as={Link}>Контакты</MenuItem>
                   </NextLink>
-
                 </MenuList>
               </Menu>
             </Box>
@@ -217,7 +250,7 @@ const Navbar = (props) => {
         </Flex>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

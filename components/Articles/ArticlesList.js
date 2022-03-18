@@ -11,10 +11,10 @@ const ArticleList = ({articles}) => {
             key={article.id}
             p={6}
             w='100%'
-            border='2px solid #EDF2F7'
+            border='1px solid #EDF2F7'
             rounded={4}
             _hover={{
-              color: 'blue.500'
+              color: 'brand.600'
             }}
           >
             <ArticleItem article={article}/>

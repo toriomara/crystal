@@ -1,15 +1,17 @@
 import React, {useState} from 'react'
 import {Button, Heading} from '@chakra-ui/react'
 import {AnimatePresence, motion} from 'framer-motion'
+import Subscribe from '../components/Subscribe/Subscribe'
 
 const MotionButton = motion(Button)
 
 const Distribution = () => {
 
-  const [modalOpen, setModalOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
 
-  const close = () => setModalOpen(false)
-  const open = () => setModalOpen(true)
 
   return (
     <div>
@@ -18,10 +20,11 @@ const Distribution = () => {
         whileHover={{scale: 1.1}}
         whileTap={{scale: 0.9}}
         variant='outline'
-        onClick={() => (modalOpen ? close() : open())}
+        onClick={handleClick}
       >
         Modal
       </MotionButton>
+      {isOpen && <Subscribe setIsOpen/>} 
     </div>
   )
 }

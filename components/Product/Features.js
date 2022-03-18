@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 const FeatureItem = ({ children }) => {
   return (
@@ -24,7 +25,19 @@ const FeatureItem = ({ children }) => {
 };
 
 const MyHeading = motion(Heading);
+
 export const Features = ({ name, temperature, volume, packaging, more }) => {
+
+  // const [isClick, setIsClick] = useState(false);
+
+  // useEffect(() => {
+  //   function onClick() {}
+
+  //   return () => {
+  //     second;
+  //   };
+  // }, [FeatureItem]);
+
   return (
     <Grid
       spacing={6}

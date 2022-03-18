@@ -50,7 +50,7 @@ const Icon = styled.div`
   cursor: pointer;
 `
 
-const Modal = ({setIsOpen}) => {
+const MapModal = ({setIsOpen}) => {
 
   const ref = useRef(null)
   useClickOutside(ref, () => setIsOpen(false))
@@ -86,4 +86,4 @@ const Modal = ({setIsOpen}) => {
   )
 }
 
-export default Modal
+export default MapModal

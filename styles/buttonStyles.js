@@ -1,5 +1,5 @@
-import {mode, darken, whiten} from '@chakra-ui/theme-tools'
-import {useColorModeValue} from '@chakra-ui/react'
+import { mode, darken, whiten } from "@chakra-ui/theme-tools";
+import { useColorModeValue } from "@chakra-ui/react";
 
 export const ButtonStyles = {
   // style object for base or default style
@@ -9,48 +9,41 @@ export const ButtonStyles = {
   // styles for different visual variants ("outline", "solid")
   variants: {
     primary: (props) => ({
-      bg: useColorModeValue('primary', 'primary'),
-      color: 'white',
-      fontWeight: 'regular',
+      bg: useColorModeValue("brand.100", "brand.600"),
+      color: "white",
+      fontWeight: "regular",
       _hover: {
-        bg: mode(darken('primary', 10), whiten('primary', 20))(props),
-        boxShadow: 'md'
+        bg: mode(whiten("brand.100", 10), darken("brand.600", 20))(props),
+        boxShadow: "md",
       },
       _focus: {
-        outline: 'none'
-      }
+        outline: "none",
+      },
     }),
     secondary: (props) => ({
-      bg: 'secondaryDark',
-      color: 'white',
-      fontWeight: 'regular',
+      bg: useColorModeValue("brand.50", "brand.50"),
+      color: "white",
+      fontWeight: "regular",
+      fontFamily: "Montserrat",
       _hover: {
-        bg: mode(darken('secondaryDark', 20), whiten('secondaryDark', 20))(props),
-        color: useColorModeValue('white', 'white'),
-        boxShadow: 'md'
-      }
+        bg: mode(whiten("brand.50", 30), darken("brand.50", 20))(props),
+        boxShadow: "md",
+      },
     }),
-    outline: (props) => ({
-      bg: 'transparent',
-      color: useColorModeValue('black', 'white'),
-      borderColor: '1px solid',
-      fontWeight: 'regular',
+    outlined: (props) => ({
+      bg: useColorModeValue("white", "gray.100"),
+      color: "brand.100",
+      border: "1px",
+      borderColor: "brand.100",
+      fontWeight: "500",
+      fontFamily: "Montserrat",
       _hover: {
-        bg: mode(darken('alternative', 20), whiten('alternative', 20))(props),
-        boxShadow: 'md'
-      }
-    }),
-    inverse: (props) => ({
-      bg: 'transparent',
-      color: useColorModeValue('black', 'white'),
-      border: '1px solid #EDF2F7',
-      fontWeight: 'regular',
-      _hover: {
-        bg: mode(darken('secondaryDark', 20), whiten('secondary', 20))(props),
-        color: useColorModeValue('white', 'black'),
-      }
+        bg: useColorModeValue("brand.100", "brand.100"),
+        color: useColorModeValue("white", "white"),
+        boxShadow: "md",
+      },
     }),
   },
   // default values for `size` and `variant`
   defaultProps: {},
-}
+};

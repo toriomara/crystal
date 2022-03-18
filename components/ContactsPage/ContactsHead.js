@@ -2,105 +2,123 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
-  TableCaption, Heading, Box, Text, Divider, Link,
-} from '@chakra-ui/react'
-import {motion} from 'framer-motion'
-import styled from "@emotion/styled";
-
-const Item = styled.a`
-  position: relative;
-
-  ::after {
-    display: inline-block;
-    position: absolute;
-    content: '';
-    width: 100%;
-    left: 0;
-    bottom: -4px;
-    height: 3px;
-    border-radius: 10%;
-    background-color: #C53030;
-    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
-    transform-origin: bottom;
-    transform: scaleX(0);
-  }
-
-  :hover::after {
-    transform: scaleX(1);
-  }
-
-  :hover {
-    color: #C53030;
-  }
-`
+  TableCaption,
+  Heading,
+  Box,
+  Divider,
+  useColorModeValue,
+  //useColorMode
+} from "@chakra-ui/react";
+import { SimpleLink } from "../../styles/link";
 
 export const ContactsHead = () => {
+  //const { toggleColorMode } = useColorMode()
+  const textColor = useColorModeValue("black", "gray.200");
+
   return (
-    <Box mt={6}>
-      <Heading as='h1' variant='h1' mb={1}>
+    <Box mt={6} color={textColor}>
+      <Heading as="h1" variant="h1" mb={6}>
         Контактная информация
       </Heading>
-      <Heading variant='h2' mb={3}>
+      <Heading variant="h2" mb={3}>
         Волгоград
       </Heading>
-      <Heading variant='h3' mb={3}>
-        <Item href='tel:+7844238-44-66' textDecoration='none'>
-            +7 (8442) 38-44-66
-        </Item>
+      <Heading variant="h3" mb={3}>
+        <SimpleLink href="tel:+7844238-44-66">+7 (8442) 38-44-66</SimpleLink>
       </Heading>
-      <Heading variant='h4' mb={3}>
-        <Item href='mailto:mail@korund34.ru'>
-          mail@korund34.ru
-        </Item>
+      <Heading variant="h4" mb={3}>
+        <SimpleLink href="mailto:mail@korund34.ru">mail@korund34.ru</SimpleLink>
       </Heading>
-      <Heading variant='h6' mb={3}>
+      <Heading variant="h6" mb={3}>
         400131, г. Волгоград, ул. имени маршала Чуйкова, 33
       </Heading>
-      <Heading variant='h7' mb={8}>
-        График работы<br/> ПН-ПТ (10.00 - 18.00)
+      <Heading variant="h7" mb={8} lineHeight={1.5}>
+        График работы
+        <br /> ПН-ПТ (10.00 - 18.00)
       </Heading>
-      <Divider/>
-      <Table variant='simple' size='md' fontFamily='Jost'>
+      <Divider />
+      <Table
+        variant="simple"
+        size="md"
+        fontFamily="Jost"
+        colorScheme={useColorModeValue("gray", "gray.800")}
+      >
         <TableCaption></TableCaption>
         <Thead>
-          <Tr lineHeight={1.5}>
-            <Th fontFamily='Jost' px={0} width='25%'>Директор</Th>
-            <Td lineHeight={1.5} px={0} textAlign='right'>+7 (8442) 50-40-42<br/>chief@korund34.ru</Td>
+          <Tr>
+            <Th fontFamily="Jost" px={0} width="25%" color={textColor}>
+              Директор
+            </Th>
+            <Td lineHeight={1.7} px={0} textAlign="right">
+              <SimpleLink href="tel:+7844250-40-42">
+                +7 (8442) 50-40-42
+              </SimpleLink>
+              <br />
+              <SimpleLink href="mailto:chief@korund34.ru">
+                chief@korund34.ru
+              </SimpleLink>
+            </Td>
           </Tr>
         </Thead>
         <Tbody>
           <Tr>
-            <Th lineHeight={1.5} fontFamily='Jost' px={0}>Заместитель директора по техническим, производственныи и
-              технологическим вопросам</Th>
-            <Td textAlign='right' px={0}>+7 (8442) 50-40-82</Td>
+            <Th lineHeight={1.7} fontFamily="Jost" px={0} color={textColor}>
+              Заместитель директора по техническим, производственныи и
+              технологическим вопросам
+            </Th>
+            <Td textAlign="right" px={0}>
+              <SimpleLink href="tel:+7844250-40-82">
+                +7 (8442) 50-40-82
+              </SimpleLink>
+            </Td>
           </Tr>
           <Tr>
-            <Th lineHeight={1.5} fontFamily='Jost' px={0}>Отдел внешней экономической деятельности</Th>
-            <Td textAlign='right' px={0}>+7 (8442) 50-40-31<br/>export@korund34.ru</Td>
-          </Tr>
-          {/*<Tr>
-            <Th lineHeight={1.5} fontFamily='Jost' px={0}>Производственный отдел</Th>
-            <Td textAlign='right' px={0}>+7 (8442) 50-40-82<br/>produce@korund34.ru</Td>
-          </Tr>
-          <Tr>
-            <Th lineHeight={1.5} fontFamily='Jost' px={0}>Технический отдел</Th>
-            <Td textAlign='right' px={0}>+7 (8442) 50-40-42<br/>tech@korund34.ru</Td>
-          </Tr>*/}
-          <Tr>
-            <Th lineHeight={1.5} fontFamily='Jost' px={0}>Снабжение</Th>
-            <Td textAlign='right' px={0}>+7 (8442) 50-40-13<br/>tech@korund34.ru</Td>
+            <Th lineHeight={1.7} fontFamily="Jost" px={0} color={textColor}>
+              Отдел внешней экономической деятельности
+            </Th>
+            <Td lineHeight={1.7} textAlign="right" px={0}>
+              <SimpleLink href="tel:+7844250-40-31">
+                +7 (8442) 50-40-31
+              </SimpleLink>
+              <br />
+              <SimpleLink href="mailto:export@korund34.ru">
+                export@korund34.ru
+              </SimpleLink>
+            </Td>
           </Tr>
           <Tr>
-            <Th lineHeight={1.5} fontFamily='Jost' px={0}>Бухгалтерия</Th>
-            <Td textAlign='right' px={0}>+7 (8442) 50-40-12<br/>count@korund34.ru</Td>
+            <Th lineHeight={1.7} fontFamily="Jost" px={0} color={textColor}>
+              Снабжение
+            </Th>
+            <Td lineHeight={1.7} textAlign="right" px={0}>
+              <SimpleLink href="tel:+7844250-40-13">
+                +7 (8442) 50-40-13
+              </SimpleLink>
+              <br />
+              <SimpleLink href="mailto:tech@korund34.ru">
+                tech@korund34.ru
+              </SimpleLink>
+            </Td>
+          </Tr>
+          <Tr>
+            <Th lineHeight={1.7} fontFamily="Jost" px={0} color={textColor}>
+              Бухгалтерия
+            </Th>
+            <Td lineHeight={1.7} textAlign="right" px={0}>
+              <SimpleLink href="tel:+7844250-40-12">
+                +7 (8442) 50-40-12
+              </SimpleLink>
+              <br />
+              <SimpleLink href="mailto:count@korund34.ru">
+                count@korund34.ru
+              </SimpleLink>
+            </Td>
           </Tr>
         </Tbody>
       </Table>
     </Box>
-  )
-}
-
+  );
+};
