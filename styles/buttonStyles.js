@@ -3,7 +3,9 @@ import { useColorModeValue } from "@chakra-ui/react";
 
 export const ButtonStyles = {
   // style object for base or default style
-  baseStyle: {},
+  baseStyle: {
+    fontFamily: "Montserrat",
+  },
   // styles for different sizes ("sm", "md", "lg")
   sizes: {},
   // styles for different visual variants ("outline", "solid")

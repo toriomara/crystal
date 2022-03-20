@@ -34,14 +34,12 @@ const Carousel = () => {
             return (
               <MotionBox
                 key={image}
-                //minHeight='40rem'
                 minWidth='30rem'
                 padding='30px'
               >
                 <Image
                   src={image}
                   alt='image'
-                  borderRadius='2rem'
                   placeholder='blur'
                 />
               </MotionBox>

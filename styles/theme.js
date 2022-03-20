@@ -1,6 +1,11 @@
 import { extendTheme } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
+import { mode, createBreakpoints  } from "@chakra-ui/theme-tools";
 import { ButtonStyles as Button } from "../styles/buttonStyles";
+
+const config = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
 
 const styles = {
   global: (props) => ({
@@ -18,7 +23,6 @@ const styles = {
       },
       "::-webkit-scrollbar": {
         width: "16px",
-        height: "56px",
         background: "white",
       },
       "::-webkit-scrollbar-thumb": {
@@ -34,6 +38,16 @@ const styles = {
     },
   }),
 };
+
+const breakpoints = createBreakpoints({
+  sm: '320px',
+  bsm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+  xxl: '1400px',
+  '3xl': '1536px',
+})
 
 const components = {
   Heading: {
@@ -89,12 +103,13 @@ const components = {
 };
 
 const fonts = {
-  //heading: 'EB Garamond, serif',
-  heading: 'Montserrat,sans-serif',
+  body: 'Montserrat,sans-serif',
+  heading: '"EB Garamond", serif',
   //heading: 'Nunito, sans-serif',
-  //body: 'Open Sans, sans-serif'
-  //heading: 'Murecho, sans-serif',
-  body: 'Jost, sans-serif',
+  //body: 'Open Sans, sans-serif',
+  //body: 'Murecho, sans-serif',
+  //body: 'Jost, sans-serif',
+  //body: "Inter, sans-serif"
 };
 
 const colors = {
@@ -118,10 +133,5 @@ const colors = {
   // alt: "#A8AD9C",
 };
 
-const config = {
-  initialColorMode: "light",
-  useSystemColorMode: false,
-};
-
-const theme = extendTheme({ config, styles, components, fonts, colors });
+const theme = extendTheme({ config, styles, components, fonts, colors, breakpoints });
 export default theme;

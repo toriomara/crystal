@@ -15,7 +15,7 @@ const ProductItems = products.map((p) => p.name);
 
 const ProductBar = ({ href, path, products }) => {
   return (
-    <Grid pt={6}>
+    <Grid>
       <Grid templateRows="repeat(4, 1fr)" gap={3}>
         {ProductItems.map((product, index) => {
           //const active = path === href
@@ -33,7 +33,7 @@ const ProductBar = ({ href, path, products }) => {
               }}
             >
               <NextLink href={`/${product}`}>
-                <Button variant="secondary" w="100%" height="60px">
+                <Button variant="outlined" w="100%" height="60px">
                   {product}
                 </Button>
               </NextLink>

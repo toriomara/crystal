@@ -1,6 +1,7 @@
 import {Container, Flex} from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import Navbar from '../components/Navbar/Navbar'
+import Navi from '../components/Navbar/Navi'
 import {Footer} from '../components/Footer/Footer'
 import Meta from '../components/Meta'
 
@@ -15,11 +16,12 @@ const Main = ({children, router, ...props}) => {
   return (
     <MainWrapper as="main">
       <Meta/>
-      <Navbar path={router.asPath}/>
+      {/* <Navbar path={router.asPath}/> */}
+      <Navi/>
       <Container flex={'1 0'} maxW="container.xl" mx='auto' my={70}>
         {children}
       </Container>
-      <Footer/>
+      {/* <Footer/> */}
     </MainWrapper>
   )
 }

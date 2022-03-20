@@ -20,10 +20,9 @@ import {ContactRequest} from '../components/ContactsPage/ContactRequest'
 
 const Contacts = () => {
   return (
-    <Box maxW='8xl'>
+    <Box>
       <ContactsHead/>
       <ContactDiler/>
-
       <ContactForm/>
      {/* <Box border='1px solid #EDF2F7' p={4} rounded={4}>
         <AspectRatio ratio={16 / 9} borderRadius={4}>
@@ -33,7 +32,7 @@ const Contacts = () => {
         </AspectRatio>
       </Box>*/}
       <ContactRequest/>
-      {/*<ContactCard/>*/}
+      <ContactCard/>
     </Box>
 
   )

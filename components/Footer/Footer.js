@@ -36,7 +36,7 @@ const LinkItem = ({ href, children }) => (
   <Link
     href={href}
     display="inline-flex"
-    lineHeight="1.4"
+    lineHeight="1.3"
     textDecoration="none"
     transition=".3s ease"
     color={useColorModeValue("gray.600", "gray.300")}
@@ -54,7 +54,7 @@ const LinkItem = ({ href, children }) => (
 );
 
 export const IconItem = styled(Link)`
-margin-top: 2px;
+  margin-top: 2px;
   display: inline-flex;
   color: #4a5568;
   padding: 0 8px 0 0;
@@ -62,9 +62,8 @@ margin-top: 2px;
 
 const FooterHeading = ({ children }) => (
   <Heading
-    fontFamily="Jost, sans-serif"
-    as="h4"
-    mb="4"
+    fontFamily="Montserrat"
+    mb={3}
     color={useColorModeValue("gray.600", "gray.100")}
     fontSize="sm"
     fontWeight="semibold"
@@ -97,11 +96,14 @@ export const Footer = () => {
 
   return (
     <Box
+      pt={5}
       role="contentinfo"
       w="100%"
-      //bg={useColorModeValue("secondary", "gray.50")}
+      //w={[320, 576, 700, 900, 1100, 1300, 1450, 'full']}
       bg={bgColor}
       color={useColorModeValue("gray.700", "gray.200")}
+      fontSize='15px'
+      fontWeight={500}
     >
       <Container
         display="flex"
@@ -125,7 +127,7 @@ export const Footer = () => {
 
             <Stack align={"flex-start"}>
               <FooterHeading>Информация</FooterHeading>
-              <LinkItem>О нас</LinkItem>
+              <LinkItem href="/about">О нас</LinkItem>
               <LinkItem>Новости</LinkItem>
               <LinkItem>Продукция</LinkItem>
               <LinkItem>Документация</LinkItem>
@@ -143,8 +145,8 @@ export const Footer = () => {
               <FooterHeading>Контакты</FooterHeading>
 
               <LinkItem>
-                <IconItem fill='brand.600'>
-                  <FaMapMarkerAlt fontSize="16px" fill='brand.600'/>
+                <IconItem fill="brand.600">
+                  <FaMapMarkerAlt fill="brand.600" />
                 </IconItem>
                 <span onClick={handleClick}>
                   400019, Россия, <br />
@@ -155,35 +157,27 @@ export const Footer = () => {
               {isOpen && <MapModal setIsOpen={setIsOpen} />}
 
               <LinkItem href="mailto:mail@korund34.ru">
-                  <IconItem fill='brand.600'>
-                    <FaEnvelope fontSize="16px" fill='brand.600'/>
-                  </IconItem>
-                  mail@korund34.ru
+                <IconItem fill="brand.600">
+                  <FaEnvelope fill="brand.600" />
+                </IconItem>
+                mail@korund34.ru
               </LinkItem>
               <LinkItem href="tel:+7844238-44-66">
-                  <IconItem fill='brand.600'>
-                    <FaPhone fontSize="16px" fill='brand.600'/>
-                  </IconItem>
-                  +7 (8442) 38-44-66 (факс)
+                <IconItem fill="brand.600">
+                  <FaPhone fill="brand.600" />
+                </IconItem>
+                +7 (8442) 38-44-66 (факс)
               </LinkItem>
 
               <LinkItem href="tel:+78442504012">+7 (8442) 50-40-12</LinkItem>
 
-              <LinkItem href="tel:+78442504013">
-                  +7 (8442) 50-40-13
-              </LinkItem>
+              <LinkItem href="tel:+78442504013">+7 (8442) 50-40-13</LinkItem>
 
-              <LinkItem href="tel:+78442504031">
-                  +7 (8442) 50-40-31
-              </LinkItem>
+              <LinkItem href="tel:+78442504031">+7 (8442) 50-40-31</LinkItem>
 
-              <LinkItem href="tel:+78442504042">
-                  +7 (8442) 50-40-42
-              </LinkItem>
+              <LinkItem href="tel:+78442504042">+7 (8442) 50-40-42</LinkItem>
 
-              <LinkItem href="tel:+78442504082">
-                  +7 (8442) 50-40-82
-              </LinkItem>
+              <LinkItem href="tel:+78442504082">+7 (8442) 50-40-82</LinkItem>
 
               <LinkItem></LinkItem>
             </Stack>

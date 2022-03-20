@@ -39,10 +39,10 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
   // }, [FeatureItem]);
 
   return (
-    <Grid
-      spacing={6}
-      templateColumns="repeat(4, 1fr)"
-      justifyContent="space-between"
+    <Flex
+      spacing={4}
+      //templateColumns="repeat(4, 1fr)"
+      //justifyContent="space-between"
       gap={4}
     >
       <FeatureItem>
@@ -163,6 +163,6 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
           </StatNumber>
         </Stat>
       </FeatureItem>
-    </Grid>
+    </Flex>
   );
 };
