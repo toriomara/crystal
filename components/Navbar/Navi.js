@@ -245,41 +245,59 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: 'Inspiration',
+    label: 'Главная',
+    href: '/',
+  },
+  {
+    label: 'Продукция',
     children: [
       {
-        label: 'Explore Design Work',
+        label: 'КОРУНД-Классик',
         subLabel: 'Trending Design to inspire you',
+        href: '/КОРУНД-Классик',
+      },
+      {
+        label: 'КОРУНД-Фасад',
+        subLabel: 'Up-and-coming Designers',
+        href: '/КОРУНД-Фасад',
+      },
+      {
+        label: 'КОРУНД-Антикор',
+        subLabel: '/КОРУНД-Антикор',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
+        label: 'КОРУНД-Зима',
         subLabel: 'Up-and-coming Designers',
-        href: '#',
+        href: '/КОРУНД-Зима',
       },
     ],
   },
   {
-    label: 'Find Work',
+    label: 'Документация',
     children: [
       {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
+        label: 'Техническая документация',
+        subLabel: 'Характеристика, презентации и пр.',
+        href: '/documentation',
       },
       {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
+        label: 'Уставные документы',
+        subLabel: 'Устав, лицензия, патенты и пр.',
+        href: '/documentation',
       },
     ],
   },
   {
-    label: 'Learn Design',
-    href: '#',
+    label: 'Новости',
+    href: '/news',
   },
   {
-    label: 'Hire Designers',
-    href: '#',
+    label: 'Дистрибьюция',
+    href: '/distribution',
+  },
+  {
+    label: 'Контакты',
+    href: '/contacts',
   },
 ];

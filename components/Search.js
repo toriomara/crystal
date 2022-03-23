@@ -14,7 +14,6 @@ const SearchBar = () => {
     <div>
       <Button
         variant='none'
-        _focus='none'
         onClick={onOpen}
       >
         <SearchIcon/>

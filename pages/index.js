@@ -5,7 +5,7 @@ import Carousel from '../components/HomePage/Carousel'
 
 const Index = () => {
   return (
-      <Box maxW='xxl'>
+      <Box>
         <CallToActionWithIllustration/>
         <CallToActionWithVideo/>
         <Carousel/>
