@@ -40,11 +40,11 @@ const styles = {
 };
 
 const breakpoints = createBreakpoints({
-  sm: "30em",
-  md: "48em",
-  lg: "62em",
-  xl: "80em",
-  "2xl": "96em",
+  sm: "30rem",
+  md: "48rem",
+  lg: "62rem",
+  xl: "80rem",
+  "2xl": "96rem",
 });
 
 const components = {

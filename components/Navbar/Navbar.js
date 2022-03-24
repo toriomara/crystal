@@ -37,6 +37,7 @@ const LinkItem = ({ href, path, children, ...props }) => {
       <Link
         p={3}
         fontSize={16}
+        whiteSpace="nowrap"
         color={useColorModeValue(
           active ? "brand.50" : "black",
           active ? "brand.50" : "gray.200"
@@ -70,7 +71,6 @@ export const Navbar = (props) => {
         {...props}
       >
         <Container
-          minHeight="80px"
           flexDirection="row"
           alignItems="center"
           maxW="8xl"
@@ -81,7 +81,7 @@ export const Navbar = (props) => {
             md: "4",
           }}
         >
-          <Flex>
+          <Flex minHeight="80px">
             <HStack>
               <Logo />
             </HStack>
@@ -89,7 +89,7 @@ export const Navbar = (props) => {
             <DesktopNav href path={path} />
             <Spacer />
             <HStack display={{ base: "sm", md: "flex" }}>
-              <SearchBar />
+              <SearchBar display={{ base: "sm", md: "flex" }} />
               <Button as="a" href="tel:+78002347878" variant="none">
                 <span>8 800 234-78-78</span>
               </Button>

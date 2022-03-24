@@ -1,6 +1,6 @@
 import React from 'react';
 import {SearchIcon} from "@chakra-ui/icons";
-import {Button, Input, Stack, useDisclosure} from "@chakra-ui/react";
+import {Button, Flex, Input, Stack, useDisclosure} from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
@@ -11,7 +11,7 @@ const SearchBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
-    <div>
+    <Flex>
       <Button
         variant='none'
         onClick={onOpen}
@@ -28,7 +28,7 @@ const SearchBar = () => {
 
         </ModalContent>
       </Modal>
-    </div>
+    </Flex>
   );
 };
 
