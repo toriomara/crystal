@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { IconButton, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { SunIcon } from "@chakra-ui/icons";
-import { HiMoon } from "react-icons/hi";
+import { BsMoon } from "react-icons/bs";
 import { Tooltip } from "@chakra-ui/react";
 
 const ThemeToggleButton = () => {
@@ -25,7 +25,7 @@ const ThemeToggleButton = () => {
             variant="none"
             aria-label="Toggle theme"
             colorScheme={useColorModeValue("white", "white")}
-            icon={useColorModeValue(<HiMoon fontSize="20px" />, <SunIcon />)}
+            icon={useColorModeValue(<BsMoon />, <SunIcon />)}
             onClick={toggleColorMode}
           />
         </Tooltip>

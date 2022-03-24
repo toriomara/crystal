@@ -36,7 +36,7 @@ const LinkItem = ({ href, path, children, ...props }) => {
     <NextLink href={href} passHref>
       <Link
         p={3}
-        fontSize={15}
+        fontSize={16}
         whiteSpace="nowrap"
         color={useColorModeValue(
           active ? "brand.50" : "black",
@@ -58,72 +58,69 @@ export const Navbar = (props) => {
   const { path } = props;
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <>
-      <Box
-        //top="100px"
-        position="fixed"
-        as="nav"
-        w="100%"
-        justify="center"
-        bg={useColorModeValue("#ffffff40", "#20202380")}
-        css={{ backdropFilter: "blur(10px)" }}
-        zIndex={1}
-        {...props}
+    <Box
+      position="fixed"
+      as="nav"
+      w="100%"
+      justify="center"
+      bg={useColorModeValue("#ffffff40", "#20202380")}
+      css={{ backdropFilter: "blur(10px)" }}
+      zIndex={1}
+      {...props}
+    >
+      <Container
+        flexDirection="row"
+        alignItems="center"
+        maxW="8xl"
+        wrap="nowrap"
+        p={2}
+        px={{
+          base: "4",
+          md: "4",
+        }}
       >
-        <Container
-          flexDirection="row"
-          alignItems="center"
-          maxW="8xl"
-          wrap="nowrap"
-          p={2}
-          px={{
-            base: "4",
-            md: "4",
-          }}
-        >
-          <Flex minHeight="80px">
-            <HStack>
-              <Logo />
-            </HStack>
+        <Flex minHeight="80px">
+          <HStack>
+            <Logo />
+          </HStack>
 
-            <Spacer />
-            <DesktopNav href path={path} />
-            <Spacer />
+          <Spacer />
+          <DesktopNav href path={path} />
+          <Spacer />
 
-            <HStack>
-              <SearchBar display={{ base: "sm", md: "flex" }} />
-              <Button
-                as="a"
-                href="tel:+78002347878"
-                variant="none"
-                display={{ base: "none", md: 'flex' }}
-              >
+          <HStack>
+            <Flex display={{ base: "none", sm: "flex" }}>
+              <SearchBar />
+            </Flex>
+            <Flex display={{ base: "none", sm: "flex" }}>
+              <Button as="a" href="tel:+78002347878" variant="none">
                 <span>8 800 234-78-78</span>
               </Button>
-              <Lang />
-              <ThemeToggleButton />
-              <IconButton
-                display={{ base: "inline-block", xl: "none" }}
-                onClick={onToggle}
-                icon={
-                  isOpen ? (
-                    <CloseIcon w={3} h={3} />
-                  ) : (
-                    <HamburgerIcon w={5} h={5} />
-                  )
-                }
-                variant={"ghost"}
-                aria-label={"Toggle Navigation"}
-              />
-            </HStack>
-          </Flex>
-          <Collapse in={isOpen} animateOpacity>
-            <MobileNav />
-          </Collapse>
-        </Container>
-      </Box>
-      {/* <Navi /> */}
-    </>
+            </Flex>
+            <Lang />
+            <Flex display={{ base: "none", sm: "flex" }}>
+              <ThemeToggleButton display={{ base: "none" }} />
+            </Flex>
+            <IconButton //
+              display={{ base: "inline-block", xl: "none" }}
+              onClick={onToggle}
+              icon={
+                isOpen ? (
+                  <CloseIcon w={3} h={3} />
+                ) : (
+                  <HamburgerIcon w={5} h={5} />
+                )
+              }
+              variant={"ghost"}
+              aria-label={"Toggle Navigation"}
+            />
+          </HStack>
+        </Flex>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav />
+        </Collapse>
+      </Container>
+    </Box>
   );
 };
 
@@ -173,7 +170,7 @@ const DesktopNav = ({ href, path, ...props }) => {
 
 const DesktopChildNav = ({ label, href, childLabel }) => {
   return (
-    <Link
+    <LinkItem
       href={href}
       role={"group"}
       display={"block"}
@@ -204,7 +201,7 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
           <Icon color={"brand.50"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
-    </Link>
+    </LinkItem>
   );
 };
 

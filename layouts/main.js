@@ -17,11 +17,10 @@ const Main = ({children, router, ...props}) => {
     <MainWrapper as="main">
       <Meta/>
       <Navbar path={router.asPath}/>
-      {/* <Navi/> */}
       <Container flex={'1 0'} maxW="container.xl" mx='auto' my={70}>
         {children}
       </Container>
-      {/* <Footer/> */}
+      <Footer/>
     </MainWrapper>
   )
 }

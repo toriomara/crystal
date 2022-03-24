@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import {IoLanguageOutline} from 'react-icons/io5'
+import {MdLanguage} from 'react-icons/md'
 
 export const Lang = () => {
   return (
@@ -11,7 +11,7 @@ export const Lang = () => {
         colorScheme="black"
         variant="ghost"
       >
-        <IoLanguageOutline fontSize={20}/>
+        <MdLanguage fontSize={20}/>
       </MenuButton>
       <MenuList>
         <MenuItem>EN</MenuItem>
