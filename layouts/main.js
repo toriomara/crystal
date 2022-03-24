@@ -21,7 +21,7 @@ const Main = ({children, router, ...props}) => {
       <Container flex={'1 0'} maxW="container.xl" mx='auto' my={70}>
         {children}
       </Container>
-      <Footer/>
+      {/* <Footer/> */}
     </MainWrapper>
   )
 }

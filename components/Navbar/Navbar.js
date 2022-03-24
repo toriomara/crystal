@@ -36,7 +36,7 @@ const LinkItem = ({ href, path, children, ...props }) => {
     <NextLink href={href} passHref>
       <Link
         p={3}
-        fontSize={16}
+        fontSize={15}
         whiteSpace="nowrap"
         color={useColorModeValue(
           active ? "brand.50" : "black",
@@ -85,12 +85,19 @@ export const Navbar = (props) => {
             <HStack>
               <Logo />
             </HStack>
+
             <Spacer />
             <DesktopNav href path={path} />
             <Spacer />
-            <HStack display={{ base: "sm", md: "flex" }}>
+
+            <HStack>
               <SearchBar display={{ base: "sm", md: "flex" }} />
-              <Button as="a" href="tel:+78002347878" variant="none">
+              <Button
+                as="a"
+                href="tel:+78002347878"
+                variant="none"
+                display={{ base: "none", md: 'flex' }}
+              >
                 <span>8 800 234-78-78</span>
               </Button>
               <Lang />
@@ -204,9 +211,9 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue("white", "gray.800")}
       p={4}
-      display={{ md: "none" }}
+      bg={useColorModeValue("white", "gray.800")}
+      display={{ base: "inline-block", md: "none" }}
     >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
