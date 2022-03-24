@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import { mode, createBreakpoints  } from "@chakra-ui/theme-tools";
+import { mode, createBreakpoints } from "@chakra-ui/theme-tools";
 import { ButtonStyles as Button } from "../styles/buttonStyles";
 
 const config = {
@@ -40,12 +40,12 @@ const styles = {
 };
 
 const breakpoints = createBreakpoints({
-  sm: '30em',
-  md: '48em',
-  lg: '62em',
-  xl: '80em',
-  '2xl': '96em',
-})
+  sm: "30em",
+  md: "48em",
+  lg: "62em",
+  xl: "80em",
+  "2xl": "96em",
+});
 
 const components = {
   Heading: {
@@ -67,27 +67,37 @@ const components = {
       },
       h1: {
         fontSize: "4xl",
+        fontFamily: "Montserrat",
       },
       h2: {
         fontSize: "3xl",
+        fontFamily: "Montserrat",
       },
       h3: {
         fontSize: "2xl",
       },
       h4: {
         fontSize: "xl",
+        fontFamily: "Montserrat",
       },
       h5: {
         fontSize: "lg",
+        fontFamily: "Montserrat",
       },
       h6: {
         fontSize: "md",
+        fontFamily: "Montserrat",
       },
       h7: {
         fontSize: "sm",
+        fontFamily: "Montserrat",
       },
       h8: {
         fontSize: "xs",
+        fontFamily: "Montserrat",
+      },
+      table: {
+        fontFamily: "Montserrat",
       },
     },
   },
@@ -101,7 +111,7 @@ const components = {
 };
 
 const fonts = {
-  body: 'Montserrat,sans-serif',
+  body: "Montserrat, sans-serif",
   heading: '"EB Garamond", serif',
   //heading: 'Nunito, sans-serif',
   //body: 'Open Sans, sans-serif',
@@ -112,15 +122,15 @@ const fonts = {
 
 const colors = {
   brand: {
-    50: "#D2202F",//red Main color on https://mycolor.space/?hex=%23D2202F&sub=1
-    100: "#043f76",//brandedBlue
-    200: "#DA1266",//pink
-    300: "#CC359A",//orchid
-    400: "#A757C7",//violet
-    500: "#6574E4",//MediumSlateBlue
-    600: "#0075EE",//DeepSkyBlue
-    700: "#79AF07"//LimeGreen
-  }
+    50: "#D2202F", //red Main color on https://mycolor.space/?hex=%23D2202F&sub=1
+    100: "#043f76", //brandedBlue
+    200: "#DA1266", //pink
+    300: "#CC359A", //orchid
+    400: "#A757C7", //violet
+    500: "#6574E4", //MediumSlateBlue
+    600: "#0075EE", //DeepSkyBlue
+    700: "#79AF07", //LimeGreen
+  },
   // primary: "#C53030",
   // secondary: "#EDF2F7",
   // secondaryDark: "#656768",
@@ -131,5 +141,12 @@ const colors = {
   // alt: "#A8AD9C",
 };
 
-const theme = extendTheme({ config, styles, components, fonts, colors, breakpoints });
+const theme = extendTheme({
+  config,
+  styles,
+  components,
+  fonts,
+  colors,
+  breakpoints,
+});
 export default theme;

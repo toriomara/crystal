@@ -19,14 +19,14 @@ export const ContactsHead = () => {
   const textColor = useColorModeValue("black", "gray.200");
 
   return (
-    <Box mt={6} color={textColor}>
+    <Box mt={6} color={textColor} >
       <Heading as="h1" variant="h1" mb={6}>
         Контактная информация
       </Heading>
       <Heading variant="h2" mb={3}>
         Волгоград
       </Heading>
-      <Heading variant="h3" mb={3}>
+      <Heading variant="h3" mb={3} fontFamily='Montserrat'>
         <SimpleLink href="tel:+7844238-44-66">+7 (8442) 38-44-66</SimpleLink>
       </Heading>
       <Heading variant="h4" mb={3}>
@@ -43,16 +43,16 @@ export const ContactsHead = () => {
       <Table
         variant="simple"
         size="md"
-        fontFamily="Jost"
+        fontFamily="Montserrat"
         colorScheme={useColorModeValue("gray", "gray.800")}
       >
         <TableCaption></TableCaption>
         <Thead>
           <Tr>
-            <Th fontFamily="Jost" px={0} width="25%" color={textColor}>
+            <Th fontFamily="Montserrat" px={0} width="25%" color={textColor}>
               Директор
             </Th>
-            <Td lineHeight={1.7} px={0} textAlign="right">
+            <Td lineHeight={1.7} px={0} textAlign="right" fontFamily='Montserrat'>
               <SimpleLink href="tel:+7844250-40-42">
                 +7 (8442) 50-40-42
               </SimpleLink>
@@ -65,7 +65,7 @@ export const ContactsHead = () => {
         </Thead>
         <Tbody>
           <Tr>
-            <Th lineHeight={1.7} fontFamily="Jost" px={0} color={textColor}>
+            <Th lineHeight={1.7} fontFamily="Montserrat" px={0} color={textColor}>
               Заместитель директора по техническим, производственныи и
               технологическим вопросам
             </Th>
@@ -76,7 +76,7 @@ export const ContactsHead = () => {
             </Td>
           </Tr>
           <Tr>
-            <Th lineHeight={1.7} fontFamily="Jost" px={0} color={textColor}>
+            <Th lineHeight={1.7} fontFamily="Montserrat" px={0} color={textColor}>
               Отдел внешней экономической деятельности
             </Th>
             <Td lineHeight={1.7} textAlign="right" px={0}>
@@ -90,7 +90,7 @@ export const ContactsHead = () => {
             </Td>
           </Tr>
           <Tr>
-            <Th lineHeight={1.7} fontFamily="Jost" px={0} color={textColor}>
+            <Th lineHeight={1.7} fontFamily="Montserrat" px={0} color={textColor}>
               Снабжение
             </Th>
             <Td lineHeight={1.7} textAlign="right" px={0}>
@@ -104,7 +104,7 @@ export const ContactsHead = () => {
             </Td>
           </Tr>
           <Tr>
-            <Th lineHeight={1.7} fontFamily="Jost" px={0} color={textColor}>
+            <Th lineHeight={1.7} fontFamily="Montserrat" px={0} color={textColor}>
               Бухгалтерия
             </Th>
             <Td lineHeight={1.7} textAlign="right" px={0}>

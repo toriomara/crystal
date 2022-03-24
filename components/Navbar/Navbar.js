@@ -70,6 +70,7 @@ export const Navbar = (props) => {
         {...props}
       >
         <Container
+          minHeight="80px"
           flexDirection="row"
           alignItems="center"
           maxW="8xl"
@@ -85,9 +86,9 @@ export const Navbar = (props) => {
               <Logo />
             </HStack>
             <Spacer />
-            <DesktopNav href path/>
+            <DesktopNav href path={path} />
             <Spacer />
-            <HStack display={{ base: "none", md: "flex" }}>
+            <HStack display={{ base: "sm", md: "flex" }}>
               <SearchBar />
               <Button as="a" href="tel:+78002347878" variant="none">
                 <span>8 800 234-78-78</span>
@@ -119,7 +120,7 @@ export const Navbar = (props) => {
   );
 };
 
-const DesktopNav = ({href, path, ...props}) => {
+const DesktopNav = ({ href, path, ...props }) => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
