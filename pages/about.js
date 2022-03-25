@@ -14,7 +14,6 @@ import {} from "@chakra-ui/react";
 import { useBreakpointValue } from '@chakra-ui/react'
 
 const Feature = ({ heading, text }) => {
-  
   return (
     <GridItem>
       <chakra.h3 fontSize="xl" fontWeight="600">
@@ -33,7 +32,6 @@ const About = () => {
         templateColumns={{
           base: "repeat(1, 1fr)",
           sm: "repeat(1, 1fr)",
-          bsm: "repeat(2, 1fr)",
           md: "repeat(2, 1fr)",
         }}
         gap={4}

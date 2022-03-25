@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, Heading, Text} from '@chakra-ui/react'
+import {Button, Heading, Text, Box} from '@chakra-ui/react'
 import Link from 'next/link'
 import {articles} from '../../../data/newsData'
 import Meta from '../../../components/Meta'
@@ -27,18 +27,18 @@ export const getStaticPaths = async () => {
 const article = ({article}) => {
 
   return (
-    <>
+    <Box>
       <Meta title={article.title}/>
-      <Heading variant={4}>
+      <Heading variant={4} pb={4}>
         {article.title}
       </Heading>
-      <Text>
+      <Text pb={4}>
         {article.body}
       </Text>
       <Button variant='primary'>
         <Link href='/news'>Go Back</Link>
       </Button>
-    </>
+    </Box>
   )
 }
 

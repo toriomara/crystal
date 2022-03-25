@@ -97,8 +97,7 @@ function TestimonialCard(props) {
       >
         <chakra.p
           fontFamily="Montserrat"
-          fontWeight={"medium"}
-          fontSize={"15px"}
+          fontWeight="500"
           pb={4}
         >
           {content}
@@ -166,9 +165,9 @@ export default function GridBlurredBackdrop() {
       </Box>
       <SimpleGrid
         columns={{ base: 1, xl: 2 }}
-        spacing={"20"}
+        spacing={10}
         mt={16}
-        mx={"auto"}
+        mx="auto"
       >
         {testimonials.map((cardInfo, index) => (
           <TestimonialCard key={index} {...cardInfo} index={index} />
