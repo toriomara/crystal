@@ -41,7 +41,8 @@ const About = () => {
             <Heading fontSize='46px' fontWeight="900">
               Boost your<br/>software development<br/> like never before
             </Heading>
-            <Button variant={variant}>Call To Action</Button>
+            <Button >Call To Action</Button>
+            <Button variant='secondary'>Call To Action</Button>
           </VStack>
         </GridItem>
         <GridItem>

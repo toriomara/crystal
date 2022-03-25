@@ -1,22 +1,16 @@
-import anticorrosive from '/public/images/products/anticorrosive.png'
-import classic from '/public/images/products/classic.png'
-import foundation from '/public/images/products/foundation.png'
-import front from '/public/images/products/front.png'
-import winter from '/public/images/products/winter.png'
-import sanitary from '/public/images/products/sanitary.png'
-import korundClassic from '/public/images/products/korundClassic.jpg'
+
 
 export const articles = [
   {
     id: '1',
-    image: 'korundClassic',
+    image: '/images/products/korundClassic.jpg',
     title: 'Материалу КОРУНД присвоена экомаркировка',
     excerpt: 'Друзья, коллеги и гости нашей Фабрики КОРУНД! Наш представитель из Швеции сообщает, что нашему материалу КОРУНД присвоена экомаркировка.',
     body: 'Друзья, коллеги и гости нашей Фабрики КОРУНД! Наш представитель из Швеции сообщает, что нашему материалу КОРУНД присвоена экомаркировка.Друзья, коллеги и гости нашей Фабрики КОРУНД! Наш представитель из Швеции сообщает, что нашему материалу КОРУНД присвоена экомаркировка.Друзья, коллеги и гости нашей Фабрики КОРУНД! Наш представитель из Швеции сообщает, что нашему материалу КОРУНД присвоена экомаркировка.'
   },
   {
     id: '2',
-    image: 'korundClassic',
+    image: '/images/news/miljo-byggnad.jpg',
     title: 'Испытания сверхтонких теплоизоляционных покрытий серии «КОРУНД»',
     excerpt: 'В соответствии с новым европейским стандартом EN 16516 «Строительные продукты',
     body: 'В соответствии с новым европейским стандартом EN 16516 «Строительные продукты. Оценка выделения опасных веществ. Определение выбросов во внешнюю среду» в лабораториях РИСЕ Научно-исследовательских институтов Швеции AB Химия и материалы – Химия («RISE Research Institutes of Sweden AB Chemistry and Materials – Chemisttry») произведены испытания сверхтонких теплоизоляционных покрытий серии «КОРУНД» соответствие требованиям ISO 16000-9; ISO 16000-10.\n' +

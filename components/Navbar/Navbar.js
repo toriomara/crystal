@@ -28,6 +28,8 @@ import ThemeToggleButton from "../ui/theme-toggle-button";
 import SearchBar from "../Search";
 import Logo from "../ui/Logo";
 import { Lang } from "./Lang";
+import { Preheader } from "../Preheader/Preheader";
+import { React, useState, useRef } from "react";
 
 const LinkItem = ({ href, path, children, ...props }) => {
   const active = path === href;
@@ -56,70 +58,80 @@ const LinkItem = ({ href, path, children, ...props }) => {
 export const Navbar = (props) => {
   const { path } = props;
   const { isOpen, onToggle } = useDisclosure();
+
+  const [isPreheader, setIsPreheader] = useState(true);
+
+  const handleClick = () => {
+    setIsPreheader(!isPreheader);
+  };
+
   return (
-    <Box
-      position="fixed"
-      as="nav"
-      w="100%"
-      justify="center"
-      bg={useColorModeValue("#ffffff40", "#20202380")}
-      css={{ backdropFilter: "blur(10px)" }}
-      zIndex={1}
-      {...props}
-    >
-      <Container
-        flexDirection="row"
-        alignItems="center"
-        maxW="8xl"
-        wrap="nowrap"
-        p={2}
-        px={{
-          base: "4",
-          md: "4",
-        }}
+    <>
+      {isPreheader && <Preheader setIsPreheader={setIsPreheader} />}
+      <Box
+        //position="fixed"
+        as="nav"
+        w="100%"
+        justify="center"
+        bg={useColorModeValue("#ffffff40", "#20202380")}
+        css={{ backdropFilter: "blur(10px)" }}
+        zIndex={1}
+        {...props}
       >
-        <Flex minHeight="60px">
-          <HStack>
-            <Logo />
-          </HStack>
+        <Container
+          flexDirection="row"
+          alignItems="center"
+          maxW="8xl"
+          wrap="nowrap"
+          p={2}
+          px={{
+            base: "4",
+            md: "4",
+          }}
+        >
+          <Flex minHeight="60px">
+            <HStack>
+              <Logo />
+            </HStack>
 
-          <Spacer />
-          <DesktopNav href path={path} />
-          <Spacer />
+            <Spacer />
+            <DesktopNav href path={path} />
+            <Spacer />
 
-          <HStack>
-            <Flex display={{ base: "none", sm: "flex" }}>
-              <SearchBar />
-            </Flex>
-            <Flex display={{ base: "none", sm: "flex" }}>
-              <Button as="a" href="tel:+78002347878" variant="none">
-                <span>8 800 234-78-78</span>
-              </Button>
-            </Flex>
-            <Lang />
-            <Flex display={{ base: "none", sm: "flex" }}>
-              <ThemeToggleButton display={{ base: "none" }} />
-            </Flex>
-            <IconButton //
-              display={{ base: "inline-block", xl: "none" }}
-              onClick={onToggle}
-              icon={
-                isOpen ? (
-                  <CloseIcon w={3} h={3} />
-                ) : (
-                  <HamburgerIcon w={5} h={5} />
-                )
-              }
-              variant={"ghost"}
-              aria-label={"Toggle Navigation"}
-            />
-          </HStack>
-        </Flex>
-        <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
-        </Collapse>
-      </Container>
-    </Box>
+            <HStack>
+              <Flex display={{ base: "none", sm: "flex" }}>
+                <SearchBar />
+              </Flex>
+              <Flex display={{ base: "none", sm: "flex" }}>
+                <Button as="a" href="tel:+78002347878" variant="none">
+                  <span>8 800 234-78-78</span>
+                </Button>
+              </Flex>
+              <Lang />
+              <Flex display={{ base: "none", sm: "flex" }}>
+                <ThemeToggleButton display={{ base: "none" }} />
+              </Flex>
+              <IconButton //
+                display={{ base: "inline-block", xl: "none" }}
+                onClick={onToggle}
+                icon={
+                  isOpen ? (
+                    <CloseIcon w={3} h={3} />
+                  ) : (
+                    <HamburgerIcon w={5} h={5} />
+                  )
+                }
+                variant={"ghost"}
+                aria-label={"Toggle Navigation"}
+              />
+            </HStack>
+          </Flex>
+          <Collapse in={isOpen} animateOpacity>
+            <MobileNav />
+          </Collapse>
+        </Container>
+      </Box>
+    </>
   );
 };
 

@@ -18,9 +18,7 @@ export const ButtonStyles = {
         bg: mode(whiten("brand.100", 10), darken("brand.600", 20))(props),
         boxShadow: "md",
       },
-      _focus: {
-        outline: "none",
-      },
+      
     }),
     secondary: (props) => ({
       bg: useColorModeValue("brand.50", "brand.50"),
@@ -47,5 +45,12 @@ export const ButtonStyles = {
     }),
   },
   // default values for `size` and `variant`
-  defaultProps: {},
+  defaultProps: {
+    // _focus: {
+    //   ring: '4px',
+    //   ringColor: 'red.200',
+    //   ringOffset: '3px',
+    //   ringOffsetColor: 'red.300',
+    // },
+  },
 };

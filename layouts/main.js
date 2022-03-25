@@ -4,6 +4,7 @@ import {Navbar} from '../components/Navbar/Navbar'
 import Navi from '../components/Navbar/Navi'
 import {Footer} from '../components/Footer/Footer'
 import Meta from '../components/Meta'
+import {Preheader} from '../components/Preheader/Preheader'
 
 const MainWrapper = styled(Flex)`
   display: flex;
