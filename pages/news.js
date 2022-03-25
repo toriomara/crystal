@@ -1,5 +1,5 @@
 import React from 'react'
-import {Heading} from '@chakra-ui/react'
+import {Heading, Flex, Box} from '@chakra-ui/react'
 import ArticleList from '../components/Articles/ArticlesList'
 import Meta from '../components/Meta'
 import {articles} from '../data/newsData'
@@ -7,13 +7,13 @@ import {articles} from '../data/newsData'
 
 export default function News({articles}) {
   return (
-    <div>
+    <Box>
       <Meta title='News'/>
       <Heading variant='page-title'>
         Новости
       </Heading>
       <ArticleList articles={articles}/>
-    </div>
+    </Box>
   )
 }
 

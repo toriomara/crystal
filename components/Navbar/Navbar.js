@@ -79,7 +79,7 @@ export const Navbar = (props) => {
           md: "4",
         }}
       >
-        <Flex minHeight="80px">
+        <Flex minHeight="60px">
           <HStack>
             <Logo />
           </HStack>
@@ -210,11 +210,15 @@ const MobileNav = () => {
     <Stack
       p={4}
       bg={useColorModeValue("white", "gray.800")}
-      display={{ base: "inline-block", md: "none" }}
     >
+      <Flex display={{ base: "flex"}}>
+        <SearchBar/>
+        <ThemeToggleButton/>
+      </Flex>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      
     </Stack>
   );
 };

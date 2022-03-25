@@ -55,7 +55,6 @@ function TestimonialCard(props) {
   const { name, role, content, avatar, index } = props;
   return (
     <Flex
-      fontFamily="Montserrat"
       boxShadow={"lg"}
       maxW={"640px"}
       direction={{ base: "column-reverse", md: "row" }}
@@ -97,17 +96,16 @@ function TestimonialCard(props) {
         justifyContent={"space-between"}
       >
         <chakra.p
-          fontFamily={"Inter"}
+          fontFamily="Montserrat"
           fontWeight={"medium"}
           fontSize={"15px"}
           pb={4}
         >
           {content}
         </chakra.p>
-        <chakra.p fontFamily={"Work Sans"} fontWeight={"bold"} fontSize={14}>
+        <chakra.p fontWeight={"bold"} fontSize={14}>
           {name}
           <chakra.span
-            fontFamily={"Inter"}
             fontWeight={"medium"}
             color={"gray.500"}
           >
@@ -138,7 +136,6 @@ export default function GridBlurredBackdrop() {
     >
       <Box width={{ base: "full", sm: "lg", lg: "xl" }} margin={"auto"}>
         <chakra.h3
-          fontFamily={"Work Sans"}
           fontWeight={"bold"}
           fontSize={20}
           textTransform={"uppercase"}
@@ -149,7 +146,6 @@ export default function GridBlurredBackdrop() {
         <chakra.h1
           py={5}
           fontSize={48}
-          fontFamily={"Work Sans"}
           fontWeight={"bold"}
           color={useColorModeValue("gray.700", "gray.50")}
         >
@@ -158,7 +154,6 @@ export default function GridBlurredBackdrop() {
         <chakra.h2
           margin={"auto"}
           width={"70%"}
-          fontFamily={"Inter"}
           fontWeight={"medium"}
           color={useColorModeValue("gray.500", "gray.400")}
         >
