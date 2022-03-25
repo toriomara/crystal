@@ -27,7 +27,6 @@ import {
 import ThemeToggleButton from "../ui/theme-toggle-button";
 import SearchBar from "../Search";
 import Logo from "../ui/Logo";
-import Navi from "./Navi";
 import { Lang } from "./Lang";
 
 const LinkItem = ({ href, path, children, ...props }) => {
@@ -207,18 +206,17 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
 
 const MobileNav = () => {
   return (
-    <Stack
-      p={4}
-      bg={useColorModeValue("white", "gray.800")}
-    >
-      <Flex display={{ base: "flex"}}>
-        <SearchBar/>
-        <ThemeToggleButton/>
+    <Stack p={4} bg={useColorModeValue("white", "gray.800")}>
+      <Flex display={{ base: "flex" }}>
+        <SearchBar />
+        <ThemeToggleButton />
+        <Button as="a" href="tel:+78002347878" variant="none">
+          <span>8 800 234-78-78</span>
+        </Button>
       </Flex>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
-      
     </Stack>
   );
 };
@@ -266,9 +264,9 @@ const MobileNavItem = ({ label, children, href }) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <LinkItem key={child.label} py={2} href={child.href}>
                 {child.label}
-              </Link>
+              </LinkItem>
             ))}
         </Stack>
       </Collapse>
