@@ -28,7 +28,7 @@ const Feature = ({ heading, text }) => {
 const About = () => {
   const variant = useBreakpointValue({ base: 'outline', bsm: 'solid' })
   return (
-    <Box as={Container} maxW="7xl" mt={14} p={4}>
+    <Box mt={14}>
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",

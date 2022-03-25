@@ -17,7 +17,7 @@ const Main = ({children, router, ...props}) => {
     <MainWrapper as="main">
       <Meta/>
       <Navbar path={router.asPath}/>
-      <Container flex={'1 0'} maxW="container.xl" mx='auto' my={70}>
+      <Container flex={'1 0'} maxW="container.xl" mx='auto' my={70} p={0}>
         {children}
       </Container>
       <Footer/>

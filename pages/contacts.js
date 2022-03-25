@@ -22,8 +22,10 @@ const Contacts = () => {
   return (
     <Box>
       <ContactsHead/>
-      <ContactDiler/>
-      <ContactForm/>
+
+      {/* <ContactDiler/>
+      <ContactForm/> */}
+
      {/* <Box border='1px solid #EDF2F7' p={4} rounded={4}>
         <AspectRatio ratio={16 / 9} borderRadius={4}>
           <iframe
@@ -31,8 +33,10 @@ const Contacts = () => {
             width="800" height="600" style="border:0;" allowFullScreen="" loading="lazy"/>
         </AspectRatio>
       </Box>*/}
-      <ContactRequest/>
-      <ContactCard/>
+
+      {/* <ContactRequest/>
+      <ContactCard/> */}
+
     </Box>
 
   )
