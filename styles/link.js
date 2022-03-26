@@ -30,9 +30,9 @@ const Item = styled(Link)`
   }
 `;
 
-export const SimpleLink = ({ href, children }) => {
+export const SimpleLink = ({ href, children, ...props }) => {
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref props>
       <Item textDecoration="none">{children}</Item>
     </NextLink>
   );
