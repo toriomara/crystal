@@ -67,9 +67,9 @@ export const Navbar = (props) => {
 
   return (
     <>
-      {isPreheader && <Preheader setIsPreheader={setIsPreheader} />}
+      {/* {isPreheader && <Preheader setIsPreheader={setIsPreheader} />} */}
       <Box
-        //position="fixed"
+        position='fixed'
         as="nav"
         w="100%"
         justify="center"

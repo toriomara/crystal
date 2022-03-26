@@ -80,9 +80,9 @@ export const Preheader = ({setIsPreheader}) => {
                 }}
               >
                 <Text fontWeight="medium">
-                  We just launched our new product.
+                  Для Вашего удобства мы обновили сайт.
                 </Text>
-                <Text color="muted">Read our press release</Text>
+                <Text color="muted">Ждём замечаний и предложений</Text>
               </Stack>
             </Stack>
             <Stack
@@ -100,7 +100,7 @@ export const Preheader = ({setIsPreheader}) => {
               }}
             >
               <Button variant="outlined" size="sm">
-                Read more
+                Отправить
               </Button>
               <CloseButton
                 onClick={handleClick}

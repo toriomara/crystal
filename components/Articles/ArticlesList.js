@@ -27,12 +27,15 @@
 
 
 import React from "react";
-import { Box, color, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Box, color, Grid, SimpleGrid, GridItem, Heading, Text } from "@chakra-ui/react";
 import ArticleItem from "./ArticleItem";
 
 const ArticleList = ({ articles }) => {
   return (
-    <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+    <SimpleGrid columns={{ base: 1, md: 2 }}
+    spacing={10}
+    mt={16}
+    mx="auto">
       {articles.map((article) => (
         <GridItem
           key={article.id}
@@ -47,7 +50,7 @@ const ArticleList = ({ articles }) => {
           <ArticleItem article={article} />
         </GridItem>
       ))}
-    </Grid>
+    </SimpleGrid>
   );
 };
 
