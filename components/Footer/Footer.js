@@ -99,10 +99,9 @@ export const Footer = () => {
       pt={5}
       role="contentinfo"
       w="100%"
-      //w={[320, 576, 700, 900, 1100, 1300, 1450, 'full']}
       bg={bgColor}
       color={useColorModeValue("gray.700", "gray.200")}
-      fontSize='15px'
+      fontSize="15px"
       fontWeight={500}
     >
       <Container

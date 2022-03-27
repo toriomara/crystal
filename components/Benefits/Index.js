@@ -6,7 +6,7 @@ import {
   FcBiomass,
   FcRules,
   FcFlashOff,
-  FcDam
+  FcDam,
 } from "react-icons/fc";
 import { Feature } from "./Feature";
 
@@ -23,7 +23,7 @@ export const Benefits = () => (
     <SimpleGrid
       columns={{
         base: 1,
-        md: 2,
+        sm: 2,
         xl: 3,
       }}
       spacingX="10"
@@ -33,9 +33,7 @@ export const Benefits = () => (
       }}
     >
       <Feature title="Экологичность" icon={<FcBiomass />}>
-        <Box justifyContent='center'>
         Материал полностью безопасен и имеет экомаркировку
-        </Box>
       </Feature>
       <Feature title="Простота применения" icon={<FcRules />}>
         Наносится как краска: работа с материалом не требует специальных навыков
