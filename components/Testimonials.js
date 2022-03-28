@@ -165,7 +165,7 @@ export default function GridBlurredBackdrop() {
       </Box>
       <SimpleGrid
         columns={{ base: 1, xl: 2 }}
-        spacing={10}
+        spacing={8}
         mt={16}
         mx="auto"
       >

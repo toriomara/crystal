@@ -6,11 +6,9 @@ import {
   useColorModeValue as mode,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import * as React from "react";
 
 export const Feature = (props) => {
   const { title, children, icon } = props;
-  const positionEl = useBreakpointValue({ base: "center", md: "start" });
   return (
     <Stack
       spacing={{
@@ -22,16 +20,16 @@ export const Feature = (props) => {
         md: "row",
       }}
     >
-      <Flex fontSize="6xl" justify={positionEl}>
+      <Flex fontSize="6xl" justifyContent={{ base: "center", md: "flex-start" }}>
         {icon}
       </Flex>
       <Stack spacing="1">
-        <Flex justify={positionEl}>
+        <Flex justify={{ base: "center", md: "flex-start" }}>
           <Text fontWeight="extrabold" fontSize="lg">
             {title}
           </Text>
         </Flex>
-        <Flex color={mode("gray.600", "gray.400")} justify={positionEl}>
+        <Flex color={mode("gray.600", "gray.400")} justify={{ base: "center", md: "flex-start" }}>
           {children}
         </Flex>
       </Stack>

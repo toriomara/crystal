@@ -18,14 +18,10 @@ const ArticleItem = ({ article }) => {
       direction={{ base: "column-reverse", md: "row" }}
       width="full"
       p={1}
-      justifyContent={"space-between"}
-      position={"relative"}
+      justifyContent="space-between"
+      position="relative"
     >
-      <Flex
-        direction={"column"}
-        textAlign={"left"}
-        justifyContent={"space-between"}
-      >
+      <Flex direction="column" textAlign="left" justifyContent="space-between">
         <VStack spacing={3}>
           <Box>
             <Link href="/article/[id]" as={`/article/${id}`}>
@@ -41,7 +37,8 @@ const ArticleItem = ({ article }) => {
                     alt={name}
                     layout="fill"
                     rounded={3}
-                    fallback={<Skeleton />}
+                    //fallback={<Skeleton />}
+                    placeholder="blur"
                   />
                 </AspectRatio>
                 <Text pt={6}>{excerpt}</Text>

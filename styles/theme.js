@@ -72,6 +72,8 @@ const components = {
       h2: {
         fontSize: "3xl",
         fontFamily: "Montserrat",
+        justifyContent: 'center',
+        display: 'flex'
       },
       h3: {
         fontSize: "2xl",

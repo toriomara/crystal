@@ -17,7 +17,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { SimpleLink } from "../../styles/link";
 
 export const Showcase = () => {
-  const fontSize = useBreakpointValue({ base: "lg", lg: "2xl" });
+  const fontSize = useBreakpointValue({ base: "md", lg: "2xl" });
   return (
     <Box
       maxW="7xl"
@@ -83,7 +83,8 @@ export const Showcase = () => {
             >
               <Heading
                 size={fontSize}
-                color={useColorModeValue("red.500", "red.300")}
+                color={useColorModeValue("red.500", "brand.50")}
+                fontFamily='Montserrat'
               >
                 Доставка
               </Heading>
@@ -95,7 +96,7 @@ export const Showcase = () => {
               <Button
                 href="/distribution"
                 variant='secondary'
-                color={useColorModeValue("white", "red.300")}
+                color={useColorModeValue("white", "white")}
                 fontSize="18px"
               >
                 Дилерская сеть
@@ -111,7 +112,9 @@ export const Showcase = () => {
           <Image
             src="/images/misc/korund-car-2014.jpg"
             alt="Lovely Image"
-            fallback={<Skeleton />}
+            //fallback={<Skeleton />}
+            rounded={4}
+            placeholder="blur"
             maxH="450px"
             minW="300px"
             objectFit="cover"

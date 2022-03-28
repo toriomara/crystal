@@ -1,5 +1,4 @@
-import { Box, SimpleGrid, Text } from "@chakra-ui/react";
-import * as React from "react";
+import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import {
   FcClock,
   FcDisclaimer,
@@ -20,6 +19,7 @@ export const Benefits = () => (
       md: "8",
     }}
   >
+    <Heading variant='h2' fontSize='4xl' fontFamily='EB Garamond' mb={50}>Преимущества</Heading>
     <SimpleGrid
       columns={{
         base: 1,

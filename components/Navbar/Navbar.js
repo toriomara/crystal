@@ -57,13 +57,18 @@ const LinkItem = ({ href, path, children, ...props }) => {
 
 export const Navbar = (props) => {
   const { path } = props;
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
 
   const [isPreheader, setIsPreheader] = useState(true);
-
   const handleClick = () => {
     setIsPreheader(!isPreheader);
   };
+
+  const [isMobile, setIsMobile] = useState(false);
+  const closeMobile = () => {
+    setIsMobile(!isMobile);
+  };
+
 
   return (
     <>
@@ -127,7 +132,7 @@ export const Navbar = (props) => {
             </HStack>
           </Flex>
           <Collapse in={isOpen} animateOpacity>
-            <MobileNav />
+            <MobileNav onClose={onClose} />
           </Collapse>
         </Container>
       </Box>
@@ -216,7 +221,8 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
   );
 };
 
-const MobileNav = () => {
+const MobileNav = ({onClose}) => {
+  
   return (
     <Stack p={4} bg={useColorModeValue("white", "gray.800")}>
       <Flex display={{ base: "flex" }}>
@@ -227,7 +233,7 @@ const MobileNav = () => {
         </Button>
       </Flex>
       {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
+        <MobileNavItem key={navItem.label} onClose={onClose} {...navItem} />
       ))}
     </Stack>
   );
