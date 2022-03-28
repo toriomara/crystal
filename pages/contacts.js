@@ -31,7 +31,7 @@ const Contacts = () => {
             width="800" height="600" style="border:0;" allowFullScreen="" loading="lazy"/>
         </AspectRatio>
       </Box>*/}
-      <ContactRequest />
+      {/* <ContactRequest /> */}
       {/* <ContactCard/> */}
     </Box>
   );
