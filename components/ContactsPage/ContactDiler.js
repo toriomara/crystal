@@ -13,22 +13,20 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaRegHandshake } from "react-icons/fa";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaTwitter,
-  FaViber,
-  FaWhatsapp,
-  FaYoutube,
-} from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { SiTwitter, SiMessenger, SiTelegram } from "react-icons/si";
+import { SiTwitter, SiMessenger, SiTelegram, SiFacebook } from "react-icons/si";
+import DilerModal from "../Subscribe/DilerModal";
+import { useState} from 'react'
 
 export const ContactDiler = () => {
   const bgColor = useColorModeValue("white", "whiteAlpha.50");
   const borderStyle = useColorModeValue("1px solid #EDF2F7", "none");
   const blockShadow = useColorModeValue("none", "xl");
+
+  const [modalActive, setModalActive] = useState(false)
+  const modalClick = () => {
+    setModalActive(!modalActive)
+  }
 
   return (
     <Flex
@@ -66,8 +64,9 @@ export const ContactDiler = () => {
               для взаимовыгодного сотрудничества.
             </Text>
             <Flex align="center" justifyContent="center">
-              <Button variant="primary">Стать дилером</Button>
+              <Button variant="primary" onClick={modalClick}>Стать дилером</Button>
             </Flex>
+              {modalActive && <DilerModal setModalActive={setModalActive}/>}
           </VStack>
         </GridItem>
 
@@ -90,7 +89,7 @@ export const ContactDiler = () => {
               variant="primary"
               w={"full"}
               colorScheme={"facebook"}
-              leftIcon={<FaFacebook />}
+              leftIcon={<SiFacebook />}
               size="sm"
             >
               <Center>

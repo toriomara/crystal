@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Button, Heading, Box } from "@chakra-ui/react";
+import { Button, Heading, Box, Stack } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import Subscribe from "../components/Subscribe/Subscribe";
+import Modal from "../components/Modal";
 
 const MotionButton = motion(Button);
 
@@ -12,7 +13,7 @@ const Distribution = () => {
   };
 
   return (
-    <div>
+    <Box>
       <Heading>Distribution</Heading>
       <MotionButton
         whileHover={{ scale: 1.1 }}
@@ -23,10 +24,20 @@ const Distribution = () => {
         Modal
       </MotionButton>
       {isOpen && <Subscribe setIsOpen />}
+
       <Box bg="red.200" w={[250, 300, 400, 500, 800, 1100]}>
         This is a box
       </Box>
-    </div>
+
+      <MotionButton>Modal open</MotionButton>
+      <Stack spacing={4}>
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="outline">Outlined</Button>
+        <Button variant="azure">Azure</Button>
+        <Modal />
+      </Stack>
+    </Box>
   );
 };
 

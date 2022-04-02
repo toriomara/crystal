@@ -19,7 +19,7 @@ const Details = () => {
   return (
     <VStack w="full" h="full" p={10} spacing={10} alignItems="flex-start">
       <VStack spacing={3} alignItems="flex-start">
-        <Heading size="2xl">Подпишитесь!</Heading>
+        <Heading size="2xl" colorScheme='brand'>Подпишитесь!</Heading>
         <Text>If you already have an account, click here to log in.</Text>
       </VStack>
       <SimpleGrid columns={2} columnGap={3} rowGap={6} w="full">
@@ -62,7 +62,7 @@ const Details = () => {
           <Checkbox defaultChecked>Ship to billing address</Checkbox>
         </GridItem>
         <GridItem colSpan={colSpan}>
-          <Button variant="primary" w="full">
+          <Button variant='azure' w="full">
             Place Order
           </Button>
         </GridItem>

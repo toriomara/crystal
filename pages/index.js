@@ -8,8 +8,8 @@ import GridBlurredBackdrop from '../components/Testimonials'
 const Index = () => {
   return (
       <Box>
-        {/* <CallToActionWithIllustration/>
-        <CallToActionWithVideo/>
+         <CallToActionWithIllustration/>
+        {/*<CallToActionWithVideo/>
         <Carousel/> */}
         <Benefits/>
         <Showcase/>

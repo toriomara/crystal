@@ -40,7 +40,7 @@ const LinkItem = ({ href, children }) => (
     textDecoration="none"
     transition=".3s ease"
     color={useColorModeValue("gray.600", "gray.300")}
-    position={"relative"}
+    position="relative"
     left={0}
     _hover={{
       fontWeight: "500",
@@ -133,19 +133,30 @@ export const Footer = () => {
               <Stack direction={"row"} align={"center"} spacing={2}>
                 <LinkItem href="/distribution">
                   Дистрибьюция
-                  <Tag size={"sm"} bg="brand.50" color="white" ml={2}>
-                    New
-                  </Tag>
+                  <sup>
+                    <Tag
+                      py="1px"
+                      px='3px'
+                      ml={2}
+                      size="xsm"
+                      bg="brand.50"
+                      color="white"
+                      fontSize={10}
+                      rounded={2}
+                    >
+                      New
+                    </Tag>
+                  </sup>
                 </LinkItem>
               </Stack>
             </Stack>
 
-            <Stack align={"flex-start"}>
+            <Stack align="flex-start">
               <FooterHeading>Контакты</FooterHeading>
 
               <LinkItem>
-                <IconItem fill="brand.600">
-                  <FaMapMarkerAlt fill="brand.600" />
+                <IconItem fill="brand.400">
+                  <FaMapMarkerAlt fill="brand.400" />
                 </IconItem>
                 <span onClick={handleClick}>
                   400019, Россия, <br />
@@ -156,14 +167,14 @@ export const Footer = () => {
               {isOpen && <MapModal setIsOpen={setIsOpen} />}
 
               <LinkItem href="mailto:mail@korund34.ru">
-                <IconItem fill="brand.600">
-                  <FaEnvelope fill="brand.600" />
+                <IconItem fill="brand.400">
+                  <FaEnvelope fill="brand.400" />
                 </IconItem>
                 mail@korund34.ru
               </LinkItem>
               <LinkItem href="tel:+7844238-44-66">
-                <IconItem fill="brand.600">
-                  <FaPhone fill="brand.600" />
+                <IconItem fill="brand.400">
+                  <FaPhone fill="brand.400" />
                 </IconItem>
                 +7 (8442) 38-44-66 (факс)
               </LinkItem>

@@ -25,30 +25,55 @@
 
 // export default ArticleList;
 
-
 import React from "react";
-import { Box, color, Grid, SimpleGrid, GridItem, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  color,
+  Grid,
+  SimpleGrid,
+  GridItem,
+  Heading,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import ArticleItem from "./ArticleItem";
+import { motion } from "framer-motion";
+
+const MotionGridItem = motion(GridItem);
 
 const ArticleList = ({ articles }) => {
+  const bgColor = useColorModeValue("white", "#22272e");
+
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }}
-    spacing={10}
-    mt={16}
-    mx="auto">
+    <SimpleGrid
+      columns={{ base: 1, md: 2, lg: 3 }}
+      spacing={10}
+      mt={16}
+      mx="auto"
+    >
       {articles.map((article) => (
-        <GridItem
+        <MotionGridItem
+          bg={bgColor}
+          whileHover={{
+            position: "relative",
+            zIndex: 1,
+            scale: 1.08,
+            transition: {
+              duration: 0.4,
+            },
+          }}
           key={article.id}
           p={6}
           w="100%"
-          border="1px solid #EDF2F7"
-          rounded={4}
+          border={useColorModeValue("1px solid #E2E8F0", "1px solid #444c56")}
+          boxShadow="lg"
+          rounded={10}
           _hover={{
-            color: "brand.600",
+            color: "brand.200",
           }}
         >
           <ArticleItem article={article} />
-        </GridItem>
+        </MotionGridItem>
       ))}
     </SimpleGrid>
   );

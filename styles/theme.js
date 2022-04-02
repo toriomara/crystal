@@ -1,20 +1,27 @@
-import { extendTheme } from "@chakra-ui/react";
+import {
+  Checkbox,
+  extendTheme,
+  theme as base,
+  withDefaultColorScheme,
+  withDefaultVariant,
+} from "@chakra-ui/react";
 import { mode, createBreakpoints } from "@chakra-ui/theme-tools";
 import { ButtonStyles as Button } from "../styles/buttonStyles";
+import { HeadingStyles as Heading } from "../styles/headingStyles";
 
 const config = {
   initialColorMode: "light",
-  useSystemColorMode: false,
+  useSystemColorMode: true,
 };
 
 const styles = {
   global: (props) => ({
     "html, body": {
       display: "grid",
-      flexDirection: "column",
+      //flexDirection: "column",
       minHeight: "100%",
       gridTemplateRows: "1fr auto",
-      bg: mode("#ffffff", "#202023")(props),
+      bg: mode("#ffffff", "#22272e")(props),
       fontSize: "16px",
       fontWeights: {
         normal: 300,
@@ -47,74 +54,51 @@ const breakpoints = createBreakpoints({
   "2xl": "96rem",
 });
 
-const components = {
-  Heading: {
-    variants: {
-      "page-title": {
-        textAlign: "center",
-        justify: "center",
-        marginTop: 4,
-        marginBottom: 4,
-      },
-      "section-title": {
-        textDecoration: "underline",
-        fontSize: 20,
-        textUnderlineOffset: 6,
-        textDecorationColor: "#525252",
-        textDecorationThickness: 4,
-        marginTop: 3,
-        marginBottom: 4,
-      },
-      h1: {
-        fontSize: "4xl",
-        fontFamily: "Montserrat",
-      },
-      h2: {
-        fontSize: "3xl",
-        fontFamily: "Montserrat",
-        justifyContent: 'center',
-        display: 'flex'
-      },
-      h3: {
-        fontSize: "2xl",
-      },
-      h4: {
-        fontSize: "xl",
-        fontFamily: "Montserrat",
-      },
-      h5: {
-        fontSize: "lg",
-        fontFamily: "Montserrat",
-      },
-      h6: {
-        fontSize: "md",
-        fontFamily: "Montserrat",
-      },
-      h7: {
-        fontSize: "sm",
-        fontFamily: "Montserrat",
-      },
-      h8: {
-        fontSize: "xs",
-        fontFamily: "Montserrat",
-      },
-      table: {
-        fontFamily: "Montserrat",
+const InputSelectStyles = {
+  variants: {
+    filled: {
+      field: {
+        _focus: {
+          borderColor: "brand.200",
+        },
       },
     },
   },
-  // Link: {
-  //   baseStyle: (props) => ({
-  //     color: mode("black", "primary")(props),
-  //     textDecoration: 'none',
-  //   }),
-  // },
+  sizes: {
+    md: {
+      field: {
+        //borderRadius: 'none'
+      },
+    },
+  },
+};
+
+const brandRing = {
+  _focus: {
+    ring: 2,
+    ringColor: "brand.200",
+  },
+};
+
+const components = {
+  Heading,
   Button,
+  Heading,
+
+  Input: { ...InputSelectStyles },
+  Select: { ...InputSelectStyles },
+  Checkbox: {
+    baseStyle: {
+      control: {
+        ...brandRing,
+      },
+    },
+  },
 };
 
 const fonts = {
-  body: "Montserrat, sans-serif",
-  heading: '"EB Garamond", serif',
+  heading: `EB Garamond, ${base.fonts?.heading} `,
+  body: `Montserrat, ${base.fonts?.body}`,
   //heading: 'Nunito, sans-serif',
   //body: 'Open Sans, sans-serif',
   //body: 'Murecho, sans-serif',
@@ -126,13 +110,14 @@ const colors = {
   brand: {
     50: "#D2202F", //red Main color on https://mycolor.space/?hex=%23D2202F&sub=1
     100: "#043f76", //brandedBlue
-    200: "#DA1266", //pink
-    300: "#CC359A", //orchid
-    400: "#A757C7", //violet
-    500: "#6574E4", //MediumSlateBlue
-    600: "#0075EE", //DeepSkyBlue
+    200: "#00BBFF", //azure
+    300: "#6574E4", //MediumSlateBlue
+    400: "#0075EE", //DeepSkyBlue
+    500: "#A757C7", //violet
+    600: "#CC359A", //orchid
     700: "#79AF07", //LimeGreen
   },
+
   // primary: "#C53030",
   // secondary: "#EDF2F7",
   // secondaryDark: "#656768",
@@ -143,6 +128,16 @@ const colors = {
   // alt: "#A8AD9C",
 };
 
+withDefaultColorScheme({
+  colorScheme: "brand",
+  components: ["Checkbox"],
+});
+
+withDefaultVariant({
+  variant: "filled",
+  components: ["Input", "Select"],
+});
+
 const theme = extendTheme({
   config,
   styles,
@@ -151,4 +146,5 @@ const theme = extendTheme({
   colors,
   breakpoints,
 });
+
 export default theme;

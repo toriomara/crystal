@@ -11,9 +11,9 @@ import { motion } from "framer-motion";
 
 const MotionHeading = motion(Heading);
 
-export default function CallToActionWithIllustration() {
+const CallToActionWithIllustration = () => {
   return (
-    <Container maxW="7xl">
+    <Flex justifyContent="center" maxW='container.xl'>
       <Stack
         textAlign="center"
         align="center"
@@ -66,9 +66,11 @@ export default function CallToActionWithIllustration() {
           />
         </Flex>
       </Stack>
-    </Container>
+    </Flex>
   );
-}
+};
+
+export default CallToActionWithIllustration;
 
 export const Illustration = (props) => {
   return (

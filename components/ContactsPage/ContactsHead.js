@@ -57,21 +57,25 @@ export const ContactsHead = () => {
                 +7 (8442) 50-40-42
               </SimpleLink>
               <br />
-              <SimpleLink href="mailto:chief@korund34.ru">
-                chief@korund34.ru
+              <SimpleLink href="mailto:mail@korund34.ru">
+                mail@korund34.ru
               </SimpleLink>
             </Td>
           </Tr>
         </Thead>
         <Tbody>
           <Tr>
-            <Th lineHeight={1.7} fontFamily="Montserrat" px={0} color={textColor}>
+            <Th lineHeight={1.7} px={0} fontFamily="Montserrat"  color={textColor}>
               Заместитель директора по техническим, производственныи и
               технологическим вопросам
             </Th>
-            <Td textAlign="right" px={0}>
+            <Td textAlign="right" px={0} lineHeight={1.7}>
               <SimpleLink href="tel:+7844250-40-82">
                 +7 (8442) 50-40-82
+              </SimpleLink>
+              <br />
+              <SimpleLink href="mailto:technic@korund34.ru">
+                technic@korund34.ru
               </SimpleLink>
             </Td>
           </Tr>
@@ -98,8 +102,8 @@ export const ContactsHead = () => {
                 +7 (8442) 50-40-13
               </SimpleLink>
               <br />
-              <SimpleLink href="mailto:tech@korund34.ru">
-                tech@korund34.ru
+              <SimpleLink href="mailto:mail@korund34.ru">
+                mail@korund34.ru
               </SimpleLink>
             </Td>
           </Tr>

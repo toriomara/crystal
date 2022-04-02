@@ -1,8 +1,9 @@
 //NOT USED YET
 
 import {motion} from 'framer-motion'
-import Backdrop from '../Backdrop'
+//import Backdrop from '../Backdrop'
 import {Box} from "@chakra-ui/react";
+import {React, useState} from 'react'
 
 const MotionBox = motion(Box)
 
@@ -26,16 +27,16 @@ const dropIn = {
   }
 }
 
-const Modal = ({handleClose, children}) => {
+const Modal = ({isActive, setIsActive, children}) => {
 
-  // const [isOpen, setIsOpen] = useState(false)
-  // const handleClick = () => {
-  //   setIsOpen(isOpen)
-  // }
+  const [isOpen, setIsOpen] = useState(false)
+  const handleClick = () => {
+    setIsOpen(isOpen)
+  }
 
   return (
-    <Backdrop
-      onClick={handleClose}
+    <Box
+      //onClick={handleClose}
     >
       <MotionBox
         onClick={(e) => e.stopPropagation()}
@@ -55,7 +56,7 @@ const Modal = ({handleClose, children}) => {
       >
         {children}
       </MotionBox>
-    </Backdrop>
+    </Box>
   )
 }
 

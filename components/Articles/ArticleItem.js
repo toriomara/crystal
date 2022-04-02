@@ -26,7 +26,7 @@ const ArticleItem = ({ article }) => {
           <Box>
             <Link href="/article/[id]" as={`/article/${id}`}>
               <a>
-                <Heading fontSize="2xl" fontWeight="700" pb={4}>
+                <Heading variant='h4' fontWeight="600"  pb={4}>
                   {title}
                 </Heading>
                 <Text pb={2}>{date}</Text>
@@ -36,7 +36,7 @@ const ArticleItem = ({ article }) => {
                     src={image}
                     alt={name}
                     layout="fill"
-                    rounded={3}
+                    rounded={4}
                     //fallback={<Skeleton />}
                     placeholder="blur"
                   />

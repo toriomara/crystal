@@ -69,18 +69,17 @@ export const Navbar = (props) => {
     setIsMobile(!isMobile);
   };
 
-
   return (
     <>
       {/* {isPreheader && <Preheader setIsPreheader={setIsPreheader} />} */}
       <Box
-        position='fixed'
         as="nav"
+        position='fixed'
         w="100%"
         justify="center"
         bg={useColorModeValue("#ffffff40", "#20202380")}
         css={{ backdropFilter: "blur(10px)" }}
-        zIndex={1}
+        zIndex='2'
         {...props}
       >
         <Container
@@ -88,7 +87,7 @@ export const Navbar = (props) => {
           alignItems="center"
           maxW="8xl"
           wrap="nowrap"
-          p={2}
+          py={2}
           px={{
             base: "4",
             md: "4",

@@ -1,6 +1,13 @@
 import { mode, darken, whiten } from "@chakra-ui/theme-tools";
 import { useColorModeValue } from "@chakra-ui/react";
 
+const brandRing = {
+  _focus: {
+    ring: 2,
+    ringColor: "brand.200",
+  },
+};
+
 export const ButtonStyles = {
   // style object for base or default style
   baseStyle: {
@@ -11,17 +18,23 @@ export const ButtonStyles = {
   // styles for different visual variants ("outline", "solid")
   variants: {
     primary: (props) => ({
-      bg: useColorModeValue("brand.100", "brand.600"),
+      bgColor: useColorModeValue("brand.100", "brand.400"),
       color: "white",
       fontWeight: "regular",
+      ...brandRing,
       _hover: {
-        bg: mode(whiten("brand.100", 10), darken("brand.600", 20))(props),
+        bg: mode(whiten("brand.100", 10), darken("brand.400", 20))(props),
         boxShadow: "md",
       },
-      
+      _active: {
+        backgroundColor: mode(
+          whiten("brand.200", 10),
+          darken("brand.300", 20)
+        )(props),
+      },
     }),
     secondary: (props) => ({
-      bg: useColorModeValue("brand.50", "brand.50"),
+      bgColor: useColorModeValue("brand.50", "brand.50"),
       color: "white",
       fontWeight: "regular",
       fontFamily: "Montserrat",
@@ -31,7 +44,7 @@ export const ButtonStyles = {
       },
     }),
     outlined: (props) => ({
-      bg: useColorModeValue("white", "gray.100"),
+      bgColor: useColorModeValue("white", "gray.100"),
       color: "brand.100",
       border: "1px",
       borderColor: "brand.100",
@@ -42,6 +55,16 @@ export const ButtonStyles = {
         color: useColorModeValue("white", "white"),
         boxShadow: "md",
       },
+    }),
+    azure: (props) => ({
+      bgColor: "brand.200",
+      color: useColorModeValue("white", "black"),
+      fontWeight: "regular",
+      _hover: {
+        bg: mode(whiten("brand.200", 20), darken("brand.200", 20))(props),
+        boxShadow: "md",
+      },
+      fontWeight: "bold",
     }),
   },
   // default values for `size` and `variant`
