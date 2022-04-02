@@ -13,7 +13,6 @@ import {
 } from '@chakra-ui/react';
 
 const Cart = () => {
-  const {toggleColorMode} = useColorMode()
   const bgColor = useColorModeValue('gray.100', 'whiteAlpha.50')
   const secondaryTextColor = useColorModeValue('gray.600', 'gray.400')
   return (
@@ -29,7 +28,7 @@ const Cart = () => {
         <Heading size="2xl">Your cart</Heading>
         <Text>
           If the price is too hard on your eyes,{' '}
-          <Button onClick={toggleColorMode} variant="link" colorScheme="black">
+          <Button variant="link" colorScheme="black">
             try changing the theme.
           </Button>
         </Text>
