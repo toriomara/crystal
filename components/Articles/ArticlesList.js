@@ -43,6 +43,7 @@ const MotionGridItem = motion(GridItem);
 
 const ArticleList = ({ articles }) => {
   const bgColor = useColorModeValue("white", "#22272e");
+  const borderChange = useColorModeValue("1px solid #E2E8F0", "1px solid #444c56")
 
   return (
     <SimpleGrid
@@ -65,7 +66,7 @@ const ArticleList = ({ articles }) => {
           key={article.id}
           p={6}
           w="100%"
-          border={useColorModeValue("1px solid #E2E8F0", "1px solid #444c56")}
+          border={borderChange}
           boxShadow="lg"
           rounded={10}
           _hover={{
