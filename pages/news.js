@@ -1,5 +1,5 @@
 import React from 'react'
-import {Heading, Flex, Box} from '@chakra-ui/react'
+import {Heading, Box} from '@chakra-ui/react'
 import ArticleList from '../components/Articles/ArticlesList'
 import Meta from '../components/Meta'
 import {articles} from '../data/newsData'

@@ -56,6 +56,8 @@ const LinkItem = ({ href, path, children, ...props }) => {
 };
 
 export const Navbar = (props) => {
+
+  const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.200' )
   const { path } = props;
   const { isOpen, onToggle, onClose } = useDisclosure();
 
@@ -80,6 +82,9 @@ export const Navbar = (props) => {
         bg={useColorModeValue("#ffffff40", "#20202380")}
         css={{ backdropFilter: "blur(10px)" }}
         zIndex='2'
+        borderBottom={1}
+        borderStyle="solid"
+        borderBottomColor={borderColor}
         {...props}
       >
         <Container

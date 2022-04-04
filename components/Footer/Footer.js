@@ -87,7 +87,7 @@ const MyIconButton = styled(IconButton)`
 `;
 
 export const Footer = () => {
-  const bgColor = useColorModeValue("gray.100", "whiteAlpha.100");
+  const bgColor = useColorModeValue("#F2F2F2", "whiteAlpha.100");
 
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {

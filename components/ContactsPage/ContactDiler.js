@@ -19,7 +19,7 @@ import DilerModal from "../Subscribe/DilerModal";
 import { useState} from 'react'
 
 export const ContactDiler = () => {
-  const bgColor = useColorModeValue("white", "whiteAlpha.50");
+  const bgColor = useColorModeValue("white", "whiteAlpha.100");
   const borderStyle = useColorModeValue("1px solid #EDF2F7", "none");
   const blockShadow = useColorModeValue("none", "xl");
 
@@ -31,8 +31,6 @@ export const ContactDiler = () => {
   return (
     <Flex
       maxW="7xl"
-      mx="auto"
-      gap={8}
       py={{
         base: "4",
         lg: "12",

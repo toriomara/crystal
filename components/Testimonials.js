@@ -63,7 +63,7 @@ function TestimonialCard(props) {
       p={10}
       justifyContent={"space-between"}
       position={"relative"}
-      bg={useColorModeValue("white", "gray.800")}
+      bg={useColorModeValue("white", "whiteAlpha.100")}
       _after={{
         content: '""',
         position: "absolute",

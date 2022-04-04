@@ -97,8 +97,10 @@ const components = {
 };
 
 const fonts = {
-  heading: `EB Garamond, ${base.fonts?.heading} `,
+  heading: `Montserrat, ${base.fonts?.heading} `,
   body: `Montserrat, ${base.fonts?.body}`,
+  
+  //heading: `EB Garamond, ${base.fonts?.heading} `,
   //heading: 'Nunito, sans-serif',
   //body: 'Open Sans, sans-serif',
   //body: 'Murecho, sans-serif',
