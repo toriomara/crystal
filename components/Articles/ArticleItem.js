@@ -23,21 +23,31 @@ import { IoShareSocialOutline } from "react-icons/io5";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaVk } from "react-icons/fa";
+import {
+  FacebookShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  TelegramShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 const ArticleItem = ({ article }) => {
   const { id, date, title, image, name } = article;
+  const shareUrl = `https://crystal-three.vercel.app/article/[id]`;
   const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
 
   return (
     <Box>
       <SimpleGrid
-                //minH={[400, 350, 400]}
         minH={[310, 390, 350, 390, 360, 370]}
         alignContent="space-between"
       >
         <GridItem>
           <Link href="/article/[id]" as={`/article/${id}`}>
-            <a tabIndex="-1">
+            <a>
               <AspectRatio ratio={16 / 9}>
                 <Image
                   src={image}
@@ -48,7 +58,7 @@ const ArticleItem = ({ article }) => {
                   fallback={<Skeleton />}
                 />
               </AspectRatio>
-              <Heading variant="h6" fontSize={16} fontWeight={400} my={4}>
+              <Heading variant="h6" my={4}>
                 {title}
               </Heading>
             </a>
@@ -57,28 +67,45 @@ const ArticleItem = ({ article }) => {
         </GridItem>
         <GridItem>
           <Flex columnGap={4} color={iconColor} pb={2}>
-            <Icon
-              as={IoShareSocialOutline}
-              fontSize={20}
-              cursor="pointer"
-              aria-label="Share"
-              _hover={{
-                color: "brand.200",
-              }}
-            />
-            <Icon
-              as={FaFacebookF}
-              fontSize={20}
-              cursor="pointer"
-              aria-label="Share"
-            />
-            <Icon as={FaVk} fontSize={20} cursor="pointer" aria-label="Vk" />
-            <Icon
-              as={FaTelegramPlane}
-              fontSize={20}
-              cursor="pointer"
-              aria-label="Telegram"
-            />
+            <FacebookShareButton url={shareUrl}>
+              <Icon
+                as={FaFacebookF}
+                fontSize={20}
+                cursor="pointer"
+                aria-label="Share"
+                _hover={{
+                  color: useColorModeValue("brand.100", "brand.200"),
+                  transform: "scale(1.5)",
+                  transition: ".2s",
+                }}
+              />
+            </FacebookShareButton>
+            <VKShareButton url={shareUrl}>
+              <Icon
+                as={FaVk}
+                fontSize={20}
+                cursor="pointer"
+                aria-label="Vk"
+                _hover={{
+                  color: useColorModeValue("brand.100", "brand.200"),
+                  transform: "scale(1.5)",
+                  transition: ".2s",
+                }}
+              />
+            </VKShareButton>
+            <TelegramShareButton url={shareUrl}>
+              <Icon
+                as={FaTelegramPlane}
+                fontSize={20}
+                cursor="pointer"
+                aria-label="Telegram"
+                _hover={{
+                  color: useColorModeValue("brand.100", "brand.200"),
+                  transform: "scale(1.5)",
+                  transition: ".2s",
+                }}
+              />
+            </TelegramShareButton>
           </Flex>
         </GridItem>
       </SimpleGrid>
