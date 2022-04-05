@@ -19,10 +19,13 @@ import {
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/react";
-import { IoShareSocialOutline } from "react-icons/io5";
-import { FaFacebookF } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
-import { FaVk } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaVk,
+  FaTelegramPlane,
+  FaWhatsapp,
+  FaViber,
+} from "react-icons/fa";
 import {
   FacebookShareButton,
   WhatsappIcon,
@@ -36,7 +39,7 @@ import {
 
 const ArticleItem = ({ article }) => {
   const { id, date, title, image, name } = article;
-  const shareUrl = `https://crystal-three.vercel.app/article/[id]`;
+  const shareUrl = `https://crystal-three.vercel.app/article/${id}`;
   const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
   const hoverColor = useColorModeValue("brand.100", "brand.200");
 
@@ -72,7 +75,7 @@ const ArticleItem = ({ article }) => {
           </Link>
           <Text fontSize={14}>{date}</Text>
         </GridItem>
-        <GridItem>
+        <GridItem ml={0} pl={0}>
           <Flex columnGap={4} color={iconColor} pb={2}>
             <FacebookShareButton url={shareUrl}>
               <Icon
@@ -113,6 +116,32 @@ const ArticleItem = ({ article }) => {
                 }}
               />
             </TelegramShareButton>
+            <WhatsappShareButton url={shareUrl}>
+              <Icon
+                as={FaWhatsapp}
+                fontSize={20}
+                cursor="pointer"
+                aria-label="Whatsapp"
+                _hover={{
+                  color: useColorModeValue("brand.100", "brand.200"),
+                  transform: "scale(1.5)",
+                  transition: ".2s",
+                }}
+              />
+            </WhatsappShareButton>
+            <ViberShareButton url={shareUrl}>
+              <Icon
+                as={FaViber}
+                fontSize={20}
+                cursor="pointer"
+                aria-label="Viber"
+                _hover={{
+                  color: useColorModeValue("brand.100", "brand.200"),
+                  transform: "scale(1.5)",
+                  transition: ".2s",
+                }}
+              />
+            </ViberShareButton>
           </Flex>
         </GridItem>
       </SimpleGrid>

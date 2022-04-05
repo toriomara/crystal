@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 const MotionGridItem = motion(GridItem);
 
 const ArticleList = ({ articles }) => {
-  const toggleColor = useColorModeValue('green', 'yellow')
+  //const toggleColor = useColorModeValue('green', 'yellow')
   return (
     <SimpleGrid
       columns={{ base: 1, sm: 2, lg: 3 }}
@@ -28,7 +28,7 @@ const ArticleList = ({ articles }) => {
         <MotionGridItem
           key={article.id}
           _hover={{
-            color: "brand.50",
+            color: "brand.200",
           }}
           whileHover={{
             position: "relative",
