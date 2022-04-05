@@ -28,7 +28,7 @@ const ArticleList = ({ articles }) => {
         <MotionGridItem
           key={article.id}
           _hover={{
-            color: "brand.200",
+            color: "brand.50",
           }}
           whileHover={{
             position: "relative",
