@@ -38,6 +38,7 @@ const ArticleItem = ({ article }) => {
   const { id, date, title, image, name } = article;
   const shareUrl = `https://crystal-three.vercel.app/article/[id]`;
   const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
+  const hoverColor = useColorModeValue("brand.100", "brand.200");
 
   return (
     <Box>
@@ -58,7 +59,13 @@ const ArticleItem = ({ article }) => {
                   fallback={<Skeleton />}
                 />
               </AspectRatio>
-              <Heading variant="h6" my={4}>
+              <Heading
+                variant="h6"
+                my={4}
+                _hover={{
+                  color: { hoverColor },
+                }}
+              >
                 {title}
               </Heading>
             </a>
