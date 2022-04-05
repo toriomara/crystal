@@ -21,7 +21,6 @@ const ArticleList = ({ articles }) => {
       columns={{ base: 1, sm: 2, lg: 3 }}
       rowGap={8}
       columnGap={6}
-      //my={{ base: 6, sm: 6, md: 4, lg: 1 }}
       mt={6}
       mx='auto'
     >
