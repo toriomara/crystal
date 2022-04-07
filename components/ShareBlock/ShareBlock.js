@@ -26,9 +26,8 @@ const ShareBlock = (props) => {
 
   return (
     <props.wrap gap={props.gap} color={iconColor}>
-      <FacebookShareButton url={shareUrl} p={100}>
+      <FacebookShareButton url={shareUrl}>
         <Icon
-        m={100}
           as={FaFacebookF}
           fontSize={20}
           cursor="pointer"

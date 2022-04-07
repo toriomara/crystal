@@ -31,7 +31,7 @@ import {
   EmailShareButton,
 } from "react-share";
 import { AiOutlineMail } from "react-icons/ai";
-import ShareBlock from "../ShareBlock/shareBlock";
+import ShareBlock from "../ShareBlock/ShareBlock";
 
 const ArticleItem = ({ article }) => {
   const { id, date, title, image, name } = article;
