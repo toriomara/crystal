@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 import { articles } from "../../../data/newsData";
 import Meta from "../../../components/Meta";
-import ShareBlock from "../../../components/ShareBlock/shareBlock";
+import ShareBlock from "../../../components/ShareBlock/ShareBlock";
 
 export const getStaticProps = async ({ params }) => {
   const article = articles.find((article) => article.id === params.id);
