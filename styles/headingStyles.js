@@ -4,27 +4,26 @@ import { extendTheme } from "@chakra-ui/react";
 export const HeadingStyles = {
   // 1. We can update the base styles
   baseStyle: {
-    fontWeight: "bold", // Normally, it is "semibold"
+    fontWeight: "500", // Normally, it is "semibold"
   },
   // 2. We can add a new component size or extend existing
   sizes: {},
   // 3. We can add a new visual variant
   variants: {
-    "page-title": {
+    pageTitle: (props) => ({
       textAlign: "center",
+      justifyContent: 'start',
       fontWeights: "500",
       justify: "center",
-      marginTop: 4,
-      marginBottom: 4,
-    },
-    "section-title": {
+      my: 12,
+    }),
+    sectionTitle: {
       textDecoration: "underline",
-      fontSize: 20,
-      textUnderlineOffset: 6,
+      fontSize: '2xl',
+      textUnderlineOffset: 5,
       textDecorationColor: "#525252",
       textDecorationThickness: 4,
-      marginTop: 3,
-      marginBottom: 4,
+      my: 8
     },
     h1: {
       fontSize: "4xl",

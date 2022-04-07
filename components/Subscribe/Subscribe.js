@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Flex, VStack, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Details from "./details";
 import Cart from "./cart";
 

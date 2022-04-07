@@ -17,10 +17,13 @@ import ContactCard from "../components/ContactsPage/ContactCard";
 import ContactMap from "../components/ContactsPage/ContactMap";
 import { ContactDiler } from "../components/ContactsPage/ContactDiler";
 import { ContactRequest } from "../components/ContactsPage/ContactRequest";
+import Meta from "../components/Meta";
 
 const Contacts = () => {
   return (
     <Box>
+      <Meta title="Contacts" />
+      <Heading variant="pageTitle">Контактная информация</Heading>
       <ContactsHead />
       <ContactDiler />
       <ContactMap />

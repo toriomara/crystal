@@ -1,20 +1,14 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import {
-  ButtonGroup,
   Heading,
   Text,
   Box,
   Flex,
-  VStack,
   AspectRatio,
   Skeleton,
-  Stack,
-  HStack,
-  Button,
-  Grid,
   GridItem,
   SimpleGrid,
+  Grid,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
@@ -25,32 +19,36 @@ import {
   FaTelegramPlane,
   FaWhatsapp,
   FaViber,
+  FaTwitter,
 } from "react-icons/fa";
 import {
   FacebookShareButton,
-  WhatsappIcon,
-  FacebookIcon,
   TelegramShareButton,
   TwitterShareButton,
   ViberShareButton,
   VKShareButton,
   WhatsappShareButton,
+  EmailShareButton,
 } from "react-share";
+import { AiOutlineMail } from "react-icons/ai";
+import ShareBlock from "../ShareBlock/shareBlock";
 
 const ArticleItem = ({ article }) => {
   const { id, date, title, image, name } = article;
   const shareUrl = `https://crystal-three.vercel.app/article/${id}`;
   const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
   const hoverColor = useColorModeValue("brand.100", "brand.200");
+  const bgColor = useColorModeValue("blackAlpha.300", "whiteAlpha.200");
 
   return (
     <Box>
       <SimpleGrid
-        minH={[310, 390, 350, 390, 360, 370]}
+        minH={[310, 390, 350, 395, 360, 370]}
         alignContent="space-between"
+        //gColor={bgColor}
       >
         <GridItem>
-          <Link href="/article/[id]" as={`/article/${id}`}>
+          <Link href="/article/[id]" as={`/article/${id}`} _hover={hoverColor}>
             <a>
               <AspectRatio ratio={16 / 9}>
                 <Image
@@ -75,74 +73,8 @@ const ArticleItem = ({ article }) => {
           </Link>
           <Text fontSize={14}>{date}</Text>
         </GridItem>
-        <GridItem ml={0} pl={0}>
-          <Flex columnGap={4} color={iconColor} pb={2}>
-            <FacebookShareButton url={shareUrl}>
-              <Icon
-                as={FaFacebookF}
-                fontSize={20}
-                cursor="pointer"
-                aria-label="Share"
-                _hover={{
-                  color: useColorModeValue("brand.100", "brand.200"),
-                  transform: "scale(1.5)",
-                  transition: ".2s",
-                }}
-              />
-            </FacebookShareButton>
-            <VKShareButton url={shareUrl}>
-              <Icon
-                as={FaVk}
-                fontSize={20}
-                cursor="pointer"
-                aria-label="Vk"
-                _hover={{
-                  color: useColorModeValue("brand.100", "brand.200"),
-                  transform: "scale(1.5)",
-                  transition: ".2s",
-                }}
-              />
-            </VKShareButton>
-            <TelegramShareButton url={shareUrl}>
-              <Icon
-                as={FaTelegramPlane}
-                fontSize={20}
-                cursor="pointer"
-                aria-label="Telegram"
-                _hover={{
-                  color: useColorModeValue("brand.100", "brand.200"),
-                  transform: "scale(1.5)",
-                  transition: ".2s",
-                }}
-              />
-            </TelegramShareButton>
-            <WhatsappShareButton url={shareUrl}>
-              <Icon
-                as={FaWhatsapp}
-                fontSize={20}
-                cursor="pointer"
-                aria-label="Whatsapp"
-                _hover={{
-                  color: useColorModeValue("brand.100", "brand.200"),
-                  transform: "scale(1.5)",
-                  transition: ".2s",
-                }}
-              />
-            </WhatsappShareButton>
-            <ViberShareButton url={shareUrl}>
-              <Icon
-                as={FaViber}
-                fontSize={20}
-                cursor="pointer"
-                aria-label="Viber"
-                _hover={{
-                  color: useColorModeValue("brand.100", "brand.200"),
-                  transform: "scale(1.5)",
-                  transition: ".2s",
-                }}
-              />
-            </ViberShareButton>
-          </Flex>
+        <GridItem>
+          <ShareBlock article={article} wrap={Flex} flexDirection={Flex} />
         </GridItem>
       </SimpleGrid>
     </Box>

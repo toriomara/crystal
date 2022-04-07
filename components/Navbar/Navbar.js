@@ -56,8 +56,7 @@ const LinkItem = ({ href, path, children, ...props }) => {
 };
 
 export const Navbar = (props) => {
-
-  const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.200' )
+  const borderColor = useColorModeValue("blackAlpha.300", "whiteAlpha.200");
   const { path } = props;
   const { isOpen, onToggle, onClose } = useDisclosure();
 
@@ -76,12 +75,12 @@ export const Navbar = (props) => {
       {/* {isPreheader && <Preheader setIsPreheader={setIsPreheader} />} */}
       <Box
         as="nav"
-        position='fixed'
+        position="fixed"
         w="100%"
         justify="center"
         bg={useColorModeValue("#ffffff40", "#20202380")}
         css={{ backdropFilter: "blur(10px)" }}
-        zIndex='2'
+        zIndex="2"
         borderBottom={1}
         borderStyle="solid"
         borderBottomColor={borderColor}
@@ -225,8 +224,7 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
   );
 };
 
-const MobileNav = ({onClose}) => {
-  
+const MobileNav = ({ onClose }) => {
   return (
     <Stack p={4} bg={useColorModeValue("white", "gray.800")}>
       <Flex display={{ base: "flex" }}>

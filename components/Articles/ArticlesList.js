@@ -23,13 +23,13 @@ const ArticleList = ({ articles }) => {
       columnGap={6}
       mt={6}
       mx='auto'
-    >
+      >
       {articles.map((article) => (
         <MotionGridItem
-          key={article.id}
-          _hover={{
-            color: "brand.200",
-          }}
+        key={article.id}
+          // _hover={{
+          //   color: "brand.200",
+          // }}
           whileHover={{
             position: "relative",
             zIndex: 1,

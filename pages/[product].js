@@ -1,5 +1,6 @@
 import {
   Flex,
+  Box,
   Grid,
   GridItem,
   Heading,
@@ -13,6 +14,7 @@ import ProductBar from "../components/ProductBar";
 import Image from "next/image";
 import { Features } from "../components/Product/Features";
 import Carousel from "../components/HomePage/Carousel";
+import Meta from "../components/Meta";
 
 export const getStaticProps = async ({ params }) => {
   const product = products.find((product) => product.name === params.product);
@@ -40,7 +42,9 @@ const Product = ({ product }) => {
     product;
 
   return (
-    <Container maxW="container.xl" p={0}>
+    <Box>
+      <Meta title="Production" />
+      <Heading variant="pageTitle">Продукция</Heading>
       <Flex
         py={[0, 10, 20]}
         direction={{ base: "column-reverse", md: "row" }}
@@ -69,7 +73,7 @@ const Product = ({ product }) => {
             more={more}
           />
         </HStack>
-    </Container>
+    </Box>
   );
 };
 

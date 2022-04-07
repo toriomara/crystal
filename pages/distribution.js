@@ -3,6 +3,7 @@ import { Button, Heading, Box, Stack } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import Subscribe from "../components/Subscribe/Subscribe";
 import Modal from "../components/Modal";
+import Meta from "../components/Meta";
 
 const MotionButton = motion(Button);
 
@@ -14,7 +15,8 @@ const Distribution = () => {
 
   return (
     <Box>
-      <Heading>Distribution</Heading>
+      <Meta title="Distribution" />
+      <Heading variant="pageTitle">Дистрибьюция</Heading>
       <MotionButton
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

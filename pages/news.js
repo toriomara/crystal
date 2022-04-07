@@ -9,7 +9,7 @@ export default function News({ articles }) {
   return (
     <Box>
       <Meta title="News" />
-      <Heading variant="page-title">Новости</Heading>
+      <Heading variant="pageTitle">Новости</Heading>
       <ArticleList articles={articles} />
     </Box>
   );
