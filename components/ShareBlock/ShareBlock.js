@@ -26,11 +26,11 @@ const ShareBlock = (props) => {
 
   return (
     <props.wrap
+      w={props.w}
       gap={props.gap}
-      color={iconColor}
-      w="60%"
       justifyContent={props.justifyContent}
-      alignItems='center'
+      color={iconColor}
+      alignItems="start"
     >
       <FacebookShareButton url={shareUrl}>
         <Icon

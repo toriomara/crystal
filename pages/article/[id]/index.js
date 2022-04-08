@@ -44,7 +44,7 @@ const article = ({ article }) => {
     <Flex py={10} my={10}>
       <Meta title={title} />
       <Grid templateColumns="1fr 10fr 4fr" gap={6}>
-        <GridItem display='flex' justifyContent='center'>
+        <GridItem  justifyContent='center'>
           <ShareBlock article={article} wrap={Grid} gap={4} />
         </GridItem>
         <GridItem>
