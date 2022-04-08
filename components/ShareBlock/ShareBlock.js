@@ -25,7 +25,13 @@ const ShareBlock = (props) => {
   const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
 
   return (
-    <props.wrap gap={props.gap} color={iconColor}>
+    <props.wrap
+      gap={props.gap}
+      color={iconColor}
+      w="60%"
+      justifyContent="space-between"
+      alignItems='center'
+    >
       <FacebookShareButton url={shareUrl}>
         <Icon
           as={FaFacebookF}
