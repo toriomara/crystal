@@ -74,7 +74,7 @@ const ArticleItem = ({ article }) => {
           <Text fontSize={14}>{date}</Text>
         </GridItem>
         <GridItem>
-          <ShareBlock article={article} wrap={Flex} flexDirection={Flex} />
+          <ShareBlock article={article} wrap={Flex} justifyContent={'space-between'}/>
         </GridItem>
       </SimpleGrid>
     </Box>

@@ -17,7 +17,7 @@ import Link from "next/link";
 import { articles } from "../../../data/newsData";
 import Meta from "../../../components/Meta";
 import ShareBlock from "../../../components/ShareBlock/ShareBlock";
-import { Search2Icon } from "@chakra-ui/icons";
+import { SearchBlock } from "../../../components/Search";
 
 export const getStaticProps = async ({ params }) => {
   const article = articles.find((article) => article.id === params.id);
@@ -41,10 +41,10 @@ const article = ({ article }) => {
   const { id, date, title, body, badge, image, name } = article;
 
   return (
-    <Flex px={12} py={10} my={10}>
+    <Flex py={10} my={10}>
       <Meta title={title} />
-      <Grid templateColumns="1fr 10fr 4fr">
-        <GridItem justifyContent='center'>
+      <Grid templateColumns="1fr 10fr 4fr" gap={6}>
+        <GridItem display='flex' justifyContent='center'>
           <ShareBlock article={article} wrap={Grid} gap={4} />
         </GridItem>
         <GridItem>
@@ -60,11 +60,9 @@ const article = ({ article }) => {
             <Link href="/news">Назад</Link>
           </Button>
         </GridItem>
-        <GridItem justifyContent='center'>
+        <GridItem justifyContent="center">
           <VStack>
-            <Search2Icon>
-
-            </Search2Icon>
+            <SearchBlock size='sm'/>
           </VStack>
         </GridItem>
       </Grid>

@@ -3,7 +3,7 @@ import { useColorModeValue } from "@chakra-ui/react";
 
 const brandRing = {
   _focus: {
-    ring: 2,
+    ring: 1,
     ringColor: "brand.200",
   },
 };

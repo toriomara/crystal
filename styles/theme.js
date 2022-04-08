@@ -76,8 +76,8 @@ const InputSelectStyles = {
 
 const brandRing = {
   _focus: {
-    ring: 2,
-    ringColor: "brand.200",
+    ring: 1,
+    ringColor: "brand.100",
   },
 };
 
