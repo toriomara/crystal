@@ -19,7 +19,7 @@ import { articles } from "../../../data/newsData";
 import Meta from "../../../components/Meta";
 import ShareBlock from "../../../components/ShareBlock/ShareBlock";
 import { SearchBlock } from "../../../components/Search";
-import { Main } from "next/document";
+//import { Main } from "next/document";
 import RandomArticles from "../../../components/Articles/RandomArticles";
 
 export const getStaticProps = async ({ params }) => {
@@ -42,8 +42,6 @@ export const getStaticPaths = async () => {
 
 const article = ({ article }) => {
   const { id, date, title, body, badge, image, name } = article;
-  
-
 
   return (
     <Flex py={10} my={10}>
@@ -53,7 +51,7 @@ const article = ({ article }) => {
           <ShareBlock article={article} wrap={Grid} gap={4} />
         </GridItem>
         <GridItem>
-          <Image src={image} mb={8}/>
+          <Image src={image} mb={8} />
           <Badge variant="outline" colorScheme="brand">
             {badge}
           </Badge>
@@ -69,20 +67,16 @@ const article = ({ article }) => {
         <GridItem justifyContent="center">
           <Grid>
             <SearchBlock size="md" />
-            <Heading variant='h4' fontWeight={700} justifyItems='start' py={8}>
+            <Heading variant="h4" fontWeight={700} justifyItems="start" py={8}>
               Случайные новости
             </Heading>
             {date}
-            <RandomArticles/>
+            <RandomArticles />
           </Grid>
         </GridItem>
       </Grid>
     </Flex>
   );
 };
-
-// const randomArticles = ({article}) => {
-//   return <Text>{rndArticle}</Text>
-// }
 
 export default article;
