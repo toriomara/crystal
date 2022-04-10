@@ -1,13 +1,6 @@
 import { mode, darken, whiten } from "@chakra-ui/theme-tools";
 import { useColorModeValue } from "@chakra-ui/react";
 
-const brandRing = {
-  _focus: {
-    ring: 1,
-    ringColor: "brand.200",
-  },
-};
-
 export const ButtonStyles = {
   // style object for base or default style
   baseStyle: {
@@ -21,9 +14,8 @@ export const ButtonStyles = {
       bgColor: useColorModeValue("brand.100", "brand.400"),
       color: "white",
       fontWeight: "regular",
-      ...brandRing,
       _hover: {
-        bg: mode(whiten("brand.100", 10), darken("brand.400", 20))(props),
+        bgColor: mode(whiten("brand.100", 10), darken("brand.400", 20))(props),
         boxShadow: "md",
       },
       _active: {
@@ -67,13 +59,5 @@ export const ButtonStyles = {
       fontWeight: "bold",
     }),
   },
-  // default values for `size` and `variant`
-  defaultProps: {
-    // _focus: {
-    //   ring: '4px',
-    //   ringColor: 'red.200',
-    //   ringOffset: '3px',
-    //   ringOffsetColor: 'red.300',
-    // },
-  },
+  defaultProps: {},
 };

@@ -19,16 +19,19 @@ export const SearchBlock = (props) => {
     <FormControl>
       <HStack spacing={0}>
         <Input
+          variant="searchInput"
+          //variant="outline"
           size={props.size}
-          variant="outline"
           placeholder="Поиск"
-          borderRadius={"5 0 0 5"}
+          borderRadius={"2px 0 0 2px"}
         />
         <Button
           size={props.size}
-          borderRadius={"0 3px 3px 0"}
+          borderRadius={"0 2px 2px 0"}
+          px={6}
           color={iconColor}
           bgColor={bgColor}
+          variant='primary'
         >
           <Icon as={SearchIcon} size={props.size}></Icon>
         </Button>

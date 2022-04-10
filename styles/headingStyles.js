@@ -1,4 +1,3 @@
-// theme.js
 import { extendTheme } from "@chakra-ui/react";
 
 export const HeadingStyles = {
@@ -12,18 +11,18 @@ export const HeadingStyles = {
   variants: {
     pageTitle: (props) => ({
       textAlign: "center",
-      justifyContent: 'start',
+      //justifyContent: "start",
       fontWeights: "500",
       justify: "center",
       my: 12,
     }),
-    sectionTitle: {
-      textDecoration: "underline",
-      fontSize: '2xl',
-      textUnderlineOffset: 5,
-      textDecorationColor: "#525252",
-      textDecorationThickness: 4,
-      my: 8
+    articleTitle: {
+      fontSize: "2xl",
+      my: 4,
+      //textDecoration: "underline",
+      //textUnderlineOffset: 5,
+      //textDecorationColor: "#525252",
+      //textDecorationThickness: 4,
     },
     h1: {
       fontSize: "4xl",

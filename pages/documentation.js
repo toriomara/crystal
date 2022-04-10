@@ -4,7 +4,7 @@ import {Heading} from "@chakra-ui/react";
 const Documentation = () => {
   return (
     <div>
-      <Heading>Documentation</Heading>
+      <Heading variant='pageTitle'>Documentation</Heading>
     </div>
   )
 }

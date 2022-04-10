@@ -1,5 +1,4 @@
 import {
-  Checkbox,
   extendTheme,
   theme as base,
   withDefaultColorScheme,
@@ -8,6 +7,7 @@ import {
 import { mode, createBreakpoints } from "@chakra-ui/theme-tools";
 import { ButtonStyles as Button } from "../styles/buttonStyles";
 import { HeadingStyles as Heading } from "../styles/headingStyles";
+import { InputStyles as Input } from "../styles/inputStyles";
 
 const config = {
   initialColorMode: "light",
@@ -55,52 +55,17 @@ const breakpoints = createBreakpoints({
   "2xl": "96rem",
 });
 
-const InputSelectStyles = {
-  variants: {
-    filled: {
-      field: {
-        _focus: {
-          borderColor: "brand.200",
-        },
-      },
-    },
-  },
-  sizes: {
-    md: {
-      field: {
-        //borderRadius: 'none'
-      },
-    },
-  },
-};
-
-const brandRing = {
-  _focus: {
-    ring: 1,
-    ringColor: "brand.100",
-  },
-};
-
 const components = {
   Heading,
   Button,
   Heading,
-
-  Input: { ...InputSelectStyles },
-  Select: { ...InputSelectStyles },
-  Checkbox: {
-    baseStyle: {
-      control: {
-        ...brandRing,
-      },
-    },
-  },
+  Input,
 };
 
 const fonts = {
   heading: `Montserrat, ${base.fonts?.heading} `,
   body: `Montserrat, ${base.fonts?.body}`,
-  
+
   //heading: `EB Garamond, ${base.fonts?.heading} `,
   //heading: 'Nunito, sans-serif',
   //body: 'Open Sans, sans-serif',
@@ -116,9 +81,11 @@ const colors = {
     200: "#00BBFF", //azure
     300: "#6574E4", //MediumSlateBlue
     400: "#0075EE", //DeepSkyBlue
-    500: "#A757C7", //violet
+    500: "#043f76", //brandedBlue
     600: "#CC359A", //orchid
     700: "#79AF07", //LimeGreen
+
+    //500: "#A757C7", //violet
   },
 
   // primary: "#C53030",

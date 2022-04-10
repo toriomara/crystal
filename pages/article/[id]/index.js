@@ -7,6 +7,7 @@ import {
   Badge,
   Flex,
   VStack,
+  Image,
   useColorModeValue,
   Grid,
   GridItem,
@@ -18,6 +19,8 @@ import { articles } from "../../../data/newsData";
 import Meta from "../../../components/Meta";
 import ShareBlock from "../../../components/ShareBlock/ShareBlock";
 import { SearchBlock } from "../../../components/Search";
+import { Main } from "next/document";
+import RandomArticles from "../../../components/Articles/RandomArticles";
 
 export const getStaticProps = async ({ params }) => {
   const article = articles.find((article) => article.id === params.id);
@@ -39,19 +42,22 @@ export const getStaticPaths = async () => {
 
 const article = ({ article }) => {
   const { id, date, title, body, badge, image, name } = article;
+  
+
 
   return (
     <Flex py={10} my={10}>
       <Meta title={title} />
-      <Grid templateColumns="1fr 10fr 4fr" gap={6}>
-        <GridItem  justifyContent='center'>
+      <Grid templateColumns="1fr 14fr 5fr" gap={6}>
+        <GridItem justifyContent="center">
           <ShareBlock article={article} wrap={Grid} gap={4} />
         </GridItem>
         <GridItem>
+          <Image src={image} mb={8}/>
           <Badge variant="outline" colorScheme="brand">
             {badge}
           </Badge>
-          <Heading lineHeight="1.5" variant="sectionTitle">
+          <Heading lineHeight="1.5" variant="articleTitle">
             {title}
           </Heading>
           <Text>{date}</Text>
@@ -61,13 +67,22 @@ const article = ({ article }) => {
           </Button>
         </GridItem>
         <GridItem justifyContent="center">
-          <VStack>
-            <SearchBlock size='sm'/>
-          </VStack>
+          <Grid>
+            <SearchBlock size="md" />
+            <Heading variant='h4' fontWeight={700} justifyItems='start' py={8}>
+              Случайные новости
+            </Heading>
+            {date}
+            <RandomArticles/>
+          </Grid>
         </GridItem>
       </Grid>
     </Flex>
   );
 };
+
+// const randomArticles = ({article}) => {
+//   return <Text>{rndArticle}</Text>
+// }
 
 export default article;
