@@ -19,7 +19,6 @@ import { articles } from "../../../data/newsData";
 import Meta from "../../../components/Meta";
 import ShareBlock from "../../../components/ShareBlock/ShareBlock";
 import { SearchBlock } from "../../../components/Search";
-//import { Main } from "next/document";
 import RandomArticles from "../../../components/Articles/RandomArticles";
 
 export const getStaticProps = async ({ params }) => {
