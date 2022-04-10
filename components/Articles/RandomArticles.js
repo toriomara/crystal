@@ -1,30 +1,20 @@
-// import React from "react";
-// import { articles } from "../../data/newsData";
-// import { Text } from "@chakra-ui/react";
-
-// const RandomArticles = () => {
-//   let rnd = Math.ceil(Math.random() * articles.length);
-//   let articleTitle = articles.find((el) => el.id === rnd);
-//   console.log(articleTitle);
-
-//   return <Text>{articleTitle}</Text>;
-// };
-
-// export default RandomArticles;
-
 import React from "react";
 import { articles } from "../../data/newsData";
-import { Text } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 
 const RandomArticles = () => {
-  //const rnd = Math.ceil(Math.random() * articles.length);
+  const rnd = Math.ceil(Math.random() * articles.length);
 
-  const title = articles.find(findRnd)
+  const title = articles.find(findRnd).title;
   function findRnd(article) {
-    return article.id === Math.ceil(Math.random() * articles.length);
+    return article.id == rnd;
   }
 
-  return <Text>{title}</Text>;
+  return (
+    <Box>
+      <Text>1. {title}</Text>
+    </Box>
+  );
 };
 
 export default RandomArticles;
