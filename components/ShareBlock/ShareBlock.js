@@ -27,7 +27,7 @@ const ShareBlock = (props) => {
   return (
     <props.wrap
       position="sticky"
-      top="0"
+      top="100px"
       w={props.w}
       gap={props.gap}
       justifyContent={props.justifyContent}

@@ -69,7 +69,6 @@ const article = ({ article }) => {
             <Heading variant="h4" fontWeight={700} justifyItems="start" py={8}>
               Случайные новости
             </Heading>
-            {date}
             <RandomArticles />
           </Grid>
         </GridItem>

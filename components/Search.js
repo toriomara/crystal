@@ -20,7 +20,6 @@ export const SearchBlock = (props) => {
       <HStack spacing={0}>
         <Input
           variant="searchInput"
-          //variant="outline"
           size={props.size}
           placeholder="Поиск"
           borderRadius={"2px 0 0 2px"}
