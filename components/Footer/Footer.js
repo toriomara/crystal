@@ -88,6 +88,7 @@ const MyIconButton = styled(IconButton)`
 
 export const Footer = () => {
   const bgColor = useColorModeValue("#F2F2F2", "whiteAlpha.100");
+  const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
 
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
@@ -243,58 +244,70 @@ export const Footer = () => {
 
               <Flex>
                 <MyIconButton
+                  icon={<RiWhatsappFill fontSize="20px" />}
                   variant="ghost"
                   as="a"
                   href="https://wa.me/79173381186"
                   target="_blank"
                   aria-label="Whatsapp"
-                  color="#43d854"
-                  icon={<RiWhatsappFill fontSize="20px" />}
+                  _hover={{
+                    color: useColorModeValue("brand.100", "brand.200"),
+                  }}
                 />
                 <MyIconButton
+                  icon={<FaViber fontSize="20px" />}
                   variant="ghost"
                   as="a"
                   href="viber://chat?number=%2B79173381186"
                   target="_blank"
                   aria-label="Viber"
-                  color="#665CAC"
-                  icon={<FaViber fontSize="20px" />}
+                  _hover={{
+                    color: useColorModeValue("brand.100", "brand.200"),
+                  }}
                 />
                 <MyIconButton
+                  icon={<SiInstagram fontSize="20px" />}
                   variant="ghost"
                   as="a"
                   href="https://www.instagram.com/factory_korund/"
                   target="_blank"
                   aria-label="Instagram"
-                  color="#8a3ab9"
-                  icon={<SiInstagram fontSize="20px" />}
+                  _hover={{
+                    color: useColorModeValue("brand.100", "brand.200"),
+                  }}
                 />
                 <MyIconButton
+                  icon={<FaYoutube fontSize="20px" />}
                   variant="ghost"
                   as="a"
                   href="https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ"
                   target="_blank"
                   aria-label="LinkedIn"
-                  color="#c4302b"
-                  icon={<FaYoutube fontSize="20px" />}
+                  _hover={{
+                    color: useColorModeValue("brand.100", "brand.200"),
+                  }}
                 />
                 <MyIconButton
+                  icon={<FaTwitter fontSize="20px" />}
                   variant="ghost"
                   as="a"
                   href="https://twitter.com/Korund34"
                   target="_blank"
                   aria-label="Twitter"
-                  color="#1DA1F2"
-                  icon={<FaTwitter fontSize="20px" />}
+                  _hover={{
+                    color: useColorModeValue("brand.100", "brand.200"),
+                  }}
                 />
                 <MyIconButton
+                  icon={<FaFacebookSquare fontSize="20px" />}
                   variant="ghost"
                   as="a"
                   href="https://www.facebook.com/factorykorund"
                   target="_blank"
                   aria-label="Facebook"
-                  color="#3b5998"
-                  icon={<FaFacebookSquare fontSize="20px" />}
+                  _hover={{
+                    color: useColorModeValue("brand.100", "brand.200"),
+                  }}
                 />
               </Flex>
             </Stack>

@@ -30,12 +30,14 @@ const styles = {
       },
       "::-webkit-scrollbar": {
         width: "16px",
-        background: "white",
+        background: mode("#ffffff", "#22272e")(props),
       },
       "::-webkit-scrollbar-thumb": {
         background: "#575757",
         borderRadius: "16px",
-        border: "4px solid white",
+        borderStyle: "solid",
+        borderWidth: "4px",
+        borderColor: mode("#ffffff", "#22272e")(props),
       },
       a: {
         _hover: {
