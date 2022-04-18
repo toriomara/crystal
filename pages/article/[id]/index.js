@@ -34,7 +34,7 @@ export const getStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
   const ids = articles.map((article) => article.id);
-  const paths = ids.map((id) => ({ params: { id: id } }));
+  const paths = ids.map((id) => ({ params: { id: id.toString() } }));
   return {
     paths,
     fallback: false,
@@ -80,7 +80,7 @@ const article = ({ article }) => {
               <Link href='/news'>Назад</Link>
             </Button>
             <Button variant='primary'>
-              <Link href='/article/[id]+1'>Вперёд</Link>
+              <Link href="/article/[id]" as='/article/[id]'>Вперёд</Link>
             </Button>
           </Flex>
         </GridItem>

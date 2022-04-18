@@ -33,6 +33,7 @@ const ShareBlock = (props) => {
       justifyContent={props.justifyContent}
       color={iconColor}
       alignItems="start"
+      cursor='pointer'
     >
       <FacebookShareButton url={shareUrl}>
         <Icon

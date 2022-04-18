@@ -22,3 +22,10 @@ enver-taal.com
 englishvoyage.com
 
 Железнодорожная вода - Аквариум = Temporary Like Achilles - Bob Dylan
+
+If you need to add attributes like, for example, className, add it to the `a` tag, not to the `Link` tag.
+<Link href="/">
+  <a className="foo" target="_blank" rel="noopener noreferrer">
+    Hello World
+    </a>
+</Link>
