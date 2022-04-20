@@ -11,14 +11,24 @@ import {
   StatNumber,
   StatHelpText,
   Heading,
-} from "@chakra-ui/react";
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-import styled from "@emotion/styled";
-import { useState } from "react";
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import styled from '@emotion/styled';
+import { useState } from 'react';
 
 const FeatureItem = ({ children }) => {
+  const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.300');
+  const fontColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.700');
   return (
-    <Box border="1px solid black" rounded={4} fontSize="30px" p={4}>
+    <Box
+      color={fontColor}
+      border={1}
+      borderStyle='solid'
+      borderColor={borderColor}
+      rounded={4}
+      p={4}
+    >
       {children}
     </Box>
   );
@@ -26,33 +36,27 @@ const FeatureItem = ({ children }) => {
 
 const MyHeading = motion(Heading);
 
-export const Features = ({ name, temperature, volume, packaging, more }) => {
-
-  // const [isClick, setIsClick] = useState(false);
-
-  // useEffect(() => {
-  //   function onClick() {}
-
-  //   return () => {
-  //     second;
-  //   };
-  // }, [FeatureItem]);
-
+export const Feature = ({ name, temperature, volume, packaging, more }) => {
   return (
-    <Flex
-      spacing={4}
-      //templateColumns="repeat(4, 1fr)"
-      //justifyContent="space-between"
-      gap={4}
+    <Grid
+      templateColumns={{
+        base: 'repeat(1, 1fr)',
+        sm: 'repeat(2, 1fr)',
+        md: 'repeat(4, 1fr)',
+      }}
+      gap={{ base: '4', sm: '6', md: '6' }}
+      my={10}
     >
       <FeatureItem>
         <Stat>
-          <StatLabel fontSize={18}>Температурный диапазон</StatLabel>
+          <StatLabel fontSize={16}>Температурный диапазон</StatLabel>
           <StatNumber>
             <AnimatePresence exitBeforeEnter>
               <MyHeading
-                variant="h3"
                 key={name}
+                variant='h4'
+                lineHeight='1.8'
+                fontWeight='600'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: 1,
@@ -73,10 +77,12 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
           <StatNumber>
             <AnimatePresence exitBeforeEnter>
               <MyHeading
-                variant="h3"
                 key={name}
-                initial="hidden"
-                animate="visible"
+                variant='h4'
+                lineHeight='1.8'
+                fontWeight='600'
+                initial='hidden'
+                animate='visible'
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -88,7 +94,7 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
                     transition: {
                       delay: 0.1,
                       duration: 0.8,
-                      ease: "anticipate",
+                      ease: 'anticipate',
                     },
                   },
                 }}
@@ -105,10 +111,12 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
           <StatNumber>
             <AnimatePresence exitBeforeEnter>
               <MyHeading
-                variant="h3"
                 key={name}
-                initial="hidden"
-                animate="visible"
+                variant='h4'
+                lineHeight='1.8'
+                fontWeight='600'
+                initial='hidden'
+                animate='visible'
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -120,7 +128,7 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
                     transition: {
                       delay: 0.2,
                       duration: 0.8,
-                      ease: "anticipate",
+                      ease: 'anticipate',
                     },
                   },
                 }}
@@ -137,10 +145,12 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
           <StatNumber>
             <AnimatePresence exitBeforeEnter>
               <MyHeading
-                variant="h3"
                 key={name}
-                initial="hidden"
-                animate="visible"
+                variant='h4'
+                lineHeight='1.8'
+                fontWeight='600'
+                initial='hidden'
+                animate='visible'
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -152,7 +162,7 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
                     transition: {
                       delay: 0.3,
                       duration: 0.8,
-                      ease: "anticipate",
+                      ease: 'anticipate',
                     },
                   },
                 }}
@@ -163,6 +173,6 @@ export const Features = ({ name, temperature, volume, packaging, more }) => {
           </StatNumber>
         </Stat>
       </FeatureItem>
-    </Flex>
+    </Grid>
   );
 };

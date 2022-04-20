@@ -97,8 +97,6 @@ const article = ({ article }) => {
               Случайные новости
             </Heading>
             <RandomArticles />
-            <RandomArticles />
-            <RandomArticles />
           </Grid>
         </GridItem>
       </Grid>

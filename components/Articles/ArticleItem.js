@@ -82,7 +82,7 @@ const ArticleItem = ({ article }) => {
               </Heading>
             </a>
           </Link>
-          <Text fontSize={14}>{date}</Text>
+          <Text fontSize={16}>{date}</Text>
         </GridItem>
         {isHovering && (
           <GridItem>

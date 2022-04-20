@@ -10,19 +10,17 @@ import {
   Box,
   Divider,
   useColorModeValue,
-  //useColorMode
 } from "@chakra-ui/react";
 import { SimpleLink } from "../../styles/link";
 
 export const ContactsHead = () => {
-  //const { toggleColorMode } = useColorMode()
   const textColor = useColorModeValue("black", "gray.200");
 
   return (
     <Box mt={6} color={textColor} >
-      <Heading as="h1" variant="h1" mb={6}>
+      {/* <Heading as="h1" variant="h1" mb={6}>
         Контактная информация
-      </Heading>
+      </Heading> */}
       <Heading variant="h2" mb={3}>
         Волгоград
       </Heading>

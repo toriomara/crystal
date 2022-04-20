@@ -1,22 +1,17 @@
 import {
   Button,
-  Flex,
   Grid,
   GridItem,
-  Link,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { products } from "../data/productsData";
-import product from "../pages/[product]";
-import styled from "@emotion/styled";
 
 const ProductItems = products.map((p) => p.name);
 
 const ProductBar = ({ href, path, products }) => {
   return (
     <Grid>
-      <Grid templateRows="repeat(4, 1fr)" gap={3}>
+      <Grid templateRows="repeat(4, 1fr)" gap={3} my={6}>
         {ProductItems.map((product, index) => {
           //const active = path === href
           return (
@@ -33,7 +28,7 @@ const ProductBar = ({ href, path, products }) => {
               }}
             >
               <NextLink href={`/${product}`}>
-                <Button variant="outlined" w="100%" height="60px">
+                <Button variant="outlined" w="100%" >
                   {product}
                 </Button>
               </NextLink>

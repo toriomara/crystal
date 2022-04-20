@@ -29,3 +29,5 @@ If you need to add attributes like, for example, className, add it to the `a` ta
     Hello World
     </a>
 </Link>
+
+Кузнецов и Гумилев О буддизме
