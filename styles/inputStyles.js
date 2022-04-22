@@ -1,36 +1,36 @@
-import { useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue } from '@chakra-ui/react';
 
 export const InputStyles = {
   baseStyle: {},
   sizes: {
     xs: {
       field: {
-        borderRadius: "sm",
-        fontSize: "xs",
+        borderRadius: 'sm',
+        fontSize: 'xs',
         height: 6,
         paddingX: 2,
       },
     },
     sm: {
       field: {
-        borderRadius: "sm",
-        fontSize: "sm",
+        borderRadius: 'sm',
+        fontSize: 'sm',
         height: 8,
         paddingX: 3,
       },
     },
     md: {
       field: {
-        borderRadius: "md",
-        fontSize: "md",
+        borderRadius: 'md',
+        fontSize: 'md',
         height: 10,
         paddingX: 4,
       },
     },
     lg: {
       field: {
-        borderRadius: "md",
-        fontSize: "lg",
+        borderRadius: 'md',
+        fontSize: 'lg',
         height: 12,
         paddingX: 4,
       },
@@ -39,29 +39,29 @@ export const InputStyles = {
   variants: {
     outline: {
       field: {
-        background: "white",
-        borderRadius: 0
-      } 
+        background: 'white',
+        borderRadius: 0,
+      },
     },
     searchInput: (props) => ({
       field: {
-        color: useColorModeValue("black", "whiteAlpha.900"),
+        color: props.colorMode == 'light' ? 'black' : 'whiteAlpha.900',
         bg: 'transparent',
-        borderWidth: "1px",
-        borderStyle: "solid",
-        borderColor: useColorModeValue("blackAlpha.400", "whiteAlpha.400"),
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: props.colorMode == 'light' ? 'blackAlpha.400' : 'whiteAlpha.400',//useColorModeValue('blackAlpha.400', 'whiteAlpha.400'),
         _hover: {
-          borderColor: useColorModeValue("brand.100", "brand.200"),
-          boxShadow: "md"
+          borderColor: props.colorMode == 'light' ? 'barnd.100' : 'brand.200',
+          boxShadow: 'md',
         },
         _focus: {
-          boxShadow: "md",
-          boxShadowColor: 'yellow'
+          boxShadow: 'md',
+          boxShadowColor: 'yellow',
         },
         _active: {
-          boxShadow: "md",
-          boxShadowColor: 'yellow'
-        }
+          boxShadow: 'md',
+          boxShadowColor: 'yellow',
+        },
       },
     }),
   },

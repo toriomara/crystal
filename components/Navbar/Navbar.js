@@ -1,4 +1,4 @@
-import NextLink from "next/link";
+import NextLink from 'next/link';
 import {
   Box,
   Button,
@@ -17,19 +17,19 @@ import {
   Text,
   useColorModeValue,
   useDisclosure,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-} from "@chakra-ui/icons";
-import ThemeToggleButton from "../ui/theme-toggle-button";
-import SearchBar from "../Search";
-import Logo from "../ui/Logo";
-import { Lang } from "./Lang";
-import { Preheader } from "../Preheader/Preheader";
-import { React, useState, useRef } from "react";
+} from '@chakra-ui/icons';
+import ThemeToggleButton from '../ui/theme-toggle-button';
+import SearchBar from '../Search';
+import Logo from '../ui/Logo';
+import { Lang } from './Lang';
+import { Preheader } from '../Preheader/Preheader';
+import { React, useState, useRef } from 'react';
 
 const LinkItem = ({ href, path, children, ...props }) => {
   const active = path === href;
@@ -38,14 +38,14 @@ const LinkItem = ({ href, path, children, ...props }) => {
       <Link
         p={3}
         fontSize={16}
-        whiteSpace="nowrap"
+        whiteSpace='nowrap'
         color={useColorModeValue(
-          active ? "brand.50" : "black",
-          active ? "brand.50" : "gray.200"
+          active ? 'brand.50' : 'black',
+          active ? 'brand.50' : 'gray.200'
         )}
         _hover={{
-          textDecoration: "none",
-          color: "red.600",
+          textDecoration: 'none',
+          color: 'red.600',
         }}
         {...props}
       >
@@ -56,7 +56,7 @@ const LinkItem = ({ href, path, children, ...props }) => {
 };
 
 export const Navbar = (props) => {
-  const borderColor = useColorModeValue("blackAlpha.300", "whiteAlpha.200");
+  const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.200');
   const { path } = props;
   const { isOpen, onToggle, onClose } = useDisclosure();
 
@@ -70,34 +70,39 @@ export const Navbar = (props) => {
     setIsMobile(!isMobile);
   };
 
+  ///////////////////////
+  const [isHam, setIsHam] = useState(false);
+
+  ///////////////////////
+
   return (
     <>
       {/* {isPreheader && <Preheader setIsPreheader={setIsPreheader} />} */}
       <Box
-        as="nav"
-        position="fixed"
-        w="100%"
-        justify="center"
-        bg={useColorModeValue("#ffffff40", "#20202380")}
-        css={{ backdropFilter: "blur(10px)" }}
-        zIndex="2"
+        as='nav'
+        position='fixed'
+        w='100%'
+        justify='center'
+        bg={useColorModeValue('#ffffff40', '#20202380')}
+        css={{ backdropFilter: 'blur(10px)' }}
+        zIndex='2'
         borderBottom={1}
-        borderStyle="solid"
+        borderStyle='solid'
         borderBottomColor={borderColor}
         {...props}
       >
         <Container
-          flexDirection="row"
-          alignItems="center"
-          maxW="8xl"
-          wrap="nowrap"
+          flexDirection='row'
+          alignItems='center'
+          maxW='8xl'
+          wrap='nowrap'
           py={2}
           px={{
-            base: "4",
-            md: "4",
+            base: '4',
+            md: '4',
           }}
         >
-          <Flex minHeight="60px">
+          <Flex minHeight={{ base: '40px', md: '50px' }}>
             <HStack>
               <Logo />
             </HStack>
@@ -107,20 +112,20 @@ export const Navbar = (props) => {
             <Spacer />
 
             <HStack>
-              <Flex display={{ base: "none", sm: "flex" }}>
+              <Flex display={{ base: 'none', sm: 'flex' }}>
                 <SearchBar />
               </Flex>
-              <Flex display={{ base: "none", sm: "flex" }}>
-                <Button as="a" href="tel:+78002347878" variant="none">
+              <Flex display={{ base: 'none', sm: 'flex' }}>
+                <Button as='a' href='tel:+78002347878' variant='none'>
                   <span>8 800 234-78-78</span>
                 </Button>
               </Flex>
               <Lang />
-              <Flex display={{ base: "none", sm: "flex" }}>
-                <ThemeToggleButton display={{ base: "none" }} />
+              <Flex display={{ base: 'none', sm: 'flex' }}>
+                <ThemeToggleButton display={{ base: 'none' }} />
               </Flex>
               <IconButton //
-                display={{ base: "inline-block", xl: "none" }}
+                display={{ base: 'inline-block', xl: 'none' }}
                 onClick={onToggle}
                 icon={
                   isOpen ? (
@@ -129,8 +134,8 @@ export const Navbar = (props) => {
                     <HamburgerIcon w={5} h={5} />
                   )
                 }
-                variant={"ghost"}
-                aria-label={"Toggle Navigation"}
+                variant={'ghost'}
+                aria-label={'Toggle Navigation'}
               />
             </HStack>
           </Flex>
@@ -144,20 +149,20 @@ export const Navbar = (props) => {
 };
 
 const DesktopNav = ({ href, path, ...props }) => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const linkColor = useColorModeValue('gray.600', 'gray.200');
+  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
     <HStack
-      direction={{ base: "column", md: "row" }}
-      display={{ base: "none", xl: "flex" }}
-      width={{ base: "full", md: "auto" }}
+      direction={{ base: 'column', md: 'row' }}
+      display={{ base: 'none', xl: 'flex' }}
+      width={{ base: 'full', md: 'auto' }}
       mt={{ base: 4, md: 0 }}
     >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger="hover" placement="bottom-start">
+          <Popover trigger='hover' placement='bottom-start'>
             <PopoverTrigger>
               <LinkItem href={navItem.href} path={path}>
                 {navItem.label}
@@ -167,11 +172,11 @@ const DesktopNav = ({ href, path, ...props }) => {
             {navItem.children && (
               <PopoverContent
                 border={0}
-                boxShadow={"xl"}
+                boxShadow={'xl'}
                 bg={popoverContentBgColor}
                 p={4}
-                rounded={"xl"}
-                minW={"sm"}
+                rounded={'xl'}
+                minW={'sm'}
               >
                 <Stack>
                   {navItem.children.map((child) => (
@@ -191,33 +196,33 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
   return (
     <LinkItem
       href={href}
-      role={"group"}
-      display={"block"}
+      role={'group'}
+      display={'block'}
       p={2}
-      rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      rounded={'md'}
+      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}
     >
-      <Stack direction={"row"} align={"center"}>
+      <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
-            transition={"all .3s ease"}
-            _groupHover={{ color: "brand.50" }}
+            transition={'all .3s ease'}
+            _groupHover={{ color: 'brand.50' }}
             fontWeight={500}
           >
             {label}
           </Text>
-          <Text fontSize={"sm"}>{childLabel}</Text>
+          <Text fontSize={'sm'}>{childLabel}</Text>
         </Box>
         <Flex
-          transition={"all .3s ease"}
-          transform={"translateX(-10px)"}
+          transition={'all .3s ease'}
+          transform={'translateX(-10px)'}
           opacity={0}
-          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-          justify={"flex-end"}
-          align={"center"}
+          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
+          justify={'flex-end'}
+          align={'center'}
           flex={1}
         >
-          <Icon color={"brand.50"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={'brand.50'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </LinkItem>
@@ -226,11 +231,11 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
 
 const MobileNav = ({ onClose }) => {
   return (
-    <Stack p={4} bg={useColorModeValue("white", "gray.800")}>
-      <Flex display={{ base: "flex" }}>
+    <Stack p={4} bg={useColorModeValue('white', 'gray.800')}>
+      <Flex display={{ base: 'flex' }}>
         <SearchBar />
         <ThemeToggleButton />
-        <Button as="a" href="tel:+78002347878" variant="none">
+        <Button as='a' href='tel:+78002347878' variant='none'>
           <span>8 800 234-78-78</span>
         </Button>
       </Flex>
@@ -249,38 +254,38 @@ const MobileNavItem = ({ label, children, href }) => {
       <Flex
         py={2}
         as={LinkItem}
-        href={href ?? "#"}
-        justify={"space-between"}
-        align={"center"}
+        href={href ?? '#'}
+        justify={'space-between'}
+        align={'center'}
         _hover={{
-          textDecoration: "none",
+          textDecoration: 'none',
         }}
       >
         <Text
           fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
+          color={useColorModeValue('gray.600', 'gray.200')}
         >
           {label}
         </Text>
         {children && (
           <Icon
             as={ChevronDownIcon}
-            transition={"all .25s ease-in-out"}
-            transform={isOpen ? "rotate(180deg)" : ""}
+            transition={'all .25s ease-in-out'}
+            transform={isOpen ? 'rotate(180deg)' : ''}
             w={6}
             h={6}
           />
         )}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
         <Stack
           mt={2}
           pl={4}
           borderLeft={1}
-          borderStyle={"solid"}
-          borderColor={useColorModeValue("gray.200", "gray.700")}
-          align={"start"}
+          borderStyle={'solid'}
+          borderColor={useColorModeValue('gray.200', 'gray.700')}
+          align={'start'}
         >
           {children &&
             children.map((child) => (
@@ -296,65 +301,65 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: "Главная",
-    href: "/",
+    label: 'Главная',
+    href: '/',
   },
   {
-    label: "Продукция",
-    href: "/КОРУНД-Классик",
+    label: 'Продукция',
+    href: '/КОРУНД-Классик',
     children: [
       {
-        label: "КОРУНД-Классик",
-        childLabel: "Для крыши, стен, пола, фасада",
-        href: "/КОРУНД-Классик",
+        label: 'КОРУНД-Классик',
+        childLabel: 'Для крыши, стен, пола, фасада',
+        href: '/КОРУНД-Классик',
       },
       {
-        label: "КОРУНД-Фасад",
-        childLabel: "Устраняет промерзания",
-        href: "/КОРУНД-Фасад",
+        label: 'КОРУНД-Фасад',
+        childLabel: 'Устраняет промерзания',
+        href: '/КОРУНД-Фасад',
       },
       {
-        label: "КОРУНД-Антикор",
-        childLabel: "Для металлически поверхностей",
-        href: "/КОРУНД-Антикор",
+        label: 'КОРУНД-Антикор',
+        childLabel: 'Для металлически поверхностей',
+        href: '/КОРУНД-Антикор',
       },
       {
-        label: "КОРУНД-Зима",
-        childLabel: "Для применения в зимой",
-        href: "/КОРУНД-Зима",
+        label: 'КОРУНД-Зима',
+        childLabel: 'Для применения в зимой',
+        href: '/КОРУНД-Зима',
       },
     ],
   },
   {
-    label: "Документация",
-    href: "/documentation",
+    label: 'Документация',
+    href: '/documentation',
     children: [
       {
-        label: "Техническая документация",
-        childLabel: "Характеристика, презентации и пр.",
-        href: "/documentation",
+        label: 'Техническая документация',
+        childLabel: 'Характеристика, презентации и пр.',
+        href: '/documentation',
       },
       {
-        label: "Уставные документы",
-        childLabel: "Устав, лицензия, патенты и пр.",
-        href: "/documentation",
+        label: 'Уставные документы',
+        childLabel: 'Устав, лицензия, патенты и пр.',
+        href: '/documentation',
       },
     ],
   },
   {
-    label: "Новости",
-    href: "/news",
+    label: 'Новости',
+    href: '/news',
   },
   {
-    label: "Дистрибьюция",
-    href: "/distribution",
+    label: 'Дистрибьюция',
+    href: '/distribution',
   },
   {
-    label: "О нас",
-    href: "/about",
+    label: 'О нас',
+    href: '/about',
   },
   {
-    label: "Контакты",
-    href: "/contacts",
+    label: 'Контакты',
+    href: '/contacts',
   },
 ];

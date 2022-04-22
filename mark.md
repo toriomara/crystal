@@ -31,3 +31,4 @@ If you need to add attributes like, for example, className, add it to the `a` ta
 </Link>
 
 Кузнецов и Гумилев О буддизме
+Ninja #10 4:40 getStaticProps
