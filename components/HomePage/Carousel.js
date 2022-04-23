@@ -1,54 +1,50 @@
-import React, {useEffect, useRef, useState} from 'react'
-import {Box} from '@chakra-ui/react'
-import {motion} from 'framer-motion'
-import images from './images'
-import Image from 'next/image'
+import React, { useEffect, useRef, useState } from 'react';
+import { Box, Flex } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import imageCarousel from './images';
+import Image from 'next/image';
 
-const MotionBox = motion(Box)
+const MotionBox = motion(Box);
+const MotionFlex = motion(Flex);
 
 const Carousel = () => {
-
-  const [width, setWidth] = useState(0)
-  const carousel = useRef()
+  const [width, setWidth] = useState(0);
+  const carousel = useRef();
 
   useEffect(() => {
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
-  }, [])
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+  }, []);
 
   return (
     <>
-      <MotionBox
+      <MotionFlex
+        width='300px'
         ref={carousel}
         cursor='grab'
         overflow='hidden'
-        background='coral'
-        rounded={4}
-        whileTap={{cursor: 'grabbing'}}
+        whileTap={{ cursor: 'grabbing' }}
       >
-        <MotionBox
-          display='flex'
+        <MotionFlex
           drag='x'
-          dragConstraints={{right: 0, left: -width}}
+          dragConstraints={{ right: 0, left: -width }}
         >
-          {images.map((image) => {
+          {imageCarousel.map((image) => {
             return (
               <MotionBox
                 key={image}
-                minWidth='30rem'
+                minWidth='20rem'
                 padding='30px'
+                overflow='hidden'
+                pointer-events='none'
               >
-                <Image
-                  src={image}
-                  alt='image'
-                  placeholder='blur'
-                />
+                <Image src={image} alt='image' placeholder='blur'  />
               </MotionBox>
-            )
+            );
           })}
-        </MotionBox>
-      </MotionBox>
+        </MotionFlex>
+      </MotionFlex>
     </>
-  )
-}
+  );
+};
 
-export default Carousel
+export default Carousel;

@@ -61,7 +61,8 @@ const Product = ({ product }) => {
           alignSelf='center'
           placeSelf='center'
         >
-          <Image src={image} alt={image} />
+          <Carousel/>
+          {/* <Image src={image} alt={image} /> */}
         </GridItem>
         <GridItem
           colSpan={{ base: 7, sm: 3, md: 2, lg: 4 }}
