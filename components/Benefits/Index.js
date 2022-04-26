@@ -108,6 +108,7 @@ export const Benefits = () => {
             initial={{ opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50 }}
             animate={{ opacity: 1, translateX: 0, translateY: 0 }}
             transition={{type: "spring", stiffness: 300, duration: 0.4, delay: i * 0.4}}
+            whileHover={{ scale: 1.2 }}
           >
             <Stack
               spacing={{

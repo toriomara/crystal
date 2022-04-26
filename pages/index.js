@@ -1,21 +1,21 @@
-import {Box} from '@chakra-ui/react'
-import { Benefits } from '../components/Benefits/Index'
-import CallToActionWithIllustration from '../components/HomePage/CTA'
-import CallToActionWithVideo from '../components/HomePage/CTA2'
-import { Showcase } from '../components/Showcase/Showcase'
-import GridBlurredBackdrop from '../components/Testimonials'
+import { Box } from '@chakra-ui/react';
+import { Benefits } from '../components/Benefits/Index';
+import CallToActionWithIllustration from '../components/HomePage/CTA';
+import CallToActionWithVideo from '../components/HomePage/CTA2';
+import { Showcase } from '../components/Showcase/Showcase';
+import GridBlurredBackdrop from '../components/Testimonials';
 
 const Index = () => {
   return (
-      <Box>
-         <CallToActionWithIllustration/>
-        {/*<CallToActionWithVideo/>
+    <Box>
+      <CallToActionWithIllustration />
+      {/*<CallToActionWithVideo/>
         <Carousel/> */}
-        <Benefits/>
-        <Showcase/>
-        <GridBlurredBackdrop/>
-      </Box>
-  )
-}
+      <Benefits />
+      <Showcase />
+      <GridBlurredBackdrop />
+    </Box>
+  );
+};
 
-export default Index
+export default Index;
