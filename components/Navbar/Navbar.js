@@ -1,5 +1,6 @@
 import NextLink from 'next/link';
 import {
+  Grid,
   Box,
   Button,
   Collapse,
@@ -30,6 +31,8 @@ import Logo from '../ui/Logo';
 import { Lang } from './Lang';
 import { Preheader } from '../Preheader/Preheader';
 import { React, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import styled from '@emotion/styled';
 
 const LinkItem = ({ href, path, children, ...props }) => {
   const active = path === href;
@@ -38,14 +41,16 @@ const LinkItem = ({ href, path, children, ...props }) => {
       <Link
         p={3}
         fontSize={16}
+        rounded={4}
         whiteSpace='nowrap'
+        fontWeight={active ? 'bold' : 'normal'}
         color={useColorModeValue(
           active ? 'brand.50' : 'black',
-          active ? 'brand.50' : 'gray.200'
+          active ? 'brand.200' : 'gray.200'
         )}
         _hover={{
-          textDecoration: 'none',
-          color: 'red.600',
+          backgroundColor: useColorModeValue('red.600', 'brand.200'),
+          color: useColorModeValue('white', 'black'),
         }}
         {...props}
       >
@@ -55,8 +60,13 @@ const LinkItem = ({ href, path, children, ...props }) => {
   );
 };
 
+const MotionFlex = motion(Flex);
+const MyPopover = styled(Popover)`
+  position: absolute;
+  display: flex
+`;
+
 export const Navbar = (props) => {
-  const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.200');
   const { path } = props;
   const { isOpen, onToggle, onClose } = useDisclosure();
 
@@ -70,9 +80,10 @@ export const Navbar = (props) => {
     setIsMobile(!isMobile);
   };
 
+  const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.200');
+
   ///////////////////////
   const [isHam, setIsHam] = useState(false);
-
   ///////////////////////
 
   return (
@@ -102,7 +113,12 @@ export const Navbar = (props) => {
             md: '4',
           }}
         >
-          <Flex minHeight={{ base: '40px', md: '50px' }}>
+          <MotionFlex
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+            minHeight={{ base: '40px', md: '50px' }}
+          >
             <HStack>
               <Logo />
             </HStack>
@@ -124,7 +140,7 @@ export const Navbar = (props) => {
               <Flex display={{ base: 'none', sm: 'flex' }}>
                 <ThemeToggleButton display={{ base: 'none' }} />
               </Flex>
-              <IconButton //
+              <IconButton
                 display={{ base: 'inline-block', xl: 'none' }}
                 onClick={onToggle}
                 icon={
@@ -134,11 +150,11 @@ export const Navbar = (props) => {
                     <HamburgerIcon w={5} h={5} />
                   )
                 }
-                variant={'ghost'}
-                aria-label={'Toggle Navigation'}
+                variant='ghost'
+                aria-label='Toggle Navigation'
               />
             </HStack>
-          </Flex>
+          </MotionFlex>
           <Collapse in={isOpen} animateOpacity>
             <MobileNav onClose={onClose} />
           </Collapse>
@@ -149,8 +165,8 @@ export const Navbar = (props) => {
 };
 
 const DesktopNav = ({ href, path, ...props }) => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
+  // const linkColor = useColorModeValue('gray.600', 'gray.200');
+  // const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
@@ -162,7 +178,7 @@ const DesktopNav = ({ href, path, ...props }) => {
     >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger='hover' placement='bottom-start'>
+          <MyPopover placement='bottom-start' trigger='hover'>
             <PopoverTrigger>
               <LinkItem href={navItem.href} path={path}>
                 {navItem.label}
@@ -171,12 +187,12 @@ const DesktopNav = ({ href, path, ...props }) => {
 
             {navItem.children && (
               <PopoverContent
-                border={0}
-                boxShadow={'xl'}
+                //border={0}
+                boxShadow='xl'
                 bg={popoverContentBgColor}
                 p={4}
-                rounded={'xl'}
-                minW={'sm'}
+                rounded='xl'
+                minW='sm'
               >
                 <Stack>
                   {navItem.children.map((child) => (
@@ -185,7 +201,7 @@ const DesktopNav = ({ href, path, ...props }) => {
                 </Stack>
               </PopoverContent>
             )}
-          </Popover>
+          </MyPopover>
         </Box>
       ))}
     </HStack>
@@ -196,10 +212,10 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
   return (
     <LinkItem
       href={href}
-      role={'group'}
-      display={'block'}
+      role='group'
+      display='block'
       p={2}
-      rounded={'md'}
+      rounded='md'
       _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}
     >
       <Stack direction={'row'} align={'center'}>
@@ -214,12 +230,12 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
           <Text fontSize={'sm'}>{childLabel}</Text>
         </Box>
         <Flex
-          transition={'all .3s ease'}
-          transform={'translateX(-10px)'}
+          transition='all .3s ease'
+          transform='translateX(-10px)'
           opacity={0}
           _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
-          justify={'flex-end'}
-          align={'center'}
+          justify='flex-end'
+          align='center'
           flex={1}
         >
           <Icon color={'brand.50'} w={5} h={5} as={ChevronRightIcon} />
@@ -283,9 +299,9 @@ const MobileNavItem = ({ label, children, href }) => {
           mt={2}
           pl={4}
           borderLeft={1}
-          borderStyle={'solid'}
+          borderStyle='solid'
           borderColor={useColorModeValue('gray.200', 'gray.700')}
-          align={'start'}
+          align='start'
         >
           {children &&
             children.map((child) => (
