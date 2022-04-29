@@ -33,3 +33,9 @@ If you need to add attributes like, for example, className, add it to the `a` ta
 
 Кузнецов и Гумилев О буддизме
 Ninja #10 4:40 getStaticProps
+
+1. Слайдер?
+2. CTA Landin page
+3. Фото
+4. Обращение (вы или Вы)
+5. Партнеры (строка)

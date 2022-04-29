@@ -1,34 +1,28 @@
-import {
-  Button,
-  Grid,
-  GridItem,
-} from "@chakra-ui/react";
-import NextLink from "next/link";
-import { products } from "../data/productsData";
+import { Button, Grid, GridItem, useColorModeValue } from '@chakra-ui/react';
+import NextLink from 'next/link';
+import { products } from '../data/productsData';
 
-const ProductItems = products.map((p) => p.name);
+const ProductNames = products.map((p) => p.name);
 
 const ProductBar = ({ href, path, products }) => {
+  const active = href === path;
+  const activeBtn = useColorModeValue(
+    active ? 'brand.50' : 'brand.200',
+    active ? 'brand.400' : 'brand.600'
+  );
   return (
     <Grid>
-      <Grid templateRows="repeat(4, 1fr)" gap={3} my={6}>
-        {ProductItems.map((product, index) => {
-          //const active = path === href
+      <Grid templateRows='repeat(4, 1fr)' gap={3} my={6}>
+        {ProductNames.map((product, index) => {
           return (
-            <GridItem
-              w="100%"
-              key={index}
-              // color={
-              // 	useColorModeValue(active ? 'primary' : 'black',
-              // 		active ? 'alternative' : 'secondary')
-              // }
-              _hover={{
-                textDecoration: "none",
-                color: "red.600",
-              }}
-            >
+            <GridItem w='100%' key={index}>
               <NextLink href={`/${product}`}>
-                <Button variant="outlined" w="100%" >
+                <Button
+                  variant='outlined'
+                  w='100%'
+                  color='white'
+                  bg={activeBtn}
+                >
                   {product}
                 </Button>
               </NextLink>

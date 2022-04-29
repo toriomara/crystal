@@ -110,7 +110,7 @@ export const Showcase = () => {
         </Box>
         <Flex flex="1" overflow="hidden">
           <Image
-            src="/images/misc/korund-car-2014.jpg"
+            src="/images/misc/korund-car.webp"
             alt="Lovely Image"
             //fallback={<Skeleton />}
             rounded={4}

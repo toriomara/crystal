@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Button,
   Heading,
@@ -80,7 +80,9 @@ const article = ({ article }) => {
               <Link href='/news'>Назад</Link>
             </Button>
             <Button variant='primary'>
-              <Link href="/article/[id]" as='/article/[id]'>Вперёд</Link>
+              <Link href='/article/[id]' as='/article/[id]'>
+                Вперёд
+              </Link>
             </Button>
           </Flex>
         </GridItem>

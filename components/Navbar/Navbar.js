@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import NextLink from 'next/link';
 import {
   Grid,
@@ -30,9 +31,9 @@ import SearchBar from '../Search';
 import Logo from '../ui/Logo';
 import { Lang } from './Lang';
 import { Preheader } from '../Preheader/Preheader';
-import { React, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
+import Scrolly from '../ui/Scrolly';
 
 const LinkItem = ({ href, path, children, ...props }) => {
   const active = path === href;
@@ -63,7 +64,7 @@ const LinkItem = ({ href, path, children, ...props }) => {
 const MotionFlex = motion(Flex);
 const MyPopover = styled(Popover)`
   position: absolute;
-  display: flex
+  display: flex;
 `;
 
 export const Navbar = (props) => {
@@ -159,6 +160,7 @@ export const Navbar = (props) => {
             <MobileNav onClose={onClose} />
           </Collapse>
         </Container>
+        <Scrolly />
       </Box>
     </>
   );

@@ -53,6 +53,7 @@ const backgrounds = [
 
 function TestimonialCard(props) {
   const { name, role, content, avatar, index } = props;
+
   return (
     <Flex
       boxShadow={"lg"}

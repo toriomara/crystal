@@ -13,13 +13,30 @@ import {
   Heading,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { products } from '../../data/productsData';
 
 const FeatureItem = ({ children }) => {
   const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.300');
   const fontColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.700');
+  const variants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.1,
+        duration: 0.8,
+        ease: 'anticipate',
+      },
+    },
+  };
+
   return (
     <Box
       color={fontColor}
@@ -28,15 +45,20 @@ const FeatureItem = ({ children }) => {
       borderColor={borderColor}
       rounded={4}
       p={4}
+      variants={variants}
+      initial='hidden'
+      animate='visible'
+      exit={{ opacity: 0 }}
     >
       {children}
     </Box>
   );
 };
 
-const MyHeading = motion(Heading);
+export const Feature = ({ name, temperature, volume, packaging, color }) => {
+  const MyHeading = motion(Heading);
+  
 
-export const Feature = ({ name, temperature, volume, packaging, more }) => {
   return (
     <Grid
       templateColumns={{
@@ -141,7 +163,7 @@ export const Feature = ({ name, temperature, volume, packaging, more }) => {
       </FeatureItem>
       <FeatureItem>
         <Stat>
-          <StatLabel fontSize={18}>Ещё один параметр</StatLabel>
+          <StatLabel fontSize={18}>Цвет композиции</StatLabel>
           <StatNumber>
             <AnimatePresence exitBeforeEnter>
               <MyHeading
@@ -167,7 +189,7 @@ export const Feature = ({ name, temperature, volume, packaging, more }) => {
                   },
                 }}
               >
-                {more}
+                {color}
               </MyHeading>
             </AnimatePresence>
           </StatNumber>
@@ -176,3 +198,5 @@ export const Feature = ({ name, temperature, volume, packaging, more }) => {
     </Grid>
   );
 };
+
+

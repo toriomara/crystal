@@ -16,6 +16,7 @@ import Image from 'next/image';
 import { Feature } from '../components/Product/Feature';
 import Carousel from '../components/HomePage/Carousel';
 import Meta from '../components/Meta';
+import { useState, useEffect, useRef } from 'react';
 
 export const getStaticProps = async ({ params }) => {
   const product = products.find((product) => product.name === params.product);
@@ -39,7 +40,7 @@ export const getStaticPaths = async () => {
 };
 
 const Product = ({ product }) => {
-  const { name, fullDesc, image, temperature, volume, packaging, more } =
+  const { name, fullDesc, image, temperature, volume, packaging, color } =
     product;
 
   return (
@@ -85,7 +86,7 @@ const Product = ({ product }) => {
         temperature={temperature}
         volume={volume}
         packaging={packaging}
-        more={more}
+        color={color}
       />
     </Box>
   );

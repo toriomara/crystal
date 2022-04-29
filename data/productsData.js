@@ -2,9 +2,15 @@ import dallas from '../public/images/productBG/dallas.webp'
 import austin from '../public/images/productBG/austin.webp'
 import newyork from '../public/images/productBG/newyork.webp'
 import winterBG from '../public/images/productBG/winterBG.jpg'
-import classic from '../public/images/products/classic.png'
-import front from '../public/images/products/front.png'
-import anticorrosive from '../public/images/products/anticorrosive.png'
+
+// import classic from '../public/images/products/classic.png'
+// import front from '../public/images/products/front.png'
+// import anticorrosive from '../public/images/products/anticorrosive.png'
+// import winter from '../public/images/products/winter.png'
+
+import classic20l from '../public/images/productsNew/classic20l.png'
+import front20l from '../public/images/productsNew/front20l.png'
+import anticor20l from '../public/images/productsNew/anticor20l.png'
 import winter from '../public/images/products/winter.png'
 
 export const products = [
@@ -18,10 +24,10 @@ export const products = [
     packaging: 'Пластиковое ведро',
     volume: '5, 10 и 20 л',
     temperature: 'от -60°С до +200°С',
-    more: 'Что-то ещё',
-    image: classic,
+    color: 'Белый',
+    image: classic20l,
     imageBG: dallas,
-    link: '/classic'
+    link: '/classic',
   },
   {
     id: 2,
@@ -32,8 +38,8 @@ export const products = [
     packaging: 'Пластиковое ведро',
     volume: '5, 10 и 20 л',
     temperature: 'от -60°С до +200°С',
-    more: 'Что-то ещё',
-    image: front,
+    color: 'Белый',
+    image: front20l,
     imageBG: austin,
     link: '/front'
   },
@@ -49,8 +55,8 @@ export const products = [
     packaging: 'Пластиковое ведро',
     volume: '10 и 20 л',
     temperature: 'от -60°С до +200°С',
-    more: 'Что-то ещё',
-    image: anticorrosive,
+    color: 'Белый',
+    image: anticor20l,
     imageBG: newyork,
     link: '/anticorrosive'
   },
@@ -64,7 +70,7 @@ export const products = [
     packaging: 'Металлическое ведро',
     volume: '20 л',
     temperature: 'от -5°С до -20°С',
-    more: 'Что-то ещё',
+    color: 'Белый',
     image: winter,
     imageBG: winterBG,
     link: '/winter'
