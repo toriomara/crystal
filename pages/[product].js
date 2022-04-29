@@ -47,6 +47,8 @@ const Product = ({ product }) => {
     <Box mt={14}>
       <Meta title='Production' />
       <Heading variant='pageTitle'>Продукция</Heading>
+      <Text my={10}>Lorem*
+      </Text>
       <Grid
         templateColumns={{
           base: 'repeat(1, 1fr)',
