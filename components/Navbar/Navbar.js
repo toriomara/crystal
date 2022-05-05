@@ -133,8 +133,8 @@ export const Navbar = (props) => {
                 <SearchBar />
               </Flex>
               <Flex display={{ base: 'none', sm: 'flex' }}>
-                <Button as='a' href='tel:+78002347878' variant='none'>
-                  <span>8 800 234-78-78</span>
+                <Button as='a' href='tel:+7 800 2347878' variant='none'>
+                  <span>+7 800 234-78-78</span>
                 </Button>
               </Flex>
               <Lang />

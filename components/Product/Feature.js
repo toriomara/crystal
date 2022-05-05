@@ -21,44 +21,28 @@ import { products } from '../../data/productsData';
 const FeatureItem = ({ children }) => {
   const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.300');
   const fontColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.700');
-  const variants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.1,
-        duration: 0.8,
-        ease: 'anticipate',
-      },
-    },
-  };
+
+  const MotionBox = motion(Box);
 
   return (
-    <Box
+    <MotionBox
       color={fontColor}
       border={1}
       borderStyle='solid'
       borderColor={borderColor}
       rounded={4}
       p={4}
-      variants={variants}
-      initial='hidden'
-      animate='visible'
-      exit={{ opacity: 0 }}
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7 }}
     >
       {children}
-    </Box>
+    </MotionBox>
   );
 };
 
 export const Feature = ({ name, temperature, volume, packaging, color }) => {
   const MyHeading = motion(Heading);
-  
-
   return (
     <Grid
       templateColumns={{
@@ -198,5 +182,3 @@ export const Feature = ({ name, temperature, volume, packaging, color }) => {
     </Grid>
   );
 };
-
-

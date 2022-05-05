@@ -4,6 +4,7 @@
 2. Footer Исправить ссылки (почта и телефоны). white-space
 3. colorScheme pink & blue.
 4. Не работает sharedBlock
+5. about.js <sup>®</sup>
 
 ========================
 xs = 20em = 320px

@@ -84,7 +84,7 @@ export const Benefits = () => {
         lineHeight='110%'
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.6 }}
+        viewport={{ amount: 0.6, once: true }}
         variants={{
           hidden: {
             scale: 0.8,
