@@ -59,9 +59,19 @@ const benefits = [
   },
 ];
 
+const majorAnimation = {
+  hidden: { x: -100, opacity: 0 },
+  visible: (custom) => ({
+    x: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
+};
+
 export const Benefits = () => {
   const MotionHeading = motion(Heading);
-  const MotionFeature = motion.div;
+  const MotionFeature = motion(Box);
+  const MotionSimpleGrid = motion(SimpleGrid);
 
   return (
     <Box>
@@ -73,7 +83,8 @@ export const Benefits = () => {
         fontSize={{ base: '3xl', sm: '4xl', md: '5xl' }}
         lineHeight='110%'
         initial='hidden'
-        animate='visible'
+        whileInView='visible'
+        viewport={{ amount: 0.6 }}
         variants={{
           hidden: {
             scale: 0.8,
@@ -90,7 +101,7 @@ export const Benefits = () => {
       >
         Преимущества
       </MotionHeading>
-      <SimpleGrid
+      <MotionSimpleGrid
         columns={{
           base: 1,
           sm: 2,
@@ -101,14 +112,16 @@ export const Benefits = () => {
           base: '8',
           md: '14',
         }}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ amoun: 0.8, once: true }}
       >
-        {benefits.map((benefit, i) => (
+        {benefits.map((b, i) => (
           <MotionFeature
-            key={benefit.id}
-            initial={{ opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50 }}
-            animate={{ opacity: 1, translateX: 0, translateY: 0 }}
-            transition={{type: "spring", stiffness: 300, duration: 0.4, delay: i * 0.4}}
-            whileHover={{ scale: 1.2 }}
+            key={b.id}
+            variants={majorAnimation}
+            custom={i + 1}
+            whileHover={{ scale: 1.1 }}
           >
             <Stack
               spacing={{
@@ -124,12 +137,12 @@ export const Benefits = () => {
                 fontSize='6xl'
                 justifyContent={{ base: 'center', md: 'flex-start' }}
               >
-                <Icon as={benefit.icon} />
+                <Icon as={b.icon} />
               </Flex>
               <Stack spacing='1'>
                 <Flex justify={{ base: 'center', md: 'flex-start' }}>
                   <Text fontWeight='extrabold' fontSize='lg'>
-                    {benefit.title}
+                    {b.title}
                   </Text>
                 </Flex>
                 <Flex
@@ -138,13 +151,13 @@ export const Benefits = () => {
                   textAlign={{ base: 'center', md: 'start' }}
                   px={{ base: '30px', md: 0 }}
                 >
-                  {benefit.content}
+                  {b.content}
                 </Flex>
               </Stack>
             </Stack>
           </MotionFeature>
         ))}
-      </SimpleGrid>
+      </MotionSimpleGrid>
     </Box>
   );
 };
