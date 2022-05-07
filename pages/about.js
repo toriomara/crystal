@@ -167,13 +167,13 @@ const About = () => {
           </MotionFeature>
         ))}
       </Grid>
-      <Divider mt={12} mb={12} />
+      <Divider my={6} />
 
       <MotionHeading
         variant='h2'
         display='flex'
         justifyContent='center'
-        my={10}
+        my={6}
         variants={headingAnimation}
         initial='hidden'
         animate='animate'
@@ -210,12 +210,11 @@ const About = () => {
               }}
               animate={{ opacity: 1, translateX: 0, translateY: 0 }}
               transition={{
-                type: 'spring',
+                type: 'tween',
                 stiffness: 500,
                 duration: 0.8,
-                delay: i * 0.6,
+                delay: i * 2,
               }}
-              viewport={{ amount: 0.9 }}
             >
               <Box paddingY={4} fontSize={18}>
                 {s.text}
