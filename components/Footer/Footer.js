@@ -14,9 +14,9 @@ import {
   Tag,
   Text,
   useColorModeValue,
-} from "@chakra-ui/react";
-import Logo from "../ui/Logo";
-import styled from "@emotion/styled";
+} from '@chakra-ui/react';
+import Logo from '../ui/Logo';
+import styled from '@emotion/styled';
 import {
   FaEnvelope,
   FaFacebookSquare,
@@ -25,28 +25,29 @@ import {
   FaTwitter,
   FaViber,
   FaYoutube,
-} from "react-icons/fa";
-import MapModal from "../Modal/MapModal";
-import Subscribe from "../Subscribe/Subscribe";
-import { useState } from "react";
-import { RiWhatsappFill } from "react-icons/ri";
-import { SiInstagram } from "react-icons/si";
+} from 'react-icons/fa';
+import MapModal from '../Modal/MapModal';
+import Subscribe from '../Subscribe/Subscribe';
+import { useState } from 'react';
+import { RiWhatsappFill } from 'react-icons/ri';
+import { SiInstagram } from 'react-icons/si';
+import { motion } from 'framer-motion';
 
 const LinkItem = ({ href, children }) => (
   <Link
     href={href}
-    display="inline-flex"
-    lineHeight="1.3"
-    textDecoration="none"
-    transition=".3s ease"
-    color={useColorModeValue("gray.600", "gray.300")}
-    position="relative"
+    display='inline-flex'
+    lineHeight='1.3'
+    textDecoration='none'
+    transition='.3s ease'
+    color={useColorModeValue('gray.600', 'gray.300')}
+    position='relative'
     left={0}
     _hover={{
-      fontWeight: "500",
-      transition: "200ms ease-in",
-      left: "6px",
-      color: "red.600",
+      fontWeight: '500',
+      transition: '200ms ease-in',
+      left: '6px',
+      color: 'red.600',
     }}
   >
     {children}
@@ -62,13 +63,13 @@ export const IconItem = styled(Link)`
 
 const FooterHeading = ({ children }) => (
   <Heading
-    fontFamily="Montserrat"
+    fontFamily='Montserrat'
     mb={3}
-    color={useColorModeValue("gray.600", "gray.100")}
-    fontSize="sm"
-    fontWeight="semibold"
-    textTransform="uppercase"
-    letterSpacing="wider"
+    color={useColorModeValue('gray.600', 'gray.100')}
+    fontSize='sm'
+    fontWeight='semibold'
+    textTransform='uppercase'
+    letterSpacing='wider'
   >
     {children}
   </Heading>
@@ -86,9 +87,19 @@ const MyIconButton = styled(IconButton)`
   }
 `;
 
+const footerAnimation = {
+  initial: { y: 50, opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: 0.8,
+  },
+};
+
 export const Footer = () => {
-  const bgColor = useColorModeValue("#F2F2F2", "whiteAlpha.100");
-  const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
+  const bgColor = useColorModeValue('#F2F2F2', 'whiteAlpha.100');
+  const iconColor = useColorModeValue('blackAlpha.700', 'whiteAlpha.600');
+  const MotionContainer = motion(Container);
 
   const [isOpen, setIsOpen] = useState(false);
   const handleClick = () => {
@@ -98,26 +109,40 @@ export const Footer = () => {
   return (
     <Box
       pt={5}
-      role="contentinfo"
-      w="100%"
+      role='contentinfo'
+      w='100%'
       bg={bgColor}
-      color={useColorModeValue("gray.700", "gray.200")}
-      fontSize="15px"
+      color={useColorModeValue('gray.700', 'gray.200')}
+      fontSize='15px'
       fontWeight={500}
     >
-      <Container
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
+      <MotionContainer
+        display='flex'
+        flexDirection='row'
+        alignItems='center'
         as={Stack}
-        maxW="8xl"
+        maxW='8xl'
         px={6}
         pt={6}
         pb={4}
+        initial='hidden'
+        whileInView='animate'
+        viewport={{ amount: 0.4, once: true }}
+        variants={{
+          hidden: {
+            y: 0,
+            opacity: 0,
+          },
+          animate: {
+            y: 0,
+            opacity: 1,
+            transition: { delay: 0.4 },
+          },
+        }}
       >
         <Stack divider={<StackDivider />}>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={10} pb={4}>
-            <Box align={"flex-start"}>
+            <Box align={'flex-start'}>
               <Logo />
               <Box marginTop={2}>
                 Производство сверхтонких теплоизоляционных материалов нового
@@ -125,23 +150,23 @@ export const Footer = () => {
               </Box>
             </Box>
 
-            <Stack align={"flex-start"}>
+            <Stack align={'flex-start'}>
               <FooterHeading>Информация</FooterHeading>
-              <LinkItem href="/about">О нас</LinkItem>
+              <LinkItem href='/about'>О нас</LinkItem>
               <LinkItem>Новости</LinkItem>
               <LinkItem>Продукция</LinkItem>
               <LinkItem>Документация</LinkItem>
-              <Stack direction={"row"} align={"center"} spacing={2}>
-                <LinkItem href="/distribution">
+              <Stack direction={'row'} align={'center'} spacing={2}>
+                <LinkItem href='/distribution'>
                   Дистрибьюция
                   <sup>
                     <Tag
-                      py="1px"
+                      py='1px'
                       px='3px'
                       ml={2}
-                      size="xsm"
-                      bg="brand.50"
-                      color="white"
+                      size='xsm'
+                      bg='brand.50'
+                      color='white'
                       fontSize={10}
                       rounded={2}
                     >
@@ -152,12 +177,12 @@ export const Footer = () => {
               </Stack>
             </Stack>
 
-            <Stack align="flex-start">
+            <Stack align='flex-start'>
               <FooterHeading>Контакты</FooterHeading>
 
               <LinkItem>
-                <IconItem fill="brand.400">
-                  <FaMapMarkerAlt fill="brand.400" />
+                <IconItem fill='brand.400'>
+                  <FaMapMarkerAlt fill='brand.400' />
                 </IconItem>
                 <span onClick={handleClick}>
                   400019, Россия, <br />
@@ -167,36 +192,36 @@ export const Footer = () => {
 
               {isOpen && <MapModal setIsOpen={setIsOpen} />}
 
-              <LinkItem href="mailto:mail@korund34.ru">
-                <IconItem fill="brand.400">
-                  <FaEnvelope fill="brand.400" />
+              <LinkItem href='mailto:mail@korund34.ru'>
+                <IconItem fill='brand.400'>
+                  <FaEnvelope fill='brand.400' />
                 </IconItem>
                 mail@korund34.ru
               </LinkItem>
-              <LinkItem href="tel:+7844238-44-66">
-                <IconItem fill="brand.400">
-                  <FaPhone fill="brand.400" />
+              <LinkItem href='tel:+7844238-44-66'>
+                <IconItem fill='brand.400'>
+                  <FaPhone fill='brand.400' />
                 </IconItem>
                 +7 (8442) 38-44-66 (факс)
               </LinkItem>
 
-              <LinkItem href="tel:+78442504012">+7 (8442) 50-40-12</LinkItem>
+              <LinkItem href='tel:+78442504012'>+7 (8442) 50-40-12</LinkItem>
 
-              <LinkItem href="tel:+78442504013">+7 (8442) 50-40-13</LinkItem>
+              <LinkItem href='tel:+78442504013'>+7 (8442) 50-40-13</LinkItem>
 
-              <LinkItem href="tel:+78442504031">+7 (8442) 50-40-31</LinkItem>
+              <LinkItem href='tel:+78442504031'>+7 (8442) 50-40-31</LinkItem>
 
-              <LinkItem href="tel:+78442504042">+7 (8442) 50-40-42</LinkItem>
+              <LinkItem href='tel:+78442504042'>+7 (8442) 50-40-42</LinkItem>
 
-              <LinkItem href="tel:+78442504082">+7 (8442) 50-40-82</LinkItem>
+              <LinkItem href='tel:+78442504082'>+7 (8442) 50-40-82</LinkItem>
 
               <LinkItem></LinkItem>
             </Stack>
 
-            <Stack align="flex-start">
+            <Stack align='flex-start'>
               <chakra.form onSubmit={(e) => e.preventDefault()}>
                 <FooterHeading>Подпишитесь на рассылку</FooterHeading>
-                <Stack spacing="4">
+                <Stack spacing='4'>
                   <Text>
                     Мы присылаем одно письмо в неделю <br />и не рассылаем спам
                   </Text>
@@ -213,12 +238,12 @@ export const Footer = () => {
                   /> */}
                   <Button
                     onClick={handleClick}
-                    type="submit"
-                    variant="primary"
+                    type='submit'
+                    variant='primary'
                     flexShrink={1}
                     width={{
-                      base: "full",
-                      md: "auto",
+                      base: 'full',
+                      md: 'auto',
                     }}
                   >
                     Подписаться
@@ -233,87 +258,87 @@ export const Footer = () => {
 
           <Box>
             <Stack
-              direction={{ base: "column-reverse", md: "row" }}
-              justifyContent="space-between"
-              alignItems="center"
+              direction={{ base: 'column-reverse', md: 'row' }}
+              justifyContent='space-between'
+              alignItems='center'
             >
-              <Text fontSize={"sm"} textAlign={"center"}>
+              <Text fontSize={'sm'} textAlign={'center'}>
                 &copy; {new Date().getFullYear()}, «НПО ФУЛЛЕРЕН». Все права
                 защищены
               </Text>
 
               <Flex>
                 <MyIconButton
-                  icon={<RiWhatsappFill fontSize="20px" />}
-                  variant="ghost"
-                  as="a"
-                  href="https://wa.me/79173381186"
-                  target="_blank"
-                  aria-label="Whatsapp"
+                  icon={<RiWhatsappFill fontSize='20px' />}
+                  variant='ghost'
+                  as='a'
+                  href='https://wa.me/79173381186'
+                  target='_blank'
+                  aria-label='Whatsapp'
                   _hover={{
-                    color: useColorModeValue("brand.100", "brand.200"),
+                    color: useColorModeValue('brand.100', 'brand.200'),
                   }}
                 />
                 <MyIconButton
-                  icon={<FaViber fontSize="20px" />}
-                  variant="ghost"
-                  as="a"
-                  href="viber://chat?number=%2B79173381186"
-                  target="_blank"
-                  aria-label="Viber"
+                  icon={<FaViber fontSize='20px' />}
+                  variant='ghost'
+                  as='a'
+                  href='viber://chat?number=%2B79173381186'
+                  target='_blank'
+                  aria-label='Viber'
                   _hover={{
-                    color: useColorModeValue("brand.100", "brand.200"),
+                    color: useColorModeValue('brand.100', 'brand.200'),
                   }}
                 />
                 <MyIconButton
-                  icon={<SiInstagram fontSize="20px" />}
-                  variant="ghost"
-                  as="a"
-                  href="https://www.instagram.com/factory_korund/"
-                  target="_blank"
-                  aria-label="Instagram"
+                  icon={<SiInstagram fontSize='20px' />}
+                  variant='ghost'
+                  as='a'
+                  href='https://www.instagram.com/factory_korund/'
+                  target='_blank'
+                  aria-label='Instagram'
                   _hover={{
-                    color: useColorModeValue("brand.100", "brand.200"),
+                    color: useColorModeValue('brand.100', 'brand.200'),
                   }}
                 />
                 <MyIconButton
-                  icon={<FaYoutube fontSize="20px" />}
-                  variant="ghost"
-                  as="a"
-                  href="https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ"
-                  target="_blank"
-                  aria-label="LinkedIn"
+                  icon={<FaYoutube fontSize='20px' />}
+                  variant='ghost'
+                  as='a'
+                  href='https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ'
+                  target='_blank'
+                  aria-label='LinkedIn'
                   _hover={{
-                    color: useColorModeValue("brand.100", "brand.200"),
+                    color: useColorModeValue('brand.100', 'brand.200'),
                   }}
                 />
                 <MyIconButton
-                  icon={<FaTwitter fontSize="20px" />}
-                  variant="ghost"
-                  as="a"
-                  href="https://twitter.com/Korund34"
-                  target="_blank"
-                  aria-label="Twitter"
+                  icon={<FaTwitter fontSize='20px' />}
+                  variant='ghost'
+                  as='a'
+                  href='https://twitter.com/Korund34'
+                  target='_blank'
+                  aria-label='Twitter'
                   _hover={{
-                    color: useColorModeValue("brand.100", "brand.200"),
+                    color: useColorModeValue('brand.100', 'brand.200'),
                   }}
                 />
                 <MyIconButton
-                  icon={<FaFacebookSquare fontSize="20px" />}
-                  variant="ghost"
-                  as="a"
-                  href="https://www.facebook.com/factorykorund"
-                  target="_blank"
-                  aria-label="Facebook"
+                  icon={<FaFacebookSquare fontSize='20px' />}
+                  variant='ghost'
+                  as='a'
+                  href='https://www.facebook.com/factorykorund'
+                  target='_blank'
+                  aria-label='Facebook'
                   _hover={{
-                    color: useColorModeValue("brand.100", "brand.200"),
+                    color: useColorModeValue('brand.100', 'brand.200'),
                   }}
                 />
               </Flex>
             </Stack>
           </Box>
         </Stack>
-      </Container>
+      </MotionContainer>
     </Box>
   );
 };

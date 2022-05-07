@@ -4,7 +4,6 @@ import {
   Button,
   Flex,
   Divider,
-  chakra,
   Grid,
   GridItem,
   Heading,
@@ -14,30 +13,6 @@ import {
 } from '@chakra-ui/react';
 import { useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-
-const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
-const MotionButton = motion(Button);
-
-const majorAnimation = {
-  hidden: { x: -100, opacity: 0 },
-  visible: (custom) => ({
-    x: 0,
-    opacity: 1,
-    transition: { delay: custom * 0.2 },
-  }),
-};
-
-const Feature = ({ heading, text }) => {
-  return (
-    <GridItem>
-      <chakra.h3 fontSize='xl' fontWeight='600' lineHeight='1.2' pb={6}>
-        {heading}
-      </chakra.h3>
-      <chakra.p>{text}</chakra.p>
-    </GridItem>
-  );
-};
 
 const sentences = [
   {
@@ -62,9 +37,72 @@ const sentences = [
   },
 ];
 
+const features = [
+  {
+    id: 1,
+    heading: 'Высококачественное оборудование',
+    text: 'Современное производство оснащенное оборудованием UJTZ-ETC и Netzsch, Германия',
+  },
+  {
+    id: 2,
+    heading: 'Система менеджмента качества',
+    text: 'Система менеджмента качества компании сертифицирована на соответствие требованиям международного стандарта ISO 9001 : 2008',
+  },
+  {
+    id: 3,
+    heading: 'Учебный центр',
+    text: 'С 2013 года для наших партнёров и потребителей продукции КОРУНД <sup>®</sup> работает учебный центр',
+  },
+  {
+    id: 4,
+    heading: 'Научно-технические разработки',
+    text: '"НПО ФУЛЛЕРЕН" активно взаимодействует с ВолГТУ и ВолГАСУ в области разработки новых составов теплоизоляционных покрытий, внедрения новых материалов и технологий',
+  },
+];
+
+const MotionBox = motion(Box);
+const MotionHeading = motion(Heading);
+const MotionButton = motion(Button);
+
+const leftAnimation = {
+  hidden: { x: -100, opacity: 0 },
+  visible: (custom) => ({
+    x: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.3 },
+  }),
+};
+
+const rightAnimation = {
+  hidden: { x: 100, opacity: 0 },
+  visible: (custom) => ({
+    x: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.3 },
+  }),
+};
+
+const headingAnimation = {
+  hidden: {
+    scale: 0.8,
+    opacity: 0,
+  },
+  animate: (custom) => ({
+    scale: 1,
+    opacity: 1,
+    transition: {
+      delay: custom * 0.3,
+    },
+  }),
+};
+
 const About = () => {
   const MotionText = motion(Text);
-  //const variant = useBreakpointValue({ base: 'outline', bsm: 'solid' });
+  const MotionGrid = motion(Grid);
+  const MotionFeature = motion(Box);
+  const MotionHeading = motion(Heading);
+  const MotionImage = motion(Image);
+  const MotionFlex = motion(Flex);
   return (
     <MotionBox mt={14} initial='hidden' whileInView='visible'>
       <Grid
@@ -78,7 +116,7 @@ const About = () => {
         <GridItem colSpan={1}>
           <VStack alignItems='flex-start' spacing='20px'>
             <MotionHeading
-              variants={majorAnimation}
+              variants={leftAnimation}
               custom={2}
               fontSize='46px'
               fontWeight='900'
@@ -89,14 +127,14 @@ const About = () => {
               <br />к сохранению тепла
               <br />
             </MotionHeading>
-            <MotionButton variants={majorAnimation} custom={4}>
+            <MotionButton variants={leftAnimation} custom={4}>
               Подробнее
             </MotionButton>
           </VStack>
         </GridItem>
         <GridItem>
           <Flex>
-            <MotionText variants={majorAnimation} custom={4} fontSize={18}>
+            <MotionText variants={leftAnimation} custom={4} fontSize={18}>
               С момента своего основания в 2007 году научно-производственное
               объединение &quot;ФУЛЛЕРЕН&quot; ориентировалось на создание и
               продвижение инновационных материалов и технологий в стриотельную
@@ -114,32 +152,35 @@ const About = () => {
         }}
         gap={{ base: '8', sm: '12', md: '16' }}
       >
-        <Feature
-          heading='Высококачественное оборудование'
-          text='Современное производство оснащенное оборудованием UJTZ-ETC и Netzsch, Германия'
-        />
-        <Feature
-          heading='Система менеджмента качества'
-          text='Система менеджмента качества компании сертифицирована на соответствие требованиям международного стандарта ISO 9001 : 2008'
-        />
-        <Feature
-          heading='Учебный центр'
-          text='С 2013 года для наших партнёров и потребителей продукции КОРУНД <sup>®</sup> работает учебный центр'
-        />
-        <Feature
-          heading='Научно-технические разработки'
-          text='"НПО ФУЛЛЕРЕН" активно взаимодействует с ВолГТУ и ВолГАСУ в области разработки новых составов теплоизоляционных покрытий, внедрения новых материалов и технологий'
-        />
+        {features.map((f, i) => (
+          <MotionFeature key={f.id} variants={leftAnimation} custom={i + 6}>
+            <Heading
+              variant='h3'
+              fontSize='xl'
+              fontWeight='600'
+              lineHeight='1.2'
+              pb={6}
+            >
+              {f.heading}
+            </Heading>
+            <Text>{f.text}</Text>
+          </MotionFeature>
+        ))}
       </Grid>
       <Divider mt={12} mb={12} />
-      <Text fontSize='24'>
-        Мы высоко ценим устойчивые партнерские отношения с нашими потребителями
-        на всей территории России и в других странах, а также гарантируем
-        справедливую цену за продукт высочайшего качества
-      </Text>
-      <Heading variant='h2' display='flex' justifyContent='center' my={10}>
+
+      <MotionHeading
+        variant='h2'
+        display='flex'
+        justifyContent='center'
+        my={10}
+        variants={headingAnimation}
+        initial='hidden'
+        animate='animate'
+        custom={12}
+      >
         Испытательная лаборатория
-      </Heading>
+      </MotionHeading>
       <Grid
         templateColumns={{
           base: 'repeat(1, 1fr)',
@@ -148,7 +189,7 @@ const About = () => {
         gap={{ base: '8', sm: '12', md: '16' }}
       >
         <GridItem>
-          <Flex>
+          <MotionFlex variants={leftAnimation} custom={10}>
             <Image
               src='/images/misc/lab.webp'
               alt='Лаборатория'
@@ -157,7 +198,7 @@ const About = () => {
               rounded={4}
               fallback={<Skeleton />}
             />
-          </Flex>
+          </MotionFlex>
         </GridItem>
         <GridItem>
           {sentences.map((s, i) => (
@@ -165,8 +206,7 @@ const About = () => {
               key={s.id}
               initial={{
                 opacity: 0,
-                translateX: -50,
-                //translateY: -50,
+                translateX: 50,
               }}
               animate={{ opacity: 1, translateX: 0, translateY: 0 }}
               transition={{
@@ -175,7 +215,7 @@ const About = () => {
                 duration: 0.8,
                 delay: i * 0.6,
               }}
-              viewport={{amount: 0.2}}
+              viewport={{ amount: 0.9 }}
             >
               <Box paddingY={4} fontSize={18}>
                 {s.text}

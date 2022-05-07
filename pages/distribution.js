@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Button, Heading, Box, Stack } from "@chakra-ui/react";
-import { AnimatePresence, motion } from "framer-motion";
-import Subscribe from "../components/Subscribe/Subscribe";
-import Modal from "../components/Modal";
-import Meta from "../components/Meta";
+import React, { useState } from 'react';
+import { Button, Heading, Box, Stack, Text } from '@chakra-ui/react';
+import { AnimatePresence, motion } from 'framer-motion';
+import Subscribe from '../components/Subscribe/Subscribe';
+import Modal from '../components/Modal';
+import Meta from '../components/Meta';
 
 const MotionButton = motion(Button);
 
@@ -15,30 +15,30 @@ const Distribution = () => {
 
   return (
     <Box>
-      <Meta title="Distribution" />
-      <Heading variant="pageTitle">Дистрибьюция</Heading>
+      <Meta title='Distribution' />
+      <Heading variant='pageTitle'>Дистрибьюция</Heading>
+      <Text fontSize='18'>
+        Мы высоко ценим устойчивые партнерские отношения с нашими потребителями
+        на всей территории России и в других странах, а также гарантируем
+        справедливую цену за продукт высочайшего качества
+      </Text>
       <MotionButton
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        variant="outline"
+        variant='outline'
         onClick={handleClick}
       >
         Modal
       </MotionButton>
       {isOpen && <Subscribe setIsOpen />}
 
-      <Box bg="red.200" w={[250, 300, 400, 500, 800, 1100]}>
-        This is a box
-      </Box>
-
-      <MotionButton>Modal open</MotionButton>
-      <Stack spacing={4}>
+      {/* <Stack spacing={4}>
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="outline">Outlined</Button>
         <Button variant="azure">Azure</Button>
         <Modal />
-      </Stack>
+      </Stack> */}
     </Box>
   );
 };

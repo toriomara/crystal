@@ -61,7 +61,7 @@ const benefits = [
 
 const majorAnimation = {
   hidden: { x: -100, opacity: 0 },
-  visible: (custom) => ({
+  animate: (custom) => ({
     x: 0,
     opacity: 1,
     transition: { delay: custom * 0.2 },
@@ -83,14 +83,14 @@ export const Benefits = () => {
         fontSize={{ base: '3xl', sm: '4xl', md: '5xl' }}
         lineHeight='110%'
         initial='hidden'
-        whileInView='visible'
+        whileInView='animate'
         viewport={{ amount: 0.6, once: true }}
         variants={{
           hidden: {
             scale: 0.8,
             opacity: 0,
           },
-          visible: {
+          animate: {
             scale: 1,
             opacity: 1,
             transition: {
@@ -113,8 +113,8 @@ export const Benefits = () => {
           md: '14',
         }}
         initial='hidden'
-        whileInView='visible'
-        viewport={{ amoun: 0.8, once: true }}
+        whileInView='animate'
+        viewport={{ amount: 0.8, once: true }}
       >
         {benefits.map((b, i) => (
           <MotionFeature

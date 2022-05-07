@@ -1,6 +1,6 @@
 import { Button, Grid, GridItem, useColorModeValue } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { products } from '../data/productsData';
+import { products } from '../../data/productsData';
 
 const ProductNames = products.map((p) => p.name);
 

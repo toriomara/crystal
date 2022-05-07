@@ -11,7 +11,7 @@ import {
   Container,
 } from '@chakra-ui/react';
 import { products } from '../data/productsData';
-import ProductBar from '../components/ProductBar';
+import ProductBar from '../components/Product/ProductBar';
 import Image from 'next/image';
 import { Feature } from '../components/Product/Feature';
 import Carousel from '../components/HomePage/Carousel';

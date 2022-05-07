@@ -4,6 +4,7 @@ import CallToActionWithIllustration from '../components/HomePage/CTA';
 import CallToActionWithVideo from '../components/HomePage/CTA2';
 import { Showcase } from '../components/Showcase/Showcase';
 import GridBlurredBackdrop from '../components/Testimonials';
+import Banner from '../components/ui/Banner';
 
 const Index = () => {
   return (
