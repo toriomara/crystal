@@ -20,8 +20,8 @@ import {
 import { AiOutlineMail } from "react-icons/ai";
 
 const ShareBlock = (props) => {
-  const { id } = props;
-  const shareUrl = `https://crystal-three.vercel.app/article/${id}`;
+  const { article } = props;
+  const shareUrl = `https://crystal-three.vercel.app/article/${article.id}`;
   const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
 
   return (

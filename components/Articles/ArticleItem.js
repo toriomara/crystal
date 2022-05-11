@@ -46,7 +46,6 @@ const ArticleItem = ({ article }) => {
     setIsHovering(false);
   };
 
-  const shareUrl = `https://crystal-three.vercel.app/article/${id}`;
   const iconColor = useColorModeValue('blackAlpha.700', 'whiteAlpha.600');
   const hoverColor = useColorModeValue('brand.100', 'brand.200');
   const bgColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.200');
@@ -87,6 +86,7 @@ const ArticleItem = ({ article }) => {
         {isHovering && (
           <GridItem>
             <ShareBlock
+              id={id}
               article={article}
               w={'70%'}
               wrap={Flex}

@@ -134,7 +134,7 @@ const About = () => {
         </GridItem>
         <GridItem>
           <Flex>
-            <MotionText variants={leftAnimation} custom={4} fontSize={18}>
+            <MotionText variants={rightAnimation} custom={4} fontSize={18}>
               С момента своего основания в 2007 году научно-производственное
               объединение &quot;ФУЛЛЕРЕН&quot; ориентировалось на создание и
               продвижение инновационных материалов и технологий в стриотельную
@@ -202,20 +202,7 @@ const About = () => {
         </GridItem>
         <GridItem>
           {sentences.map((s, i) => (
-            <MotionText
-              key={s.id}
-              initial={{
-                opacity: 0,
-                translateX: 50,
-              }}
-              animate={{ opacity: 1, translateX: 0, translateY: 0 }}
-              transition={{
-                type: 'tween',
-                stiffness: 500,
-                duration: 0.8,
-                delay: i * 2,
-              }}
-            >
+            <MotionText key={s.id} variants={rightAnimation} custom={i + 12}>
               <Box paddingY={4} fontSize={18}>
                 {s.text}
               </Box>

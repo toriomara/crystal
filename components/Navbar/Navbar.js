@@ -63,7 +63,6 @@ const LinkItem = ({ href, path, children, ...props }) => {
 
 const MotionFlex = motion(Flex);
 const MyPopover = styled(Popover)`
-  position: absolute;
   display: flex;
 `;
 
