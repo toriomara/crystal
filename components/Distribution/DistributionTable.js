@@ -23,11 +23,11 @@ const DistributionTable = () => {
       <Grid>
         <GridItem py={4}>
           <Tabs selectedTab={activeTab} onChange={handleChange}>
-            <Tab label='Россия' value={0}></Tab>
-            <Tab label='Мир' value={1}></Tab>
+            <Tab label='Россия' value={0} />
+            <Tab label='Мир' value={1} />
           </Tabs>
         </GridItem>
-        <GridItem h='50vh'>
+        <GridItem>
           <TabPanel value={activeTab} selectedIndex={0}>
             <Russia />
           </TabPanel>

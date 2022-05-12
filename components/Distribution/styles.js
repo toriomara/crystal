@@ -30,6 +30,12 @@ export const TabsTitle = styled.div`
   flex-direction: row;
 `;
 
+export const TabsRegion = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+`;
+
 export const TabSlider = styled.div`
   width: ${(props) => `${props.width}px`};
   height: 4px;
