@@ -1,23 +1,23 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {
-  TabHeaderContainer,
-  StylizedTab,
+  TabContainer,
+  StyledTab,
   StyledTabPanel,
-  TabsHolder,
+  TabsTitle,
   inactiveTab,
   TabSlider,
 } from './styles';
 
 export const Tab = ({ label, active, onClick }) => {
   return (
-    <StylizedTab
+    <StyledTab
       role='tab'
       active={active}
       onClick={onClick}
       inactiveStyle={inactiveTab}
     >
       {label}
-    </StylizedTab>
+    </StyledTab>
   );
 };
 
@@ -44,10 +44,10 @@ export const Tabs = ({ selectedTab, onChange, children }) => {
   });
 
   return (
-    <TabHeaderContainer ref={containerRef}>
-      <TabsHolder>{tabs}</TabsHolder>
+    <TabContainer ref={containerRef}>
+      <TabsTitle>{tabs}</TabsTitle>
       <TabSlider width={sliderWidth} index={selectedTab} />
-    </TabHeaderContainer>
+    </TabContainer>
   );
 };
 

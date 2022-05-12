@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { Grid, GridItem } from '@chakra-ui/react';
 
 const World = () => {
   return (
-    <div>МИР</div>
-  )
-}
+    <Grid
+      templateColumns={{
+        base: 'repeat(3, 1fr)',
+      }}
+      gap={4}
+    >
+      <GridItem>МИР</GridItem>
+      <GridItem>МИР</GridItem>
+      <GridItem>МИР</GridItem>
+    </Grid>
+  );
+};
 
-export default World
+export default World;

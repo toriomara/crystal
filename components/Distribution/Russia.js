@@ -1,45 +1,24 @@
 import React from 'react';
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Text,
-  VStack,
-  Grid,
-  GridItem,
-} from '@chakra-ui/react';
+import { Text, VStack, Grid, GridItem, Box } from '@chakra-ui/react';
 
 const Russia = () => {
   return (
-    <Tabs variant='soft'>
-      <Grid
-        templateColumns={{
-          base: 'repeat(3, 1fr)',
-        }}
-      >
-        <TabList>
-          <GridItem>
-            <VStack>
-              <Tab>Саратов</Tab>
-              <Tab>Волгоград</Tab>
-              <Tab display='flex' justify='start' alignItems='start'>
-                ЮФО
-              </Tab>
-            </VStack>
-          </GridItem>
-        </TabList>
-
-        <TabPanels>
-          <GridItem>
-            <TabPanel>Саратовский дистрибьютор</TabPanel>
-            <TabPanel>Волгоградский дистрибьютор</TabPanel>
-            <TabPanel>Дистрибьютор ЮФО</TabPanel>
-          </GridItem>
-        </TabPanels>
-      </Grid>
-    </Tabs>
+    <Grid
+      templateColumns={{
+        base: '1fr 3fr 2fr',
+      }}
+      gap={4}
+    >
+      <GridItem>
+        {/* <VStack> */}
+          <Box>Саратов</Box>
+          <Text>Волгоград</Text>
+          <Text>ЮФО</Text>
+        {/* </VStack> */}
+      </GridItem>
+      <GridItem>Hello</GridItem>
+      <GridItem>World</GridItem>
+    </Grid>
   );
 };
 
