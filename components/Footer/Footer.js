@@ -185,7 +185,7 @@ export const Footer = () => {
                   <FaMapMarkerAlt fill='brand.400' />
                 </IconItem>
                 <span onClick={handleClick}>
-                  400019, Россия, <br />
+                  400066, Россия, <br />
                   г. Волгоград, ул. имени маршала Чуйкова, д. 33
                 </span>
               </LinkItem>

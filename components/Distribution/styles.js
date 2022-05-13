@@ -26,14 +26,7 @@ export const StyledTab = styled.button`
 
 export const TabsTitle = styled.div`
   display: flex;
-  /* can be used to stack them vertically by using column*/
   flex-direction: row;
-`;
-
-export const TabsRegion = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-size: 10px;
 `;
 
 export const TabSlider = styled.div`

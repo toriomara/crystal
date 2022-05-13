@@ -1,5 +1,5 @@
-import React from "react";
-import { Flex, Box, Icon, Grid, useColorModeValue } from "@chakra-ui/react";
+import React from 'react';
+import { Flex, Box, Icon, Grid, useColorModeValue } from '@chakra-ui/react';
 import {
   FaFacebookF,
   FaVk,
@@ -7,7 +7,7 @@ import {
   FaWhatsapp,
   FaViber,
   FaTwitter,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 import {
   FacebookShareButton,
   TelegramShareButton,
@@ -16,35 +16,35 @@ import {
   VKShareButton,
   WhatsappShareButton,
   EmailShareButton,
-} from "react-share";
-import { AiOutlineMail } from "react-icons/ai";
+} from 'react-share';
+import { AiOutlineMail } from 'react-icons/ai';
 
 const ShareBlock = (props) => {
   const { article } = props;
   const shareUrl = `https://crystal-three.vercel.app/article/${article.id}`;
-  const iconColor = useColorModeValue("blackAlpha.700", "whiteAlpha.600");
+  const iconColor = useColorModeValue('blackAlpha.700', 'whiteAlpha.600');
 
   return (
     <props.wrap
-      position="sticky"
-      top="100px"
+      position='sticky'
+      top='100px'
       w={props.w}
       gap={props.gap}
       justifyContent={props.justifyContent}
       color={iconColor}
-      alignItems="start"
+      alignItems='start'
       cursor='pointer'
     >
       <FacebookShareButton url={shareUrl}>
         <Icon
           as={FaFacebookF}
           fontSize={20}
-          cursor="pointer"
-          aria-label="Share"
+          cursor='pointer'
+          aria-label='Share'
           _hover={{
-            color: useColorModeValue("brand.100", "brand.200"),
-            transform: "scale(1.5)",
-            transition: ".2s",
+            color: useColorModeValue('brand.100', 'brand.200'),
+            transform: 'scale(1.5)',
+            transition: '.2s',
           }}
         />
       </FacebookShareButton>
@@ -52,12 +52,12 @@ const ShareBlock = (props) => {
         <Icon
           as={FaVk}
           fontSize={20}
-          cursor="pointer"
-          aria-label="Vk"
+          cursor='pointer'
+          aria-label='Vk'
           _hover={{
-            color: useColorModeValue("brand.100", "brand.200"),
-            transform: "scale(1.5)",
-            transition: ".2s",
+            color: useColorModeValue('brand.100', 'brand.200'),
+            transform: 'scale(1.5)',
+            transition: '.2s',
           }}
         />
       </VKShareButton>
@@ -65,12 +65,12 @@ const ShareBlock = (props) => {
         <Icon
           as={FaTelegramPlane}
           fontSize={20}
-          cursor="pointer"
-          aria-label="Telegram"
+          cursor='pointer'
+          aria-label='Telegram'
           _hover={{
-            color: useColorModeValue("brand.100", "brand.200"),
-            transform: "scale(1.5)",
-            transition: ".2s",
+            color: useColorModeValue('brand.100', 'brand.200'),
+            transform: 'scale(1.5)',
+            transition: '.2s',
           }}
         />
       </TelegramShareButton>
@@ -78,12 +78,12 @@ const ShareBlock = (props) => {
         <Icon
           as={FaTwitter}
           fontSize={20}
-          cursor="pointer"
-          aria-label="Twitter"
+          cursor='pointer'
+          aria-label='Twitter'
           _hover={{
-            color: useColorModeValue("brand.100", "brand.200"),
-            transform: "scale(1.5)",
-            transition: ".2s",
+            color: useColorModeValue('brand.100', 'brand.200'),
+            transform: 'scale(1.5)',
+            transition: '.2s',
           }}
         />
       </TwitterShareButton>
@@ -91,12 +91,12 @@ const ShareBlock = (props) => {
         <Icon
           as={FaWhatsapp}
           fontSize={20}
-          cursor="pointer"
-          aria-label="Whatsapp"
+          cursor='pointer'
+          aria-label='Whatsapp'
           _hover={{
-            color: useColorModeValue("brand.100", "brand.200"),
-            transform: "scale(1.5)",
-            transition: ".2s",
+            color: useColorModeValue('brand.100', 'brand.200'),
+            transform: 'scale(1.5)',
+            transition: '.2s',
           }}
         />
       </WhatsappShareButton>
@@ -104,12 +104,12 @@ const ShareBlock = (props) => {
         <Icon
           as={FaViber}
           fontSize={20}
-          cursor="pointer"
-          aria-label="Viber"
+          cursor='pointer'
+          aria-label='Viber'
           _hover={{
-            color: useColorModeValue("brand.100", "brand.200"),
-            transform: "scale(1.5)",
-            transition: ".2s",
+            color: useColorModeValue('brand.100', 'brand.200'),
+            transform: 'scale(1.5)',
+            transition: '.2s',
           }}
         />
       </ViberShareButton>
@@ -117,12 +117,12 @@ const ShareBlock = (props) => {
         <Icon
           as={AiOutlineMail}
           fontSize={20}
-          cursor="pointer"
-          aria-label="Email"
+          cursor='pointer'
+          aria-label='Email'
           _hover={{
-            color: useColorModeValue("brand.100", "brand.200"),
-            transform: "scale(1.5)",
-            transition: ".2s",
+            color: useColorModeValue('brand.100', 'brand.200'),
+            transform: 'scale(1.5)',
+            transition: '.2s',
           }}
         />
       </EmailShareButton>
