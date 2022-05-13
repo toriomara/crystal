@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   color,
@@ -8,9 +8,9 @@ import {
   Heading,
   Text,
   useColorModeValue,
-} from "@chakra-ui/react";
-import ArticleItem from "./ArticleItem";
-import { motion } from "framer-motion";
+} from '@chakra-ui/react';
+import ArticleItem from './ArticleItem';
+import { motion } from 'framer-motion';
 
 const MotionGridItem = motion(GridItem);
 
@@ -23,15 +23,15 @@ const ArticleList = ({ articles }) => {
       columnGap={6}
       mt={6}
       mx='auto'
-      >
+    >
       {articles.map((article) => (
         <MotionGridItem
-        key={article.id}
+          key={article.id}
           // _hover={{
           //   color: "brand.200",
           // }}
           whileHover={{
-            position: "relative",
+            position: 'relative',
             zIndex: 1,
             scale: 1.08,
             transition: {

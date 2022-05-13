@@ -13,7 +13,7 @@ export const StyledTab = styled.button`
   display: flex;
   width: 100%;
   padding: 10px 0px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   border: none;
   cursor: ${(p) => (p.active ? 'default' : 'pointer')};

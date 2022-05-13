@@ -1,6 +1,132 @@
 import React, { useState } from 'react';
-import { Grid, GridItem, Box } from '@chakra-ui/react';
+import { Grid, GridItem, Box, AspectRatio, Skeleton } from '@chakra-ui/react';
 import { Tabs, Tab, TabPanel } from './RegionTabs';
+
+const distributors = [
+  {
+    id: 1,
+    region: 'Центральный федеральный округ',
+    value: 0,
+    title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна',
+    address: '400002, г. Волгоград, ул. Слесарная, 103',
+    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    fax: '+7 (8442) 41-93-08',
+    email: 'korundrf@mail.ru',
+    site: 'http://www.korundrf.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2635.234596913487!2d44.45576431566748!3d48.662755979268795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41053328ce7302d7%3A0x81cd421ef1a31168!2z0KHQu9C10YHQsNGA0L3QsNGPINGD0LsuLCAxMDMsINCS0L7Qu9Cz0L7Qs9GA0LDQtCwg0JLQvtC70LPQvtCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgNDAwMDE5!5e0!3m2!1sru!2sru!4v1652446259289!5m2!1sru!2sru',
+  },
+  {
+    id: 2,
+    region: 'Северо-Западный федеральный округ',
+    value: 1,
+    title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна',
+    address: '400002, г. Волгоград, ул. Слесарная, 103',
+    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    fax: '+7 (8442) 41-93-08',
+    email: 'korundrf@mail.ru',
+    site: 'http://www.korundrf.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2635.234596913487!2d44.45576431566748!3d48.662755979268795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41053328ce7302d7%3A0x81cd421ef1a31168!2z0KHQu9C10YHQsNGA0L3QsNGPINGD0LsuLCAxMDMsINCS0L7Qu9Cz0L7Qs9GA0LDQtCwg0JLQvtC70LPQvtCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgNDAwMDE5!5e0!3m2!1sru!2sru!4v1652446259289!5m2!1sru!2sru',
+  },
+  {
+    id: 3,
+    region: 'Приволжский федеральный округ',
+    value: 2,
+    title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна',
+    address: '400002, г. Волгоград, ул. Слесарная, 103',
+    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    fax: '+7 (8442) 41-93-08',
+    email: 'korundrf@mail.ru',
+    site: 'http://www.korundrf.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2635.234596913487!2d44.45576431566748!3d48.662755979268795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41053328ce7302d7%3A0x81cd421ef1a31168!2z0KHQu9C10YHQsNGA0L3QsNGPINGD0LsuLCAxMDMsINCS0L7Qu9Cz0L7Qs9GA0LDQtCwg0JLQvtC70LPQvtCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgNDAwMDE5!5e0!3m2!1sru!2sru!4v1652446259289!5m2!1sru!2sru',
+  },
+  {
+    id: 4,
+    region: 'Южный федеральный округ',
+    value: 3,
+    title: 'ООО "Торговый Дом КОРУНД ЮФО"',
+    address:
+      '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
+    phones: ['+7 (927) 510-40-11', '+7 (927) 510-40-88'],
+    fax: '',
+    email: 'korund_ufo@mail.ru',
+    site: 'http://korund-ufo.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.3049881404645!2d44.50413901584977!3d48.71876371848144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x411acb3cee7517d5%3A0x3221e9eeda371eb5!2z0YPQuy4g0LjQvNC10L3QuCDQnNCw0YDRiNCw0LvQsCDQoNC-0LrQvtGB0YHQvtCy0YHQutC-0LPQviwgMzLQkCwg0JLQvtC70LPQvtCz0YDQsNC0LCDQktC-0LvQs9C-0LPRgNCw0LTRgdC60LDRjyDQvtCx0LsuLCA0MDAwODc!5e0!3m2!1sru!2sru!4v1652446763762!5m2!1sru!2sru',
+  },
+  {
+    id: 5,
+    region: 'Уральский федеральный округ',
+    value: 4,
+    title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна',
+    address: '400002, г. Волгоград, ул. Слесарная, 103',
+    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    fax: '+7 (8442) 41-93-08',
+    email: 'korundrf@mail.ru',
+    site: 'http://www.korundrf.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2635.234596913487!2d44.45576431566748!3d48.662755979268795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41053328ce7302d7%3A0x81cd421ef1a31168!2z0KHQu9C10YHQsNGA0L3QsNGPINGD0LsuLCAxMDMsINCS0L7Qu9Cz0L7Qs9GA0LDQtCwg0JLQvtC70LPQvtCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgNDAwMDE5!5e0!3m2!1sru!2sru!4v1652446259289!5m2!1sru!2sru',
+  },
+  {
+    id: 6,
+    region: 'Сибирский федеральный округ',
+    value: 5,
+    title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна',
+    address: '400002, г. Волгоград, ул. Слесарная, 103',
+    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    fax: '+7 (8442) 41-93-08',
+    email: 'korundrf@mail.ru',
+    site: 'http://www.korundrf.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2635.234596913487!2d44.45576431566748!3d48.662755979268795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41053328ce7302d7%3A0x81cd421ef1a31168!2z0KHQu9C10YHQsNGA0L3QsNGPINGD0LsuLCAxMDMsINCS0L7Qu9Cz0L7Qs9GA0LDQtCwg0JLQvtC70LPQvtCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgNDAwMDE5!5e0!3m2!1sru!2sru!4v1652446259289!5m2!1sru!2sru',
+  },
+  {
+    id: 7,
+    region: 'Дальневосточный федеральный округ',
+    value: 6,
+    title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна',
+    address: '400002, г. Волгоград, ул. Слесарная, 103',
+    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    fax: '+7 (8442) 41-93-08',
+    email: 'korundrf@mail.ru',
+    site: 'http://www.korundrf.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2635.234596913487!2d44.45576431566748!3d48.662755979268795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41053328ce7302d7%3A0x81cd421ef1a31168!2z0KHQu9C10YHQsNGA0L3QsNGPINGD0LsuLCAxMDMsINCS0L7Qu9Cz0L7Qs9GA0LDQtCwg0JLQvtC70LPQvtCz0YDQsNC00YHQutCw0Y8g0L7QsdC7LiwgNDAwMDE5!5e0!3m2!1sru!2sru!4v1652446259289!5m2!1sru!2sru',
+  },
+  {
+    id: 8,
+    region: 'Северо-Кавказский федеральный округ',
+    value: 7,
+    title: 'ООО "Торговый Дом КОРУНД ЮФО"',
+    address:
+      '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
+    phones: ['+7 (927) 510-40-11', '+7 (927) 510-40-88'],
+    fax: '',
+    email: 'korund_ufo@mail.ru',
+    site: 'http://korund-ufo.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.3049881404645!2d44.50413901584977!3d48.71876371848144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x411acb3cee7517d5%3A0x3221e9eeda371eb5!2z0YPQuy4g0LjQvNC10L3QuCDQnNCw0YDRiNCw0LvQsCDQoNC-0LrQvtGB0YHQvtCy0YHQutC-0LPQviwgMzLQkCwg0JLQvtC70LPQvtCz0YDQsNC0LCDQktC-0LvQs9C-0LPRgNCw0LTRgdC60LDRjyDQvtCx0LsuLCA0MDAwODc!5e0!3m2!1sru!2sru!4v1652446763762!5m2!1sru!2sru',
+  },
+  {
+    id: 9,
+    region: 'Саратовская область',
+    value: 8,
+    title: 'ЗАО "СЕРВИСИНВЕСТПРОЕКТ"',
+    address: 'г. Саратов, ул. Танкистов, 84А',
+    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    fax: '+7 (8442) 41-93-08',
+    email: 'mail@sar-polymer.ru',
+    site: 'sar-polymer.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.860189148749!2d46.02334541592679!3d51.57079651388668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4114c89a2eeeccc7%3A0x5f23fb309774646b!2z0YPQuy4g0KLQsNC90LrQuNGB0YLQvtCyLCA4NNCQLCDQodCw0YDQsNGC0L7Qsiwg0KHQsNGA0LDRgtC-0LLRgdC60LDRjyDQvtCx0LsuLCA0MTAwMDA!5e0!3m2!1sru!2sru!4v1652446675894!5m2!1sru!2sru',
+  },
+  {
+    id: 10,
+    region: 'Республика Крым',
+    value: 9,
+    title: 'ООО "Торговый Дом КОРУНД ЮФО"',
+    address:
+      '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
+    phones: ['+7 (927) 510-40-11', '+7 (927) 510-40-88'],
+    fax: '',
+    email: 'korund_ufo@mail.ru',
+    site: 'http://korund-ufo.ru',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2632.3049881404645!2d44.50413901584977!3d48.71876371848144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x411acb3cee7517d5%3A0x3221e9eeda371eb5!2z0YPQuy4g0LjQvNC10L3QuCDQnNCw0YDRiNCw0LvQsCDQoNC-0LrQvtGB0YHQvtCy0YHQutC-0LPQviwgMzLQkCwg0JLQvtC70LPQvtCz0YDQsNC0LCDQktC-0LvQs9C-0LPRgNCw0LTRgdC60LDRjyDQvtCx0LsuLCA0MDAwODc!5e0!3m2!1sru!2sru!4v1652446763762!5m2!1sru!2sru',
+  },
+];
 
 const Russia = () => {
   const [activeTab, setIsActiveTab] = useState(0);
@@ -10,53 +136,40 @@ const Russia = () => {
   return (
     <Grid
       templateColumns={{
-        base: '1fr 3fr 2fr',
+        base: '2fr 3fr 3fr',
       }}
       gap={4}
     >
       <GridItem>
         <Tabs selectedTab={activeTab} onChange={handleChange}>
-          <Tab label='Центральный федеральный округ' value={0} />
-          <Tab label='Северо-Западный федеральный округ' value={1} />
-          <Tab label='Приволжский федеральный округ' value={2} />
-          <Tab label='Уральский федеральный округ' value={3} />
-          <Tab label='Сибирский федеральный округ' value={4} />
-          <Tab label='Дальневосточный федеральный округ' value={5} />
-          <Tab label='Южный федеральный округ' value={6} />
-          <Tab label='Северо-Кавказский федеральный округ' value={7} />
-          <Tab label='Республика Крым' value={8} />
-          <Tab label='Саратовская область' value={9} />
+          {distributors.map((d, value) => (
+            <Tab key={d.id} label={d.region} value={value} />
+          ))}
         </Tabs>
       </GridItem>
 
       <GridItem>
-        <TabPanel value={activeTab} selectedIndex={0}>
-          <Box>ООО ТОРГОВЫЙ ДОМ КОРУНД, ИП Чернышева Елена Владимировна</Box>
-          <span>400002, г. Волгоград, ул. Слесарная, 103</span>
-          <span>http://www.korundrf.ru</span>
-        </TabPanel>
-        <TabPanel value={activeTab} selectedIndex={1}>
-          <span>ООО ТОРГОВЫЙ ДОМ КОРУНД, ИП Чернышева Елена Владимировна</span>
-        </TabPanel>
-        <TabPanel value={activeTab} selectedIndex={2}>
-          <span>ООО ТОРГОВЫЙ ДОМ КОРУНД, ИП Чернышева Елена Владимировна</span>
-        </TabPanel>
-        
-        <TabPanel value={activeTab} selectedIndex={9}>
-          <h1>ЗАО «СЕРВИСИНВЕСТПРОЕКТ»</h1>
-        </TabPanel>
+        {distributors.map((d, value) => (
+          <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
+            <Box paddingBottom={6}>{d.title}</Box>
+            <Box paddingBottom={6}>{d.address}</Box>
+            <Box paddingBottom={6}>{d.phones}</Box>
+            <Box paddingBottom={6}>{d.email}</Box>
+            <Box paddingBottom={6}>{d.site}</Box>
+          </TabPanel>
+        ))}
       </GridItem>
 
-      <GridItem>
-        <TabPanel value={activeTab} selectedIndex={0}>
-          <h1>Sony, Ltd</h1>
-        </TabPanel>
-        <TabPanel value={activeTab} selectedIndex={1}>
-          <h1>Quad, Ltd</h1>
-        </TabPanel>
-        <TabPanel value={activeTab} selectedIndex={2}>
-          <h1>Benq, Ltd</h1>
-        </TabPanel>
+      <GridItem width={'100%'}>
+        {distributors.map((d, value) => (
+          <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
+            {/* <Box border='1px solid #EDF2F7' rounded={4}> */}
+            {/* <AspectRatio ratio={9 / 18} borderRadius={4}> */}
+            <iframe fallback={<Skeleton />} src={d.map} />
+            {/* </AspectRatio> */}
+            {/* </Box> */}
+          </TabPanel>
+        ))}
       </GridItem>
     </Grid>
   );
