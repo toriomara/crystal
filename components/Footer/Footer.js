@@ -211,11 +211,10 @@ export const Footer = () => {
 
               <LinkItem href='tel:+78442504031'>+7 (8442) 50-40-31</LinkItem>
 
-              <LinkItem href='tel:+78442504042'>+7 (8442) 50-40-42</LinkItem>
+              <LinkItem href='tel:+78442504042'>+7(8442)50-40-42</LinkItem>
 
-              <LinkItem href='tel:+78442504082'>+7 (8442) 50-40-82</LinkItem>
+              <LinkItem href='tel:+78442504082'>+7(8442)50-40-82</LinkItem>
 
-              <LinkItem></LinkItem>
             </Stack>
 
             <Stack align='flex-start'>
