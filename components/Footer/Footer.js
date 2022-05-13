@@ -204,18 +204,11 @@ export const Footer = () => {
                 </IconItem>
                 +7 (8442) 38-44-66 (факс)
               </LinkItem>
-              {/* 
               <LinkItem href='tel:+78442504012'>+7 (8442) 50-40-12</LinkItem>
-
               <LinkItem href='tel:+78442504013'>+7 (8442) 50-40-13</LinkItem>
-
               <LinkItem href='tel:+78442504031'>+7 (8442) 50-40-31</LinkItem>
-
               <LinkItem href='tel:+78442504042'>+7 (8442) 50-40-42</LinkItem>
-
-              <LinkItem href='tel:+78442504082'>+7 (8442) 50-40-82</LinkItem> */}
-
-              <Link href='tel:+78442504042'>+7 (8442) 50-40-42</Link>
+              <LinkItem href='tel:+78442504082'>+7 (8442) 50-40-82</LinkItem> 
             </Stack>
 
             <Stack align='flex-start'>
