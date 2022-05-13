@@ -31,15 +31,15 @@ const Russia = () => {
 
       <GridItem>
         <TabPanel value={activeTab} selectedIndex={0}>
-          <Box>ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна</Box>
+          <Box>ООО ТОРГОВЫЙ ДОМ КОРУНД, ИП Чернышева Елена Владимировна</Box>
           <span>400002, г. Волгоград, ул. Слесарная, 103</span>
           <span>http://www.korundrf.ru</span>
         </TabPanel>
         <TabPanel value={activeTab} selectedIndex={1}>
-          <span>ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна</span>
+          <span>ООО ТОРГОВЫЙ ДОМ КОРУНД, ИП Чернышева Елена Владимировна</span>
         </TabPanel>
         <TabPanel value={activeTab} selectedIndex={2}>
-          <span>ООО "ТОРГОВЫЙ ДОМ КОРУНД", ИП Чернышева Елена Владимировна</span>
+          <span>ООО ТОРГОВЫЙ ДОМ КОРУНД, ИП Чернышева Елена Владимировна</span>
         </TabPanel>
         
         <TabPanel value={activeTab} selectedIndex={9}>
