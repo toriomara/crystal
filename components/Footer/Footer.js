@@ -6,8 +6,6 @@ import {
   Flex,
   Heading,
   IconButton,
-  Input,
-  Link,
   SimpleGrid,
   Stack,
   StackDivider,
@@ -32,34 +30,7 @@ import { useState } from 'react';
 import { RiWhatsappFill } from 'react-icons/ri';
 import { SiInstagram } from 'react-icons/si';
 import { motion } from 'framer-motion';
-
-const LinkItem = ({ href, children }) => (
-  <Link
-    href={href}
-    display='inline-flex'
-    lineHeight='1.3'
-    textDecoration='none'
-    transition='.3s ease'
-    color={useColorModeValue('gray.600', 'gray.300')}
-    position='relative'
-    left={0}
-    _hover={{
-      fontWeight: '500',
-      transition: '200ms ease-in',
-      left: '6px',
-      color: 'red.600',
-    }}
-  >
-    {children}
-  </Link>
-);
-
-export const IconItem = styled(Link)`
-  margin-top: 2px;
-  display: inline-flex;
-  color: #4a5568;
-  padding: 0 8px 0 0;
-`;
+import { MovingLink, SimpleLink, IconItem } from '../../styles/link';
 
 const FooterHeading = ({ children }) => (
   <Heading
@@ -152,12 +123,12 @@ export const Footer = () => {
 
             <Stack align={'flex-start'}>
               <FooterHeading>Информация</FooterHeading>
-              <LinkItem href='/about'>О нас</LinkItem>
-              <LinkItem>Новости</LinkItem>
-              <LinkItem>Продукция</LinkItem>
-              <LinkItem>Документация</LinkItem>
+              <MovingLink href='/about'>О нас</MovingLink>
+              <MovingLink href='/news'>Новости</MovingLink>
+              <MovingLink href='production'>Продукция</MovingLink>
+              <MovingLink href='/documentation'>Документация</MovingLink>
               <Stack direction={'row'} align={'center'} spacing={2}>
-                <LinkItem href='/distribution'>
+                <MovingLink href='/distribution'>
                   Дистрибьюция
                   <sup>
                     <Tag
@@ -173,42 +144,42 @@ export const Footer = () => {
                       New
                     </Tag>
                   </sup>
-                </LinkItem>
+                </MovingLink>
               </Stack>
             </Stack>
 
             <Stack align='flex-start'>
               <FooterHeading>Контакты</FooterHeading>
 
-              <LinkItem>
-                <IconItem fill='brand.400'>
-                  <FaMapMarkerAlt fill='brand.400' />
+              <MovingLink href='#'>
+                <IconItem fill='brand.200'>
+                  <FaMapMarkerAlt fill='brand.200' />
                 </IconItem>
                 <span onClick={handleClick}>
                   400066, Россия, <br />
                   г. Волгоград, ул. имени маршала Чуйкова, д. 33
                 </span>
-              </LinkItem>
+              </MovingLink>
 
               {isOpen && <MapModal setIsOpen={setIsOpen} />}
 
-              <LinkItem href='mailto:mail@korund34.ru'>
-                <IconItem fill='brand.400'>
-                  <FaEnvelope fill='brand.400' />
+              <MovingLink href='mailto:mail@korund34.ru'>
+                <IconItem fill='brand.200'>
+                  <FaEnvelope fill='brand.200' />
                 </IconItem>
                 mail@korund34.ru
-              </LinkItem>
-              <LinkItem href='tel:+7844238-44-66'>
-                <IconItem fill='brand.400'>
-                  <FaPhone fill='brand.400' />
+              </MovingLink>
+              <MovingLink href='tel:+7844238-44-66'>
+                <IconItem fill='brand.200'>
+                  <FaPhone fill='brand.200' />
                 </IconItem>
                 +7 (8442) 38-44-66 (факс)
-              </LinkItem>
-              <LinkItem href='tel:+78442504012'>+7 (8442) 50-40-12</LinkItem>
-              <LinkItem href='tel:+78442504013'>+7 (8442) 50-40-13</LinkItem>
-              <LinkItem href='tel:+78442504031'>+7 (8442) 50-40-31</LinkItem>
-              <LinkItem href='tel:+78442504042'>+7 (8442) 50-40-42</LinkItem>
-              <LinkItem href='tel:+78442504082'>+7 (8442) 50-40-82</LinkItem> 
+              </MovingLink>
+              <MovingLink href='tel:+78442504012'>+7 (8442) 50-40-12</MovingLink>
+              <MovingLink href='tel:+78442504013'>+7 (8442) 50-40-13</MovingLink>
+              <MovingLink href='tel:+78442504031'>+7 (8442) 50-40-31</MovingLink>
+              <MovingLink href='tel:+78442504042'>+7 (8442) 50-40-42</MovingLink>
+              <MovingLink href='tel:+78442504082'>+7 (8442) 50-40-82</MovingLink>
             </Stack>
 
             <Stack align='flex-start'>

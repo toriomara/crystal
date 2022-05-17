@@ -1,18 +1,16 @@
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/react';
+//import { css, keyframes } from '@emotion/react';
 import { useColorModeValue } from '@chakra-ui/react';
 
 export const TabContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: start;
+  flex-direction: row;
   width: 100%;
+  height: 100%;
 `;
 
-export const StyledTab = styled.button`
-  display: flex;
-  width: 100%;
-  padding: 10px 0px;
+export const StyledTab = styled.div`
+  padding: 10px 0 10px 10px;
   font-size: 0.9rem;
   font-weight: 500;
   border: none;
@@ -22,6 +20,11 @@ export const StyledTab = styled.button`
       p.active ? '#D2202F' : 'black',
       p.active ? '#00BBFF' : '#E2E8F0'
     )};
+`;
+
+export const TabsTitle = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const TabSlider = styled.div`
@@ -36,21 +39,21 @@ export const TabSlider = styled.div`
 export const StyledTabPanel = styled.div`
   display: ${(p) => (p.active ? 'grid' : 'none')};
   flex-direction: column;
-  padding: 10px 25px;
-  justify-content: start;
+  padding: 10px 30px;
+  font-weight: 500;
 `;
 
-export const inactiveTab = {
-  opacity: 0.65,
-};
+// export const inactiveTab = {
+//   opacity: 0.65,
+// };
 
-const inset = keyframes`
-  0% {
-    -webkit-box-shadow: inset 0 0 0 0 rgba(238, 82, 83, 0);
-            box-shadow: inset 0 0 0 0 rgba(238, 82, 83, 0);
-  }
-  100% {
-    -webkit-box-shadow: inset 0 0 14px 0px rgba(238, 82, 83, 0.95);
-            box-shadow: inset 0 0 14px 0px rgba(238, 82, 83, 0.95);
-  }
-`;
+// const inset = keyframes`
+//   0% {
+//     -webkit-box-shadow: inset 0 0 0 0 rgba(238, 82, 83, 0);
+//             box-shadow: inset 0 0 0 0 rgba(238, 82, 83, 0);
+//   }
+//   100% {
+//     -webkit-box-shadow: inset 0 0 14px 0px rgba(238, 82, 83, 0.95);
+//             box-shadow: inset 0 0 14px 0px rgba(238, 82, 83, 0.95);
+//   }
+// `;

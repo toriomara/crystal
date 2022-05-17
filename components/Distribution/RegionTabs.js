@@ -5,8 +5,11 @@ import {
   TabContainer,
   TabsRegion,
   inactiveTab,
+  TabsTitle,
   TabSlider,
 } from './stylesRegion';
+
+import { Box } from '@chakra-ui/react';
 
 export const Tab = ({ label, active, onClick }) => {
   return (
@@ -14,7 +17,7 @@ export const Tab = ({ label, active, onClick }) => {
       role='tab'
       active={active}
       onClick={onClick}
-      inactiveStyle={inactiveTab}
+      //inactiveStyle={inactiveTab}
     >
       {label}
     </StyledTab>
@@ -45,8 +48,8 @@ export const Tabs = ({ selectedTab, onChange, children }) => {
 
   return (
     <TabContainer ref={containerRef}>
-      {tabs}
       <TabSlider height={sliderHeight} index={selectedTab} />
+      <TabsTitle>{tabs}</TabsTitle>
     </TabContainer>
   );
 };
