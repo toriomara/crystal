@@ -39,7 +39,7 @@ export const TabSlider = styled.div`
 export const StyledTabPanel = styled.div`
   display: ${(p) => (p.active ? 'grid' : 'none')};
   flex-direction: column;
-  padding: 10px 30px;
+  padding: 10px 15px;
   font-weight: 500;
 `;
 

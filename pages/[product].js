@@ -44,7 +44,7 @@ const Product = ({ product }) => {
     product;
 
   return (
-    <Box mt={14}>
+    <Box>
       <Meta title='Production' />
       <Heading variant='pageTitle'>Продукция</Heading>
       <Text my={10}>Lorem*

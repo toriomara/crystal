@@ -10,10 +10,11 @@ export const HeadingStyles = {
   // 3. We can add a new visual variant
   variants: {
     pageTitle: (props) => ({
+      fontSize: '3xl',
+      justify: 'center',
       textAlign: 'center',
       fontWeights: '500',
-      justify: 'center',
-      my: 12,
+      my: 6,
     }),
     articleTitle: {
       fontSize: '2xl',

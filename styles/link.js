@@ -41,8 +41,8 @@ export const SimpleLink = ({ href, children, target, ...props }) => {
 
 const MovingItem = styled(Link)`
   position: relative;
-  display: inline-flex;
-  line-height: 1.3;
+  display: flex;
+  line-height: 1.4;
   text-decoration: none;
   transition: 0.3s ease;
   color: ${(p) => useColorModeValue('gray.700', 'gray.200')};

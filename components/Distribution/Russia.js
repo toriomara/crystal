@@ -26,9 +26,16 @@ const distributors = [
     id: 1,
     region: 'Центральный федеральный округ',
     value: 0,
-    title: ['ООО "ТОРГОВЫЙ ДОМ КОРУНД"', 'ИП Чернышева Елена Владимировна'],
+    titles: [
+      { id: 1, title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД"' },
+      { id: 1, title: 'ИП Чернышева Елена Владимировна' },
+    ],
     address: '400002, г. Волгоград, ул. Слесарная, 103',
-    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    phones: [
+      { id: 1, phone: '+7 (8442) 46-95-86' },
+      { id: 2, phone: '+7 (8442) 50-40-76' },
+      { id: 3, phone: '+7 (988) 988-51-11' },
+    ],
     fax: '+7 (8442) 41-93-08',
     email: 'korundrf@mail.ru',
     site: 'http://www.korundrf.ru',
@@ -38,9 +45,16 @@ const distributors = [
     id: 2,
     region: 'Северо-Западный федеральный округ',
     value: 1,
-    title: ['ООО "ТОРГОВЫЙ ДОМ КОРУНД"', 'ИП Чернышева Елена Владимировна'],
+    titles: [
+      { id: 1, title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД"' },
+      { id: 1, title: 'ИП Чернышева Елена Владимировна' },
+    ],
     address: '400002, г. Волгоград, ул. Слесарная, 103',
-    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    phones: [
+      { id: 1, phone: '+7 (8442) 46-95-86' },
+      { id: 2, phone: '+7 (8442) 50-40-76' },
+      { id: 3, phone: '+7 (988) 988-51-11' },
+    ],
     fax: '+7 (8442) 41-93-08',
     email: 'korundrf@mail.ru',
     site: 'http://www.korundrf.ru',
@@ -50,9 +64,16 @@ const distributors = [
     id: 3,
     region: 'Приволжский федеральный округ',
     value: 2,
-    title: ['ООО "ТОРГОВЫЙ ДОМ КОРУНД"', 'ИП Чернышева Елена Владимировна'],
+    titles: [
+      { id: 1, title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД"' },
+      { id: 1, title: 'ИП Чернышева Елена Владимировна' },
+    ],
     address: '400002, г. Волгоград, ул. Слесарная, 103',
-    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    phones: [
+      { id: 1, phone: '+7 (8442) 46-95-86' },
+      { id: 2, phone: '+7 (8442) 50-40-76' },
+      { id: 3, phone: '+7 (988) 988-51-11' },
+    ],
     fax: '+7 (8442) 41-93-08',
     email: 'korundrf@mail.ru',
     site: 'http://www.korundrf.ru',
@@ -62,10 +83,13 @@ const distributors = [
     id: 4,
     region: 'Южный федеральный округ',
     value: 3,
-    title: ['ООО "Торговый Дом КОРУНД ЮФО"'],
+    titles: [{ id: 1, title: 'ООО "Торговый Дом КОРУНД ЮФО"' }],
     address:
       '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
-    phones: ['+7 (927) 510-40-11', '+7 (927) 510-40-88'],
+    phones: [
+      { id: 1, phone: '+7 (927) 510-40-11' },
+      { id: 2, phone: '+7 (927) 510-40-88' },
+    ],
     fax: '',
     email: 'korund_ufo@mail.ru',
     site: 'http://korund-ufo.ru',
@@ -75,9 +99,16 @@ const distributors = [
     id: 5,
     region: 'Уральский федеральный округ',
     value: 4,
-    title: ['ООО "ТОРГОВЫЙ ДОМ КОРУНД"', 'ИП Чернышева Елена Владимировна'],
+    titles: [
+      { id: 1, title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД"' },
+      { id: 1, title: 'ИП Чернышева Елена Владимировна' },
+    ],
     address: '400002, г. Волгоград, ул. Слесарная, 103',
-    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    phones: [
+      { id: 1, phone: '+7 (8442) 46-95-86' },
+      { id: 2, phone: '+7 (8442) 50-40-76' },
+      { id: 3, phone: '+7 (988) 988-51-11' },
+    ],
     fax: '+7 (8442) 41-93-08',
     email: 'korundrf@mail.ru',
     site: 'http://www.korundrf.ru',
@@ -87,9 +118,16 @@ const distributors = [
     id: 6,
     region: 'Сибирский федеральный округ',
     value: 5,
-    title: ['ООО "ТОРГОВЫЙ ДОМ КОРУНД"', 'ИП Чернышева Елена Владимировна'],
+    titles: [
+      { id: 1, title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД"' },
+      { id: 1, title: 'ИП Чернышева Елена Владимировна' },
+    ],
     address: '400002, г. Волгоград, ул. Слесарная, 103',
-    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    phones: [
+      { id: 1, phone: '+7 (8442) 46-95-86' },
+      { id: 2, phone: '+7 (8442) 50-40-76' },
+      { id: 3, phone: '+7 (988) 988-51-11' },
+    ],
     fax: '+7 (8442) 41-93-08',
     email: 'korundrf@mail.ru',
     site: 'http://www.korundrf.ru',
@@ -99,9 +137,16 @@ const distributors = [
     id: 7,
     region: 'Дальневосточный федеральный округ',
     value: 6,
-    title: ['ООО "ТОРГОВЫЙ ДОМ КОРУНД"', 'ИП Чернышева Елена Владимировна'],
+    titles: [
+      { id: 1, title: 'ООО "ТОРГОВЫЙ ДОМ КОРУНД"' },
+      { id: 1, title: 'ИП Чернышева Елена Владимировна' },
+    ],
     address: '400002, г. Волгоград, ул. Слесарная, 103',
-    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    phones: [
+      { id: 1, phone: '+7 (8442) 46-95-86' },
+      { id: 2, phone: '+7 (8442) 50-40-76' },
+      { id: 3, phone: '+7 (988) 988-51-11' },
+    ],
     fax: '+7 (8442) 41-93-08',
     email: 'korundrf@mail.ru',
     site: 'http://www.korundrf.ru',
@@ -111,10 +156,13 @@ const distributors = [
     id: 8,
     region: 'Северо-Кавказский федеральный округ',
     value: 7,
-    title: ['ООО "Торговый Дом КОРУНД ЮФО"'],
+    titles: [{ id: 1, title: 'ООО "Торговый Дом КОРУНД ЮФО"' }],
     address:
       '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
-    phones: ['+7 (927) 510-40-11', '+7 (927) 510-40-88'],
+    phones: [
+      { id: 1, phone: '+7 (927) 510-40-11' },
+      { id: 2, phone: '+7 (927) 510-40-88' },
+    ],
     fax: '',
     email: 'korund_ufo@mail.ru',
     site: 'http://korund-ufo.ru',
@@ -124,9 +172,12 @@ const distributors = [
     id: 9,
     region: 'Саратовская область',
     value: 8,
-    title: ['ЗАО "СЕРВИСИНВЕСТПРОЕКТ"'],
+    titles: [{ id: 1, title: 'ЗАО "СЕРВИСИНВЕСТПРОЕКТ"' }],
     address: 'г. Саратов, ул. Танкистов, 84А',
-    phones: ['+7 (8442) 46-95-86', '+7 (8442) 50-40-76', '+7 (988) 988-51-11'],
+    phones: [
+      { id: 1, phone: '+7 (8452) 74-42-47' },
+      { id: 2, phone: '+7 (905) 384-71-77' },
+    ],
     fax: '+7 (8442) 41-93-08',
     email: 'mail@sar-polymer.ru',
     site: 'sar-polymer.ru',
@@ -136,10 +187,13 @@ const distributors = [
     id: 10,
     region: 'Республика Крым',
     value: 9,
-    title: ['ООО "Торговый Дом КОРУНД ЮФО"'],
+    titles: [{ id: 1, title: 'ООО "Торговый Дом КОРУНД ЮФО"' }],
     address:
       '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
-    phones: ['+7 (927) 510-40-11', '+7 (927) 510-40-88'],
+    phones: [
+      { id: 1, phone: '+7 (927) 510-40-11' },
+      { id: 2, phone: '+7 (927) 510-40-88' },
+    ],
     fax: '',
     email: 'korund_ufo@mail.ru',
     site: 'http://korund-ufo.ru',
@@ -155,7 +209,7 @@ const Russia = () => {
   return (
     <Grid
       templateColumns={{
-        base: '2fr 6fr 4fr',
+        base: '2fr 7fr 4fr',
       }}
       gap={18}
       py={12}
@@ -185,29 +239,27 @@ const Russia = () => {
         {distributors.map((d, value) => (
           <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
             <Box paddingBottom={6}>
-              {d.title[0]} <br />
-              {d.title[1]}
+              {d.titles.map((t) => (
+                <Box key={t}>{t.title}</Box>
+              ))}
             </Box>
             <Box paddingBottom={6}>
-              <IconItem fill='brand.200' pointer='default'>
+              <IconItem fill='brand.200'>
                 <FaMapMarkerAlt fill='brand.200' />
               </IconItem>
               {d.address}
             </Box>
             <Box paddingBottom={6}>
-              <MovingLink href='tel:{d.phones[0]}'>
-                <IconItem>
-                  <FaPhone fill='brand.200' />
-                </IconItem>
-                {d.phones[0]}
-              </MovingLink>
-              <br />
-              <MovingLink href='tel:{d.phones[1]}'>
-                <IconItem>
-                  <FaPhone fill='brand.200' />
-                </IconItem>
-                {d.phones[1]}
-              </MovingLink>
+              {d.phones.map((p) => (
+                <MovingLink key={p} href='tel:{p.phone}'>
+                  <Box py={0.45}>
+                    <IconItem>
+                      <FaPhone fill='brand.200' />
+                    </IconItem>
+                    {p.phone}
+                  </Box>
+                </MovingLink>
+              ))}
             </Box>
             <Box paddingBottom={6}>
               <MovingLink href='mailto:{d.email}'>

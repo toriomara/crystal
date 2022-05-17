@@ -21,7 +21,7 @@ const DistributionTable = () => {
       gap={4}
     >
       <Grid>
-        <GridItem py={4}>
+        <GridItem py={1}>
           <Tabs selectedTab={activeTab} onChange={handleChange}>
             <Tab label='Россия' value={0} />
             <Tab label='Мир' value={1} />
