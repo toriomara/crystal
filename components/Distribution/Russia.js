@@ -162,10 +162,10 @@ const distributors = [
     titles: [{ id: 1, title: 'ООО "Торговый Дом КОРУНД ЮФО"' }],
     address:
       '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
-    phones: [
-      { id: 1, phone: '+7 (927) 510-40-11' },
-      { id: 2, phone: '+7 (927) 510-40-88' },
-    ],
+      phones: [
+        { id: 1, phone: '+7 (937) 556-99-99' },
+        { id: 2, phone: '+7 (927) 510-40-11' },
+      ],
     fax: '',
     email: 'korund_ufo@mail.ru',
     site: 'http://korund-ufo.ru',
@@ -193,10 +193,10 @@ const distributors = [
     titles: [{ id: 1, title: 'ООО "Торговый Дом КОРУНД ЮФО"' }],
     address:
       '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
-    phones: [
-      { id: 1, phone: '+7 (927) 510-40-11' },
-      { id: 2, phone: '+7 (927) 510-40-88' },
-    ],
+      phones: [
+        { id: 1, phone: '+7 (937) 556-99-99' },
+        { id: 2, phone: '+7 (927) 510-40-11' },
+      ],
     fax: '',
     email: 'korund_ufo@mail.ru',
     site: 'http://korund-ufo.ru',
@@ -212,7 +212,7 @@ const Russia = () => {
   return (
     <Grid
       templateColumns={{
-        base: '2fr 7fr 4fr',
+        base: '3fr 4fr 4fr',
       }}
       gap={18}
       py={12}
