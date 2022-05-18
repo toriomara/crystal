@@ -162,10 +162,10 @@ const distributors = [
     titles: [{ id: 1, title: 'ООО "Торговый Дом КОРУНД ЮФО"' }],
     address:
       '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
-      phones: [
-        { id: 1, phone: '+7 (937) 556-99-99' },
-        { id: 2, phone: '+7 (927) 510-40-11' },
-      ],
+    phones: [
+      { id: 1, phone: '+7 (937) 556-99-99' },
+      { id: 2, phone: '+7 (927) 510-40-11' },
+    ],
     fax: '',
     email: 'korund_ufo@mail.ru',
     site: 'http://korund-ufo.ru',
@@ -193,10 +193,10 @@ const distributors = [
     titles: [{ id: 1, title: 'ООО "Торговый Дом КОРУНД ЮФО"' }],
     address:
       '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
-      phones: [
-        { id: 1, phone: '+7 (937) 556-99-99' },
-        { id: 2, phone: '+7 (927) 510-40-11' },
-      ],
+    phones: [
+      { id: 1, phone: '+7 (937) 556-99-99' },
+      { id: 2, phone: '+7 (927) 510-40-11' },
+    ],
     fax: '',
     email: 'korund_ufo@mail.ru',
     site: 'http://korund-ufo.ru',
@@ -212,17 +212,25 @@ const Russia = () => {
   return (
     <Grid
       templateColumns={{
-        base: '3fr 4fr 4fr',
+        base: '2fr 4fr 4fr',
       }}
       gap={18}
       py={12}
     >
       <GridItem>
-        <Tabs selectedTab={activeTab} onChange={handleChange}>
-          {distributors.map((d, value) => (
-            <Tab key={d.id} label={d.region} value={value} />
-          ))}
-        </Tabs>
+        <Box
+          py={{ base: '0', sm: '6' }}
+          px={{ base: '4', sm: '4' }}
+          bg={useColorModeValue('blackAlpha.50', 'whiteAlpha.100')}
+          boxShadow={{ base: 'none', sm: 'md' }}
+          borderRadius={{ base: 'none', sm: 'xl' }}
+        >
+          <Tabs selectedTab={activeTab} onChange={handleChange}>
+            {distributors.map((d, value) => (
+              <Tab key={d.id} label={d.region} value={value} />
+            ))}
+          </Tabs>
+        </Box>
       </GridItem>
 
       <GridItem>
@@ -239,7 +247,8 @@ const Russia = () => {
       </GridItem>
 
       <GridItem>
-        <Box variant='text'
+        <Box
+          variant='text'
           py={{ base: '0', sm: '6' }}
           px={{ base: '4', sm: '4' }}
           bg={useColorModeValue('blackAlpha.50', 'whiteAlpha.100')}
