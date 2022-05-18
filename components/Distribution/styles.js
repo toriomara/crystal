@@ -31,7 +31,7 @@ export const TabsTitle = styled.div`
 
 export const TabSlider = styled.div`
   width: ${(props) => `${props.width}px`};
-  height: 4px;
+  height: 2px;
   border-radius: 1px;
   background-color: ${(p) => useColorModeValue('#D2202F', '#00BBFF')};
   transition: 0.3s;

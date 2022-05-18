@@ -6,6 +6,8 @@ import {
   Link,
   AspectRatio,
   Skeleton,
+  useBreakpointValue,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { Tabs, Tab, TabPanel } from './RegionTabs';
 import { SimpleLink, MovingLink, IconItem } from '../../styles/link';
@@ -20,6 +22,7 @@ import {
   FaYoutube,
 } from 'react-icons/fa';
 import { ImSphere } from 'react-icons/im';
+import { FaFax } from 'react-icons/fa';
 
 const distributors = [
   {
@@ -87,8 +90,8 @@ const distributors = [
     address:
       '400081, г. Волгоград, ул. имени маршала Рокоссовского, д. 32а, офис 305',
     phones: [
-      { id: 1, phone: '+7 (927) 510-40-11' },
-      { id: 2, phone: '+7 (927) 510-40-88' },
+      { id: 1, phone: '+7 (937) 556-99-99' },
+      { id: 2, phone: '+7 (927) 510-40-11' },
     ],
     fax: '',
     email: 'korund_ufo@mail.ru',
@@ -226,7 +229,7 @@ const Russia = () => {
         {distributors.map((d, value) => (
           <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
             <iframe
-              fallback={<Skeleton />}
+              //fallback={<Skeleton />}
               src={d.map}
               width='100%'
               height='350%'
@@ -236,49 +239,65 @@ const Russia = () => {
       </GridItem>
 
       <GridItem>
-        {distributors.map((d, value) => (
-          <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
-            <Box paddingBottom={6}>
-              {d.titles.map((t) => (
-                <Box key={t}>{t.title}</Box>
-              ))}
-            </Box>
-            <Box paddingBottom={6}>
-              <IconItem fill='brand.200'>
-                <FaMapMarkerAlt fill='brand.200' />
-              </IconItem>
-              {d.address}
-            </Box>
-            <Box paddingBottom={6}>
-              {d.phones.map((p) => (
-                <MovingLink key={p} href='tel:{p.phone}'>
-                  <Box py={0.45}>
-                    <IconItem>
-                      <FaPhone fill='brand.200' />
-                    </IconItem>
-                    {p.phone}
-                  </Box>
+        <Box variant='text'
+          // py={{ base: '0', sm: '6' }}
+          // px={{ base: '4', sm: '4' }}
+          // bg={useColorModeValue('blackAlpha.50', 'whiteAlpha.100')}
+          // boxShadow={{ base: 'none', sm: 'md' }}
+          // borderRadius={{ base: 'none', sm: 'xl' }}
+        >
+          {distributors.map((d, value) => (
+            <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
+              <Box paddingBottom={6}>
+                {d.titles.map((t) => (
+                  <Box key={t}>{t.title}</Box>
+                ))}
+              </Box>
+              <Box paddingBottom={6}>
+                <IconItem fill='brand.200'>
+                  <FaMapMarkerAlt fill='brand.200' />
+                </IconItem>
+                {d.address}
+              </Box>
+              <Box paddingBottom={6}>
+                {d.phones.map((p) => (
+                  <MovingLink key={p} href={'tel:' + p.phone}>
+                    <Box py={0.45}>
+                      <IconItem>
+                        <FaPhone fill='brand.200' />
+                      </IconItem>
+                      {p.phone}
+                    </Box>
+                  </MovingLink>
+                ))}
+              </Box>
+              <Box paddingBottom={6}>
+                <MovingLink href={'mailto:' + d.email}>
+                  <IconItem>
+                    <FaEnvelope fill='brand.200' />
+                  </IconItem>
+                  {d.email}
                 </MovingLink>
-              ))}
-            </Box>
-            <Box paddingBottom={6}>
-              <MovingLink href='mailto:{d.email}'>
-                <IconItem>
-                  <FaEnvelope fill='brand.200' />
-                </IconItem>
-                {d.email}
-              </MovingLink>
-            </Box>
-            <Box paddingBottom={6}>
-              <MovingLink href={d.site}>
-                <IconItem>
-                  <ImSphere fill='brand.200' />
-                </IconItem>
-                {d.site}
-              </MovingLink>
-            </Box>
-          </TabPanel>
-        ))}
+              </Box>
+              {d.fax && (
+                <Box paddingBottom={6}>
+                  <IconItem>
+                    <FaFax fill='brand.200' />
+                  </IconItem>
+                  {d.fax}
+                </Box>
+              )}
+              <Box paddingBottom={6}>
+                <MovingLink href={d.site}>
+                  <IconItem>
+                    <ImSphere fill='brand.200' />
+                  </IconItem>
+                  {d.site}
+                </MovingLink>
+              </Box>
+            </TabPanel>
+          ))}
+        </Box>
       </GridItem>
     </Grid>
   );

@@ -3,45 +3,46 @@ import {
   theme as base,
   withDefaultColorScheme,
   withDefaultVariant,
-} from "@chakra-ui/react";
-import { mode, createBreakpoints } from "@chakra-ui/theme-tools";
-import { ButtonStyles as Button } from "../styles/buttonStyles";
-import { HeadingStyles as Heading } from "../styles/headingStyles";
-import { InputStyles as Input } from "../styles/inputStyles";
+} from '@chakra-ui/react';
+import { mode, createBreakpoints } from '@chakra-ui/theme-tools';
+import { ButtonStyles as Button } from '../styles/buttonStyles';
+import { BoxStyles as Box } from '../styles/boxStyles';
+import { HeadingStyles as Heading } from '../styles/headingStyles';
+import { InputStyles as Input } from '../styles/inputStyles';
 
 const config = {
-  initialColorMode: "light",
+  initialColorMode: 'light',
   useSystemColorMode: true,
 };
 
 const styles = {
   global: (props) => ({
-    "html, body": {
-      display: "grid",
+    'html, body': {
+      display: 'grid',
       //flexDirection: "column",
-      minHeight: "100%",
-      gridTemplateRows: "1fr auto",
-      bg: mode("#ffffff", "#22272e")(props),
-      fontSize: "16px",
+      minHeight: '100%',
+      gridTemplateRows: '1fr auto',
+      bg: mode('#ffffff', '#22272e')(props),
+      fontSize: '16px',
       fontWeights: {
         normal: 300,
         medium: 600,
         bold: 700,
       },
-      "::-webkit-scrollbar": {
-        width: "16px",
-        background: mode("#ffffff", "#22272e")(props),
+      '::-webkit-scrollbar': {
+        width: '16px',
+        background: mode('#ffffff', '#22272e')(props),
       },
-      "::-webkit-scrollbar-thumb": {
-        background: "#575757",
-        borderRadius: "16px",
-        borderStyle: "solid",
-        borderWidth: "4px",
-        borderColor: mode("#ffffff", "#22272e")(props),
+      '::-webkit-scrollbar-thumb': {
+        background: '#575757',
+        borderRadius: '16px',
+        borderStyle: 'solid',
+        borderWidth: '4px',
+        borderColor: mode('#ffffff', '#22272e')(props),
       },
       a: {
         _hover: {
-          textDecoration: "none",
+          textDecoration: 'none',
         },
       },
     },
@@ -49,12 +50,12 @@ const styles = {
 };
 
 const breakpoints = createBreakpoints({
-  xs: "20rem",
-  sm: "30rem",
-  md: "48rem",
-  lg: "62rem",
-  xl: "80rem",
-  "2xl": "96rem",
+  xs: '20rem',
+  sm: '30rem',
+  md: '48rem',
+  lg: '62rem',
+  xl: '80rem',
+  '2xl': '96rem',
 });
 
 const components = {
@@ -62,6 +63,7 @@ const components = {
   Button,
   Heading,
   Input,
+  Box,
 };
 
 const fonts = {
@@ -78,14 +80,14 @@ const fonts = {
 
 const colors = {
   brand: {
-    50: "#D2202F", //red Main color on https://mycolor.space/?hex=%23D2202F&sub=1
-    100: "#043f76", //brandedBlue
-    200: "#00BBFF", //azure
-    300: "#6574E4", //MediumSlateBlue
-    400: "#0075EE", //DeepSkyBlue
-    500: "#043f76", //brandedBlue
-    600: "#CC359A", //orchid
-    700: "#79AF07", //LimeGreen
+    50: '#D2202F', //red Main color on https://mycolor.space/?hex=%23D2202F&sub=1
+    100: '#043f76', //brandedBlue
+    200: '#00BBFF', //azure
+    300: '#6574E4', //MediumSlateBlue
+    400: '#0075EE', //DeepSkyBlue
+    500: '#043f76', //brandedBlue
+    600: '#CC359A', //orchid
+    700: '#79AF07', //LimeGreen
 
     //500: "#A757C7", //violet
   },
@@ -101,13 +103,13 @@ const colors = {
 };
 
 withDefaultColorScheme({
-  colorScheme: "brand",
-  components: ["Checkbox"],
+  colorScheme: 'brand',
+  components: ['Checkbox'],
 });
 
 withDefaultVariant({
-  variant: "filled",
-  components: ["Input", "Select"],
+  variant: 'filled',
+  components: ['Input', 'Select'],
 });
 
 const theme = extendTheme({

@@ -10,10 +10,13 @@ export const TabContainer = styled.div`
 `;
 
 export const StyledTab = styled.div`
-  padding: 10px 0 10px 10px;
+  padding: ${(p) => (p.active ? '8px' : '10px')} 0 10px 10px;
+  //padding: 10px 0 10px 10px; //equal result 
   font-size: 0.9rem;
   font-weight: 500;
-  border: none;
+  border-left: ${(p) => (p.active ? '2px solid red' : '')};
+  border-left-color: ${(p) =>
+    useColorModeValue(p.active ? '#D2202F' : '', p.active ? '#00BBFF' : '')};
   cursor: ${(p) => (p.active ? 'default' : 'pointer')};
   color: ${(p) =>
     useColorModeValue(
@@ -39,7 +42,7 @@ export const TabSlider = styled.div`
 export const StyledTabPanel = styled.div`
   display: ${(p) => (p.active ? 'grid' : 'none')};
   flex-direction: column;
-  padding: 10px 15px;
+  padding: 0 15px;
   font-weight: 500;
 `;
 

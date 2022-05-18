@@ -48,7 +48,7 @@ export const Tabs = ({ selectedTab, onChange, children }) => {
 
   return (
     <TabContainer ref={containerRef}>
-      <TabSlider height={sliderHeight} index={selectedTab} />
+      {/* <TabSlider height={sliderHeight} index={selectedTab} /> */}
       <TabsTitle>{tabs}</TabsTitle>
     </TabContainer>
   );
