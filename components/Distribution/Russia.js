@@ -240,11 +240,11 @@ const Russia = () => {
 
       <GridItem>
         <Box variant='text'
-          // py={{ base: '0', sm: '6' }}
-          // px={{ base: '4', sm: '4' }}
-          // bg={useColorModeValue('blackAlpha.50', 'whiteAlpha.100')}
-          // boxShadow={{ base: 'none', sm: 'md' }}
-          // borderRadius={{ base: 'none', sm: 'xl' }}
+          py={{ base: '0', sm: '6' }}
+          px={{ base: '4', sm: '4' }}
+          bg={useColorModeValue('blackAlpha.50', 'whiteAlpha.100')}
+          boxShadow={{ base: 'none', sm: 'md' }}
+          borderRadius={{ base: 'none', sm: 'xl' }}
         >
           {distributors.map((d, value) => (
             <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
