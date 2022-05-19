@@ -212,21 +212,23 @@ const Russia = () => {
   return (
     <Grid
       templateRows={{
-        base: 'repeat(2, 1fr)',
-        lg: 'repeat(2, 1fr)',
+        base: 'repeat(2, auto)',
+        lg: 'repeat(2, auto)',
         xl: '1fr',
       }}
       templateColumns={{
         base: 'repeat(2, 1fr)',
+        lg: 'repeat(2, 1fr)',
         xl: '3fr 9fr 6fr',
       }}
-      gap={18}
+      gap={{ base: 8, md: '6' }}
       py={12}
     >
       <GridItem
         rowSpan={{ base: '1', lg: '1', xl: '1' }}
-        colSpan={{ base: '1', lg: '2', xl: '1' }}
-        order={{ base: '1', xl: '2' }}
+        colSpan={{ base: '1', lg: '1', xl: '1' }}
+        order={{ base: '1', xl: '1' }}
+        paddingRight={{base: '16', sm: '10', md: '0'}}
       >
         <Tabs selectedTab={activeTab} onChange={handleChange}>
           {distributors.map((d, value) => (
@@ -238,10 +240,13 @@ const Russia = () => {
       <GridItem
         rowSpan={{
           base: '1',
+          lg: '1',
+          xl: '1',
         }}
         colSpan={{
           base: '2',
-          lg: '1',
+          lg: '2',
+          xl: '1',
         }}
         order={{ base: '3', xl: '2' }}
       >
