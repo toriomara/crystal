@@ -10,7 +10,7 @@ export const TabContainer = styled.div`
 `;
 
 export const StyledTab = styled.div`
-  padding: ${(p) => (p.active ? '8px' : '10px')} 0 10px 10px;
+  padding: ${(p) => (p.active ? '8px' : '10px')} 30px 10px 10px;
   //padding: 10px 0 10px 10px; //equal result 
   font-size: 0.9rem;
   font-weight: 500;

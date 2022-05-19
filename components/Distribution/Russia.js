@@ -211,102 +211,107 @@ const Russia = () => {
   };
   return (
     <Grid
+      templateRows={{
+        base: 'repeat(2, 1fr)',
+        lg: 'repeat(2, 1fr)',
+        xl: '1fr',
+      }}
       templateColumns={{
-        base: '2fr 4fr 4fr',
+        base: 'repeat(2, 1fr)',
+        xl: '3fr 9fr 6fr',
       }}
       gap={18}
       py={12}
     >
-      <GridItem>
-        <Box
-          py={{ base: '0', sm: '6' }}
-          px={{ base: '4', sm: '4' }}
-          bg={useColorModeValue('blackAlpha.50', 'whiteAlpha.100')}
-          boxShadow={{ base: 'none', sm: 'md' }}
-          borderRadius={{ base: 'none', sm: 'xl' }}
-        >
-          <Tabs selectedTab={activeTab} onChange={handleChange}>
-            {distributors.map((d, value) => (
-              <Tab key={d.id} label={d.region} value={value} />
-            ))}
-          </Tabs>
-        </Box>
+      <GridItem
+        rowSpan={{ base: '1', lg: '1', xl: '1' }}
+        colSpan={{ base: '1', lg: '2', xl: '1' }}
+        order={{ base: '1', xl: '2' }}
+      >
+        <Tabs selectedTab={activeTab} onChange={handleChange}>
+          {distributors.map((d, value) => (
+            <Tab key={d.id} label={d.region} value={value} />
+          ))}
+        </Tabs>
       </GridItem>
 
-      <GridItem>
+      <GridItem
+        rowSpan={{
+          base: '1',
+        }}
+        colSpan={{
+          base: '2',
+          lg: '1',
+        }}
+        order={{ base: '3', xl: '2' }}
+      >
         {distributors.map((d, value) => (
           <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
-            <iframe
-              //fallback={<Skeleton />}
-              src={d.map}
-              width='100%'
-              height='350%'
-            />
+            <Box border='1px solid #EDF2F7' rounded={4}>
+              <AspectRatio ratio={9 / 9} borderRadius={4}>
+                <iframe fallback={<Skeleton />} src={d.map} />
+              </AspectRatio>
+            </Box>
           </TabPanel>
         ))}
       </GridItem>
 
-      <GridItem>
-        <Box
-          variant='text'
-          py={{ base: '0', sm: '6' }}
-          px={{ base: '4', sm: '4' }}
-          bg={useColorModeValue('blackAlpha.50', 'whiteAlpha.100')}
-          boxShadow={{ base: 'none', sm: 'md' }}
-          borderRadius={{ base: 'none', sm: 'xl' }}
-        >
-          {distributors.map((d, value) => (
-            <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
-              <Box paddingBottom={6}>
-                {d.titles.map((t) => (
-                  <Box key={t}>{t.title}</Box>
-                ))}
-              </Box>
-              <Box paddingBottom={6}>
-                <IconItem fill='brand.200'>
-                  <FaMapMarkerAlt fill='brand.200' />
+      <GridItem
+        rowSpan={{ base: '1', xl: '1' }}
+        colSpan={{ base: '1', xl: '1' }}
+        order={{ base: '2', xl: '2' }}
+      >
+        {distributors.map((d, value) => (
+          <TabPanel key={d.id} value={activeTab} selectedIndex={value}>
+            <Box paddingBottom={6}>
+              {d.titles.map((t) => (
+                <Box key={t}>{t.title}</Box>
+              ))}
+            </Box>
+            <Box paddingBottom={6}>
+              <IconItem fill='brand.200'>
+                <FaMapMarkerAlt fill='brand.200' />
+              </IconItem>
+              {d.address}
+            </Box>
+            <Box paddingBottom={6}>
+              {d.phones.map((p) => (
+                <MovingLink key={p} href={'tel:' + p.phone}>
+                  <Box py={0.45}>
+                    <IconItem>
+                      <FaPhone fill='brand.200' />
+                    </IconItem>
+                    {p.phone}
+                  </Box>
+                </MovingLink>
+              ))}
+            </Box>
+            <Box paddingBottom={6}>
+              <MovingLink href={'mailto:' + d.email}>
+                <IconItem>
+                  <FaEnvelope fill='brand.200' />
                 </IconItem>
-                {d.address}
-              </Box>
+                {d.email}
+              </MovingLink>
+            </Box>
+            {d.fax && (
               <Box paddingBottom={6}>
-                {d.phones.map((p) => (
-                  <MovingLink key={p} href={'tel:' + p.phone}>
-                    <Box py={0.45}>
-                      <IconItem>
-                        <FaPhone fill='brand.200' />
-                      </IconItem>
-                      {p.phone}
-                    </Box>
-                  </MovingLink>
-                ))}
+                <IconItem>
+                  <FaFax fill='brand.200' />
+                </IconItem>
+                {d.fax}
               </Box>
-              <Box paddingBottom={6}>
-                <MovingLink href={'mailto:' + d.email}>
-                  <IconItem>
-                    <FaEnvelope fill='brand.200' />
-                  </IconItem>
-                  {d.email}
-                </MovingLink>
-              </Box>
-              {d.fax && (
-                <Box paddingBottom={6}>
-                  <IconItem>
-                    <FaFax fill='brand.200' />
-                  </IconItem>
-                  {d.fax}
-                </Box>
-              )}
-              <Box paddingBottom={6}>
-                <MovingLink href={d.site}>
-                  <IconItem>
-                    <ImSphere fill='brand.200' />
-                  </IconItem>
-                  {d.site}
-                </MovingLink>
-              </Box>
-            </TabPanel>
-          ))}
-        </Box>
+            )}
+            <Box paddingBottom={6}>
+              <MovingLink href={d.site}>
+                <IconItem>
+                  <ImSphere fill='brand.200' />
+                </IconItem>
+                {d.site}
+              </MovingLink>
+            </Box>
+          </TabPanel>
+        ))}
       </GridItem>
     </Grid>
   );
