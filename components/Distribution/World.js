@@ -32,11 +32,10 @@ const distributors = [
     titles: [{ id: 1, title: 'ЧПТУП "АТРИОТЕХ"' }],
     address:
       '223053, Республика Беларусь, Минская обл., Минский р-н., Боровлянский с/с, д. Боровляны, ул. 40-лет Победы, 27/1-6',
-    phones: [
-      { id: 1, phone: '+375 44 751 99 70' },
-    ],
+    legalAddress: '',
+    phones: [{ id: 1, phone: '+375 44 751 99 70' }],
     fax: '',
-    email: '7519970@mail.ru',
+    emails: [{ id: 1, email: '7519970@mail.ru' }],
     site: '',
     map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2862.1014681470733!2d27.67667631599497!3d53.987071334225405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc8fbdc864961%3A0xa34f1b7cf614ed5f!2z0YPQuy4gNDAg0LvQtdGCINCf0L7QsdC10LTRiyAyNy8xLCDQkdC-0YDQvtCy0LvRj9C90YsgMjIzMDUzLCDQkdC10LvQsNGA0YPRgdGM!5e1!3m2!1sru!2sru!4v1653143456882!5m2!1sru!2sru',
   },
@@ -45,8 +44,9 @@ const distributors = [
     region: 'Украина',
     value: 1,
     titles: [{ id: 1, title: 'ООО "Торговый Дом ГЕРМЕТИК-УНИВЕРСАЛ"' }],
-    address:
-      '49000, Украина, г. Днепропетровск, ул. Воронежская, 17',
+    address: '49000, Украина, г. Днепропетровск, ул. Воронежская, 17',
+    legalAddress:
+      '49000, Украина, г. Днепропетровск, ул. Запорожское шоссе, 60/117',
     phones: [
       { id: 1, phone: '+38 099 905-98-60' },
       { id: 2, phone: '+38 067 563-09-90' },
@@ -54,9 +54,38 @@ const distributors = [
       { id: 4, phone: '+38 056 785-56-21' },
     ],
     fax: '',
-    email: 't.d.germetik@mail.ru',
+    emails: [{ id: 1, email: 't.d.germetik@mail.ru' }],
     site: 'www.germetik-universal.com',
     map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.079486641366!2d35.07387411584477!3d48.52220583227213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958f0d7e41907%3A0x5b9ba4fe941294a2!2z0YPQuy4g0JLQvtGA0L7QvdC10LbRgdC60LDRjywgMTcsINCU0L3QtdC_0YAsINCU0L3QtdC_0YDQvtC_0LXRgtGA0L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C60YDQsNC40L3QsCwgNDkwMDA!5e1!3m2!1sru!2sru!4v1653145787132!5m2!1sru!2sru',
+  },
+  {
+    id: 3,
+    region: 'Республика Казахстан',
+    value: 2,
+    titles: [{ id: 1, title: 'ТОО "БАЛКАН КОРУНД"' }],
+    address: 'г.Алматы, мкр.Алмагуль, дом 3А',
+    legalAddress: '',
+    phones: [{ id: 1, phone: '+7(727)378-37-75' }],
+    fax: '+7(727)378-37-74',
+    emails: [{ id: 1, email: 'startnovo@mail.ru' }],
+    site: 'http://www.v-in.kz',
+    map: '',
+  },
+  {
+    id: 4,
+    region: 'The Sultanate Of Oman',
+    value: 3,
+    titles: [{ id: 1, title: '"ALNAJA`A TRADING AND CONTRACTING LLC"' }],
+    address: 'Muscat, P.O. Box 3172 Post Code: 112',
+    legalAddress: '',
+    phones: [{ id: 1, phone: '+00968 24703018' }],
+    fax: '',
+    emails: [
+      { id: 1, email: 'nkakf@hotmail.com' },
+      { id: 2, email: 'alnaja.t.c@gmail.com' },
+    ],
+    site: 'http://www.v-in.kz',
+    map: '',
   },
 ];
 
@@ -84,7 +113,7 @@ const World = () => {
         rowSpan={{ base: '1', lg: '1', xl: '1' }}
         colSpan={{ base: '1', lg: '1', xl: '1' }}
         order={{ base: '1', xl: '1' }}
-        paddingRight={{base: '16', sm: '10', md: '0'}}
+        paddingRight={{ base: '16', sm: '10', md: '0' }}
       >
         <Tabs selectedTab={activeTab} onChange={handleChange}>
           {distributors.map((d, value) => (
@@ -135,6 +164,15 @@ const World = () => {
               </IconItem>
               {d.address}
             </Box>
+            {d.legalAddress && (
+              <Box paddingBottom={6}>
+                <IconItem fill='brand.200'>
+                  <FaMapMarkerAlt fill='brand.200' />
+                </IconItem>
+                Юридический адрес:&nbsp;
+                {d.legalAddress}
+              </Box>
+            )}
             <Box paddingBottom={6}>
               {d.phones.map((p) => (
                 <MovingLink key={p} href={'tel:' + p.phone}>
@@ -148,12 +186,14 @@ const World = () => {
               ))}
             </Box>
             <Box paddingBottom={6}>
-              <MovingLink href={'mailto:' + d.email}>
-                <IconItem>
-                  <FaEnvelope fill='brand.200' />
-                </IconItem>
-                {d.email}
-              </MovingLink>
+              {d.emails.map((e) => (
+                <MovingLink key={e} href={'mailto:' + e.email}>
+                  <IconItem>
+                    <FaEnvelope fill='brand.200' />
+                  </IconItem>
+                  {e.email}
+                </MovingLink>
+              ))}
             </Box>
             {d.fax && (
               <Box paddingBottom={6}>
@@ -163,14 +203,16 @@ const World = () => {
                 {d.fax}
               </Box>
             )}
-            <Box paddingBottom={6}>
-              <MovingLink href={d.site}>
-                <IconItem>
-                  <ImSphere fill='brand.200' />
-                </IconItem>
-                {d.site}
-              </MovingLink>
-            </Box>
+            {d.site && (
+              <Box paddingBottom={6}>
+                <MovingLink href={d.site}>
+                  <IconItem>
+                    <ImSphere fill='brand.200' />
+                  </IconItem>
+                  {d.site}
+                </MovingLink>
+              </Box>
+            )}
           </TabPanel>
         ))}
       </GridItem>
