@@ -10,7 +10,9 @@ import {
   Stack,
   StackDivider,
   Tag,
+  Icon,
   Text,
+  colorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
 import Logo from '../ui/Logo';
@@ -47,9 +49,14 @@ const FooterHeading = ({ children }) => (
 );
 
 const MyIconButton = styled(IconButton)`
-  // Not IMPORTANT!!!
   top: 0;
   display: inline-flex;
+  font-size: 20px;
+  color: ${(p) =>
+    useColorModeValue(
+      p.hover ? 'brand.50' : 'brand.200',
+      p.hover ? '#00BBFF' : '#E2E8F0'
+    )};
 
   &:hover {
     font-weight: 500;
@@ -67,9 +74,48 @@ const footerAnimation = {
   },
 };
 
+const footerIcons = [
+  {
+    id: 1,
+    icon: RiWhatsappFill,
+    href: 'https://wa.me/79173381186',
+    'aria-label': 'Whatsapp',
+  },
+  {
+    id: 2,
+    icon: FaViber,
+    href: 'viber://chat?number=%2B79173381186',
+    'aria-label': 'Viber',
+  },
+  {
+    id: 3,
+    icon: SiInstagram,
+    href: 'https://www.instagram.com/factory_korund/',
+    'aria-label': 'Instagram',
+  },
+  {
+    id: 4,
+    icon: FaYoutube,
+    href: 'https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ',
+    'aria-label': 'Youtube',
+  },
+  {
+    id: 5,
+    icon: FaTwitter,
+    href: 'https://twitter.com/Korund34',
+    'aria-label': 'Twitter',
+  },
+  {
+    id: 6,
+    icon: FaFacebookSquare,
+    href: 'https://www.facebook.com/factorykorund',
+    'aria-label': 'Facebook',
+  },
+];
+
 export const Footer = () => {
   const bgColor = useColorModeValue('#F2F2F2', 'whiteAlpha.100');
-  const iconColor = useColorModeValue('blackAlpha.700', 'whiteAlpha.600');
+  //const iconColor = useColorModeValue('brand.50', 'brand.200');
   const MotionContainer = motion(Container);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -175,11 +221,21 @@ export const Footer = () => {
                 </IconItem>
                 +7 (8442) 38-44-66 (факс)
               </MovingLink>
-              <MovingLink href='tel:+78442504012'>+7 (8442) 50-40-12</MovingLink>
-              <MovingLink href='tel:+78442504013'>+7 (8442) 50-40-13</MovingLink>
-              <MovingLink href='tel:+78442504031'>+7 (8442) 50-40-31</MovingLink>
-              <MovingLink href='tel:+78442504042'>+7 (8442) 50-40-42</MovingLink>
-              <MovingLink href='tel:+78442504082'>+7 (8442) 50-40-82</MovingLink>
+              <MovingLink href='tel:+78442504012'>
+                +7 (8442) 50-40-12
+              </MovingLink>
+              <MovingLink href='tel:+78442504013'>
+                +7 (8442) 50-40-13
+              </MovingLink>
+              <MovingLink href='tel:+78442504031'>
+                +7 (8442) 50-40-31
+              </MovingLink>
+              <MovingLink href='tel:+78442504042'>
+                +7 (8442) 50-40-42
+              </MovingLink>
+              <MovingLink href='tel:+78442504082'>
+                +7 (8442) 50-40-82
+              </MovingLink>
             </Stack>
 
             <Stack align='flex-start'>
@@ -232,7 +288,24 @@ export const Footer = () => {
               </Text>
 
               <Flex>
-                <MyIconButton
+                {footerIcons.map((i) => (
+                  <MyIconButton
+                    props
+                    key={i.id}
+                    variant='ghost'
+                    target='_blank'
+                    as='a'
+                    href={i.href}
+                    aria-label={i['aria-label']}
+                    _hover={{
+                      //color: colorMode === 'light' ? 'brand.200' : 'brand.50',
+                      color: useColorModeValue('brand.50', 'brand.200'),
+                    }}
+                  >
+                    <Icon as={i.icon} variant='ghost'></Icon>
+                  </MyIconButton>
+                ))}
+                {/* <MyIconButton
                   icon={<RiWhatsappFill fontSize='20px' />}
                   variant='ghost'
                   as='a'
@@ -240,7 +313,7 @@ export const Footer = () => {
                   target='_blank'
                   aria-label='Whatsapp'
                   _hover={{
-                    color: useColorModeValue('brand.100', 'brand.200'),
+                    color: useColorModeValue('brand.50', 'brand.200'),
                   }}
                 />
                 <MyIconButton
@@ -251,7 +324,7 @@ export const Footer = () => {
                   target='_blank'
                   aria-label='Viber'
                   _hover={{
-                    color: useColorModeValue('brand.100', 'brand.200'),
+                    color: useColorModeValue('brand.50', 'brand.200'),
                   }}
                 />
                 <MyIconButton
@@ -262,7 +335,7 @@ export const Footer = () => {
                   target='_blank'
                   aria-label='Instagram'
                   _hover={{
-                    color: useColorModeValue('brand.100', 'brand.200'),
+                    color: useColorModeValue('brand.50', 'brand.200'),
                   }}
                 />
                 <MyIconButton
@@ -273,7 +346,7 @@ export const Footer = () => {
                   target='_blank'
                   aria-label='LinkedIn'
                   _hover={{
-                    color: useColorModeValue('brand.100', 'brand.200'),
+                    color: useColorModeValue('brand.50', 'brand.200'),
                   }}
                 />
                 <MyIconButton
@@ -284,7 +357,7 @@ export const Footer = () => {
                   target='_blank'
                   aria-label='Twitter'
                   _hover={{
-                    color: useColorModeValue('brand.100', 'brand.200'),
+                    color: useColorModeValue('brand.50', 'brand.200'),
                   }}
                 />
                 <MyIconButton
@@ -295,9 +368,9 @@ export const Footer = () => {
                   target='_blank'
                   aria-label='Facebook'
                   _hover={{
-                    color: useColorModeValue('brand.100', 'brand.200'),
+                    color: useColorModeValue('brand.50', 'brand.200'),
                   }}
-                />
+                /> */}
               </Flex>
             </Stack>
           </Box>

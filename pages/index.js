@@ -5,11 +5,13 @@ import CallToActionWithVideo from '../components/HomePage/CTA2';
 import { Showcase } from '../components/Showcase/Showcase';
 import GridBlurredBackdrop from '../components/Testimonials';
 import Banner from '../components/ui/Banner';
+import {Description} from '../components/Description/Description'
 
 const Index = () => {
   return (
     <Box>
       <CallToActionWithIllustration />
+      <Description/>
       {/*<CallToActionWithVideo/>
         <Carousel/> */}
       <Benefits />

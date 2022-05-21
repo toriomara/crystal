@@ -4,6 +4,7 @@
 2. Footer Исправить ссылки (почта и телефоны). white-space
 3. colorScheme pink & blue.
 4. about.js <sup>®</sup>
+5. Телефон (нижний) в футере.
 
 ========================
 xs = 20em = 320px

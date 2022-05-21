@@ -40,15 +40,14 @@ export const getStaticPaths = async () => {
 };
 
 const Product = ({ product }) => {
-  const { name, fullDesc, image, temperature, volume, packaging, color } =
+  const { name, fullDesc, image, temperature, volume, packaging, color, productDesc } =
     product;
 
   return (
     <Box>
       <Meta title='Production' />
       <Heading variant='pageTitle'>Продукция</Heading>
-      <Text my={10}>Lorem*
-      </Text>
+      <Box my={10}>{productDesc}</Box>
       <Grid
         templateColumns={{
           base: 'repeat(1, 1fr)',
