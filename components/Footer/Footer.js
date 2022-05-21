@@ -299,7 +299,7 @@ export const Footer = () => {
                     aria-label={i['aria-label']}
                     _hover={{
                       //color: colorMode === 'light' ? 'brand.200' : 'brand.50',
-                      color: useColorModeValue('brand.50', 'brand.200'),
+                     // color: useColorModeValue('brand.50', 'brand.200'),
                     }}
                   >
                     <Icon as={i.icon} variant='ghost'></Icon>
