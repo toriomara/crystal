@@ -46,7 +46,7 @@ const distributors = [
     value: 1,
     titles: [{ id: 1, title: 'ООО "Торговый Дом ГЕРМЕТИК-УНИВЕРСАЛ"' }],
     address:
-      '49000, Украина, г. Днепропетровск, ул. Запорожское шоссе, 60/117 Фактический адрес: 49000, Украина, г. Днепропетровск, ул. Воронежская, 17',
+      '49000, Украина, г. Днепропетровск, ул. Воронежская, 17',
     phones: [
       { id: 1, phone: '+38 099 905-98-60' },
       { id: 2, phone: '+38 067 563-09-90' },
@@ -56,7 +56,7 @@ const distributors = [
     fax: '',
     email: 't.d.germetik@mail.ru',
     site: 'www.germetik-universal.com',
-    map: 'https://www.google.ru/maps/place/%D1%83%D0%BB.+40+%D0%BB%D0%B5%D1%82+%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B+27%2F1,+%D0%91%D0%BE%D1%80%D0%BE%D0%B2%D0%BB%D1%8F%D0%BD%D1%8B+223053,+%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D1%8C/@53.9870713,27.6766763,657m/data=!3m2!1e3!4b1!4m5!3m4!1s0x46dbc8fbdc864961:0xa34f1b7cf614ed5f!8m2!3d53.9870682!4d27.678865?hl=ru&authuser=0',
+    map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3224.079486641366!2d35.07387411584477!3d48.52220583227213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958f0d7e41907%3A0x5b9ba4fe941294a2!2z0YPQuy4g0JLQvtGA0L7QvdC10LbRgdC60LDRjywgMTcsINCU0L3QtdC_0YAsINCU0L3QtdC_0YDQvtC_0LXRgtGA0L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQo9C60YDQsNC40L3QsCwgNDkwMDA!5e1!3m2!1sru!2sru!4v1653145787132!5m2!1sru!2sru',
   },
 ];
 
