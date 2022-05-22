@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Russia from './Russia';
 import World from './World';
-import { Grid, GridItem, Box } from '@chakra-ui/react';
+import { Grid, GridItem, Box, useColorModeValue } from '@chakra-ui/react';
 import { Tabs, Tab, TabPanel } from './Tabs';
 
 const MotionWrapper = motion(Box);
@@ -13,12 +13,17 @@ const DistributionTable = () => {
     setIsActiveTab(value);
   };
 
+  const bgWrapper = useColorModeValue('blackAlpha.50', 'whiteAlpha.50')
+
   return (
     <MotionWrapper
       templateRows={{
         base: 'repeat(1fr, 10fr)',
       }}
       gap={4}
+      bg={bgWrapper}
+      rounded={4}
+      px={6}
     >
       <Grid>
         <GridItem py={1}>

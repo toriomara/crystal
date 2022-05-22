@@ -17,7 +17,7 @@ export const Tab = ({ label, active, onClick }) => {
       role='tab'
       active={active}
       onClick={onClick}
-      //inactiveStyle={inactiveTab}
+      inactiveStyle={inactiveTab}
     >
       {label}
     </StyledTab>
