@@ -17,7 +17,7 @@ const Wrapper = styled(Grid)`
   width: 100%;
   margin: 0 !important;
   background: #d2202f;
-  z-index: 7;
+  z-index: 10;
 `;
 
 const MotionWrapper = motion(Wrapper);
