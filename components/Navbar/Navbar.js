@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NextLink from 'next/link';
 import {
   Grid,
@@ -34,8 +34,11 @@ import { Preheader } from '../Preheader/Preheader';
 import { motion } from 'framer-motion';
 import styled from '@emotion/styled';
 import Scrolly from '../ui/Scrolly';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { navItems } from '../../data/routeData';
 
-const LinkItem = ({ href, path, children, ...props }) => {
+export const LinkItem = ({ href, path, children, ...props }) => {
   const active = path === href;
   return (
     <NextLink href={href} passHref>
@@ -62,12 +65,8 @@ const LinkItem = ({ href, path, children, ...props }) => {
 };
 
 const MotionFlex = motion(Flex);
-const MyPopover = styled(Popover)`
-  display: flex;
-`;
 
-export const Navbar = (props) => {
-  const { path } = props;
+export const Navbar = ({ children, path, props }) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
 
   const [isPreheader, setIsPreheader] = useState(true);
@@ -82,9 +81,54 @@ export const Navbar = (props) => {
 
   const borderColor = useColorModeValue('blackAlpha.300', 'whiteAlpha.200');
 
-  ///////////////////////
-  const [isHam, setIsHam] = useState(false);
-  ///////////////////////
+  // Mobile Chakra
+  const [isVisible, setIsVisible] = useState(false);
+  const handleVisible = () => {
+    setIsVisible(!isVisible);
+  };
+
+  // Button's state
+  const [disabled, setDisabled] = useState(false);
+  const disableMenu = () => {
+    setDisabled(!disabled);
+    setTimeout(() => {
+      setDisabled(false);
+    }, 600);
+  };
+
+  // Menu's state
+  const [menuState, setMenuState] = useState({
+    initial: false,
+    clicked: null,
+    menuButton: <FaBars />,
+    //menuHam: null,
+  });
+
+  // Menu
+  const handleMenu = () => {
+    disableMenu();
+    if (menuState.initial === false) {
+      setMenuState({
+        initial: null,
+        clicked: true,
+        menuButton: <FaTimes />,
+        menuHam: <BurgerMenu />,
+      });
+    }
+    if (menuState.clicked === true) {
+      setMenuState({
+        clicked: !menuState.clicked,
+        menuButton: <FaBars />,
+        menuHam: null,
+      });
+    } else if (menuState.clicked === false) {
+      setMenuState({
+        clicked: !menuState.clicked,
+        menuButton: <FaTimes />,
+        menuHam: <BurgerMenu />,
+      });
+    }
+  };
 
   return (
     <>
@@ -140,23 +184,23 @@ export const Navbar = (props) => {
               <Flex display={{ base: 'none', sm: 'flex' }}>
                 <ThemeToggleButton display={{ base: 'none' }} />
               </Flex>
-              <IconButton
-                display={{ base: 'inline-block', xl: 'none' }}
-                onClick={onToggle}
-                icon={
-                  isOpen ? (
-                    <CloseIcon w={3} h={3} />
-                  ) : (
-                    <HamburgerIcon w={5} h={5} />
-                  )
-                }
-                variant='ghost'
-                aria-label='Toggle Navigation'
-              />
+
+              <Flex>
+                <IconButton
+                  disabled={disabled}
+                  onClick={handleMenu}
+                  variant='none'
+                  zIndex='10'
+                  display={{ base: 'flex', xl: 'none' }}
+                >
+                  {menuState.menuButton}
+                </IconButton>
+                <Flex>{menuState.menuHam}</Flex>
+              </Flex>
             </HStack>
           </MotionFlex>
           <Collapse in={isOpen} animateOpacity>
-            <MobileNav onClose={onClose} />
+            <MobileNav isVisible={isVisible} />
           </Collapse>
         </Container>
         <Scrolly />
@@ -165,7 +209,7 @@ export const Navbar = (props) => {
   );
 };
 
-const DesktopNav = ({ href, path, ...props }) => {
+export const DesktopNav = ({ href, path, ...props }) => {
   // const linkColor = useColorModeValue('gray.600', 'gray.200');
   // const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
@@ -177,9 +221,9 @@ const DesktopNav = ({ href, path, ...props }) => {
       width={{ base: 'full', md: 'auto' }}
       mt={{ base: 4, md: 0 }}
     >
-      {NAV_ITEMS.map((navItem) => (
+      {navItems.map((navItem) => (
         <Box key={navItem.label}>
-          <MyPopover placement='bottom-start' trigger='hover'>
+          <Popover placement='bottom-start' trigger='hover'>
             <PopoverTrigger>
               <LinkItem href={navItem.href} path={path}>
                 {navItem.label}
@@ -202,7 +246,7 @@ const DesktopNav = ({ href, path, ...props }) => {
                 </Stack>
               </PopoverContent>
             )}
-          </MyPopover>
+          </Popover>
         </Box>
       ))}
     </HStack>
@@ -256,7 +300,7 @@ const MobileNav = ({ onClose }) => {
           <span>8 800 234-78-78</span>
         </Button>
       </Flex>
-      {NAV_ITEMS.map((navItem) => (
+      {navItems.map((navItem) => (
         <MobileNavItem key={navItem.label} onClose={onClose} {...navItem} />
       ))}
     </Stack>
@@ -315,68 +359,3 @@ const MobileNavItem = ({ label, children, href }) => {
     </Stack>
   );
 };
-
-const NAV_ITEMS = [
-  {
-    label: 'Главная',
-    href: '/',
-  },
-  {
-    label: 'Продукция',
-    href: '/КОРУНД-Классик',
-    children: [
-      {
-        label: 'КОРУНД-Классик',
-        childLabel: 'Для крыши, стен, пола, фасада',
-        href: '/КОРУНД-Классик',
-      },
-      {
-        label: 'КОРУНД-Фасад',
-        childLabel: 'Устраняет промерзания',
-        href: '/КОРУНД-Фасад',
-      },
-      {
-        label: 'КОРУНД-Антикор',
-        childLabel: 'Для металлически поверхностей',
-        href: '/КОРУНД-Антикор',
-      },
-      {
-        label: 'КОРУНД-Зима',
-        childLabel: 'Для применения в зимой',
-        href: '/КОРУНД-Зима',
-      },
-    ],
-  },
-  {
-    label: 'Документация',
-    href: '/documentation',
-    children: [
-      {
-        label: 'Техническая документация',
-        childLabel: 'Характеристика, презентации и пр.',
-        href: '/documentation',
-      },
-      {
-        label: 'Уставные документы',
-        childLabel: 'Устав, лицензия, патенты и пр.',
-        href: '/documentation',
-      },
-    ],
-  },
-  {
-    label: 'Новости',
-    href: '/news',
-  },
-  {
-    label: 'Дистрибьюция',
-    href: '/distribution',
-  },
-  {
-    label: 'О нас',
-    href: '/about',
-  },
-  {
-    label: 'Контакты',
-    href: '/contacts',
-  },
-];

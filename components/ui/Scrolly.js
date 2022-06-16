@@ -24,8 +24,7 @@ const Scrolly = () => {
         h='2px'
         bg={useColorModeValue('brand.50', 'brand.200')}
         position='fixed'
-        //top={0}
-        zIndex={5}
+        zIndex={2}
         w={`${width}%`}
         transition='width .5s ease-in-out'
       />

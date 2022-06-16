@@ -1,14 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import styled from "@emotion/styled";
 import {
   Flex,
-  Text,
   AspectRatio,
   Skeleton,
   Box,
   Icon,
-  VStack,
-  Button,
 } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
 import useClickOutside from "../../utils/useClickOutside";
@@ -22,7 +18,7 @@ const MapModal = ({ setIsOpen }) => {
     setIsOpen(!setIsOpen);
   };
 
-  // Don't scrollY
+  // Don't scroll
   useEffect(() => {
     if (setIsOpen) {
       document.body.style.overflow = "hidden";
@@ -50,7 +46,6 @@ const MapModal = ({ setIsOpen }) => {
   return (
     <Flex
       position="fixed"
-      //top="0"
       right="0"
       bottom="0"
       left="0"

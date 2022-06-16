@@ -282,7 +282,7 @@ export const Footer = () => {
               justifyContent='space-between'
               alignItems='center'
             >
-              <Text fontSize={'sm'} textAlign={'center'}>
+              <Text fontSize='sm' textAlign='center'>
                 &copy; {new Date().getFullYear()}, «НПО ФУЛЛЕРЕН». Все права
                 защищены
               </Text>
@@ -305,72 +305,6 @@ export const Footer = () => {
                     <Icon as={i.icon} variant='ghost'></Icon>
                   </MyIconButton>
                 ))}
-                {/* <MyIconButton
-                  icon={<RiWhatsappFill fontSize='20px' />}
-                  variant='ghost'
-                  as='a'
-                  href='https://wa.me/79173381186'
-                  target='_blank'
-                  aria-label='Whatsapp'
-                  _hover={{
-                    color: useColorModeValue('brand.50', 'brand.200'),
-                  }}
-                />
-                <MyIconButton
-                  icon={<FaViber fontSize='20px' />}
-                  variant='ghost'
-                  as='a'
-                  href='viber://chat?number=%2B79173381186'
-                  target='_blank'
-                  aria-label='Viber'
-                  _hover={{
-                    color: useColorModeValue('brand.50', 'brand.200'),
-                  }}
-                />
-                <MyIconButton
-                  icon={<SiInstagram fontSize='20px' />}
-                  variant='ghost'
-                  as='a'
-                  href='https://www.instagram.com/factory_korund/'
-                  target='_blank'
-                  aria-label='Instagram'
-                  _hover={{
-                    color: useColorModeValue('brand.50', 'brand.200'),
-                  }}
-                />
-                <MyIconButton
-                  icon={<FaYoutube fontSize='20px' />}
-                  variant='ghost'
-                  as='a'
-                  href='https://www.youtube.com/channel/UCB1Pu92nRaimLhW0yj0-0vQ'
-                  target='_blank'
-                  aria-label='LinkedIn'
-                  _hover={{
-                    color: useColorModeValue('brand.50', 'brand.200'),
-                  }}
-                />
-                <MyIconButton
-                  icon={<FaTwitter fontSize='20px' />}
-                  variant='ghost'
-                  as='a'
-                  href='https://twitter.com/Korund34'
-                  target='_blank'
-                  aria-label='Twitter'
-                  _hover={{
-                    color: useColorModeValue('brand.50', 'brand.200'),
-                  }}
-                />
-                <MyIconButton
-                  icon={<FaFacebookSquare fontSize='20px' />}
-                  variant='ghost'
-                  as='a'
-                  href='https://www.facebook.com/factorykorund'
-                  target='_blank'
-                  aria-label='Facebook'
-                  _hover={{
-                    color: useColorModeValue('brand.50', 'brand.200'),
-                  }}
-                /> */}
               </Flex>
             </Stack>
           </Box>
