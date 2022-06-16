@@ -17,46 +17,39 @@ const Wrapper = styled(Grid)`
   width: 100%;
   margin: 0 !important;
   background: #d2202f;
-  z-index: 10;
+  z-index: 7;
 `;
 
 const MotionWrapper = motion(Wrapper);
 
-const BurgerMenu = ({ path }) => {
-  //const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const [menuState, setMenuState] = useState(false);
-  const handleClick = () => {
-    setMenuState({
-      clicked: !menuState.clicked,
-      menuHam: null,
-    });
+const BurgerMenu = ({ handleMenu, path }) => {
+
+   const [menuState, setMenuState] = useState(false);
+
+  // Don't scroll
+  useEffect(() => {
+    if (handleMenu) {
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [handleMenu]);
+
+  // key "ESCAPE"
+  const closeOnEventEscapeKeyDown = (e) => {
+    if ((e.charCode || e.keyCode) === 27) {
+      handleMenu(!setMenuState);
+    }
   };
 
-  // // Don't scroll
-  // useEffect(() => {
-  //   if (setIsOpen) {
-  //     document.body.style.overflow = 'hidden';
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = 'unset';
-  //   };
-  // }, [setIsOpen]);
-
-  // // key "ESCAPE"
-  // const closeOnEventEscapeKeyDown = (e) => {
-  //   if ((e.charCode || e.keyCode) === 27) {
-  //     setIsOpen(!setIsOpen);
-  //   }
-  // };
-
-  // // CLEANER
-  // useEffect(() => {
-  //   document.body.addEventListener('keydown', closeOnEventEscapeKeyDown);
-  //   return function cleanup() {
-  //     document.body.removeEventListener('keydown', closeOnEventEscapeKeyDown);
-  //   };
-  // });
+  // CLEANER
+  useEffect(() => {
+    document.body.addEventListener('keydown', closeOnEventEscapeKeyDown);
+    return function cleanup() {
+      document.body.removeEventListener('keydown', closeOnEventEscapeKeyDown);
+    };
+  });
 
   return (
     <AnimatePresence>
@@ -77,13 +70,13 @@ const BurgerMenu = ({ path }) => {
           <GridItem colSpan={1}>
             <VStack>
               {navItems.map((navItem) => (
-                <Box key={navItem.label}>
+                <Box key={navItem.label} onClick={handleMenu}>
                   <SimpleLink href={navItem.href} path={path}>
                     {navItem.label}
                   </SimpleLink>
                 </Box>
               ))}
-              <Button onClick={handleClick}>x</Button>
+              <Button onClick={handleMenu}>x</Button>
             </VStack>
           </GridItem>
         </Grid>

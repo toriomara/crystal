@@ -190,12 +190,13 @@ export const Navbar = ({ children, path, props }) => {
                   disabled={disabled}
                   onClick={handleMenu}
                   variant='none'
-                  zIndex='10'
+                  zIndex='8'
                   display={{ base: 'flex', xl: 'none' }}
                 >
                   {menuState.menuButton}
                 </IconButton>
-                <Flex>{menuState.menuHam}</Flex>
+                {menuState.clicked && <BurgerMenu handleMenu={handleMenu}/>}
+                {/* <Flex>{menuState.menuHam}</Flex> */}
               </Flex>
             </HStack>
           </MotionFlex>
