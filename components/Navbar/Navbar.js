@@ -26,7 +26,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-import ThemeToggleButton from '../ui/theme-toggle-button';
+import ThemeToggleButton from '../ui/ThemeToggleButton';
 import SearchBar from '../Search';
 import Logo from '../ui/Logo';
 import { Lang } from './Lang';
@@ -66,7 +66,7 @@ export const LinkItem = ({ href, path, children, ...props }) => {
 
 const MotionFlex = motion(Flex);
 
-export const Navbar = ({ children, path, props }) => {
+export const Navbar = ({ path, props }) => {
   const { isOpen, onToggle, onClose } = useDisclosure();
 
   const [isPreheader, setIsPreheader] = useState(true);
@@ -172,11 +172,27 @@ export const Navbar = ({ children, path, props }) => {
             <Spacer />
 
             <HStack>
-              <Flex display={{ base: 'none', sm: 'flex' }}>
-                <SearchBar />
+              <Flex display={{ base: 'none', md: 'flex' }}>
+                <SearchBar
+                  display={{ base: 'none', sm: 'flex' }}
+                  px={{
+                    md: 'none',
+                    sm: '1',
+                    md: '2',
+                  }}
+                />
               </Flex>
               <Flex display={{ base: 'none', sm: 'flex' }}>
-                <Button as='a' href='tel:+7 800 2347878' variant='none'>
+                <Button
+                  as='a'
+                  href='tel:+7 800 2347878'
+                  variant='none'
+                  px={{
+                    base: 'none',
+                    sm: '1',
+                    md: '2',
+                  }}
+                >
                   <span>+7 800 234-78-78</span>
                 </Button>
               </Flex>

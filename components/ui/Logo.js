@@ -24,7 +24,7 @@ const Logo = () => {
             src={logo}
             width={120}
             height={30}
-            alt='logo'/>
+            alt='KORUND'/>
         </LogoBox>
       </a>
     </Link>

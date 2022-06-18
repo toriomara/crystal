@@ -118,7 +118,7 @@ const About = () => {
             <MotionHeading
               variants={leftAnimation}
               custom={2}
-              fontSize='46px'
+              fontSize={{base: '2xl', sm: '4xl', md: '5xl'}}
               fontWeight='900'
               lineHeight='1.2'
             >

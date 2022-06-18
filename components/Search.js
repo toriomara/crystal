@@ -1,5 +1,5 @@
-import React from "react";
-import { SearchIcon } from "@chakra-ui/icons";
+import React from 'react';
+import { SearchIcon } from '@chakra-ui/icons';
 import {
   Icon,
   Button,
@@ -9,25 +9,24 @@ import {
   HStack,
   useDisclosure,
   useColorModeValue,
-} from "@chakra-ui/react";
-import { Modal, ModalOverlay, ModalContent } from "@chakra-ui/react";
+} from '@chakra-ui/react';
+import { Modal, ModalOverlay, ModalContent } from '@chakra-ui/react';
 
 export const SearchBlock = (props) => {
-  const bgColor = useColorModeValue("brand.100", "brand.200");
-  const iconColor = useColorModeValue("white", "black");
+  const bgColor = useColorModeValue('brand.100', 'brand.200');
+  const iconColor = useColorModeValue('white', 'black');
   return (
     <FormControl>
       <HStack spacing={0}>
         <Input
-          variant="searchInput"
+          variant='searchInput'
           size={props.size}
-          placeholder="Поиск"
-          borderRadius={"2px 0 0 2px"}
+          placeholder='Поиск'
+          borderRadius='2px 0 0 2px'
         />
         <Button
           size={props.size}
-          borderRadius={"0 2px 2px 0"}
-          px={6}
+          borderRadius={'0 2px 2px 0'}
           color={iconColor}
           bgColor={bgColor}
           variant='primary'
@@ -39,13 +38,13 @@ export const SearchBlock = (props) => {
   );
 };
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Flex>
-      <Button variant="none" onClick={onOpen}>
-        <SearchIcon />
+      <Button variant='none' onClick={onOpen}>
+        <SearchIcon color={props.color}/>
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>

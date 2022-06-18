@@ -91,7 +91,6 @@ const colors = {
     500: '#043f76', //brandedBlue
     600: '#CC359A', //orchid
     700: '#79AF07', //LimeGreen
-
     //500: "#A757C7", //violet
   },
 
