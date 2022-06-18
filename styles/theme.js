@@ -20,7 +20,10 @@ const styles = {
     'html, body': {
       display: 'grid',
       //flexDirection: "column",
-      minHeight: '100%',
+      height: '100%',
+      width: '100%',
+      margin: 0,
+      padding: 0,
       gridTemplateRows: '1fr auto',
       bg: mode('#ffffff', '#22272e')(props),
       fontSize: '16px',

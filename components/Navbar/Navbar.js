@@ -31,7 +31,7 @@ import SearchBar from '../Search';
 import Logo from '../ui/Logo';
 import { Lang } from './Lang';
 import { Preheader } from '../Preheader/Preheader';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import styled from '@emotion/styled';
 import Scrolly from '../ui/Scrolly';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
@@ -190,13 +190,11 @@ export const Navbar = ({ children, path, props }) => {
                   disabled={disabled}
                   onClick={handleMenu}
                   variant='none'
-                  zIndex='8'
+                  zIndex='9'
                   display={{ base: 'flex', xl: 'none' }}
                 >
                   {menuState.menuButton}
                 </IconButton>
-                {menuState.clicked && <BurgerMenu handleMenu={handleMenu}/>}
-                {/* <Flex>{menuState.menuHam}</Flex> */}
               </Flex>
             </HStack>
           </MotionFlex>
@@ -206,6 +204,7 @@ export const Navbar = ({ children, path, props }) => {
         </Container>
         <Scrolly />
       </Box>
+      {menuState.clicked && <BurgerMenu handleMenu={handleMenu} />}
     </>
   );
 };
