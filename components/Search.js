@@ -13,8 +13,8 @@ import {
 import { Modal, ModalOverlay, ModalContent } from '@chakra-ui/react';
 
 export const SearchBlock = (props) => {
-  const bgColor = useColorModeValue('brand.100', 'brand.200');
-  const iconColor = useColorModeValue('white', 'black');
+  const bgColor = useColorModeValue('brand.50', 'brand.50');
+  const iconColor = useColorModeValue('white', 'white');
   return (
     <FormControl>
       <HStack spacing={0}>
@@ -26,7 +26,7 @@ export const SearchBlock = (props) => {
         />
         <Button
           size={props.size}
-          borderRadius={'0 2px 2px 0'}
+          borderRadius='0 2px 2px 0'
           color={iconColor}
           bgColor={bgColor}
           variant='primary'
@@ -43,8 +43,8 @@ const SearchBar = (props) => {
 
   return (
     <Flex>
-      <Button variant='none' onClick={onOpen}>
-        <SearchIcon color={props.color}/>
+      <Button variant='none' onClick={onOpen} px={props.px}>
+        <SearchIcon color={props.color} />
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>

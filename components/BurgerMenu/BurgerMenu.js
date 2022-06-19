@@ -84,21 +84,22 @@ const BurgerMenu = ({ handleMenu, path }) => {
           gap={4}
         >
           <GridItem
+            display='grid'
             bg='whiteAlpha.800'
             colSpan={1}
             //bg='white'
-            p={{
-              base: '2',
-              sm: '3',
-              md: '4',
+            px={{
+              base: '10',
+              sm: '14',
+              md: '20',
             }}
           >
-            <HStack justifyContent='center'>
-              <Flex onClick={handleMenu}>
-                <Logo />
-              </Flex>
-              <SearchBar color='gray.700' />
-              <Lang color='gray.700' />
+            <Box
+              display={{ base: 'flex', md: 'grid' }}
+              justifyContent='space-between'
+              alignItems='center'
+              gap={2}
+            >
               <Button
                 as='a'
                 href='tel:+7 800 2347878'
@@ -112,7 +113,12 @@ const BurgerMenu = ({ handleMenu, path }) => {
               >
                 <span>+7 800 234-78-78</span>
               </Button>
-            </HStack>
+              <Flex onClick={handleMenu}>
+                <Logo />
+              </Flex>
+              <SearchBar color='gray.700' />
+              <Lang color='gray.700' />
+            </Box>
           </GridItem>
 
           <GridItem colSpan={1}>
@@ -123,7 +129,7 @@ const BurgerMenu = ({ handleMenu, path }) => {
                     key={navItem.label}
                     onClick={handleMenu}
                     fontSize={{
-                      base: '3xl',
+                      base: '4xl',
                       sm: '4xl',
                       md: '5xl',
                       lg: '5xl',

@@ -17,6 +17,7 @@ import {
   HStack,
   Stack,
   Text,
+  Divider,
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -37,13 +38,14 @@ import Scrolly from '../ui/Scrolly';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { navItems } from '../../data/routeData';
+import Phone from './Phone';
 
 export const LinkItem = ({ href, path, children, ...props }) => {
   const active = path === href;
   return (
     <NextLink href={href} passHref>
       <Link
-        p={3}
+        px={{ lg: '2', '2xl': '3' }}
         fontSize={16}
         rounded={4}
         whiteSpace='nowrap'
@@ -172,6 +174,14 @@ export const Navbar = ({ path, props }) => {
             <Spacer />
 
             <HStack>
+              <Flex display={{ base: 'none', sm: 'flex' }}>
+                <Phone />
+              </Flex>
+              <Divider
+                display={{ base: 'none', md: 'flex' }}
+                orientation='vertical'
+                height='50%'
+              />
               <Flex display={{ base: 'none', md: 'flex' }}>
                 <SearchBar
                   display={{ base: 'none', sm: 'flex' }}
@@ -182,25 +192,25 @@ export const Navbar = ({ path, props }) => {
                   }}
                 />
               </Flex>
-              <Flex display={{ base: 'none', sm: 'flex' }}>
-                <Button
-                  as='a'
-                  href='tel:+7 800 2347878'
-                  variant='none'
-                  px={{
-                    base: 'none',
-                    sm: '1',
-                    md: '2',
-                  }}
-                >
-                  <span>+7 800 234-78-78</span>
-                </Button>
-              </Flex>
-              <Lang />
+              <Divider
+                display={{ base: 'none', sm: 'flex' }}
+                orientation='vertical'
+                height='50%'
+              />
+              <Lang display={{ base: 'none', sm: 'flex' }} />
+              <Divider
+                display={{ base: 'none', sm: 'flex' }}
+                orientation='vertical'
+                height='50%'
+              />
               <Flex display={{ base: 'none', sm: 'flex' }}>
                 <ThemeToggleButton display={{ base: 'none' }} />
               </Flex>
-
+              <Divider
+                display={{ base: 'none', sm: 'flex', xl: 'none' }}
+                orientation='vertical'
+                height='50%'
+              />
               <Flex>
                 <IconButton
                   disabled={disabled}

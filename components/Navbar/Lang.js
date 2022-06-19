@@ -1,23 +1,25 @@
-import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
-import {MdLanguage} from 'react-icons/md'
+import { Menu, MenuButton, MenuList, MenuItem, Button } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import { MdLanguage } from 'react-icons/md';
+
+
 
 export const Lang = (props) => {
   return (
     <Menu>
       <MenuButton
-      color={props.color}
+        color={props.color}
         as={Button}
         rightIcon={<ChevronDownIcon />}
-        colorScheme="black"
-        variant="ghost"
+        colorScheme='black'
+        variant='ghost'
         px={{
           base: 'none',
           sm: '1',
           md: '2',
         }}
       >
-        <MdLanguage fontSize={20}/>
+        <MdLanguage fontSize={20} />
       </MenuButton>
       <MenuList>
         <MenuItem>EN</MenuItem>
@@ -29,26 +31,3 @@ export const Lang = (props) => {
     </Menu>
   );
 };
-
-// import {
-//   FormControl,
-//   FormLabel,
-//   Select,
-// } from "@chakra-ui/react";
-// import { ChevronDownIcon } from "@chakra-ui/icons";
-// import {IoLanguageOutline} from 'react-icons/io5'
-
-// export const Lang = () => {
-//   return (
-//     <FormControl>
-//       <FormLabel><IoLanguageOutline fontSize={20}/></FormLabel>
-//       <Select>
-//         <option value="en">EN</option>
-//         <option value="de">DE</option>
-//         <option value="cz">CZ</option>
-//         <option value="sp">SP</option>
-//         <option value="ar">AR</option>
-//       </Select>
-//     </FormControl>
-//   );
-//};
