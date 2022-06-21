@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import styled from '@emotion/styled'
-import logo from '/public/logo.png'
+import Link from 'next/link';
+import Image from 'next/image';
+import styled from '@emotion/styled';
+import logo from '/public/logo.png';
 
 const LogoBox = styled.div`
   display: inline-flex;
@@ -12,23 +12,18 @@ const LogoBox = styled.div`
   img {
     transition: 200ms ease;
   }
-`
+`;
 
 const Logo = () => {
-
   return (
-    <Link href="/">
+    <Link href='/'>
       <a>
         <LogoBox>
-          <Image
-            src={logo}
-            width={120}
-            height={30}
-            alt='KORUND'/>
+          <Image src={logo} width={120} height={30} alt='KORUND' />
         </LogoBox>
       </a>
     </Link>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

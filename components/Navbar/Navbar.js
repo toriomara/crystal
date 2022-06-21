@@ -46,10 +46,11 @@ export const LinkItem = ({ href, path, children, ...props }) => {
     <NextLink href={href} passHref>
       <Link
         px={{ lg: '2', '2xl': '3' }}
+        py={2}
         fontSize={16}
         rounded={4}
         whiteSpace='nowrap'
-        fontWeight={active ? 'bold' : 'normal'}
+        fontWeight={active ? '500' : 'normal'}
         color={useColorModeValue(
           active ? 'brand.50' : 'black',
           active ? 'brand.200' : 'gray.200'

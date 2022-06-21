@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 const Item = styled(Link)`
   position: relative;
   text-decoration: none;
+  color: ${(p) => useColorModeValue('p.light', 'p.dark')};
 
   ::after {
     display: inline-block;
@@ -31,13 +32,15 @@ const Item = styled(Link)`
   }
 `;
 
-export const SimpleLink = ({ href, children, target, ...props }) => {
+export const SimpleLink = ({ href, children, target, color, ...props }) => {
   return (
     <NextLink href={href} passHref props>
-      <Item>{children}</Item>
+      <Item color={props.light}>{children}</Item>
     </NextLink>
   );
 };
+
+// ================================= //
 
 const MovingItem = styled(Link)`
   position: relative;

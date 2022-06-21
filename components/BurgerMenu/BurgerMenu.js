@@ -11,6 +11,8 @@ import {
   IconButton,
   Link,
   Flex,
+  Divider,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { navItems } from '../../data/routeData';
 //import { LinkItem } from '../Navbar/Navbar';
@@ -20,6 +22,7 @@ import Logo from '../ui/Logo';
 import { FaTimes } from 'react-icons/fa';
 import ThemeToggleButton from '../ui/ThemeToggleButton';
 import { Lang } from '../Navbar/Lang';
+import Phone from '../Navbar/Phone';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -30,13 +33,15 @@ const Wrapper = styled.div`
   min-height: 100%;
   width: 100%;
   margin: 0 !important;
-  background: #d2202f;
+  background-color: #d2202f;
   z-index: 9;
 `;
 
 const MotionWrapper = motion(Wrapper);
 
 const BurgerMenu = ({ handleMenu, path }) => {
+  const menuSide = useColorModeValue('brand.50', 'brand.700');
+
   const [menuState, setMenuState] = useState(false);
 
   // Don't scroll
@@ -73,80 +78,116 @@ const BurgerMenu = ({ handleMenu, path }) => {
       >
         <Grid
           templateColumns={{
-            base: 'repeat(1, 1fr)',
-            sm: 'repeat(1, 1fr)',
-            md: 'repeat(1, 2fr 4fr)',
+            base: '1fr',
+            sm: '2fr 6fr',
           }}
           templateRows={{
-            base: 'repeat(1, 2fr 12fr)',
-            md: 'repeat(1, 1fr)',
+            base: '1fr 9fr',
+            sm: '1fr',
           }}
           gap={4}
         >
           <GridItem
-            display='grid'
-            bg='whiteAlpha.800'
             colSpan={1}
-            //bg='white'
-            px={{
-              base: '10',
-              sm: '14',
-              md: '20',
+            rowSpan={1}
+            display={{ base: 'grid', sm: 'block' }}
+            justifyContent='center'
+            bg='whiteAlpha.800'
+            bgColor='#F2F2F2'
+            p={{
+              base: '5',
+              sm: '5',
+              md: '5',
             }}
           >
-            <Box
-              display={{ base: 'flex', md: 'grid' }}
-              justifyContent='space-between'
+            <Flex
+              onClick={handleMenu}
+              justifySelf='center'
               alignItems='center'
-              gap={2}
+              justifyContent='center'
             >
-              <Button
-                as='a'
-                href='tel:+7 800 2347878'
-                variant='none'
-                color='gray.700'
-                px={{
-                  base: 'none',
-                  sm: '1',
-                  md: '2',
-                }}
-              >
-                <span>+7 800 234-78-78</span>
-              </Button>
-              <Flex onClick={handleMenu}>
-                <Logo />
-              </Flex>
-              <SearchBar color='gray.700' />
-              <Lang color='gray.700' />
-            </Box>
+              <Logo />
+            </Flex>
+            <Phone color='brand.700' />
           </GridItem>
 
-          <GridItem colSpan={1}>
-            <VStack>
-              <Box>
-                {navItems.map((navItem) => (
-                  <Box
-                    key={navItem.label}
-                    onClick={handleMenu}
-                    fontSize={{
-                      base: '4xl',
-                      sm: '4xl',
-                      md: '5xl',
-                      lg: '5xl',
-                    }}
-                    fontWeight='700'
-                    color='whiteAlpha.800'
-                  >
-                    <SimpleLink href={navItem.href} path={path}>
-                      {navItem.label}
-                    </SimpleLink>
+          <GridItem colSpan={1} rowSpan={1} bgColor={menuSide}>
+            <Grid
+              templateColumns={{
+                base: 'fit-content(15%) fit-content(85%)',
+                sm: '2fr 6fr',
+              }}
+              templateRows={{
+                base: '1fr',
+              }}
+              gap={4}
+            >
+              <GridItem
+                colSpan={1}
+                rowSpan={1}
+                display={{ base: 'grid', sm: 'grid' }}
+                gridAutoColumns='minmax(80px, auto)'
+                justifyContent={{ base: 'start', sm: 'center' }}
+                alignContent='start'
+                p={{
+                  base: '4',
+                  sm: '4',
+                  md: '4',
+                }}
+              >
+                <IconButton m={2} onClick={handleMenu}>
+                  <FaTimes />
+                </IconButton>
+                <IconButton m={2}>
+                  <ThemeToggleButton />
+                </IconButton>
+                <IconButton m={2}>
+                  <SearchBar />
+                </IconButton>
+                <IconButton m={2}>
+                  <Lang />
+                </IconButton>
+              </GridItem>
+              <GridItem
+                display={{ base: 'flex', sm: 'grid' }}
+                justifyContent='start'
+                colSpan={1}
+                rowSpan={1}
+                p={{
+                  base: '4',
+                  sm: '4',
+                  md: '4',
+                }}
+pl={0}
+              >
+                <VStack>
+                  <Box>
+                    {navItems.map((navItem) => (
+                      <Box
+                        key={navItem.label}
+                        onClick={handleMenu}
+                        color='whiteAlpha.800'
+                        fontWeight='700'
+                        fontSize={{
+                          base: '2xl',
+                          sm: '1xl',
+                          md: '5xl',
+                          lg: '5xl',
+                        }}
+                      >
+                        <SimpleLink
+                          href={navItem.href}
+                          path={path}
+                          color='green'
+                        >
+                          {navItem.label}
+                        </SimpleLink>
+                      </Box>
+                    ))}
                   </Box>
-                ))}
-              </Box>
-              <IconButton onClick={handleMenu}>
-                <FaTimes />
-              </IconButton>
-            </VStack>
+                </VStack>
+              </GridItem>
+            </Grid>
           </GridItem>
         </Grid>
       </MotionWrapper>

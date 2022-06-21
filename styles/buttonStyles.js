@@ -15,10 +15,7 @@ export const ButtonStyles = {
         boxShadow: 'md',
       },
       _active: {
-        bg: mode(
-          whiten('brand.200', 10),
-          darken('brand.300', 20)
-        )(props),
+        bg: mode(whiten('brand.200', 10), darken('brand.300', 20))(props),
       },
     }),
     secondary: (props) => ({
@@ -32,15 +29,16 @@ export const ButtonStyles = {
       },
     }),
     outlined: (props) => ({
-      bg: props.colorMode === 'light' ?  'white' : 'whiteAlpha.300',
-      color: props.colorMode === 'light' ?  'blackAlpha.900' : 'whiteAlpha.700',
+      bg: props.colorMode === 'light' ? 'white' : 'whiteAlpha.300',
+      color: props.colorMode === 'light' ? 'blackAlpha.900' : 'whiteAlpha.700',
       border: '1px',
       borderStyle: 'solid',
-      borderColor: props.colorMode === 'light' ?  'blackAlpha.300' : 'transparent',
+      borderColor:
+        props.colorMode === 'light' ? 'blackAlpha.300' : 'transparent',
       fontWeight: '500',
       fontFamily: 'Montserrat',
       _hover: {
-        bg: mode(whiten('blackAlpha.100'), darken('whiteAlpha.200')),//props.colorMode === 'light' ? 'brand.100' : 'brand.100',
+        bg: mode(whiten('blackAlpha.100'), darken('whiteAlpha.200')), //props.colorMode === 'light' ? 'brand.100' : 'brand.100',
         color: 'white',
         boxShadow: 'md',
       },
