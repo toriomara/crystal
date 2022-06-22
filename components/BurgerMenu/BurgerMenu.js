@@ -25,7 +25,7 @@ import ThemeToggleButton from '../ui/ThemeToggleButton';
 import { Lang } from '../Navbar/Lang';
 import Phone from '../Navbar/Phone';
 
-const Wrapper = styled.div`
+const MotionWrapper = styled(motion.div)`
   position: fixed;
   display: grid;
   top: 0;
@@ -37,8 +37,6 @@ const Wrapper = styled.div`
   background-color: #d2202f;
   z-index: 9;
 `;
-
-const MotionWrapper = motion(Wrapper);
 
 const BurgerMenu = ({ handleMenu, path }) => {
   const menuSide = useColorModeValue('brand.50', 'brand.700');
@@ -74,8 +72,9 @@ const BurgerMenu = ({ handleMenu, path }) => {
     <AnimatePresence>
       <MotionWrapper
         initial={{ height: 0 }}
-        animate={{ height: '100vh', transition: '0.3s' }}
-        exit={{ height: 0 }}
+        animate={{ y: ['-100vh', '0vh'], transition: 2 }}
+        exit={{ y: ['0vh', '-100vh'], transition: 2 }}
+        transition={{ type: 'tween', duration: 2, stiffness: 100 }}
       >
         <Grid
           templateColumns={{

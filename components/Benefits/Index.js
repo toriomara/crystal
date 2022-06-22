@@ -74,14 +74,13 @@ export const Benefits = () => {
   const MotionSimpleGrid = motion(SimpleGrid);
 
   return (
-    <Box>
+    <Box my='10'>
       <MotionHeading
-        py='10'
         display='flex'
         justifyContent='center'
-        fontWeight={500}
+        fontWeight='700'
+        pb={10}
         fontSize={{ base: '3xl', sm: '4xl', md: '5xl' }}
-        lineHeight='110%'
         initial='hidden'
         whileInView='animate'
         viewport={{ amount: 0.6, once: true }}
@@ -141,7 +140,7 @@ export const Benefits = () => {
               </Flex>
               <Stack spacing='1'>
                 <Flex justify={{ base: 'center', md: 'flex-start' }}>
-                  <Text fontWeight='extrabold' fontSize='lg'>
+                  <Text fontWeight='700' fontSize='lg'>
                     {b.title}
                   </Text>
                 </Flex>
@@ -183,7 +182,7 @@ const Feature = (props) => {
       </Flex>
       <Stack spacing='1'>
         <Flex justify={{ base: 'center', md: 'flex-start' }}>
-          <Text fontWeight='extrabold' fontSize='lg'>
+          <Text fontWeight='700' fontSize='lg'>
             {title}
           </Text>
         </Flex>
