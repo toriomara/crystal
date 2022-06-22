@@ -12,12 +12,13 @@ import { motion } from 'framer-motion';
 const Index = () => {
   return (
     <Box>
-      {/* <motion.div
-        animate={{ x: 100 }}
+      <motion.div
+        initial={true}
+        animate={{ x: ['100px', '0px', '100px'], transition: 2 }}
         transition={{ ease: 'easeOut', duration: 2 }}
       >
-        dfsdf
-      </motion.div> */}
+        Hello!
+      </motion.div>
       {/* <CallToActionWithIllustration /> */}
       <Description />
       {/*<CallToActionWithVideo/>
