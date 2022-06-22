@@ -290,16 +290,16 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
       rounded='md'
       _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}
     >
-      <Stack direction={'row'} align={'center'}>
+      <Stack direction='row' align='center'>
         <Box>
           <Text
-            transition={'all .3s ease'}
+            transition='all .3s ease'
             _groupHover={{ color: 'brand.50' }}
             fontWeight={500}
           >
             {label}
           </Text>
-          <Text fontSize={'sm'}>{childLabel}</Text>
+          <Text fontSize='sm'>{childLabel}</Text>
         </Box>
         <Flex
           transition='all .3s ease'
@@ -343,8 +343,8 @@ const MobileNavItem = ({ label, children, href }) => {
         py={2}
         as={LinkItem}
         href={href ?? '#'}
-        justify={'space-between'}
-        align={'center'}
+        justify='space-between'
+        align='center'
         _hover={{
           textDecoration: 'none',
         }}
@@ -358,7 +358,7 @@ const MobileNavItem = ({ label, children, href }) => {
         {children && (
           <Icon
             as={ChevronDownIcon}
-            transition={'all .25s ease-in-out'}
+            transition='all .25s ease-in-out'
             transform={isOpen ? 'rotate(180deg)' : ''}
             w={6}
             h={6}

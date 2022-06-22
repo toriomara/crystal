@@ -8,6 +8,7 @@ import {
   HStack,
   Button,
   VStack,
+  Stack,
   IconButton,
   Link,
   Flex,
@@ -90,9 +91,9 @@ const BurgerMenu = ({ handleMenu, path }) => {
           <GridItem
             colSpan={1}
             rowSpan={1}
-            display={{ base: 'grid', sm: 'block' }}
+            display={{ base: 'grid', sm: 'grid' }}
             justifyContent='center'
-            bg='whiteAlpha.800'
+            alignContent='start'
             bgColor='#F2F2F2'
             p={{
               base: '5',
@@ -118,7 +119,7 @@ const BurgerMenu = ({ handleMenu, path }) => {
                 sm: '2fr 6fr',
               }}
               templateRows={{
-                base: '1fr',
+                base: '1fr 2fr',
               }}
               gap={4}
             >
@@ -129,22 +130,23 @@ const BurgerMenu = ({ handleMenu, path }) => {
                 gridAutoColumns='minmax(80px, auto)'
                 justifyContent={{ base: 'start', sm: 'center' }}
                 alignContent='start'
+                gap={4}
                 p={{
                   base: '4',
                   sm: '4',
-                  md: '4',
+                  md: '8',
                 }}
               >
-                <IconButton m={2} onClick={handleMenu}>
+                <IconButton onClick={handleMenu}>
                   <FaTimes />
                 </IconButton>
-                <IconButton m={2}>
+                <IconButton>
                   <ThemeToggleButton />
                 </IconButton>
-                <IconButton m={2}>
+                <IconButton>
                   <SearchBar />
                 </IconButton>
-                <IconButton m={2}>
+                <IconButton>
                   <Lang />
                 </IconButton>
               </GridItem>
@@ -153,12 +155,13 @@ const BurgerMenu = ({ handleMenu, path }) => {
                 justifyContent='start'
                 colSpan={1}
                 rowSpan={1}
+                placeItems='start'
                 p={{
                   base: '4',
                   sm: '4',
                   md: '4',
                 }}
-pl={0}
+                //pl={0}
               >
                 <VStack>
                   <Box>
@@ -169,21 +172,55 @@ pl={0}
                         color='whiteAlpha.800'
                         fontWeight='700'
                         fontSize={{
-                          base: '2xl',
+                          base: 'md',
                           sm: '1xl',
                           md: '5xl',
                           lg: '5xl',
                         }}
                       >
-                        <SimpleLink
-                          href={navItem.href}
-                          path={path}
-                          color='green'
-                        >
+                        <SimpleLink href={navItem.href} path={path}>
                           {navItem.label}
                         </SimpleLink>
                       </Box>
                     ))}
+                  </Box>
+                </VStack>
+              </GridItem>
+              <GridItem
+                colSpan={2}
+                rowSpan={1}
+                display='grid'
+                justifyContent='end'
+                p={{
+                  base: '4',
+                  sm: '4',
+                  md: '4',
+                }}
+              >
+                <VStack>
+                  <Box>
+                    {navItems.map(
+                      (navItem) =>
+                        navItem.children &&
+                        navItem.children.map((child) => (
+                          <Box
+                            key={child.label}
+                            onClick={handleMenu}
+                            color='whiteAlpha.800'
+                            lineHeight='2.5'
+                            fontWeight='500'
+                            fontSize={{
+                              base: 'md',
+                              sm: 'xl',
+                              md: '2xl',
+                            }}
+                          >
+                            <SimpleLink href={child.href} path={path}>
+                              {child.label}
+                            </SimpleLink>
+                          </Box>
+                        ))
+                    )}
                   </Box>
                 </VStack>
               </GridItem>

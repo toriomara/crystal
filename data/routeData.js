@@ -24,7 +24,7 @@ export const navItems = [
       },
       {
         label: 'КОРУНД-Зима',
-        childLabel: 'Для применения в зимой',
+        childLabel: 'Для применения зимой',
         href: '/КОРУНД-Зима',
       },
     ],
@@ -32,18 +32,18 @@ export const navItems = [
   {
     label: 'Документация',
     href: '/documentation',
-    children: [
-      {
-        label: 'Техническая документация',
-        childLabel: 'Характеристика, презентации и пр.',
-        href: '/documentation',
-      },
-      {
-        label: 'Уставные документы',
-        childLabel: 'Устав, лицензия, патенты и пр.',
-        href: '/documentation',
-      },
-    ],
+    // children: [
+    //   {
+    //     label: 'Техническая документация',
+    //     childLabel: 'Характеристика, презентации и пр.',
+    //     href: '/documentation',
+    //   },
+    //   {
+    //     label: 'Уставные документы',
+    //     childLabel: 'Устав, лицензия, патенты и пр.',
+    //     href: '/documentation',
+    //   },
+    // ],
   },
   {
     label: 'Новости',
