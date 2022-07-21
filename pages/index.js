@@ -1,29 +1,22 @@
-import { Box } from '@chakra-ui/react';
-import { Benefits } from '../components/Benefits/Index';
-import CallToActionWithIllustration from '../components/HomePage/CTA';
-import CallToActionWithVideo from '../components/HomePage/CTA2';
-import { Showcase } from '../components/Showcase/Showcase';
-import GridBlurredBackdrop from '../components/Testimonials';
-import Banner from '../components/ui/Banner';
-import { Description } from '../components/Description/Description';
-
-import { motion } from 'framer-motion';
+import { Box, Heading } from '@chakra-ui/react';
+import { Benefits } from '../src/components/Benefits/Index';
+import CallToActionWithIllustration from '../src/components/HomePage/CTA';
+import CallToActionWithVideo from '../src/components/HomePage/CTA2';
+import Banner from '../src/components/ui/Banner';
+import { Showcase } from '../src/components/Showcase/Showcase';
+import GridBlurredBackdrop from '../src/components/Testimonials';
+import { Description } from '../src/components/Description/Description';
+import ClientLine from '../src/components/ClientLine';
 
 const Index = () => {
   return (
     <Box>
-      <motion.div
-        initial={true}
-        animate={{ x: ['100px', '0px', '100px'], transition: 2 }}
-        transition={{ ease: 'easeOut', duration: 2 }}
-      >
-        Hello!
-      </motion.div>
-      {/* <CallToActionWithIllustration /> */}
+      {/* <CallToActionWithIllustration /> 
+      <CallToActionWithVideo/>
+      <Carousel/> */}
       <Description />
-      {/*<CallToActionWithVideo/>
-        <Carousel/> */}
       <Benefits />
+      <ClientLine />
       <Showcase />
       <GridBlurredBackdrop />
     </Box>

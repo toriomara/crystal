@@ -1,24 +1,12 @@
 import React from 'react';
-import {
-  AspectRatio,
-  Avatar,
-  Badge,
-  Box,
-  Button,
-  Divider,
-  Heading,
-  SimpleGrid,
-  Stack,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import { ContactsHead } from '../components/ContactsPage/ContactsHead';
-import ContactCard from '../components/ContactsPage/ContactCard';
-import ContactMap from '../components/ContactsPage/ContactMap';
-import { ContactDiler } from '../components/ContactsPage/ContactDiler';
-import { ContactRequest } from '../components/ContactsPage/ContactRequest';
-import Meta from '../components/Meta';
+import { Box, Heading } from '@chakra-ui/react';
+import { ContactsHead } from '../src/components/ContactsPage/ContactsHead';
+import ContactMap from '../src/components/ContactsPage/ContactMap';
+import { ContactDiler } from '../src/components/ContactsPage/ContactDiler';
+import Meta from '../src/components/Meta';
 import { motion } from 'framer-motion';
+import ContactCard from '../src/components/ContactsPage/ContactCard';
+import { ContactRequest } from '../src/components/ContactsPage/ContactRequest';
 
 const Contacts = () => {
   return (

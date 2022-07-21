@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react';
 import {
   Button,
   Heading,
   Text,
-  Box,
   Badge,
   Flex,
-  VStack,
   Image,
-  useColorModeValue,
   Grid,
   GridItem,
   Skeleton,
-  SimpleGrid,
-  Divider,
   AspectRatio,
 } from '@chakra-ui/react';
 import Link from 'next/link';
@@ -96,7 +90,7 @@ const article = ({ article }) => {
               pt={8}
               pb={3}
             >
-              Случайные новости
+              Случайная новость
             </Heading>
             <RandomArticles />
           </Grid>

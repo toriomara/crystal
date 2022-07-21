@@ -11,8 +11,8 @@ import {
   Image,
   Skeleton,
 } from '@chakra-ui/react';
-import { useBreakpointValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import Meta from "../src/components/Meta";
 
 const sentences = [
   {
@@ -60,13 +60,9 @@ const features = [
   },
 ];
 
-const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
-const MotionButton = motion(Button);
-
 const leftAnimation = {
   hidden: { x: -100, opacity: 0 },
-  visible: (custom) => ({
+  animate: (custom) => ({
     x: 0,
     opacity: 1,
     transition: { delay: custom * 0.3 },
@@ -75,7 +71,7 @@ const leftAnimation = {
 
 const rightAnimation = {
   hidden: { x: 100, opacity: 0 },
-  visible: (custom) => ({
+  animate: (custom) => ({
     x: 0,
     opacity: 1,
     transition: { delay: custom * 0.3 },
@@ -97,120 +93,127 @@ const headingAnimation = {
 };
 
 const About = () => {
+  const MotionBox = motion(Box);
+  const MotionButton = motion(Button);
   const MotionText = motion(Text);
-  const MotionGrid = motion(Grid);
   const MotionFeature = motion(Box);
   const MotionHeading = motion(Heading);
-  const MotionImage = motion(Image);
   const MotionFlex = motion(Flex);
   return (
-    <MotionBox mt={14} initial='hidden' whileInView='visible'>
-      <Grid
-        templateColumns={{
-          base: 'repeat(1, 1fr)',
-          sm: 'repeat(1, 1fr)',
-          md: 'repeat(2, 1fr)',
-        }}
-        gap={4}
-      >
-        <GridItem colSpan={1}>
-          <VStack alignItems='flex-start' spacing='20px'>
-            <MotionHeading
-              variants={leftAnimation}
-              custom={2}
-              fontSize={{ base: '2xl', sm: '4xl', md: '5xl' }}
-              fontWeight='900'
-              lineHeight='1.2'
-            >
-              КОРУНД<sup>®</sup> — <br />
-              тонкий подход
-              <br />к сохранению тепла
-              <br />
-            </MotionHeading>
-            <MotionButton variants={leftAnimation} custom={4}>
-              Подробнее
-            </MotionButton>
-          </VStack>
-        </GridItem>
-        <GridItem>
-          <Flex>
-            <MotionText variants={rightAnimation} custom={4} fontSize={18}>
-              С момента своего основания в 2007 году научно-производственное
-              объединение &quot;ФУЛЛЕРЕН&quot; ориентировалось на создание и
-              продвижение инновационных материалов и технологий в стриотельную
-              отрасль, промышленность и ЖКХ
-            </MotionText>
-          </Flex>
-        </GridItem>
-      </Grid>
-      <Divider mt={12} mb={12} />
-      <Grid
-        templateColumns={{
-          base: 'repeat(1, 1fr)',
-          sm: 'repeat(2, 1fr)',
-          md: 'repeat(4, 1fr)',
-        }}
-        gap={{ base: '8', sm: '12', md: '16' }}
-      >
-        {features.map((f, i) => (
-          <MotionFeature key={f.id} variants={leftAnimation} custom={i + 6}>
-            <Heading
-              variant='h3'
-              fontSize='xl'
-              fontWeight='600'
-              lineHeight='1.2'
-              pb={6}
-            >
-              {f.heading}
-            </Heading>
-            <Text>{f.text}</Text>
-          </MotionFeature>
-        ))}
-      </Grid>
-      <Divider my={6} />
-
-      <MotionHeading
-        variant='h2'
-        display='flex'
-        justifyContent='center'
-        my={6}
-        variants={headingAnimation}
+    <Box>
+      <Meta title="About" />
+      <Heading variant="pageTitle">О нас</Heading>
+      <MotionBox
+        mt={14}
         initial='hidden'
-        animate='animate'
-        custom={12}
+        whileInView='animate'
+        viewport={{ once: true }}
       >
-        Испытательная лаборатория
-      </MotionHeading>
-      <Grid
-        templateColumns={{
-          base: 'repeat(1, 1fr)',
-          sm: '1fr 2fr',
-        }}
-        gap={{ base: '8', sm: '12', md: '16' }}
-      >
-        <GridItem>
-          <MotionFlex variants={leftAnimation} custom={10}>
-            <Image
-              src='/images/misc/lab.webp'
-              alt='Лаборатория'
-              layout='fill'
-              objectFit='cover'
-              rounded={4}
-              fallback={<Skeleton />}
-            />
-          </MotionFlex>
-        </GridItem>
-        <GridItem>
-          {sentences.map((s, i) => (
-            <MotionText key={s.id} variants={rightAnimation} custom={i + 12}>
-              <Box paddingY={4} fontSize={18}>
-                {s.text}
-              </Box>
-            </MotionText>
+        <Grid
+          templateColumns={{
+            base: 'repeat(1, 1fr)',
+            sm: 'repeat(1, 1fr)',
+            md: 'repeat(2, 1fr)',
+          }}
+          gap={4}
+        >
+          <GridItem colSpan={1}>
+            <VStack alignItems='flex-start' spacing='20px'>
+              <MotionHeading
+                variants={leftAnimation}
+                custom={2}
+                fontSize={{ base: '2xl', sm: '4xl', md: '5xl' }}
+                fontWeight='900'
+                lineHeight='1.2'
+              >
+                КОРУНД<sup>®</sup> — <br />
+                тонкий подход
+                <br />к сохранению тепла
+                <br />
+              </MotionHeading>
+              <MotionButton variants={leftAnimation} custom={4}>
+                Подробнее
+              </MotionButton>
+            </VStack>
+          </GridItem>
+          <GridItem>
+            <Flex>
+              <MotionText variants={rightAnimation} custom={4} fontSize={18}>
+                С момента своего основания в 2007 году научно-производственное
+                объединение &quot;ФУЛЛЕРЕН&quot; ориентировалось на создание и
+                продвижение инновационных материалов и технологий в стриотельную
+                отрасль, промышленность и ЖКХ
+              </MotionText>
+            </Flex>
+          </GridItem>
+        </Grid>
+        <Divider mt={12} mb={12} />
+        <Grid
+          templateColumns={{
+            base: 'repeat(1, 1fr)',
+            sm: 'repeat(2, 1fr)',
+            md: 'repeat(4, 1fr)',
+          }}
+          gap={{ base: '8', sm: '12', md: '16' }}
+        >
+          {features.map((f, i) => (
+            <MotionFeature key={f.id} variants={leftAnimation} custom={i + 6}>
+              <Heading
+                variant='h3'
+                fontSize='xl'
+                fontWeight='600'
+                lineHeight='1.2'
+                pb={6}
+              >
+                {f.heading}
+              </Heading>
+              <Text>{f.text}</Text>
+            </MotionFeature>
           ))}
-        </GridItem>
-      </Grid>
-    </MotionBox>
+        </Grid>
+        <Divider my={6} />
+
+        <MotionHeading
+          variant='h2'
+          display='flex'
+          justifyContent='center'
+          my={6}
+          variants={headingAnimation}
+          custom={12}
+        >
+          Испытательная лаборатория
+        </MotionHeading>
+        <Grid
+          templateColumns={{
+            base: 'repeat(1, 1fr)',
+            sm: '1fr 2fr',
+          }}
+          gap={{ base: '8', sm: '12', md: '16' }}
+        >
+          <GridItem>
+            <MotionFlex variants={leftAnimation} custom={10}>
+              <Image
+                src='/images/misc/lab.webp'
+                alt='Лаборатория'
+                layout='fill'
+                objectFit='cover'
+                rounded={4}
+                fallback={<Skeleton />}
+              />
+            </MotionFlex>
+          </GridItem>
+          <GridItem>
+            {sentences.map((s, i) => (
+              <MotionText key={s.id} variants={rightAnimation} custom={i + 12}>
+                <Box paddingY={4} fontSize={18}>
+                  {s.text}
+                </Box>
+              </MotionText>
+            ))}
+          </GridItem>
+        </Grid>
+      </MotionBox>
+    </Box>
   );
 };
 

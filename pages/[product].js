@@ -1,26 +1,20 @@
 import {
-  Flex,
   Box,
   Grid,
   GridItem,
   Heading,
-  VStack,
-  HStack,
   Text,
-  Divider,
-  Container,
 } from '@chakra-ui/react';
-import { products } from '../data/productsData';
-import ProductBar from '../components/Product/ProductBar';
+import { products } from '../src/data/productsData';
+import ProductBar from '../src/components/Product/ProductBar';
 import Image from 'next/image';
-import { Feature } from '../components/Product/Feature';
-import Carousel from '../components/HomePage/Carousel';
-import Meta from '../components/Meta';
+import { Feature } from '../src/components/Product/Feature';
+import Carousel from '../src/components/HomePage/Carousel';
+import Meta from '../src/components/Meta';
 import { useState, useEffect, useRef } from 'react';
 
 export const getStaticProps = async ({ params }) => {
   const product = products.find((product) => product.name === params.product);
-
   return {
     props: {
       product,
@@ -32,7 +26,6 @@ export const getStaticPaths = async () => {
   const paths = products.map((product) => ({
     params: { product: product.name },
   }));
-
   return {
     paths,
     fallback: false,
