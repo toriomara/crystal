@@ -47,17 +47,17 @@ export const StyledTabPanel = styled.div`
   //justify-content: center;
 `;
 
-// export const inactiveTab = {
-//   opacity: 0.65,
-// };
+export const inactiveTab = {
+  opacity: 0.65,
+};
 
-// const inset = keyframes`
-//   0% {
-//     -webkit-box-shadow: inset 0 0 0 0 rgba(238, 82, 83, 0);
-//             box-shadow: inset 0 0 0 0 rgba(238, 82, 83, 0);
-//   }
-//   100% {
-//     -webkit-box-shadow: inset 0 0 14px 0px rgba(238, 82, 83, 0.95);
-//             box-shadow: inset 0 0 14px 0px rgba(238, 82, 83, 0.95);
-//   }
-// `;
+const inset = keyframes`
+  0% {
+    -webkit-box-shadow: inset 0 0 0 0 rgba(238, 82, 83, 0);
+            box-shadow: inset 0 0 0 0 rgba(238, 82, 83, 0);
+  }
+  100% {
+    -webkit-box-shadow: inset 0 0 14px 0px rgba(238, 82, 83, 0.95);
+            box-shadow: inset 0 0 14px 0px rgba(238, 82, 83, 0.95);
+  }
+`;
