@@ -1,15 +1,11 @@
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
-import theme from '../src/styles/theme';
-import i18nextConfig from '../next-i18next.config';
+import theme from '../styles/theme';
 
 class Document extends NextDocument {
   render() {
-    const currentLocale =
-      this.props.__NEXT_DATA__.query.locale || i18nextConfig.i18n.defaultLocale;
-
     return (
-      <Html lang={currentLocale}>
+      <Html lang='en'>
         <Head>
           {/* Open+Sans, Murecho, EB+Garamond, Nunito, Inter, Jost */}
           <link

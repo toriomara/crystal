@@ -13,16 +13,25 @@ import {
 } from '@chakra-ui/react';
 import { SimpleLink } from '../../styles/link';
 
+// import { getStaticPaths, makeStaticProps } from '../../lib/getStatic';
+// import { useTranslation } from 'next-i18next';
+// import { LanguageSwitchLink } from '../../utils/LangSwitch';
+
+// const getStaticProps = makeStaticProps(['common']);
+// export { getStaticPaths, getStaticProps };
+
 export const ContactsHead = () => {
   const textColor = useColorModeValue('black', 'gray.200');
+  // const { t } = useTranslation('common');
 
   return (
     <Box mt={6} color={textColor}>
       {/* <Heading as="h1" variant="h1" mb={6}>
         Контактная информация
       </Heading> */}
+      {/* <LanguageSwitchLink /> */}
       <Heading variant='h2' mb={3}>
-        Волгоград
+        {/* {t('city')} */}
       </Heading>
       <Heading variant='h3' mb={3} fontFamily='Montserrat'>
         <SimpleLink href='tel:+7844238-44-66'>+7 (8442) 38-44-66</SimpleLink>

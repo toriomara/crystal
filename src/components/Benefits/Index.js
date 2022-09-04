@@ -16,7 +16,7 @@ import {
   FcFlashOff,
   FcDam,
 } from 'react-icons/fc';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 
 const benefits = [
@@ -102,9 +102,7 @@ export const Benefits = () => {
         whileInView='animate'
         viewport={{ amount: 0.6, once: true }}
         variants={headingAnimation}
-      >
-        Преимущества
-      </MotionHeading>
+      ></MotionHeading>
       <MotionSimpleGrid
         columns={{ base: 1, sm: 2, xl: 3 }}
         spacingX='10'

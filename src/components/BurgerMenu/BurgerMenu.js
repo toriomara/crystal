@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -10,7 +10,7 @@ import {
   Flex,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { navItems } from '../../data/routeData';
+import { navItems} from '../../data/routeData'
 import { SimpleLink } from '../../styles/link';
 import SearchBar from '../Search';
 import Logo from '../ui/Logo';

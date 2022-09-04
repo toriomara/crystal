@@ -7,7 +7,7 @@ import { Tabs, Tab, TabPanel } from './Tabs';
 
 const MotionWrapper = motion(Box);
 
-const DistributionTable = () => {
+export const DistributionTable = () => {
   const [activeTab, setIsActiveTab] = useState(0);
   const handleChange = (e, value) => {
     setIsActiveTab(value);
@@ -44,5 +44,3 @@ const DistributionTable = () => {
     </MotionWrapper>
   );
 };
-
-export default DistributionTable;

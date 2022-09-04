@@ -41,7 +41,6 @@ import { navItems } from '../../data/routeData';
 import Phone from './Phone';
 
 import { Preheader } from '../Preheader/Preheader';
-import Scrolly from '../../utils/Scrolly';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 export const LinkItem = ({ href, path, children, ...props }) => {
@@ -60,8 +59,7 @@ export const LinkItem = ({ href, path, children, ...props }) => {
           active ? 'brand.200' : 'gray.200'
         )}
         _hover={{
-          backgroundColor: useColorModeValue('red.600', 'brand.200'),
-          color: useColorModeValue('white', 'black'),
+          color: useColorModeValue('red.600', 'white'),
         }}
         {...props}
       >
@@ -210,7 +208,7 @@ export const Navbar = ({ path, props }) => {
             justifyContent='space-between'
           >
             <Logo />
-            <Spacer/>
+            <Spacer />
             <Button as='a' href='tel:+78002347878' variant='none'>
               <span>8 800 234-78-78</span>
             </Button>
@@ -247,8 +245,8 @@ export const Navbar = ({ path, props }) => {
 };
 
 export const DesktopNav = ({ href, path, ...props }) => {
-  // const linkColor = useColorModeValue('gray.600', 'gray.200');
-  // const linkHoverColor = useColorModeValue('gray.800', 'white');
+  const linkColor = useColorModeValue('gray.600', 'gray.200');
+  const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
@@ -260,20 +258,21 @@ export const DesktopNav = ({ href, path, ...props }) => {
     >
       {navItems.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover placement='bottom-start' trigger='hover'>
+          <Popover trigger='hover' placement='bottom-start'>
             <PopoverTrigger>
-              <LinkItem href={navItem.href} path={path}>
-                {navItem.label}
-              </LinkItem>
+              <span>
+                <LinkItem href={navItem.href} path={path}>
+                  {navItem.label}
+                </LinkItem>
+              </span>
             </PopoverTrigger>
 
             {navItem.children && (
               <PopoverContent
-                //border={0}
                 boxShadow='xl'
                 bg={popoverContentBgColor}
                 p={4}
-                rounded='xl'
+                rounded='md'
                 minW='sm'
               >
                 <Stack>
@@ -326,23 +325,6 @@ const DesktopChildNav = ({ label, href, childLabel }) => {
     </LinkItem>
   );
 };
-
-// const MobileNav = ({ onClose }) => {
-//   return (
-//     <Stack p={4} bg={useColorModeValue('white', 'gray.800')}>
-//       <Flex display={{ base: 'flex' }}>
-//         <SearchBar />
-//         <ThemeToggleButton />
-//         <Button as='a' href='tel:+78002347878' variant='none'>
-//           <span>8 800 234-78-78</span>
-//         </Button>
-//       </Flex>
-//       {navItems.map((navItem) => (
-//         <MobileNavItem key={navItem.label} onClose={onClose} {...navItem} />
-//       ))}
-//     </Stack>
-//   );
-// };
 
 const MobileNavItem = ({ label, children, href }) => {
   const { isOpen, onToggle } = useDisclosure();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ClientLine = () => {
+export const ClientLine = () => {
   return (
     <motion.div
       initial={{
@@ -33,5 +33,3 @@ const ClientLine = () => {
     </motion.div>
   );
 };
-
-export default ClientLine;

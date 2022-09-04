@@ -1,9 +1,8 @@
-import React from 'react';
 import { Heading } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Benefits } from '../src/components/Benefits/Index';
-import Meta from '../src/components/Meta';
-import { Navbar } from '../src/components/Navbar/Navbar';
+import { Benefits } from '../components/Benefits/Index';
+import { Meta } from '../components/Meta';
+import { Navbar } from '../components/Navbar/Navbar';
 
 const Documentation = () => {
   return (
@@ -12,7 +11,7 @@ const Documentation = () => {
       <Heading variant='pageTitle'>Документация</Heading>
       <motion.div animate={{ rotate: 720 }} transition={{ duration: 2 }}>
         <Benefits />
-        <Navbar/>
+        <Navbar />
       </motion.div>
     </div>
   );

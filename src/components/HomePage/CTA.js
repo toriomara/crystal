@@ -6,12 +6,15 @@ import {
   Text,
   Button,
   Icon,
+  useColorModeValue as mode,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { useBreakpointValue } from '@chakra-ui/react';
 
 const MotionHeading = motion(Heading);
 
 const CallToActionWithIllustration = () => {
+  const buttonSize = useBreakpointValue(['xs', 'md']);
   return (
     <Flex justifyContent='center' maxW='container.xl'>
       <Stack
@@ -45,19 +48,22 @@ const CallToActionWithIllustration = () => {
             простым и доступным
           </Text>
         </MotionHeading>
-        <Text color='gray.500' maxW='3xl' fontSize={18}>
+        <Text color={mode('gray.700', 'gray.300')} maxW='3xl' fontSize={18}>
           Сверхтонкая жидкая теплоизоляция Корунд обладает уникальными
           теплоизоляционными свойствами и, учитывая стоимость и простоту
           нанесения, не имеет конкурентов
         </Text>
         <Stack spacing={6} direction='row'>
-          <Button variant='primary'>Как это работает</Button>
-          <Button variant='secondary' px={6}>
+          <Button variant='primary' size={buttonSize}>
+            Как это работает
+          </Button>
+          <Button variant='secondary' size={buttonSize}>
             Заказать звонок
           </Button>
-          <Button variant='outlined' px={6}>
-            Далее
-          </Button>
+          {/* <Button variant='outlined' size={buttonSize}
+>
+          Далее
+        </Button> */}
         </Stack>
         <Flex w='full'>
           <Illustration

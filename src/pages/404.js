@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
-import { ChakraNextLinkButton } from '../src/components/ui/Button';
+import { ChakraNextLinkButton } from '../components/ui/Button';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 

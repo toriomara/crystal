@@ -1,7 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import theme from '../src/styles/theme';
-import Main from '../src/layouts/main';
-import { appWithTranslation } from 'next-i18next';
+import theme from '../styles/theme';
+import { Main } from '../layouts/main';
 
 const App = ({ Component, pageProps, router }) => {
   return (
@@ -11,6 +10,6 @@ const App = ({ Component, pageProps, router }) => {
       </Main>
     </ChakraProvider>
   );
-}
+};
 
-export default appWithTranslation(App);
+export default App;

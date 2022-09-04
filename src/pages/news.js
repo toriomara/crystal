@@ -1,9 +1,9 @@
 //https://www.youtube.com/watch?v=mTz0GXj8NN0&t=2846s
 import React from 'react';
 import { Heading, Box } from '@chakra-ui/react';
-import ArticleList from '../../src/components/Articles/ArticlesList';
-import Meta from '../../src/components/Meta';
-import { articles } from '../../src/data/newsData';
+import ArticleList from '../components/Articles/ArticlesList';
+import { Meta } from '../components/Meta';
+import { articles } from '../data/newsData';
 
 export default function News({ articles }) {
   return (

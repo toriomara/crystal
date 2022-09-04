@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Heading, Box, Divider, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import Subscribe from '../src/components/Subscribe/Subscribe';
-import Meta from '../src/components/Meta';
-import DistributionTable from '../src/components/Distribution/DistributionTable';
+import { Subscribe } from '../components/Subscribe/Subscribe';
+import { Meta } from '../components/Meta';
+import { DistributionTable } from '../components/Distribution/DistributionTable';
 
 const MotionButton = motion(Button);
 

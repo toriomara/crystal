@@ -2,7 +2,7 @@ import { Container, Flex } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { Navbar } from '../components/Navbar/Navbar';
 import { Footer } from '../components/Footer/Footer';
-import Meta from '../components/Meta';
+import { Meta } from '../components/Meta';
 
 const MainWrapper = styled(Flex)`
   flex-direction: column;
@@ -10,7 +10,7 @@ const MainWrapper = styled(Flex)`
   min-height: 100%;
 `;
 
-const Main = ({ children, router, ...props }) => {
+export const Main = ({ children, router, ...props }) => {
   return (
     <MainWrapper>
       <Meta />
@@ -35,5 +35,3 @@ const Main = ({ children, router, ...props }) => {
     </MainWrapper>
   );
 };
-
-export default Main;

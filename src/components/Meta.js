@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-const Meta = ({title, keywords, description}) => {
+export const Meta = ({title, keywords, description}) => {
   return (
     <Head>
       <meta name="keywords" content={keywords}/>
@@ -20,5 +20,3 @@ Meta.defaultProps = {
   keywords: 'теплоизоляция',
   description: 'Сверхтонкая теплоизоляция Корунд'
 }
-
-export default Meta

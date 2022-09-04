@@ -12,7 +12,7 @@ import {
   Skeleton,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import Meta from "../src/components/Meta";
+import { Meta } from '../components/Meta';
 
 const sentences = [
   {
@@ -101,8 +101,8 @@ const About = () => {
   const MotionFlex = motion(Flex);
   return (
     <Box>
-      <Meta title="About" />
-      <Heading variant="pageTitle">О нас</Heading>
+      <Meta title='About' />
+      <Heading variant='pageTitle'>О нас</Heading>
       <MotionBox
         mt={14}
         initial='hidden'

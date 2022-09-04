@@ -1,6 +1,6 @@
 import { SimpleGrid, GridItem } from '@chakra-ui/react';
-import ArticleItem from './ArticleItem';
 import { motion } from 'framer-motion';
+import ArticleItem from './ArticleItem'
 
 const ArticleList = ({ articles }) => {
   const MotionGridItem = motion(GridItem);

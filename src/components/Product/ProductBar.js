@@ -4,7 +4,7 @@ import { products } from '../../data/productsData';
 
 const ProductNames = products.map((p) => p.name);
 
-const ProductBar = ({ href, path, products }) => {
+export const ProductBar = ({ href, path, products }) => {
   const active = href === path;
   const activeBtn = useColorModeValue(
     active ? 'brand.50' : 'brand.200',
@@ -33,5 +33,3 @@ const ProductBar = ({ href, path, products }) => {
     </Grid>
   );
 };
-
-export default ProductBar;
