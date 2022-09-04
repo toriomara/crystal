@@ -1,4 +1,4 @@
-// import { articles } from "../../../src/data/newsData.js";
+// import { articles } from '../../../src/data/newsData.js';
 
 // export default function handler({ query: { id } }, res) {
 //   const filtered = articles.filter((article) => article.id === id);
